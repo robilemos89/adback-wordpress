@@ -1,0 +1,226 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: \n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: fr_FR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.8.11\n"
+
+#: ad-back-admin-login-display.html:20
+msgid "Register with Envato"
+msgstr "S'authentifier avec Envato"
+
+#: ad-back-admin-login-display.html:31
+msgid "Activate my Envato license"
+msgstr "Activer ma licence Envato"
+
+#: ad-back-admin-login-display.html:22
+msgid ""
+"If you download the plugin from Envato, enter your key below and click on "
+"Register"
+msgstr ""
+"Si vous avez téléchargé le plugin AdBack depuis la plateforme Envato, entrez "
+"vos identifiants ci-dessous :"
+
+#: ad-back-admin-login-display.html:38
+msgid ""
+"If you are a subscriber of AdBack.co, The usage of the plugins is free, "
+"enter your login and password below :"
+msgstr ""
+"Si vous avez un compte abonné AdBack.co, l’utilisation du plugin AdBack est "
+"gratuite, entrez vos identifiants ci-dessous :"
+
+#: ad-back-admin-login-display.html:23
+msgid "Envato License Key :"
+msgstr "Envato clé de licence"
+
+#: ad-back-admin-login-display.html:31
+msgid "Register with AdBack Account"
+msgstr "S’authentifier avec AdBack"
+
+#: ad-back-admin-login-display.html:43
+msgid "Activate my AdBack account"
+msgstr "Activer mon compte AdBack"
+
+#: ad-back-admin-login-display.html:33
+msgid "Email :"
+msgstr "Email :"
+
+#: ad-back-admin-login-display.html:33
+msgid "Username :"
+msgstr "Nom d'utilisateur :"
+
+#: ad-back-admin-login-display.html:35
+msgid "Password :"
+msgstr "Mot de passe :"
+
+#: ad-back-admin-login-display.html:33
+msgid "Domain :"
+msgstr "Domaine :"
+
+#: ad-back-admin-login-display.html:33
+msgid "Slug :"
+msgstr "Slug :"
+
+#: ad-back-admin-login-display.html:33
+msgid "Log out"
+msgstr "Déconnexion"
+
+#: ad-back-admin-login-display.html:33
+msgid "Select the slug for your website :"
+msgstr "Selectionnez le slug pour votre site web : "
+
+#: ad-back-admin-login-display.html:26 ad-back-admin-login-display.html:38
+msgid "Register / Login"
+msgstr "S'enregistrer"
+
+#: ad-back-admin-login-display.html:33
+msgid "The key, email and domain fields should be fill"
+msgstr "La clé, l'email et le domaine doivent être remplis"
+
+#: ad-back-admin-login-display.html:33
+msgid "The email and password fields should be fill"
+msgstr "L'email et le mot de passe doivent être remplis"
+
+#: ad-back-admin-login-display.html:33
+msgid "There is an error in the registration : {0}"
+msgstr "Il y a une erreur dans l'enregistrement : {0}"
+
+#: class-ad-back-admin:102
+msgid "Bounce"
+msgstr "Taux de rebond des utilisateurs d’AdBlock"
+
+#: class-ad-back-admin:103
+msgid "Ad Blocker"
+msgstr "Désactivation / Activation d’un bloqueur de publicité"
+
+#: class-ad-back-admin:104
+msgid "Ad blocker percent"
+msgstr "Pages vues bloquées vs taux d’utilisateurs d’AdBlock"
+
+#: class-ad-back-admin:105
+msgid "Blocked page view"
+msgstr "Taux de pages vues avec un bloqueur de publicité"
+
+#: class-ad-back-admin
+msgid "Blocked page view and percent"
+msgstr "Pages vues bloquées vs taux d’utilisateurs d’AdBlock"
+
+#: class-ad-back-admin
+msgid "New - former adblock users"
+msgstr "Anciens - Nouveaux utilisateurs d’AdBlock"
+
+#: class-ad-back-admin:106
+msgid "Browser"
+msgstr "Navigateurs des utilisateurs d’AdBlock"
+
+#: class-ad-back-admin:107
+msgid "OS"
+msgstr "Système d’exploitation des utilisateurs avec un bloqueur de publicité"
+
+#: class-ad-back-admin:108
+msgid "Percent bounce adblock users"
+msgstr "Taux de rebond des utilisateurs avec un bloqueur de publicité"
+
+#: class-ad-back-admin:108
+msgid "Percent bounce all users"
+msgstr "Taux de rebond de tous les utilisateurs"
+
+#: class-ad-back-admin:108
+msgid "Users having ad blocker"
+msgstr "Utilisateurs ayant activé un bloqueur de publicité"
+
+#: class-ad-back-admin:108
+msgid "Percent page view"
+msgstr "% de pages vues sans AdBlock"
+
+msgid "Percent page view with AdBlock"
+msgstr "% de pages vues avec un Adblock"
+
+#: class-ad-back-admin:108
+msgid "Users who have disabled an ad blocker"
+msgstr "Utilisateurs ayant désactivé un bloqueur de publicité"
+
+#: class-ad-back-admin:108
+msgid "Percent adblock users"
+msgstr "% d’utilisateurs avec un Adblock"
+
+#: class-ad-back-admin:109
+msgid "Oops..."
+msgstr "Oops..."
+
+#: class-ad-back-admin:110
+msgid "Invalid email or password"
+msgstr "Email ou mot de passe non valide"
+
+#: class-ad-back-admin
+msgid "All the fields should be fill"
+msgstr "Tous les champs doivent être remplis"
+
+#: ad-back-admin-display.html:17
+msgid "AdBack : The stats of your AdBlock audience"
+msgstr "AdBack : les statistiques de votre audience Adblock"
+
+#: ad-back-admin-settings.html
+msgid "Show warning message for user with ad blocker"
+msgstr ""
+"Afficher le message d’alerte aux utilisateurs avec bloqueur de publicité"
+
+#: ad-back-admin-settings.html
+msgid "Header text"
+msgstr "Texte d'en-tête"
+
+#: ad-back-admin-settings.html
+msgid "Text message"
+msgstr "Texte du message"
+
+#: ad-back-admin-settings.html
+msgid "Text close button"
+msgstr "Texte du bouton fermer"
+
+#: ad-back-admin-settings.html
+msgid "Save"
+msgstr "Enregistrer les modifications"
+
+#: ad-back-admin-settings.html
+msgid "Settings"
+msgstr "Paramètres"
+
+#: ad-back-admin-settings.html
+msgid "Statistics"
+msgstr "Statistiques"
+
+#: ad-back-admin-settings.html
+msgid "days"
+msgstr "jours"
+
+#: ad-back-admin-settings.html
+msgid "day"
+msgstr "jour"
+
+#: ad-back-admin-settings.html
+msgid "Loading ..."
+msgstr "Chargement ..."
+
+#: ad-back-admin-settings.html
+msgid "No Data"
+msgstr "Aucune donnée"
+
+#: class-ad-back-admin
+msgid "Discover"
+msgstr "Découvrez bien plus de statistiques sur AdBack.co"
+
+#: class-ad-back-admin
+msgid "Blocked page view and percent - Sub"
+msgstr ""
+"Volume de pages vues bloquées - non bloquées comparé au taux d’utilisateurs "
+"d’AdBlock"
+
+#: class-ad-back-admin
+msgid "New - former adblock users - Sub"
+msgstr "Utilisateur ayant désactivé ou réactivé son bloqueur de publicité "

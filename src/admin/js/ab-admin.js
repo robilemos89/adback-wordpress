@@ -1,0 +1,140 @@
+(function( $ ) {
+	'use strict';
+
+	/**
+	 * All of the code for your admin-facing JavaScript source
+	 * should reside in this file.
+	 *
+	 * Note: It has been assumed you will write jQuery code here, so the
+	 * $ function reference has been prepared for usage within the scope
+	 * of this function.
+	 *
+	 * This enables you to define handlers, for when the DOM is ready:
+	 *
+	 * $(function() {
+	 *
+	 * });
+	 *
+	 * When the window is loaded:
+	 *
+	 * $( window ).load(function() {
+	 *
+	 * });
+	 *
+	 * ...and/or other possibilities.
+	 *
+	 * Ideally, it is not considered best practise to attach more than a
+	 * single DOM-ready or window-load handler for a particular page.
+	 * Although scripts in the WordPress core, Plugins and Themes may be
+	 * practising this, we should strive to set a better example in our own work.
+	 */
+
+	function loginAdback() {
+		if($("#ab-username").val() == "" || $("#ab-password").val() == "") {
+			sweetAlert(trans("Oops..."), trans("The email and password fields should be fill"), "error");
+			return false;
+		}
+
+		var data = {
+			'action': 'registerWithAbBackAccount',
+			'username' : $("#ab-username").val(),
+			'password' : $("#ab-password").val()
+		}
+
+		$.post(ajaxurl, data, function(response) {
+			var obj = JSON.parse(response);
+			if(obj.done === true) {
+				window.location.reload();
+			} else {
+				sweetAlert(trans("Oops..."), trans("Invalid email or password"), "error");
+			}
+		});
+	}
+
+	function saveSlug() {
+		if($("#ab-select-slug-field").val() == "") return;
+
+		var data = {
+			'action': 'saveSlug',
+			'slug' :  $("#ab-select-slug-field").val()
+		}
+
+		$.post(ajaxurl, data, function(response) {
+			var obj = JSON.parse(response);
+			if(obj.done === true) {
+				window.location.reload();
+			} else {
+				sweetAlert(trans("Oops..."), trans("Error"), "error");
+			}
+		});
+	}
+
+	function saveMessage() {
+		if($("#ab-settings-header-text").val() == "" || $("#ab-settings-close-text").val() == "" || $("#ab-settings-message").val() == "") {
+			sweetAlert(trans("Oops..."), trans("All the fields should be fill"), "error");
+			return;
+		}
+
+		$("#ab-settings-submit").prop('disabled', true);
+		var data = {
+			'action': 'saveMessage',
+			'header-text' :  $("#ab-settings-header-text").val(),
+			'close-text' : $("#ab-settings-close-text").val(),
+			'message' : $("#ab-settings-message").val(),
+			'display' : $("#ab-settings-display").is(":checked")
+		}
+
+		$.post(ajaxurl, data, function(response) {
+			var obj = JSON.parse(response);
+			$("#ab-settings-submit").prop('disabled', false);
+			if(obj.done === true) {
+				window.location.reload();
+			} else {
+				sweetAlert(trans("Oops..."), trans("Error"), "error");
+			}
+		});
+	}
+
+	function _logout() {
+		var data = {
+			'action': 'ab_logout'
+		}
+
+		$.post(ajaxurl, data, function(response) {
+			var obj = JSON.parse(response);
+			if(obj.done === true) {
+				window.location.reload();
+			} else {
+				sweetAlert(trans("Oops..."), trans("Error"), "error");
+			}
+		});
+	}
+
+	$(document).ready(function() {
+		if($("[data-ab-type]").length>0) {
+			$("#ab-logout").on('click', _logout);
+		}
+
+		if($("#ab-login").length>0) {
+			$("#ab-login-adback").on('click', loginAdback);
+
+			$("#ab-username,#ab-password").on('keyup', function(e) {
+				var code = e.which; // recommended to use e.which, it's normalized across browsers
+				if(code==13) {
+					e.preventDefault();
+					loginAdback();
+				}
+			});
+		}
+
+		if($("#ab-select-slug").length>0) {
+			$("#ab-select-slug-save").on('click', saveSlug);
+		}
+
+		if($("#ab-settings").length>0) {
+			$("#ab-settings-submit").on('click', saveMessage);
+		}
+	});
+
+
+})( jQuery );
