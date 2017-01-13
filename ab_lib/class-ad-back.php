@@ -83,8 +83,9 @@ class Ad_Back_Generic {
 
 		$token = $this->getToken();
 		$json = $this->get_contents("https://adback.co/api/me?access_token=".$token->access_token);
+		$jsonDomains = $this->get_contents("https://adback.co/api/script/" . $this->getSlug() . "?access_token=".$token->access_token);
 
-		$me = json_decode($json, true);
+		$me = array_merge(json_decode($json, true), json_decode($jsonDomains, true));
 		
 		return $me;
 	}
@@ -119,6 +120,7 @@ class Ad_Back_Generic {
 						$table_name,
 						array(
 							'myinfo'=>json_encode($mysite),
+							'domain'=>$me['analytics_domain'],
 							'update_time'=>current_time('mysql', 1)
 						),
 						array("id"=>1)
@@ -290,5 +292,24 @@ class Ad_Back_Generic {
 		$table_name = $wpdb->prefix . 'adback_myinfo';
 		$myinfo = $wpdb->get_row( "SELECT slug FROM ".$table_name." WHERE id = 1" );
 		return $myinfo->slug;
+	}
+
+	public function saveDomain($domain) {
+		global $wpdb; // this is how you get access to the database
+
+		$table_name = $wpdb->prefix . 'adback_myinfo';
+		$wpdb->update(
+			$table_name, 
+			array("domain"=>$domain),
+			array("id"=>1)
+		);
+	}
+
+	public function getDomain() {
+		global $wpdb; // this is how you get access to the database
+
+		$table_name = $wpdb->prefix . 'adback_myinfo';
+		$myinfo = $wpdb->get_row( "SELECT domain FROM ".$table_name." WHERE id = 1" );
+		return $myinfo->domain;
 	}
 }

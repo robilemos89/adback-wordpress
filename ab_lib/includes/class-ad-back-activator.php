@@ -89,6 +89,7 @@ class Ad_Back_Activator {
 		$sql = "CREATE TABLE ".$table_name." (
 			`id` mediumint(9) NOT NULL,
 			`myinfo` text DEFAULT '' NOT NULL,
+			`domain` text DEFAULT '' NOT NULL,
 			`slug` varchar(64) DEFAULT '' NOT NULL,
 			`update_time` DATETIME NULL,
 			UNIQUE KEY id (id)
@@ -102,6 +103,7 @@ class Ad_Back_Activator {
 			array(
 				"id" => "1",
 				"myinfo" => "",
+				"domain" => "",
 				"slug" => "",
 				"update_time" => ""
 			)

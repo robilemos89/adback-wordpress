@@ -1,4 +1,4 @@
 # adback-wordpress
 
-- Zip files in `/src` to `ab_lib.zip`
+- Zip files in `/ab_lib` to `ab_lib.zip`
 - Done.

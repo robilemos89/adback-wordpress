@@ -76,7 +76,7 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 		 * class.
 		 */
 
-		if($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings' ) {
+		if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings' )) {
 			wp_enqueue_style('sweetalert-css', plugin_dir_url( __FILE__ ) . 'css/sweetalert2.min.css', array(), $this->version, 'all' );
 			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/ab-admin.css', array(), $this->version, 'all' );
 		}
@@ -102,8 +102,7 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 		 * class.
 		 */
 
-
-		if($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings') {
+		if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings')) {
 			$translation_array = array(
 				'Bounce' => __( 'Bounce', 'ad-back' ),
 				'Ad Blocker' => __('Ad Blocker', 'ad-back'),
@@ -128,14 +127,16 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 				'No Data' => __('No Data', 'ad-back'),
 			);
 
-			
+			if($this->isConnected()) {
+				$myinfo = $this->getMe();
+				if($myinfo && count($myinfo['sites']) > 1 && $this->getDomain() !== '') {				
+					// Loading AdBack library
+					wp_enqueue_script('adback', 'https://'. $this->getDomain() .'/lib/ab.min.js', $this->version, true );
+				}
+			}
 
-			// Loading AdBack library
-			wp_enqueue_script('adback', 'https://www.adback.co/built/js/ab.min.js', $this->version, true );
 
 			wp_enqueue_script('sweetalert-js', plugin_dir_url( __FILE__ ) . 'js/sweetalert2.min.js', $this->version, false );
-			wp_enqueue_script('cookie-js', plugin_dir_url( __FILE__ ) . 'js/js.cookie.js', $this->version, false );
-			wp_enqueue_script('moment-js', plugin_dir_url( __FILE__ ) . 'js/moment.min.js', $this->version, false );
 			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/ab-admin.js', array( 'jquery' ), $this->version, false );
 			wp_localize_script( $this->plugin_name, 'trans_arr', $translation_array );
 		}
@@ -215,60 +216,6 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 
 		add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'ad-back'), 'manage_options', 'ab', array($this, 'display_plugin_stats_page'));
 		add_submenu_page('ab', 'AdBack Settings', __('Settings', 'ad-back'), 'manage_options', 'ab-settings', array($this, 'display_plugin_settings_page'));
-	}
-
-
-	public function callApi_callback() {
-		global $wpdb; // this is how you get access to the database
-
-
-		$method = $_POST['method'];
-		$days = intval($_POST['days']);
-		//safer
-
-		$me = $this->getMyInfo();
-		$token = $this->getToken();
-		
-		$json = $this->get_contents("https://adback.co/api/".$method."?access_token=".$token->access_token."&site_slug=".$me['slug']);
-
-		//{"error":{"code":"x","message":"api.exception.token_blocked","developer_message":"token.blocked"}}
-
-		$data = json_decode($json, true);
-		if(array_key_exists("error", $data) == false) {
-			$data = $data["data"];
-
-			if($days > 0 and $days < 30) {
-				foreach($data as $key => $values) {
-					$data[$key] = array_slice($values, count($data[$key])-$days, $days, true);
-				}
-			}
-
-
-		    if($_POST['typeChart'] == 'pie' || $_POST['typeChart'] == 'doughnut') {
-		    	
-		    	$result = array();
-
-		    	foreach($data as $key => $values) {
-		    		foreach($values as $date => $value) {
-		    			if(!array_key_exists($key, $result)) {
-		    				$result[$key] = 0;
-		    			}
-
-		    			$result[$key] += floatval($value); //just in case of ..
-		    		}
-		    	}
-
-		    	$data = $result;
-		    }
-
-		    $json = json_encode(array("data"=>$data));
-		} else {
-			$json = json_encode($data);
-		}
-	    
-	    echo $json;
-
-		wp_die(); // this is required to terminate immediately and return a proper response
 	}
 
 	public function registerWithAbBackAccount_callback() {
@@ -357,6 +304,7 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 			array(
 				"id" => "1",
 				"myinfo" => "",
+				"domain" => "",
 				"slug" => "",
 				"update_time" => ""
 			),
