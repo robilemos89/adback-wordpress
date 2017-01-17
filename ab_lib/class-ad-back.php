@@ -116,7 +116,6 @@ class Ad_Back_Generic {
 					$table_name,
 					array(
 						'myinfo'=>json_encode($mysite),
-						//'domain'=>$me['analytics_domain'],
 						'update_time'=>current_time('mysql', 1)
 					),
 					array("id"=>1)
