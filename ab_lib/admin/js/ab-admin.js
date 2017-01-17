@@ -31,7 +31,7 @@
 
 	function loginAdback() {
 		if($("#ab-username").val() == "" || $("#ab-password").val() == "") {
-			sweetAlert(trans("Oops..."), trans("The email and password fields should be fill"), "error");
+			sweetAlert(trans_arr.oops, trans_arr.the_email_and_password_fields_should_be_fill, "error");
 			return false;
 		}
 
@@ -46,7 +46,7 @@
 			if(obj.done === true) {
 				window.location.reload();
 			} else {
-				sweetAlert(trans("Oops..."), trans("Invalid email or password"), "error");
+				sweetAlert(trans_arr.oops, trans_arr.invalid_email_or_password, "error");
 			}
 		});
 	}
@@ -64,14 +64,14 @@
 			if(obj.done === true) {
 				window.location.reload();
 			} else {
-				sweetAlert(trans("Oops..."), trans("Error"), "error");
+				sweetAlert(trans_arr.oops, trans_arr.error, "error");
 			}
 		});
 	}
 
 	function saveMessage() {
 		if($("#ab-settings-header-text").val() == "" || $("#ab-settings-close-text").val() == "" || $("#ab-settings-message").val() == "") {
-			sweetAlert(trans("Oops..."), trans("All the fields should be fill"), "error");
+			sweetAlert(trans_arr.oops, trans_arr.all_the_fields_should_be_fill, "error");
 			return;
 		}
 
@@ -90,7 +90,7 @@
 			if(obj.done === true) {
 				window.location.reload();
 			} else {
-				sweetAlert(trans("Oops..."), trans("Error"), "error");
+				sweetAlert(trans_arr.oops, trans_arr.error, "error");
 			}
 		});
 	}
@@ -105,7 +105,7 @@
 			if(obj.done === true) {
 				window.location.reload();
 			} else {
-				sweetAlert(trans("Oops..."), trans("Error"), "error");
+				sweetAlert(trans_arr.oops, trans_arr.error, "error");
 			}
 		});
 	}

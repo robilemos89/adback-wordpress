@@ -73,7 +73,7 @@ msgstr "Déconnexion"
 
 #: ad-back-admin-login-display.html:33
 msgid "Select the slug for your website :"
-msgstr "Selectionnez le slug pour votre site web : "
+msgstr "Sélectionnez le slug pour votre site web : "
 
 #: ad-back-admin-login-display.html:26 ad-back-admin-login-display.html:38
 msgid "Register / Login"

@@ -104,37 +104,36 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 
 		if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings')) {
 			$translation_array = array(
-				'Bounce' => __( 'Bounce', 'ad-back' ),
-				'Ad Blocker' => __('Ad Blocker', 'ad-back'),
-				'Ad blocker percent' => __('Ad blocker percent', 'ad-back'),
-				'Blocked page view' => __('Blocked page view', 'ad-back'),
-				'Browser' => __('Browser', 'ad-back'),
-				'OS' => __('OS', 'ad-back'),
-				'Percent adblock users' => __('Percent adblock users', 'ad-back'),
-				'Percent bounce adblock users' => __('Percent bounce adblock users', 'ad-back'),
-				'Percent bounce all users' => __('Percent bounce all users', 'ad-back'),
-				'Oops...' => __('Oops...', 'ad-back'),
-				'Invalid email or password' => __('Invalid email or password', 'ad-back'),
-				'The key, email and domain fields should be fill' => __('The key, email and domain fields should be fill', 'ad-back'),
-				'The email and password fields should be fill' => __('The email and password fields should be fill', 'ad-back'),
-				'There is an error in the registration : {0}' => __('There is an error in the registration : {0}', 'ad-back'),
-				'Users having ad blocker' => __('Users having ad blocker', 'ad-back'),
-				'Users who have disabled an ad blocker' => __('Users who have disabled an ad blocker', 'ad-back'),
-				'Percent page view with AdBlock' => __('Percent page view with AdBlock', 'ad-back'),
-				'Percent page view' => __('Percent page view', 'ad-back'),
+				'bounce' => __( 'Bounce', 'ad-back' ),
+				'ad_blocker' => __('Ad Blocker', 'ad-back'),
+				'ad_blocker_percent' => __('Ad blocker percent', 'ad-back'),
+				'blocked_page_view' => __('Blocked page view', 'ad-back'),
+				'browser' => __('Browser', 'ad-back'),
+				'os' => __('OS', 'ad-back'),
+				'percent_adblock_users' => __('Percent adblock users', 'ad-back'),
+				'percent_bounce_adblock_users' => __('Percent bounce adblock users', 'ad-back'),
+				'percent_bounce_all_users' => __('Percent bounce all users', 'ad-back'),
+				'oops' => __('Oops...', 'ad-back'),
+				'invalid_email_or_password' => __('Invalid email or password', 'ad-back'),
+				'the_key_email_and_domain_fields_should_be_fill' => __('The key, email and domain fields should be fill', 'ad-back'),
+				'the_email_and_password_fields_should_be_fill' => __('The email and password fields should be fill', 'ad-back'),
+				'there_is_an_error_in_the_registration' => __('There is an error in the registration : {0}', 'ad-back'),
+				'users_having_ad_blocker' => __('Users having ad blocker', 'ad-back'),
+				'users_who_have_disabled_an_ad_blocker' => __('Users who have disabled an ad blocker', 'ad-back'),
+				'percent_page_view_with_ad_block' => __('Percent page view with AdBlock', 'ad-back'),
+				'percent_page_view' => __('Percent page view', 'ad-back'),
 				'days' => __('days', 'ad-back'),
-				'Loading ...' => __('Loading ...', 'ad-back'),
-				'No Data' => __('No Data', 'ad-back'),
+				'loading' => __('Loading ...', 'ad-back'),
+				'no_data' => __('No Data', 'ad-back'),
 			);
 
 			if($this->isConnected()) {
-				$myinfo = $this->getMe();
-				if($myinfo && count($myinfo['sites']) > 1 && $this->getDomain() !== '') {				
+				$myinfo = $this->getMyInfo();
+				if($myinfo && $this->getSlug() !== '' && $this->getDomain() !== '') {			
 					// Loading AdBack library
 					wp_enqueue_script('adback', 'https://'. $this->getDomain() .'/lib/ab.min.js', $this->version, true );
 				}
 			}
-
 
 			wp_enqueue_script('sweetalert-js', plugin_dir_url( __FILE__ ) . 'js/sweetalert2.min.js', $this->version, false );
 			wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/ab-admin.js', array( 'jquery' ), $this->version, false );
@@ -150,15 +149,16 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 	 
 	public function display_plugin_stats_page() {
 		if($this->isConnected()) {
-			$myinfo = $this->getMe();
-			if($myinfo && count($myinfo['sites']) > 1 && $this->getSlug() == "") {
-				include_once( 'partials/ad-back-admin-slug-display.php' );
-			} else {
-				if($this->getSlug() == "") {
-					$this->saveSlug($myinfo['sites'][0]['slug']);
-				}
-				$this->getMessages();
+			if($this->getSlug() !== '') {
 				include_once( 'partials/ad-back-admin-display.php' );
+			} else {
+				$myinfo = $this->getMe();
+				if($myinfo && count($myinfo['sites']) > 1) {
+					include_once( 'partials/ad-back-admin-slug-display.php' );
+				} else {
+					$this->saveSlug($myinfo['sites'][0]['slug']);
+					include_once( 'partials/ad-back-admin-display.php' );
+				}
 			}
 		} else {
 			include_once( 'partials/ad-back-admin-login-display.php');
@@ -223,7 +223,7 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 
 		//$this->saveSlug($_POST['slug']);
 
-		$url = 'https://adback.co/oauth/access_token?grant_type=password';
+		$url = 'https://www.adback.co/oauth/access_token?grant_type=password';
 		$fields = array(
 			'username' => $_POST['username'],
 			'password' => $_POST['password']
@@ -262,6 +262,7 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 		global $wpdb; // this is how you get access to the database
 
 		$this->saveSlug($_POST['slug']);
+		$this->askDomain($_POST['slug']);
 
 		echo "{\"done\":true}";
 		wp_die(); // this is required to terminate immediately and return a proper response
@@ -269,7 +270,6 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 
 	public function logout_callback() {
 		global $wpdb; // this is how you get access to the database
-
 
 		$table_name = $wpdb->prefix . 'adback_account';
 		$wpdb->update(
@@ -283,7 +283,6 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 			array("id"=>1)
 		);
 
-
 		//create token table
 		$table_name = $wpdb->prefix . 'adback_token';
 		$wpdb->update(
@@ -296,7 +295,6 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 			array("id"=>1)
 		);
 
-
 		//create myinfo table
 		$table_name = $wpdb->prefix . 'adback_myinfo';
 		$wpdb->update(
@@ -306,7 +304,7 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 				"myinfo" => "",
 				"domain" => "",
 				"slug" => "",
-				"update_time" => ""
+				"update_time" => "NOW()"
 			),
 			array("id"=>1)
 		);
@@ -319,7 +317,8 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 				"message" => "",
 				"header_text" => "",
 				"close_text" => "",
-				"update_time" => ""
+				"display" => "0",
+				"update_time" => "NOW()"
 			),
 			array("id"=>1)
 		);

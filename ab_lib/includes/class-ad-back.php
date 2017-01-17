@@ -162,7 +162,7 @@ class Ad_Back {
 		$this->loader->add_action( 'wp_ajax_callApi', $plugin_admin,'callApi_callback' );
 		$this->loader->add_action( 'wp_ajax_registerWithAbBackAccount', $plugin_admin, 'registerWithAbBackAccount_callback');
 		$this->loader->add_action( 'wp_ajax_saveSlug', $plugin_admin, 'saveSlug_callback');
-		$this->loader->add_action( 'wp_ajax_adback_logout', $plugin_admin, 'logout_callback');
+		$this->loader->add_action( 'wp_ajax_ab_logout', $plugin_admin, 'logout_callback');
 		$this->loader->add_action( 'wp_ajax_saveMessage', $plugin_admin, 'saveMessage_callback');
 
 	}

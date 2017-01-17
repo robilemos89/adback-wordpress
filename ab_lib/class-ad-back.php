@@ -28,6 +28,7 @@ class Ad_Back_Generic {
 	}
 
 	public function post_contents($url, $fields, $header=array()) {
+		$fields_string = '';
 		$header[] = 'Content-Type: application/x-www-form-urlencoded';
 
 		if(function_exists('curl_version')) {
@@ -82,17 +83,13 @@ class Ad_Back_Generic {
 		global $wpdb; // this is how you get access to the database
 
 		$token = $this->getToken();
-		$json = $this->get_contents("https://adback.co/api/me?access_token=".$token->access_token);
-		$jsonDomains = $this->get_contents("https://adback.co/api/script/" . $this->getSlug() . "?access_token=".$token->access_token);
+		$json = $this->get_contents("https://www.adback.co/api/me?access_token=".$token->access_token);
 
-		$me = array_merge(json_decode($json, true), json_decode($jsonDomains, true));
-		
-		return $me;
+		return json_decode($json, true);
 	}
 
 	public function getMyInfo() {
 		global $wpdb; // this is how you get access to the database
-
 
 		$table_name = $wpdb->prefix . 'adback_myinfo';
 		$myinfo = $wpdb->get_row( "SELECT * FROM ".$table_name." WHERE id = 1" );
@@ -115,17 +112,15 @@ class Ad_Back_Generic {
 					$mysite = $me['sites'][0];
 				}
 
-				if($myinfo->myinfo == "" || strtotime($myinfo->update_time) <  (time()-86400)) {
-					$wpdb->update(
-						$table_name,
-						array(
-							'myinfo'=>json_encode($mysite),
-							'domain'=>$me['analytics_domain'],
-							'update_time'=>current_time('mysql', 1)
-						),
-						array("id"=>1)
-					);
-				}
+				$wpdb->update(
+					$table_name,
+					array(
+						'myinfo'=>json_encode($mysite),
+						//'domain'=>$me['analytics_domain'],
+						'update_time'=>current_time('mysql', 1)
+					),
+					array("id"=>1)
+				);
 			} else if($myinfo->myinfo != "") {
 				$mysite = json_decode($myinfo->myinfo, true);
 			}
@@ -171,7 +166,7 @@ class Ad_Back_Generic {
 		global $wpdb; // this is how you get access to the database
 
 		$token = $this->getToken();
-		$url = "https://adback.co/api/custom-message?access_token=".$token->access_token."&site_slug=".$this->getSlug();
+		$url = "https://www.adback.co/api/custom-message?access_token=".$token->access_token."&site_slug=".$this->getSlug();
 
 		$message = $this->getCacheMessages();
 	
@@ -217,9 +212,13 @@ class Ad_Back_Generic {
 			$token = (object)$token;
 		}
 
-		$url = "https://adback.co/api/test/normal?access_token=".$token->access_token;
-		$result = json_decode($this->get_contents($url),true);
-		return is_array($result) && array_key_exists("name", $result);
+		if(isset($token->access_token)) {
+			$url = "https://www.adback.co/api/test/normal?access_token=".$token->access_token;
+			$result = json_decode($this->get_contents($url),true);
+			return is_array($result) && array_key_exists("name", $result);
+		} else {
+			return false;
+		}
 	}
 
 	public function getToken() {
@@ -238,7 +237,7 @@ class Ad_Back_Generic {
 	public function askToken() {
 		global $wpdb; // this is how you get access to the database
 
-		$url = "https://adback.co/oauth/access_token?grant_type=bearer";
+		$url = "https://www.adback.co/oauth/access_token?grant_type=bearer";
 		$fields = array();
 		$headers = array();
 
@@ -292,6 +291,14 @@ class Ad_Back_Generic {
 		$table_name = $wpdb->prefix . 'adback_myinfo';
 		$myinfo = $wpdb->get_row( "SELECT slug FROM ".$table_name." WHERE id = 1" );
 		return $myinfo->slug;
+	}
+
+	public function askDomain($slug) {
+		$jsonDomain = $this->get_contents("https://www.adback.co/api/script/" . $slug . "?access_token=".$this->getToken()->access_token);
+		$result = json_decode($jsonDomain, true);
+		if(isset($result['analytics_domain'])) {
+			$this->saveDomain($result['analytics_domain']);
+		}
 	}
 
 	public function saveDomain($domain) {

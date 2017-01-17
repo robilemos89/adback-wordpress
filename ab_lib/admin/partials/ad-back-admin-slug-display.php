@@ -15,16 +15,16 @@
 ?>
 <h1><?php _e( 'AdBack', 'wp_admin_style' ); ?></h1>
 
-<div id="adback-select-slug">
+<div id="ab-select-slug">
 
 	<span><?php esc_html_e('Select the slug for your website :', 'ad-back'); ?></span><br>
-	<select id="adback-select-slug-field" tabindex='-1'>
+	<select id="ab-select-slug-field" tabindex='-1'>
 		<?php
 			foreach($myinfo['sites'] as $site) {
 				echo "<option value='".$site['slug']."'>".$site['slug']."</option>";
 			}
 		?>
 	</select><br>
-	<button class="button button-primary" id="adback-select-slug-save"><?php esc_html_e('Save', 'ad-back'); ?></button>
+	<button class="button button-primary" id="ab-select-slug-save"><?php esc_html_e('Save', 'ad-back'); ?></button>
 	
 </div>
