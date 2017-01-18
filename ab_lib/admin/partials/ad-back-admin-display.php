@@ -50,7 +50,8 @@
             adbackjs.init({
                 token: '<?php echo $this->getToken()->access_token; ?>',
                 slug: '<?php echo $this->getMyInfo()["slug"]; ?>',
-                url: 'https://<?php echo $this->getDomain(); ?>/api/'
+                url: 'https://<?php echo $this->getDomain(); ?>/api/',
+                language: '<?php echo str_replace('_', '-', get_locale()); ?>'
             });
         }
 </script>
