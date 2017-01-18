@@ -150,6 +150,9 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 	public function display_plugin_stats_page() {
 		if($this->isConnected()) {
 			if($this->getSlug() !== '') {
+				if($this->getDomain() == '') {
+					$this->askDomain($this->getSlug());
+				}
 				include_once( 'partials/ad-back-admin-display.php' );
 			} else {
 				$myinfo = $this->getMe();
@@ -173,15 +176,21 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 	 
 	public function display_plugin_settings_page() {
 		if($this->isConnected()) {
-			$myinfo = $this->getMe();
-			if($myinfo && count($myinfo['sites']) > 1 && $this->getSlug() == "") {
-				include_once( 'partials/ad-back-admin-slug-display.php' );
-			} else {
-				if($this->getSlug() == "") {
-					$this->saveSlug($myinfo['sites'][0]['slug']);
+			if($this->getSlug() !== '') {
+				if($this->getDomain() == '') {
+					$this->askDomain($this->getSlug());
 				}
 				$messages = $this->getMessages();
 				include_once( 'partials/ad-back-admin-settings-display.php' );
+			} else {
+				$myinfo = $this->getMe();
+				if($myinfo && count($myinfo['sites']) > 1) {
+					include_once( 'partials/ad-back-admin-slug-display.php' );
+				} else {
+					$this->saveSlug($myinfo['sites'][0]['slug']);
+					$messages = $this->getMessages();
+					include_once( 'partials/ad-back-admin-settings-display.php' );
+				}
 			}
 		} else {
 			include_once( 'partials/ad-back-admin-login-display.php');
