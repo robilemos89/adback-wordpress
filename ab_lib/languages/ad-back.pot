@@ -72,7 +72,7 @@ msgstr ""
 
 #: class-ad-back-admin:102
 msgid "Bounce"
-msgstr "Bounce rate of Adblock users"
+msgstr ""
 
 #: class-ad-back-admin:103
 msgid "Ad Blocker"
@@ -88,7 +88,7 @@ msgstr ""
 
 #: class-ad-back-admin
 msgid "Blocked page view and percent"
-msgstr "Blocked page views vs adblock users"
+msgstr ""
 
 #: class-ad-back-admin
 msgid "New - former adblock users"
@@ -195,8 +195,16 @@ msgstr "Get more statistics on AdBack.co"
 
 #: class-ad-back-admin
 msgid "Blocked page view and percent - Sub"
-msgstr "Number of blocked/non blocked page views compared to the percentage of adblock users"
+msgstr ""
 
 #: class-ad-back-admin
 msgid "New - former adblock users - Sub"
-msgstr "Adblock users deactivation and reactivation"
+msgstr ""
+
+#: ad-back-admin-login-display.html:38
+msgid "If you are a subscriber of AdBack.co, The usage of the plugins is free, click below to identify yourself:"
+msgstr ""
+
+#: ad-back-admin-login-display.html:38
+msgid "Checking credentials..."
+msgstr ""

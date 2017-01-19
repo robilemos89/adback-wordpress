@@ -30,25 +30,9 @@
 	 */
 
 	function loginAdback() {
-		if($("#ab-username").val() == "" || $("#ab-password").val() == "") {
-			sweetAlert(trans_arr.oops, trans_arr.the_email_and_password_fields_should_be_fill, "error");
-			return false;
-		}
-
-		var data = {
-			'action': 'registerWithAbBackAccount',
-			'username' : $("#ab-username").val(),
-			'password' : $("#ab-password").val()
-		}
-
-		$.post(ajaxurl, data, function(response) {
-			var obj = JSON.parse(response);
-			if(obj.done === true) {
-				window.location.reload();
-			} else {
-				sweetAlert(trans_arr.oops, trans_arr.invalid_email_or_password, "error");
-			}
-		});
+		$('#ab-login-adback').prop('disabled', true);
+		var callback = encodeURI(window.location.href);
+		window.location.href = 'https://www.adback.co/tokenoauth/site?redirect_url=' + callback;
 	}
 
 	function saveSlug() {

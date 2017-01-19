@@ -90,7 +90,6 @@ class Ad_Back_Activator {
 			`id` mediumint(9) NOT NULL,
 			`myinfo` text DEFAULT '' NOT NULL,
 			`domain` text DEFAULT '' NOT NULL,
-			`slug` varchar(64) DEFAULT '' NOT NULL,
 			`update_time` DATETIME NULL,
 			UNIQUE KEY id (id)
 		) ".$charset_collate.";";
@@ -104,7 +103,6 @@ class Ad_Back_Activator {
 				"id" => "1",
 				"myinfo" => "",
 				"domain" => "",
-				"slug" => "",
 				"update_time" => ""
 			)
 		);
@@ -134,7 +132,7 @@ class Ad_Back_Activator {
 				"header_text" => "",
 				"message" => "",
 				"close_text" => "",
-				"display" => 1,
+				"display" => 0,
 				"update_time" => ""
 			)
 		);

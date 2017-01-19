@@ -30,7 +30,7 @@
 	padding: 24px;
 	min-height:255px;
 	background:white;
-	min-height: 490px;
+	min-height: 420px;
 }
 
 .ab-login-logo {
@@ -39,6 +39,7 @@
 	background-size: contain;
 	background-repeat: no-repeat;
 	background-position: 50% 50%;
+	margin-bottom: 30px;
 }
 
 @media screen and (max-width:782px) {

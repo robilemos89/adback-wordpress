@@ -79,15 +79,6 @@ class Ad_Back_Generic {
 		return $result;
 	}
 
-	public function getMe() {
-		global $wpdb; // this is how you get access to the database
-
-		$token = $this->getToken();
-		$json = $this->get_contents("https://www.adback.co/api/me?access_token=".$token->access_token);
-
-		return json_decode($json, true);
-	}
-
 	public function getMyInfo() {
 		global $wpdb; // this is how you get access to the database
 
@@ -95,35 +86,18 @@ class Ad_Back_Generic {
 		$myinfo = $wpdb->get_row( "SELECT * FROM ".$table_name." WHERE id = 1" );
 
 		if($myinfo->myinfo == "" || strtotime($myinfo->update_time) <  (time()-86400)) {
+			$mysite = $this->askScripts();
 
-			$me = $this->getMe();
-			$location = $this->getSlug();
+			$wpdb->update(
+				$table_name,
+				array(
+					'myinfo'=>json_encode($mysite),
+					'update_time'=>current_time('mysql', 1)
+				),
+				array("id"=>1)
+			);
 
-			$mysite = null;
-			if(is_array($me) && array_key_exists("sites", $me)) {
-				foreach($me['sites'] as $site) {
-					if(strtolower($site['slug']) == $location) {
-						$mysite = $site;
-						break;
-					}
-				}
-
-				if($mysite == null) {
-					$mysite = $me['sites'][0];
-				}
-
-				$wpdb->update(
-					$table_name,
-					array(
-						'myinfo'=>json_encode($mysite),
-						'update_time'=>current_time('mysql', 1)
-					),
-					array("id"=>1)
-				);
-			} else if($myinfo->myinfo != "") {
-				$mysite = json_decode($myinfo->myinfo, true);
-			}
-		} else {
+		} else if($myinfo->myinfo != "") {
 			$mysite = json_decode($myinfo->myinfo, true);
 		}
 
@@ -165,7 +139,7 @@ class Ad_Back_Generic {
 		global $wpdb; // this is how you get access to the database
 
 		$token = $this->getToken();
-		$url = "https://www.adback.co/api/custom-message?access_token=".$token->access_token."&site_slug=".$this->getSlug();
+		$url = "https://www.adback.co/api/custom-message?access_token=".$token->access_token;
 
 		$message = $this->getCacheMessages();
 	
@@ -188,7 +162,6 @@ class Ad_Back_Generic {
 			"message" => $message,
 			"header_text" => $header_text,
 			"close_text" => $close_text,
-			"site_slug" => $this->getSlug()
  		);
 
  		$headers = array(
@@ -225,11 +198,7 @@ class Ad_Back_Generic {
 
 		$table_name = $wpdb->prefix . 'adback_token';
 		$token = $wpdb->get_row( "SELECT * FROM ".$table_name." WHERE id = 1" );
-		if($token->access_token == "" || $token->refresh_token == "") {
-			$token = (object)$this->askToken();
-		} else if($this->isConnected($token) == false) {
-			$token = (object)$this->askToken();
-		}
+
 		return $token;
 	}
 
@@ -273,31 +242,19 @@ class Ad_Back_Generic {
 		);
 	}
 
-	public function saveSlug($slug) {
-		global $wpdb; // this is how you get access to the database
-
-		$table_name = $wpdb->prefix . 'adback_myinfo';
-		$wpdb->update(
-			$table_name, 
-			array("slug"=>$slug),
-			array("id"=>1)
-		);
-	}
-
-	public function getSlug() {
-		global $wpdb; // this is how you get access to the database
-
-		$table_name = $wpdb->prefix . 'adback_myinfo';
-		$myinfo = $wpdb->get_row( "SELECT slug FROM ".$table_name." WHERE id = 1" );
-		return $myinfo->slug;
-	}
-
-	public function askDomain($slug) {
-		$jsonDomain = $this->get_contents("https://www.adback.co/api/script/" . $slug . "?access_token=".$this->getToken()->access_token);
+	public function askDomain() {
+		$jsonDomain = $this->get_contents("https://www.adback.co/api/script/me?access_token=".$this->getToken()->access_token);
 		$result = json_decode($jsonDomain, true);
 		if(isset($result['analytics_domain'])) {
 			$this->saveDomain($result['analytics_domain']);
 		}
+	}
+
+	public function askScripts() {
+		$jsonScripts = $this->get_contents("https://www.adback.co/api/script/me?access_token=".$this->getToken()->access_token);
+		$result = json_decode($jsonScripts, true);
+		
+		return $result;
 	}
 
 	public function saveDomain($domain) {
@@ -306,7 +263,10 @@ class Ad_Back_Generic {
 		$table_name = $wpdb->prefix . 'adback_myinfo';
 		$wpdb->update(
 			$table_name, 
-			array("domain"=>$domain),
+			array(
+				'domain' => $domain,
+				'update_time' => current_time('mysql', 1)
+				),
 			array("id"=>1)
 		);
 	}

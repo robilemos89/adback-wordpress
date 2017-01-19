@@ -128,11 +128,11 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 			);
 
 			if($this->isConnected()) {
-				$myinfo = $this->getMyInfo();
-				if($myinfo && $this->getSlug() !== '' && $this->getDomain() !== '') {			
-					// Loading AdBack library
-					wp_enqueue_script('adback', 'https://'. $this->getDomain() .'/lib/ab.min.js', $this->version, true );
+				if($this->getDomain() == '') {
+					$this->askDomain();
 				}
+				// Loading AdBack library
+				wp_enqueue_script('adback', 'https://'. $this->getDomain() .'/lib/ab.min.js', $this->version, true );
 			}
 
 			wp_enqueue_script('sweetalert-js', plugin_dir_url( __FILE__ ) . 'js/sweetalert2.min.js', $this->version, false );
@@ -149,22 +149,20 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 	 
 	public function display_plugin_stats_page() {
 		if($this->isConnected()) {
-			if($this->getSlug() !== '') {
-				if($this->getDomain() == '') {
-					$this->askDomain($this->getSlug());
-				}
-				include_once( 'partials/ad-back-admin-display.php' );
-			} else {
-				$myinfo = $this->getMe();
-				if($myinfo && count($myinfo['sites']) > 1) {
-					include_once( 'partials/ad-back-admin-slug-display.php' );
-				} else {
-					$this->saveSlug($myinfo['sites'][0]['slug']);
-					include_once( 'partials/ad-back-admin-display.php' );
-				}
+			if($this->getDomain() == '') {
+				$this->askDomain();
 			}
+			include_once( 'partials/ad-back-admin-display.php' );
 		} else {
-			include_once( 'partials/ad-back-admin-login-display.php');
+			if(isset($_GET['access_token'])) {
+				$this->saveToken([
+					'access_token' => $_GET['access_token'],
+					'refresh_token' => '',
+					]);
+				include_once( 'partials/ad-back-admin-redirect.php');
+			} else {
+				include_once( 'partials/ad-back-admin-login-display.php');
+			}
 		}
 	}
 
@@ -176,22 +174,11 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 	 
 	public function display_plugin_settings_page() {
 		if($this->isConnected()) {
-			if($this->getSlug() !== '') {
-				if($this->getDomain() == '') {
-					$this->askDomain($this->getSlug());
-				}
-				$messages = $this->getMessages();
-				include_once( 'partials/ad-back-admin-settings-display.php' );
-			} else {
-				$myinfo = $this->getMe();
-				if($myinfo && count($myinfo['sites']) > 1) {
-					include_once( 'partials/ad-back-admin-slug-display.php' );
-				} else {
-					$this->saveSlug($myinfo['sites'][0]['slug']);
-					$messages = $this->getMessages();
-					include_once( 'partials/ad-back-admin-settings-display.php' );
-				}
+			if($this->getDomain() == '') {
+				$this->askDomain();
 			}
+			$messages = $this->getMessages();
+			include_once( 'partials/ad-back-admin-settings-display.php' );
 		} else {
 			include_once( 'partials/ad-back-admin-login-display.php');
 		}
@@ -267,16 +254,6 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 		wp_die(); // this is required to terminate immediately and return a proper response
 	}
 
-	public function saveSlug_callback() {
-		global $wpdb; // this is how you get access to the database
-
-		$this->saveSlug($_POST['slug']);
-		$this->askDomain($_POST['slug']);
-
-		echo "{\"done\":true}";
-		wp_die(); // this is required to terminate immediately and return a proper response
-	}
-
 	public function logout_callback() {
 		global $wpdb; // this is how you get access to the database
 
@@ -312,8 +289,7 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 				"id" => "1",
 				"myinfo" => "",
 				"domain" => "",
-				"slug" => "",
-				"update_time" => "NOW()"
+				"update_time" => current_time('mysql', 1)
 			),
 			array("id"=>1)
 		);
@@ -327,7 +303,7 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 				"header_text" => "",
 				"close_text" => "",
 				"display" => "0",
-				"update_time" => "NOW()"
+				"update_time" => current_time('mysql', 1)
 			),
 			array("id"=>1)
 		);

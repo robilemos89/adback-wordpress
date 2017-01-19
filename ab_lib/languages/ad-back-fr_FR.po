@@ -224,3 +224,15 @@ msgstr ""
 #: class-ad-back-admin
 msgid "New - former adblock users - Sub"
 msgstr "Utilisateur ayant désactivé ou réactivé son bloqueur de publicité "
+
+#: ad-back-admin-login-display.html:38
+msgid ""
+"If you are a subscriber of AdBack.co, The usage of the plugins is free, "
+"click below to identify yourself:"
+msgstr ""
+"Si vous avez un compte abonné AdBack.co, l’utilisation du plugin AdBack est "
+"gratuite, cliquez pour vous identifier :"
+
+#: ad-back-admin-login-display.html:38
+msgid "Checking credentials..."
+msgstr "Vérification des identifiants…"
