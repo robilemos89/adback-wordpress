@@ -5,3 +5,7 @@
 
 ## Translation
 https://poedit.net/
+
+## Docker (to test/dev)
+`cd docker`
+`docker-compose up`
