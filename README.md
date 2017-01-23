@@ -7,5 +7,4 @@
 https://poedit.net/
 
 ## Docker (to test/dev)
-`cd docker`
-`docker-compose up`
+`cd docker && docker-compose up`
