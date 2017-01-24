@@ -240,6 +240,15 @@ class Ad_Back_Generic {
 			),
 			array("id"=>1)
 		);
+
+		$this->notifyInstallation($token["access_token"]);
+	}
+
+	public function notifyInstallation($accessToken)
+	{
+		$notifyUrl = 'https://www.adback.co/api/plugin-activate/wordpress?access_token=' . $accessToken;
+
+		$this->get_contents($notifyUrl);
 	}
 
 	public function askDomain() {
