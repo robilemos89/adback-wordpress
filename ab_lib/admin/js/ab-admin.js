@@ -35,10 +35,13 @@
 		window.location.href = 'https://www.adback.co/tokenoauth/site?redirect_url=' + callback;
 	}
 
-	function registerAdback() {
+	function registerAdback(event) {
 		$('#ab-register-adback').prop('disabled', true);
 		var callback = encodeURI(window.location.href);
-		window.location.href = 'https://www.adback.co/en/register/?redirect_url=' + callback;
+		window.location.href = 'https://www.adback.co/en/register/?redirect_url='
+			+ callback
+			+ '&email=' + $(event.target).data('email')
+			+ '&website=' + $(event.target).data('site-url');
 	}
 
 	function saveSlug() {
