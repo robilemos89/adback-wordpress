@@ -47,6 +47,10 @@ msgstr "S’authentifier avec AdBack"
 msgid "Activate my AdBack account"
 msgstr "Activer mon compte AdBack"
 
+#: ad-back-admin-login-display.html:35
+msgid "Create my AdBack account"
+msgstr "Créer mon compte AdBack"
+
 #: ad-back-admin-login-display.html:33
 msgid "Email :"
 msgstr "Email :"

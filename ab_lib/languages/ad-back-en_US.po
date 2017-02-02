@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.11\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ad-back-admin-login-display.html:20
@@ -47,6 +47,10 @@ msgstr "Register with AdBack Account"
 #: ad-back-admin-login-display.html:43
 msgid "Activate my AdBack account"
 msgstr "Activate my AdBack account"
+
+#: ad-back-admin-login-display.html:35
+msgid "Create my AdBack account"
+msgstr "Create my AdBack account"
 
 #: ad-back-admin-login-display.html:33
 msgid "Email :"

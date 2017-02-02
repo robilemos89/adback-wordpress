@@ -35,6 +35,15 @@
 		window.location.href = 'https://www.adback.co/tokenoauth/site?redirect_url=' + callback;
 	}
 
+	function registerAdback(event) {
+		$('#ab-register-adback').prop('disabled', true);
+		var callback = encodeURI(window.location.href);
+		window.location.href = 'https://www.adback.co/en/register/?redirect_url='
+			+ callback
+			+ '&email=' + $(event.target).data('email')
+			+ '&website=' + $(event.target).data('site-url');
+	}
+
 	function saveSlug() {
 		if($("#ab-select-slug-field").val() == "") return;
 
@@ -101,6 +110,8 @@
 
 		if($("#ab-login").length>0) {
 			$("#ab-login-adback").on('click', loginAdback);
+			$("#ab-register-adback").on('click', registerAdback);
+
 
 			$("#ab-username,#ab-password").on('keyup', function(e) {
 				var code = e.which; // recommended to use e.which, it's normalized across browsers
