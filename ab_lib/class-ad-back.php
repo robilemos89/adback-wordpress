@@ -11,7 +11,7 @@
  */
 class Ad_Back_Generic
 {
-    public function get_contents($url)
+    public function getContents($url)
     {
         if (function_exists('curl_version')) {
             $curl = curl_init($url);
@@ -27,7 +27,7 @@ class Ad_Back_Generic
         }
     }
 
-    public function post_contents($url, $fields, $header = array())
+    public function postContents($url, $fields, $header = array())
     {
         $fields_string = '';
         $header[] = 'Content-Type: application/x-www-form-urlencoded';
@@ -145,7 +145,7 @@ class Ad_Back_Generic
 
         $message = $this->getCacheMessages();
 
-        $result = $this->get_contents($url);
+        $result = $this->getContents($url);
         $result = json_decode($result, true);
         $result['display'] = $message->display;
 
@@ -171,7 +171,7 @@ class Ad_Back_Generic
             "Content-Type: application/json"
         );
 
-        $this->post_contents($url, json_encode($fields), $headers);
+        $this->postContents($url, json_encode($fields), $headers);
 
         $this->saveCacheMessage($display, $message, $header_text, $close_text);
 
@@ -190,7 +190,7 @@ class Ad_Back_Generic
 
         if (isset($token->access_token)) {
             $url = "https://www.adback.co/api/test/normal?access_token=" . $token->access_token;
-            $result = json_decode($this->get_contents($url), true);
+            $result = json_decode($this->getContents($url), true);
             return is_array($result) && array_key_exists("name", $result);
         } else {
             return false;
@@ -221,7 +221,7 @@ class Ad_Back_Generic
         if ($auth->key != "" && $auth->secret != "") {
             $headers[] = "Authorization: Basic " . base64_encode($auth->key . ":" . $auth->secret);
 
-            $result = json_decode($this->post_contents($url, $fields, $headers), true);
+            $result = json_decode($this->postContents($url, $fields, $headers), true);
 
             $this->saveToken($result);
 
@@ -255,12 +255,12 @@ class Ad_Back_Generic
     {
         $notifyUrl = 'https://www.adback.co/api/plugin-activate/wordpress?access_token=' . $accessToken;
 
-        $this->get_contents($notifyUrl);
+        $this->getContents($notifyUrl);
     }
 
     public function askDomain()
     {
-        $jsonDomain = $this->get_contents("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
+        $jsonDomain = $this->getContents("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
         $result = json_decode($jsonDomain, true);
         if (isset($result['analytics_domain'])) {
             $this->saveDomain($result['analytics_domain']);
@@ -269,7 +269,7 @@ class Ad_Back_Generic
 
     public function askScripts()
     {
-        $jsonScripts = $this->get_contents("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
+        $jsonScripts = $this->getContents("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
         $result = json_decode($jsonScripts, true);
 
         return $result;
