@@ -27,8 +27,8 @@
  * @subpackage Ad_Back/includes
  * @author     Antoine Ferrier <contact@adback.co>
  */
-class Ad_Back {
-
+class Ad_Back
+{
 	/**
 	 * The loader that's responsible for maintaining and registering all hooks that power
 	 * the plugin.
@@ -66,8 +66,8 @@ class Ad_Back {
 	 *
 	 * @since    1.0.0
 	 */
-	public function __construct() {
-
+	public function __construct()
+    {
 		$this->plugin_name = 'ab-lib';
 		$this->version = '1.0.0';
 
@@ -75,7 +75,6 @@ class Ad_Back {
 		$this->set_locale();
 		$this->define_admin_hooks();
 		$this->define_public_hooks();
-
 	}
 
 	/**
@@ -94,8 +93,8 @@ class Ad_Back {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function load_dependencies() {
-
+	private function load_dependencies()
+    {
 		/**
 		 * The class responsible for orchestrating the actions and filters of the
 		 * core plugin.
@@ -120,7 +119,6 @@ class Ad_Back {
 		require_once plugin_dir_path( dirname( __FILE__ ) ) . 'public/class-ad-back-public.php';
 
 		$this->loader = new Ad_Back_Loader();
-
 	}
 
 	/**
@@ -132,12 +130,11 @@ class Ad_Back {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function set_locale() {
-
+	private function set_locale()
+    {
 		$plugin_i18n = new Ad_Back_i18n();
 
 		$this->loader->add_action( 'plugins_loaded', $plugin_i18n, 'load_plugin_textdomain' );
-
 	}
 
 	/**
@@ -147,8 +144,8 @@ class Ad_Back {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_admin_hooks() {
-
+	private function define_admin_hooks()
+    {
 		$plugin_admin = new Ad_Back_Admin( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'admin_enqueue_scripts', $plugin_admin, 'enqueue_styles' );
@@ -161,10 +158,8 @@ class Ad_Back {
 		// Add Ajax
 		$this->loader->add_action( 'wp_ajax_callApi', $plugin_admin,'callApi_callback' );
 		$this->loader->add_action( 'wp_ajax_registerWithAbBackAccount', $plugin_admin, 'registerWithAbBackAccount_callback');
-		$this->loader->add_action( 'wp_ajax_saveSlug', $plugin_admin, 'saveSlug_callback');
 		$this->loader->add_action( 'wp_ajax_ab_logout', $plugin_admin, 'logout_callback');
 		$this->loader->add_action( 'wp_ajax_saveMessage', $plugin_admin, 'saveMessage_callback');
-
 	}
 
 	/**
@@ -174,13 +169,12 @@ class Ad_Back {
 	 * @since    1.0.0
 	 * @access   private
 	 */
-	private function define_public_hooks() {
-
+	private function define_public_hooks()
+    {
 		$plugin_public = new Ad_Back_Public( $this->get_plugin_name(), $this->get_version() );
 
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_styles' );
 		$this->loader->add_action( 'wp_enqueue_scripts', $plugin_public, 'enqueue_scripts' );
-
 	}
 
 	/**
@@ -188,7 +182,8 @@ class Ad_Back {
 	 *
 	 * @since    1.0.0
 	 */
-	public function run() {
+	public function run()
+    {
 		$this->loader->run();
 	}
 
@@ -199,7 +194,8 @@ class Ad_Back {
 	 * @since     1.0.0
 	 * @return    string    The name of the plugin.
 	 */
-	public function get_plugin_name() {
+	public function get_plugin_name()
+    {
 		return $this->plugin_name;
 	}
 
@@ -209,7 +205,8 @@ class Ad_Back {
 	 * @since     1.0.0
 	 * @return    Ad_Back_Loader    Orchestrates the hooks of the plugin.
 	 */
-	public function get_loader() {
+	public function get_loader()
+    {
 		return $this->loader;
 	}
 
@@ -219,8 +216,8 @@ class Ad_Back {
 	 * @since     1.0.0
 	 * @return    string    The version number of the plugin.
 	 */
-	public function get_version() {
+	public function get_version()
+    {
 		return $this->version;
 	}
-
 }

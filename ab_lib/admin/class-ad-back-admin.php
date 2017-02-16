@@ -23,8 +23,8 @@
 
 include_once( plugin_dir_path( __FILE__ ) . '../class-ad-back.php');
 
-class Ad_Back_Admin extends Ad_Back_Generic {
-
+class Ad_Back_Admin extends Ad_Back_Generic
+{
 	/**
 	 * The ID of this plugin.
 	 *
@@ -50,11 +50,10 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 	 * @param      string    $plugin_name       The name of this plugin.
 	 * @param      string    $version    The version of this plugin.
 	 */
-	public function __construct( $plugin_name, $version ) {
-
+	public function __construct( $plugin_name, $version )
+    {
 		$this->plugin_name = $plugin_name;
 		$this->version = $version;
-
 	}
 
 	/**
@@ -62,8 +61,8 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_styles() {
-
+	public function enqueue_styles()
+    {
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
@@ -80,7 +79,6 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 			wp_enqueue_style('sweetalert-css', plugin_dir_url( __FILE__ ) . 'css/sweetalert2.min.css', array(), $this->version, 'all' );
 			wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/ab-admin.css', array(), $this->version, 'all' );
 		}
-
 	}
 
 	/**
@@ -88,8 +86,8 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 	 *
 	 * @since    1.0.0
 	 */
-	public function enqueue_scripts() {
-
+	public function enqueue_scripts()
+    {
 		/**
 		 * This function is provided for demonstration purposes only.
 		 *
@@ -146,8 +144,8 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 	 *
 	 * @since    1.0.0
 	 */
-	 
-	public function display_plugin_stats_page() {
+	public function display_plugin_stats_page()
+    {
 		if($this->isConnected()) {
 			if($this->getDomain() == '') {
 				$this->askDomain();
@@ -166,13 +164,13 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 		}
 	}
 
-		/**
+	/**
 	 * Render the settings page for this plugin.
 	 *
 	 * @since    1.0.0
 	 */
-	 
-	public function display_plugin_settings_page() {
+	public function display_plugin_settings_page()
+    {
 		if($this->isConnected()) {
 			if($this->getDomain() == '') {
 				$this->askDomain();
@@ -184,15 +182,13 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 		}
 	}
 
-
-
 	/**
 	 * Register the administration menu for this plugin into the WordPress Dashboard menu.
 	 *
 	 * @since    1.0.0
 	 */
-	 
-	public function add_plugin_admin_menu() {
+	public function add_plugin_admin_menu()
+    {
 		global $_wp_last_object_menu;
 
 		$_wp_last_object_menu++;
@@ -214,11 +210,8 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 		add_submenu_page('ab', 'AdBack Settings', __('Settings', 'ad-back'), 'manage_options', 'ab-settings', array($this, 'display_plugin_settings_page'));
 	}
 
-	public function registerWithAbBackAccount_callback() {
-		global $wpdb; // this is how you get access to the database
-
-		//$this->saveSlug($_POST['slug']);
-
+	public function registerWithAbBackAccount_callback()
+    {
 		$url = 'https://www.adback.co/oauth/access_token?grant_type=password';
 		$fields = array(
 			'username' => $_POST['username'],
@@ -245,16 +238,16 @@ class Ad_Back_Admin extends Ad_Back_Generic {
 		wp_die(); // this is required to terminate immediately and return a proper response
 	}
 
-	public function saveMessage_callback() {
-		global $wpdb; // this is how you get access to the database
-
+	public function saveMessage_callback()
+    {
 		$this->saveMessage($_POST['display'], $_POST['message'], $_POST['header-text'], $_POST['close-text']);
 
 		echo "{\"done\":true}";
 		wp_die(); // this is required to terminate immediately and return a proper response
 	}
 
-	public function logout_callback() {
+	public function logout_callback()
+    {
 		global $wpdb; // this is how you get access to the database
 
 		$table_name = $wpdb->prefix . 'adback_account';

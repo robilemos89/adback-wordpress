@@ -20,8 +20,8 @@
  * @subpackage Ad_Back/includes
  * @author     Antoine Ferrier <contact@adback.co>
  */
-class Ad_Back_Deactivator {
-
+class Ad_Back_Deactivator
+{
 	/**
 	 * Short Description. (use period)
 	 *
@@ -29,8 +29,5 @@ class Ad_Back_Deactivator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function deactivate() {
-
-	}
-
+	public static function deactivate() {}
 }

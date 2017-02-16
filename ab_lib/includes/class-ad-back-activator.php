@@ -20,7 +20,8 @@
  * @subpackage Ad_Back/includes
  * @author     Antoine Ferrier <contact@adback.co>
  */
-class Ad_Back_Activator {
+class Ad_Back_Activator
+{
 
 	/**
 	 * Short Description. (use period)
@@ -29,7 +30,8 @@ class Ad_Back_Activator {
 	 *
 	 * @since    1.0.0
 	 */
-	public static function activate() {
+	public static function activate()
+    {
 		global $wpdb;
 
 		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -47,7 +49,6 @@ class Ad_Back_Activator {
 			UNIQUE KEY id (id)
 		) ".$charset_collate.";";
 
-		
 		dbDelta( $sql );
 
 		$wpdb->insert(
@@ -59,7 +60,6 @@ class Ad_Back_Activator {
 				"secret" => ""
 			)
 		);
-
 
 		//create token table
 		$table_name = $wpdb->prefix . 'adback_token';
@@ -82,7 +82,6 @@ class Ad_Back_Activator {
 			)
 		);
 
-
 		//create myinfo table
 		$table_name = $wpdb->prefix . 'adback_myinfo';
 
@@ -94,7 +93,6 @@ class Ad_Back_Activator {
 			UNIQUE KEY id (id)
 		) ".$charset_collate.";";
 
-		
 		dbDelta( $sql );
 
 		$wpdb->insert(
@@ -121,7 +119,6 @@ class Ad_Back_Activator {
 			UNIQUE KEY id (id)
 		) ".$charset_collate.";";
 
-		
 		dbDelta( $sql );
 
 		$wpdb->insert(
@@ -136,7 +133,5 @@ class Ad_Back_Activator {
 				"update_time" => ""
 			)
 		);
-
 	}
-
 }
