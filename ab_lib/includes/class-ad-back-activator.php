@@ -22,116 +22,115 @@
  */
 class Ad_Back_Activator
 {
-
-	/**
-	 * Short Description. (use period)
-	 *
-	 * Long Description.
-	 *
-	 * @since    1.0.0
-	 */
-	public static function activate()
+    /**
+     * Short Description. (use period)
+     *
+     * Long Description.
+     *
+     * @since    1.0.0
+     */
+    public static function activate()
     {
-		global $wpdb;
+        global $wpdb;
 
-		require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-		$charset_collate = $wpdb->get_charset_collate();
+        $charset_collate = $wpdb->get_charset_collate();
 
-		//create account table
-		$table_name = $wpdb->prefix . 'adback_account';
+        //create account table
+        $table_name = $wpdb->prefix . 'adback_account';
 
-		$sql = "CREATE TABLE ".$table_name." (
-			`id` mediumint(9) NOT NULL,
-			`username` varchar(100) DEFAULT '' NOT NULL,
-			`key` varchar(100) DEFAULT '' NOT NULL,
-			`secret` varchar(100) DEFAULT '' NOT NULL,
-			UNIQUE KEY id (id)
-		) ".$charset_collate.";";
+        $sql = "CREATE TABLE ".$table_name." (
+            `id` mediumint(9) NOT NULL,
+            `username` varchar(100) DEFAULT '' NOT NULL,
+            `key` varchar(100) DEFAULT '' NOT NULL,
+            `secret` varchar(100) DEFAULT '' NOT NULL,
+            UNIQUE KEY id (id)
+        ) ".$charset_collate.";";
 
-		dbDelta( $sql );
+        dbDelta( $sql );
 
-		$wpdb->insert(
-			$table_name, 
-			array(
-				"id" => "1",
-				"username" => "",
-				"key" => "",
-				"secret" => ""
-			)
-		);
+        $wpdb->insert(
+            $table_name,
+            array(
+                "id" => "1",
+                "username" => "",
+                "key" => "",
+                "secret" => ""
+            )
+        );
 
-		//create token table
-		$table_name = $wpdb->prefix . 'adback_token';
+        //create token table
+        $table_name = $wpdb->prefix . 'adback_token';
 
-		$sql = "CREATE TABLE ".$table_name." (
-			`id` mediumint(9) NOT NULL,
-			`access_token` varchar(64) DEFAULT '' NOT NULL,
-			`refresh_token` varchar(64) DEFAULT '' NOT NULL,
-			UNIQUE KEY id (id)
-		) ".$charset_collate.";";
+        $sql = "CREATE TABLE ".$table_name." (
+            `id` mediumint(9) NOT NULL,
+            `access_token` varchar(64) DEFAULT '' NOT NULL,
+            `refresh_token` varchar(64) DEFAULT '' NOT NULL,
+            UNIQUE KEY id (id)
+        ) ".$charset_collate.";";
 
-		dbDelta( $sql );
+        dbDelta( $sql );
 
-		$wpdb->insert(
-			$table_name, 
-			array(
-				"id" => "1",
-				"access_token" => "",
-				"refresh_token" => ""
-			)
-		);
+        $wpdb->insert(
+            $table_name,
+            array(
+                "id" => "1",
+                "access_token" => "",
+                "refresh_token" => ""
+            )
+        );
 
-		//create myinfo table
-		$table_name = $wpdb->prefix . 'adback_myinfo';
+        //create myinfo table
+        $table_name = $wpdb->prefix . 'adback_myinfo';
 
-		$sql = "CREATE TABLE ".$table_name." (
-			`id` mediumint(9) NOT NULL,
-			`myinfo` text DEFAULT '' NOT NULL,
-			`domain` text DEFAULT '' NOT NULL,
-			`update_time` DATETIME NULL,
-			UNIQUE KEY id (id)
-		) ".$charset_collate.";";
+        $sql = "CREATE TABLE ".$table_name." (
+            `id` mediumint(9) NOT NULL,
+            `myinfo` text DEFAULT '' NOT NULL,
+            `domain` text DEFAULT '' NOT NULL,
+            `update_time` DATETIME NULL,
+            UNIQUE KEY id (id)
+        ) ".$charset_collate.";";
 
-		dbDelta( $sql );
+        dbDelta( $sql );
 
-		$wpdb->insert(
-			$table_name, 
-			array(
-				"id" => "1",
-				"myinfo" => "",
-				"domain" => "",
-				"update_time" => ""
-			)
-		);
+        $wpdb->insert(
+            $table_name,
+            array(
+                "id" => "1",
+                "myinfo" => "",
+                "domain" => "",
+                "update_time" => ""
+            )
+        );
 
-		//create message table
-		$table_name = $wpdb->prefix . 'adback_message';
+        //create message table
+        $table_name = $wpdb->prefix . 'adback_message';
 
-		$sql = "CREATE TABLE ".$table_name." (
-			`id` mediumint(9) NOT NULL,
-			`link` varchar(1024) DEFAULT '' NOT NULL,
-			`header_text` varchar(1024) DEFAULT '' NOT NULL,
-			`message` text DEFAULT '' NOT NULL,
-			`close_text` varchar(1024) DEFAULT '' NOT NULL,
-			`display` BIT NOT NULL,
-			`update_time` DATETIME NULL,
-			UNIQUE KEY id (id)
-		) ".$charset_collate.";";
+        $sql = "CREATE TABLE ".$table_name." (
+            `id` mediumint(9) NOT NULL,
+            `link` varchar(1024) DEFAULT '' NOT NULL,
+            `header_text` varchar(1024) DEFAULT '' NOT NULL,
+            `message` text DEFAULT '' NOT NULL,
+            `close_text` varchar(1024) DEFAULT '' NOT NULL,
+            `display` BIT NOT NULL,
+            `update_time` DATETIME NULL,
+            UNIQUE KEY id (id)
+        ) ".$charset_collate.";";
 
-		dbDelta( $sql );
+        dbDelta( $sql );
 
-		$wpdb->insert(
-			$table_name, 
-			array(
-				"id" => "1",
-				"link" => "",
-				"header_text" => "",
-				"message" => "",
-				"close_text" => "",
-				"display" => 0,
-				"update_time" => ""
-			)
-		);
-	}
+        $wpdb->insert(
+            $table_name,
+            array(
+                "id" => "1",
+                "link" => "",
+                "header_text" => "",
+                "message" => "",
+                "close_text" => "",
+                "display" => 0,
+                "update_time" => ""
+            )
+        );
+    }
 }
