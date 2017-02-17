@@ -1,5 +1,5 @@
 === Plugin Name ===
-Contributors: (this should be a list of wordpress.org userid's)
+Contributors: getadback
 Donate link: https://www.adback.co
 Tags: comments, spam
 Requires at least: 3.0.1
@@ -8,7 +8,7 @@ Stable tag: 4.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-AdBack, solution d’analyse statistiques des utilisateurs de bloqueurs de publicité (AdBlock, AdBlock Plus, uBlock, Ghostery...) et de réponse personnalisée. Comprenez ceux qui bloquent les publicité pour estimer les revenus potentiels publicitaires perdus et afficher une réponse personnalisée de désactivation avec un tutoriel adapté tout en bloquant l'accès à votre contenu.
+With AdBack, access analytics about adblocker users, address them personalized messages, propose alternative solutions to advertising (video, survey).
 
 == Description ==
 
