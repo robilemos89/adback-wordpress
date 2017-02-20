@@ -13,7 +13,7 @@
  * @package           Ad_Back
  *
  * @wordpress-plugin
- * Plugin Name:       AdBack
+ * Plugin Name:       AdBack solution to adblock
  * Plugin URI:        adback.co
  * Description:       With AdBack, access analytics about adblocker users, address them personalized messages, propose alternative solutions to advertising (video, survey).
  * Version:           1.1.0
