@@ -1,7 +1,7 @@
 === Plugin Name ===
 Contributors: getadback
 Donate link: https://www.adback.co
-Tags: comments, spam
+Tags: adblock, analytics, message, detection, detect, block, ad block, ads, advertising, adblock killer, anti adblock, adblocker, popup, notification, message, custom, personalize, analyze, stats, adblocker, dashboard widget, block adblock, ghostery, ublock, adblock plus, ad free
 Requires at least: 3.0.1
 Tested up to: 3.4
 Stable tag: 4.3
@@ -12,16 +12,41 @@ With AdBack, access analytics about adblocker users, address them personalized m
 
 == Description ==
 
-AdBack est une solution professionnelle d’analyse de votre audience internet bloquant les publicités.
-Elle comptabilise, décrypte et vous alerte de l’évolution de cette audience. Elle vous permet de réagir et d’informer cette audience spécifique.
+AdBack is a professional solution that analyzes your Internet audience using adblockers. It collects, decrypts and alerts you about the evolution of this audience. It allows you to react, to inform and monetize this specific audience.
 
-En installant AdBack, vous avez accès à un outil hautement technologique non détecté par les internautes bloquant les publicités, des informations en temps réel, un script maximisé et en constante évolution ainsi qu’un panel de solutions pour s'adresser à cette audience.
+By installing AdBack, you’ll have access to a highly technological tool which is not detected by adblockers, to real-time informations, to a maximized and constantly evolving script and also to a wide range of solutions to dialogue with the adblocker user audience.
 
-Aujourd’hui, différents moyens existent pour bloquer la publicité :
+AdBack is for every content publisher who wants to understand and monetize its adblocked audience: media websites, regional magazines, bloggers who want to take an audit on their website, verify in real-time that adblocker users don’t impact the conversion rate and utilize tools to generate leads specifically on this audience.
 
-installer une extension sur son navigateur. Plusieurs extensions existent telles que Adblock Plus, AdBlock, Ghostery, uBlock, uBlock Origin ou encore Crystal sur mobile iOS
-avoir un antivirus
-disposer d’un firewall personnel via son antivirus
-disposer d’un firewall professionnel via son entreprise
+AdBack proposes a very easy ready-to-use solution for all the WordPress website owners. It allows you to use AdBack’s solution directly from the WordPress interface where the main data are displayed. You can also access at every moment all the detailed statistics on the AdBack dashboard.
 
-La solution AdBack est disponible pour tout éditeur de contenu qui cherche à comprendre et analyser son audience ainsi que l’impact de la publicité.
+Find loads of statistics about the adblockers with AdBack:
+- The number of activations/deactivations
+- The number of adblockers users allowing the acceptable ads of Eyeo
+- The type of adblocker used
+- The estimated lost revenue
+- The number of blocked analytics (Google Analytics, AT Internet)
+
+Create automatic personalized reports with all the variables you’re interested in.
+
+With AdBack, you can lock the access to your content to your adblocker users and display personalized messages depending on the different user profiles you’ll identify with our tool. Ask them to deactivate their adblocker or propose:
+- To answer surveys
+- Paywalls
+- Newsletter subscriptions
+- To watch a video ad to access the content
+
+You can personalize your messages with colors, logos, different templates and themes.
+
+Target the profile of your adblocker users depending on:
+- Geolocation
+- Browser language
+- Connection types
+- Operating system
+- Browsers
+- Desktop/mobile
+- Screen resolution
+- Page views
+- Bounce rate
+- Duration
+- Recurrence
+- Referral traffic
