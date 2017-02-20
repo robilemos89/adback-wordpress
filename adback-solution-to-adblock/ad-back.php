@@ -13,10 +13,10 @@
  * @package           Ad_Back
  *
  * @wordpress-plugin
- * Plugin Name:       AdBack
+ * Plugin Name:       AdBack solution to adblock
  * Plugin URI:        adback.co
- * Description:       AdBack, solution d’analyse statistiques des utilisateurs de bloqueurs de publicité (AdBlock, AdBlock Plus, uBlock, Ghostery...) et de réponse personnalisée. Comprenez ceux qui bloquent les publicité pour estimer les revenus potentiels publicitaires perdus et afficher une réponse personnalisée de désactivation avec un tutoriel adapté tout en bloquant l'accès à votre contenu.
- * Version:           1.0.0
+ * Description:       With AdBack, access analytics about adblocker users, address them personalized messages, propose alternative solutions to advertising (video, survey).
+ * Version:           1.1.0
  * Author:            Antoine Ferrier
  * Author URI:        https://www.adback.co
  * License:           GPL-2.0+
