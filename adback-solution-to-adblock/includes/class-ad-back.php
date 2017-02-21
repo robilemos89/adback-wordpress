@@ -173,7 +173,6 @@ class Ad_Back
     {
         $plugin_public = new Ad_Back_Public( $this->getPluginName(), $this->getVersion() );
 
-        $this->loader->addAction( 'wp_enqueue_scripts', $plugin_public, 'enqueueStyles' );
         $this->loader->addAction( 'wp_enqueue_scripts', $plugin_public, 'enqueueScripts' );
     }
 
