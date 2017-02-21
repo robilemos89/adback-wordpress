@@ -1,6 +1,6 @@
 # adback-wordpress
 ## Compilation
-- Zip files in `/ab_lib` to `ab_lib.zip`
+- Zip files in `/adback-solution-to-adblock` to `adback-solution-to-adblock.zip`
 - Done.
 
 ## Translation
