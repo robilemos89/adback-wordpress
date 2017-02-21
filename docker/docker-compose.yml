@@ -15,7 +15,7 @@ wordpress:
    - adback_db
   image: wordpress:latest
   volumes:
-   - ./../ab_lib:/var/www/html/wp-content/plugins/adback-solution-to-adblock
+   - ./../adback-solution-to-adblock:/var/www/html/wp-content/plugins/adback-solution-to-adblock
   ports:
    - "80:80"
   environment:
