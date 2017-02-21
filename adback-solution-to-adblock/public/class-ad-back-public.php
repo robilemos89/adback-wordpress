@@ -61,7 +61,7 @@ class Ad_Back_Public extends Ad_Back_Generic
      *
      * @since    1.0.0
      */
-    public function enqueue_scripts()
+    public function enqueueScripts()
     {
         /**
          * This function is provided for demonstration purposes only.

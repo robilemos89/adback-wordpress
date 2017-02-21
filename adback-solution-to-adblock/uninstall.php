@@ -26,7 +26,7 @@
  */
 
 // If uninstall not called from WordPress, then exit.
-if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) {
+if (!defined('WP_UNINSTALL_PLUGIN')) {
 	exit;
 }
 
@@ -34,7 +34,7 @@ global $wpdb;
 
 $table_name = $wpdb->prefix . 'adback_account';
 $sql = "DROP TABLE IF EXISTS ".$table_name;
-var_dump($wpdb->query($sql));
+$wpdb->query($sql);
 
 $table_name = $wpdb->prefix . 'adback_token';
 $sql = "DROP TABLE IF EXISTS ".$table_name;
