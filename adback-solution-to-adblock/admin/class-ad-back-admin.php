@@ -196,7 +196,15 @@ class Ad_Back_Admin extends Ad_Back_Generic
             $messages = $this->getMessages();
             include_once( 'partials/ad-back-admin-settings-display.php' );
         } else {
-            include_once( 'partials/ad-back-admin-login-display.php');
+            if(isset($_GET['access_token'])) {
+                $this->saveToken([
+                    'access_token' => $_GET['access_token'],
+                    'refresh_token' => '',
+                    ]);
+                include_once( 'partials/ad-back-admin-redirect.php');
+            } else {
+                include_once( 'partials/ad-back-admin-login-display.php');
+            }
         }
     }
 
