@@ -90,6 +90,10 @@ class Ad_Back_Generic
         if ($myinfo->myinfo == "" || strtotime($myinfo->update_time) < (time() - 86400)) {
             $mysite = $this->askScripts();
 
+            if ($mysite === null) {
+                return null;
+            }
+
             $wpdb->update(
                 $table_name,
                 array(
@@ -260,6 +264,10 @@ class Ad_Back_Generic
 
     public function askDomain()
     {
+        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+            return null;
+        }
+
         $jsonDomain = $this->getContents("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
         $result = json_decode($jsonDomain, true);
         if (isset($result['analytics_domain'])) {
@@ -269,6 +277,10 @@ class Ad_Back_Generic
 
     public function askScripts()
     {
+        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+            return null;
+        }
+
         $jsonScripts = $this->getContents("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
         $result = json_decode($jsonScripts, true);
 
