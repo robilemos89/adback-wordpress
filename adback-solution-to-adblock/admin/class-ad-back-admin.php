@@ -321,7 +321,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
                 "message" => "",
                 "header_text" => "",
                 "close_text" => "",
-                "display" => "0",
+                "display" => 0,
                 "update_time" => current_time('mysql', 1)
             ),
             array("id"=>1)
