@@ -264,7 +264,9 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
     public function saveMessageCallback()
     {
-        $this->saveMessage($_POST['display'], $_POST['message'], $_POST['header-text'], $_POST['close-text']);
+        update_option('adback_admin_hide_message', $_POST['hide-admin'] == 'true' ? '1' : '0');
+
+        $this->saveMessage($_POST['display']);
 
         echo "{\"done\":true}";
         wp_die(); // this is required to terminate immediately and return a proper response
@@ -319,7 +321,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
                 "message" => "",
                 "header_text" => "",
                 "close_text" => "",
-                "display" => "0",
+                "display" => 0,
                 "update_time" => current_time('mysql', 1)
             ),
             array("id"=>1)

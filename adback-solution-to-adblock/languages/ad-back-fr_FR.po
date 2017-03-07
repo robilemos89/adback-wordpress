@@ -239,3 +239,7 @@ msgstr "Vérification des identifiants…"
 #: class-ad-back-admin
 msgid "It's time to analyze your adblock users, activate your adback account !"
 msgstr "Pour analyser vos utilisateurs adblock, activez votre compte adback !"
+
+#: ad-back-admin-settings-display.html:35
+msgid "No message for logged in Wordpress admin"
+msgstr "Ne pas afficher le message pour l'admin Wordpress connecté"

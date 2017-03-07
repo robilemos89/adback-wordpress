@@ -216,3 +216,7 @@ msgstr ""
 #: class-ad-back-admin
 msgid "It's time to analyze your adblock users, activate your adback account !"
 msgstr ""
+
+#: ad-back-admin-settings-display.html:35
+msgid "No message for logged in Wordpress admin"
+msgstr ""
