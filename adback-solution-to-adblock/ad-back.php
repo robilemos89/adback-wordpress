@@ -27,7 +27,14 @@
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
-	die;
+    die;
+}
+
+add_filter('plugin_action_links_'.plugin_basename(__FILE__), 'ad_back_action_links' );
+
+function ad_back_action_links( $links ) {
+    $links[] = '<a href="'. esc_url( get_admin_url(null, 'admin.php?page=ab-settings') ) .'">'.__('Settings').'</a>';
+    return $links;
 }
 
 /**
@@ -35,11 +42,11 @@ if ( ! defined( 'WPINC' ) ) {
  * This action is documented in includes/class-ad-back-activator.php
  */
 function activate_ad_back() {
-	if (!current_user_can( 'activate_plugins' ) )
-		return;
+    if (!current_user_can( 'activate_plugins' ) )
+        return;
 
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-activator.php';
-	Ad_Back_Activator::activate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-activator.php';
+    Ad_Back_Activator::activate();
 }
 
 /**
@@ -47,11 +54,11 @@ function activate_ad_back() {
  * This action is documented in includes/class-ad-back-deactivator.php
  */
 function deactivate_ad_back() {
-	if (!current_user_can( 'activate_plugins' ) )
-		return;
+    if (!current_user_can( 'activate_plugins' ) )
+        return;
 
-	require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-deactivator.php';
-	Ad_Back_Deactivator::deactivate();
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-deactivator.php';
+    Ad_Back_Deactivator::deactivate();
 }
 
 
@@ -75,8 +82,8 @@ require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back.php';
  */
 function run_ad_back() {
 
-	$plugin = new Ad_Back();
-	$plugin->run();
+    $plugin = new Ad_Back();
+    $plugin->run();
 
 }
 run_ad_back();
