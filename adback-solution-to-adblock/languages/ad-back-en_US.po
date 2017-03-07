@@ -240,3 +240,7 @@ msgstr ""
 #: ad-back-admin-login-display.html:38
 msgid "Checking credentials..."
 msgstr "Checking credentials..."
+
+#: class-ad-back-admin
+msgid "Warning: Your AdBack plugin is not enabled while you have not configured your AdBack account."
+msgstr "Warning: Your AdBack plugin is not enabled while you have not configured your AdBack account."
