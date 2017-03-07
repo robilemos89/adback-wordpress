@@ -264,6 +264,8 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
     public function saveMessageCallback()
     {
+        update_option('adback_admin_show_message', $_POST['display-admin'] == 'true' ? true : false, true);
+
         $this->saveMessage($_POST['display'], $_POST['message'], $_POST['header-text'], $_POST['close-text']);
 
         echo "{\"done\":true}";

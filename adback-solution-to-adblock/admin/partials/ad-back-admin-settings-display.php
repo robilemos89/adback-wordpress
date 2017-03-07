@@ -31,6 +31,19 @@
 					</fieldset>
 				</td>
 			</tr>
+            <tr>
+                <th scope="row"><?php esc_html_e('No message for logged in Wordpress admin', 'ad-back'); ?></th>
+                <td>
+                    <fieldset>
+                        <legend class="screen-reader-text">
+                            <span><?php esc_html_e('No message for logged in Wordpress admin', 'ad-back'); ?></span>
+                        </legend>
+                        <label for="ab-settings-display-admin">
+                            <input type="checkbox" id="ab-settings-display-admin" value="1" <?php echo (get_option('adback_admin_show_message') ? "checked='checked'" : ""); ?>>
+                        </label>
+                    </fieldset>
+                </td>
+            </tr>
 			<tr>
 				<th scope="row"><?php esc_html_e('Header text', 'ad-back'); ?></th>
 				<td>

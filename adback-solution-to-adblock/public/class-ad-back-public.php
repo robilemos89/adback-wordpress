@@ -84,7 +84,13 @@ class Ad_Back_Public extends Ad_Back_Generic
             }
 
             if (!empty($me['message_domain']) && !empty($me['message_script'])) {
-                if ($mess->display && !current_user_can('manage_options')) {
+                if (
+                    $mess->display
+                    && (
+                        !current_user_can('manage_options')
+                        || (current_user_can('manage_options') && get_option('adback_admin_show_message'))
+                    )
+                ) {
                     echo "<script>(function (a,d){var s,t,u;s=d.createElement('script');if(d.referrer){u=d.createElement('a');u.href=d.referrer;a=a+u.hostname;}s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://".$me['message_domain']."/".$me['message_script'].".js?ref=', document);</script>";
                 }
             }

@@ -74,8 +74,9 @@
 			'header-text' :  $("#ab-settings-header-text").val(),
 			'close-text' : $("#ab-settings-close-text").val(),
 			'message' : $("#ab-settings-message").val(),
-			'display' : $("#ab-settings-display").is(":checked")
-		}
+			'display' : $("#ab-settings-display").is(":checked"),
+            'display-admin' : $("#ab-settings-display-admin").is(":checked")
+		};
 
 		$.post(ajaxurl, data, function(response) {
 			var obj = JSON.parse(response);
