@@ -212,3 +212,7 @@ msgstr ""
 #: ad-back-admin-login-display.html:38
 msgid "Checking credentials..."
 msgstr ""
+
+#: class-ad-back-admin
+msgid "It's time to analyze your adblock users, activate your adback account !"
+msgstr ""

@@ -237,5 +237,5 @@ msgid "Checking credentials..."
 msgstr "Vérification des identifiants…"
 
 #: class-ad-back-admin
-msgid "Warning: Your AdBack plugin is not enabled while you have not configured your AdBack account."
-msgstr "Attention: Le plugin AdBack n'est pas actif tant que vous n'avez pas indiqué votre compte AdBack."
+msgid "It's time to analyze your adblock users, activate your adback account !"
+msgstr "Pour analyser vos utilisateurs adblock, activez votre compte adback !"
