@@ -38,8 +38,8 @@
                         <legend class="screen-reader-text">
                             <span><?php esc_html_e('No message for logged in Wordpress admin', 'ad-back'); ?></span>
                         </legend>
-                        <label for="ab-settings-display-admin">
-                            <input type="checkbox" id="ab-settings-display-admin" value="1" <?php echo (get_option('adback_admin_show_message') ? "checked='checked'" : ""); ?>>
+                        <label for="ab-settings-hide-admin">
+                            <input type="checkbox" id="ab-settings-hide-admin" value="1" <?php echo (get_option('adback_admin_hide_message', true) ? "checked='checked'" : ""); ?>>
                         </label>
                     </fieldset>
                 </td>
