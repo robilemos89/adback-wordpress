@@ -30,7 +30,7 @@
             <span><?php esc_html_e('No message for logged in Wordpress admin', 'ad-back'); ?></span>
         </legend>
         <label for="ab-settings-hide-admin">
-            <input type="checkbox" id="ab-settings-hide-admin" value="1" <?php echo (get_option('adback_admin_hide_message', true) ? "checked='checked'" : ""); ?>> <?php esc_html_e('No message for logged in Wordpress admin', 'ad-back'); ?>
+            <input type="checkbox" id="ab-settings-hide-admin" value="0" <?php echo (get_option('adback_admin_hide_message', '1') === '1' ? "checked='checked'" : ""); ?>> <?php esc_html_e('No message for logged in Wordpress admin', 'ad-back'); ?>
         </label>
     </fieldset>
 	<p class="submit">
@@ -40,7 +40,7 @@
 <div id="ab-go-settings">
     <div class="ab-login-box ab-discover">
         <h2><?php esc_html_e('Activate and customize your message!', 'ad-back'); ?></h2>
-        <center><a href="https://www.adback.co" target="_blank"><img width="710px" src="<?php echo plugin_dir_url( __FILE__ ); ?>images/head.png"></img></a></center>
+        <center><a href="https://www.adback.co" target="_blank"><img style="max-width: 710px;width: 100%;" src="<?php echo plugin_dir_url( __FILE__ ); ?>images/head.png"></img></a></center>
         <center><p>
                 <?php _e('You certainly started your analysis about your adblocker users.', 'ad-back'); ?><br/>
                 <?php _e('Now it\'s time to custom your message <br/>and win back between <strong>28% and 60% of your ad revenues</strong>.', 'ad-back'); ?></br>

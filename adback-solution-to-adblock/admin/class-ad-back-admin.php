@@ -264,7 +264,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
     public function saveMessageCallback()
     {
-        update_option('adback_admin_hide_message', $_POST['hide-admin'] == 'true' ? true : false, true);
+        update_option('adback_admin_hide_message', $_POST['hide-admin'] == 'true' ? '1' : '0');
 
         $this->saveMessage($_POST['display'], $_POST['message'], $_POST['header-text'], $_POST['close-text']);
 
