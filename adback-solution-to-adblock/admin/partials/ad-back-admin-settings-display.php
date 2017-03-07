@@ -21,7 +21,7 @@
             <span><?php esc_html_e('Activate your message', 'ad-back'); ?></span>
         </legend>
         <label for="ab-settings-display">
-            <input type="checkbox" id="ab-settings-display" value="1" <?php echo ($messages['display'] ? "checked='checked'" : ""); ?>> <?php esc_html_e('Activate your message', 'ad-back'); ?>
+            <input type="checkbox" id="ab-settings-display" value="1" <?php echo ($messages['display'] == '1' ? "checked='checked'" : ""); ?>> <?php esc_html_e('Activate your message', 'ad-back'); ?>
         </label>
     </fieldset>
 <br/>

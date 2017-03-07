@@ -266,7 +266,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
     {
         update_option('adback_admin_hide_message', $_POST['hide-admin'] == 'true' ? '1' : '0');
 
-        $this->saveMessage($_POST['display'], $_POST['message'], $_POST['header-text'], $_POST['close-text']);
+        $this->saveMessage($_POST['display']);
 
         echo "{\"done\":true}";
         wp_die(); // this is required to terminate immediately and return a proper response
