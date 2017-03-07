@@ -3,8 +3,8 @@ Contributors: getadback
 Donate link: https://www.adback.co
 Tags: adblock, analytics, message, detection, detect, block, ad block, ads, advertising, adblock killer, anti adblock, adblocker, popup, notification, message, custom, personalize, analyze, stats, adblocker, dashboard widget, block adblock, ghostery, ublock, adblock plus, ad free
 Requires at least: 3.0.1
-Tested up to: 3.4
-Stable tag: 4.3
+Tested up to: 4.8
+Stable tag: 1.1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -21,32 +21,40 @@ AdBack is for every content publisher who wants to understand and monetize its a
 AdBack proposes a very easy ready-to-use solution for all the WordPress website owners. It allows you to use AdBack’s solution directly from the WordPress interface where the main data are displayed. You can also access at every moment all the detailed statistics on the AdBack dashboard.
 
 Find loads of statistics about the adblockers with AdBack:
-- The number of activations/deactivations
-- The number of adblockers users allowing the acceptable ads of Eyeo
-- The type of adblocker used
-- The estimated lost revenue
-- The number of blocked analytics (Google Analytics, AT Internet)
+
+* The number of activations/deactivations
+* The number of adblockers users allowing the acceptable ads of Eyeo
+* The type of adblocker used
+* The estimated lost revenue
+* The number of blocked analytics (Google Analytics, AT Internet)
 
 Create automatic personalized reports with all the variables you’re interested in.
 
 With AdBack, you can lock the access to your content to your adblocker users and display personalized messages depending on the different user profiles you’ll identify with our tool. Ask them to deactivate their adblocker or propose:
-- To answer surveys
-- Paywalls
-- Newsletter subscriptions
-- To watch a video ad to access the content
+
+* To answer surveys
+* Paywalls
+* Newsletter subscriptions
+* To watch a video ad to access the content
 
 You can personalize your messages with colors, logos, different templates and themes.
 
 Target the profile of your adblocker users depending on:
-- Geolocation
-- Browser language
-- Connection types
-- Operating system
-- Browsers
-- Desktop/mobile
-- Screen resolution
-- Page views
-- Bounce rate
-- Duration
-- Recurrence
-- Referral traffic
+
+* Geolocation
+* Browser language
+* Connection types
+* Operating system
+* Browsers
+* Desktop/mobile
+* Screen resolution
+* Page views
+* Bounce rate
+* Duration
+* Recurrence
+* Referral traffic
+
+== Changelog ==
+
+= 1.1.3 =
+* First logged version
