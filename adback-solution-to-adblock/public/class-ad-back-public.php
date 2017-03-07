@@ -85,7 +85,7 @@ class Ad_Back_Public extends Ad_Back_Generic
 
             if (!empty($me['message_domain']) && !empty($me['message_script'])) {
                 if (
-                    $mess->display
+                    $mess->display == '1'
                     && (
                         !current_user_can('manage_options')
                         || (current_user_can('manage_options') && get_option('adback_admin_hide_message', '1') === '0')

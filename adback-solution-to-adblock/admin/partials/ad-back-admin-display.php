@@ -41,9 +41,9 @@
 </div>
 <hr>
 
-<div class="ab-discover">
+<center>
 	<a href="https://www.adback.co" target="_blank" class="button button-primary button-ab"><?php esc_html_e('Discover', 'ad-back'); ?></a>
-</div>
+</center>
 
 <script type="text/javascript">
 	window.onload = function() {
