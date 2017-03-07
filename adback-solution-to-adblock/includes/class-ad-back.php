@@ -160,6 +160,9 @@ class Ad_Back
         $this->loader->addAction( 'wp_ajax_registerWithAbBackAccount', $plugin_admin, 'registerWithAbBackAccountCallback');
         $this->loader->addAction( 'wp_ajax_ab_logout', $plugin_admin, 'logoutCallback');
         $this->loader->addAction( 'wp_ajax_saveMessage', $plugin_admin, 'saveMessageCallback');
+
+        // Add admin notice
+        $this->loader->addAction( 'admin_notices', $plugin_admin, 'addConfigNotice' );
     }
 
     /**

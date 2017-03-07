@@ -328,4 +328,13 @@ class Ad_Back_Admin extends Ad_Back_Generic
         echo "{\"done\":true}";
         wp_die(); // this is required to terminate immediately and return a proper response
     }
+
+    public function addConfigNotice()
+    {
+        if (current_user_can('manage_options')) {
+            if (!$this->isConnected()) {
+                echo '<div class="error"><p>'.__("It's time to analyze your adblock users, activate your adback account !", 'ad-back').' <a href="'. esc_url( get_admin_url(null, 'admin.php?page=ab-settings') ) .'">'.__('Settings').'</a></p></div>';
+            }
+        }
+    }
 }
