@@ -54,6 +54,10 @@ Target the profile of your adblocker users depending on:
 * Recurrence
 * Referral traffic
 
+== Installation ==
+
+Download AdBack plugin on your Wordpress website. Enable it, then register for an AdBack account or enter your existing credentials.
+
 == Changelog ==
 
 = 1.1.3 =
