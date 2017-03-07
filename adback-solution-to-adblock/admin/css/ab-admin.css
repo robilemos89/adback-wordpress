@@ -74,6 +74,37 @@
 }
 
 .ab-discover {
+	width:70%;
+	margin:auto;
+	border: 1px solid #e5e5e5;
+	border-radius: 11px;
+	padding: 24px;
+	min-height:255px;
+	background:white;
+	min-height: 420px;
+}
+
+.ab-discover p {
+	font-size: 18px;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+a.button.button-ab {
+	background: #54aff6 !important;
+	margin-top: 30px !important;
+	color: #ffffff !important;
+	margin: 18px 0 34px;
+	height: 50px;
+	border: 1px #54aff6 solid;
+	border-radius: 0;
+	text-align: center;
+	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size: 1.2rem;
+	line-height: 52px;
+	text-shadow: none;
+}
+
+.ab-discover {
 	text-align: center;
 }
 

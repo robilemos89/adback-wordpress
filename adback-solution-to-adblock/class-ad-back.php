@@ -118,21 +118,17 @@ class Ad_Back_Generic
         return stripslashes_deep($wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = 1"));
     }
 
-    public function saveCacheMessage($display, $message, $header_text, $close_text, $link = "")
+    public function saveCacheMessage($display)
     {
         global $wpdb; // this is how you get access to the database
 
         $fields = array(
-            "message" => $message,
-            "header_text" => $header_text,
-            "close_text" => $close_text,
+            "message" => '',
+            "header_text" => '',
+            "close_text" => '',
             "display" => filter_var($display, FILTER_VALIDATE_BOOLEAN),
             "update_time" => current_time('mysql', 1)
         );
-
-        if ($link != "") {
-            $fields['link'] = $link;
-        }
 
         $table_name = $wpdb->prefix . 'adback_message';
         $wpdb->update(
@@ -144,40 +140,17 @@ class Ad_Back_Generic
 
     public function getMessages()
     {
-        $token = $this->getToken();
-        $url = "https://www.adback.co/api/custom-message?access_token=" . $token->access_token;
-
         $message = $this->getCacheMessages();
 
-        $result = $this->getContents($url);
-        $result = json_decode($result, true);
+        $result = array();
         $result['display'] = $message->display;
-
-        $this->saveCacheMessage($message->display, $result['custom_messages'][0]['message'], $result['custom_messages'][0]['header_text'], $result['custom_messages'][0]['close_text'], $result['custom_messages'][0]['links']['_self']);
 
         return stripslashes_deep($result);
     }
 
-    public function saveMessage($display, $message, $header_text, $close_text)
+    public function saveMessage($display)
     {
-        $mess = $this->getCacheMessages();
-
-        $token = $this->getToken();
-        $url = $mess->link . "?access_token=" . $token->access_token;
-
-        $fields = array(
-            "message" => $message,
-            "header_text" => $header_text,
-            "close_text" => $close_text,
-        );
-
-        $headers = array(
-            "Content-Type: application/json"
-        );
-
-        $this->postContents($url, json_encode($fields), $headers);
-
-        $this->saveCacheMessage($display, $message, $header_text, $close_text);
+        $this->saveCacheMessage($display);
 
         return true;
     }

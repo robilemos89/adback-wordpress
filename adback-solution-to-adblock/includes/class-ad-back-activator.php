@@ -113,7 +113,7 @@ class Ad_Back_Activator
             `header_text` varchar(1024) DEFAULT '' NOT NULL,
             `message` text DEFAULT '' NOT NULL,
             `close_text` varchar(1024) DEFAULT '' NOT NULL,
-            `display` BIT NOT NULL,
+            `display` TINYINT NOT NULL,
             `update_time` DATETIME NULL,
             UNIQUE KEY id (id)
         ) ".$charset_collate.";";
@@ -128,7 +128,7 @@ class Ad_Back_Activator
                 "header_text" => "",
                 "message" => "",
                 "close_text" => "",
-                "display" => 0,
+                "display" => '0',
                 "update_time" => ""
             )
         );
