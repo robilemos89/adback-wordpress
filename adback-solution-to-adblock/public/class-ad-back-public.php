@@ -78,13 +78,13 @@ class Ad_Back_Public extends Ad_Back_Generic
         $me = $this->getMyInfo();
         $mess = $this->getCacheMessages();
 
-        if(is_array($me)) {
-            if(!empty($me['analytics_domain']) && !empty($me['analytics_script'])) {
+        if (is_array($me)) {
+            if (!empty($me['analytics_domain']) && !empty($me['analytics_script'])) {
                 echo "<script>(function (a,d){var s,t;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://".$me['analytics_domain']."/".$me['analytics_script'].".js', document);</script>";
             }
 
-            if(!empty($me['message_domain']) && !empty($me['message_script'])) {
-                if($mess->display) {
+            if (!empty($me['message_domain']) && !empty($me['message_script'])) {
+                if ($mess->display && !current_user_can('manage_options')) {
                     echo "<script>(function (a,d){var s,t,u;s=d.createElement('script');if(d.referrer){u=d.createElement('a');u.href=d.referrer;a=a+u.hostname;}s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://".$me['message_domain']."/".$me['message_script'].".js?ref=', document);</script>";
                 }
             }
