@@ -54,6 +54,15 @@ Target the profile of your adblocker users depending on:
 * Recurrence
 * Referral traffic
 
+== Screenshots ==
+
+1. Register with AdBack. Activate your account if you already have one or create an account.
+2. Submit your website to activate the plugin.
+3. Find statistics about your adblocker users directly in your WordPress interface. Here, you can discover the percentage of adblocker users on your website and the number of blocked page views compared to the total number of page views.
+4. Discover on what browser your adblocker users navigate.
+5. Activate and customize the message to display to your adblocker users. Note that you can access more customization options on your AdBack dashboard (color, logo, template, theme, etc.)
+6. Access your dashboard with all the detailed statistics on https://www.adback.co/
+
 == Installation ==
 
 Download AdBack plugin on your Wordpress website. Enable it, then register for an AdBack account or enter your existing credentials.
