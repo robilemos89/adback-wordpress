@@ -60,5 +60,11 @@ Download AdBack plugin on your Wordpress website. Enable it, then register for a
 
 == Changelog ==
 
+= 1.1.4 =
+* Add install tab in WP.org
+* Add option to not show the custom when user is logged
+* Add notice if not connected
+* Add settings link
+
 = 1.1.3 =
 * First logged version
