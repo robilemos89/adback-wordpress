@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 1.8.12\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
 #: ad-back-admin-login-display.html:20
@@ -22,15 +22,19 @@ msgstr "Activate my Envato license"
 
 #: ad-back-admin-login-display.html:22
 msgid ""
-"If you downloaded the plugin from Envato, enter your key below and click on Register"
+"If you downloaded the plugin from Envato, enter your key below and click on "
+"Register"
 msgstr ""
-"If you downloaded the plugin from Envato, enter your key below and click on Register"
+"If you downloaded the plugin from Envato, enter your key below and click on "
+"Register"
 
 #: ad-back-admin-login-display.html:38
 msgid ""
-"If you already are a registered user of AdBack.co, enter your login and password below:"
+"If you already are a registered user of AdBack.co, enter your login and "
+"password below:"
 msgstr ""
-"If you already are a registered user of AdBack.co, enter your login and password below:"
+"If you already are a registered user of AdBack.co, enter your login and "
+"password below:"
 
 #: ad-back-admin-login-display.html:23
 msgid "Envato License Key:"
@@ -237,8 +241,34 @@ msgstr "Checking credentials..."
 
 #: class-ad-back-admin
 msgid "It's time to analyze your adblock users, activate your adback account !"
-msgstr "It's time to analyze your adblocker users, activate your AdBack account!"
+msgstr ""
+"It's time to analyze your adblocker users, activate your AdBack account!"
 
 #: ad-back-admin-settings-display.html:35
 msgid "No message for logged in Wordpress admin"
 msgstr "No message for logged in WordPress admin"
+
+#: ad-back-admin-settings-display.html:35
+msgid "Activate your message"
+msgstr "Activate your message"
+
+#: ad-back-admin-settings-display.html:35
+msgid "AdBack Settings"
+msgstr "AdBack Settings"
+
+#: ad-back-admin-settings-display.html:35
+msgid "Activate and customize your message!"
+msgstr "Activate and customize your message!"
+
+#: ad-back-admin-settings-display.html:35
+msgid "Customize my message on AdBack.co"
+msgstr "Customize my message on AdBack.co"
+
+#: ad-back-admin-settings-display.html:35
+msgid "Customize message description"
+msgstr ""
+"You certainly started your analysis about your adblocker users.<br/>Now it's "
+"time to custom your message <br/>and win back between <strong>28% and 60% of "
+"your ad revenues</strong>.</br>Set up your message and personalize the "
+"color, select a template, a theme, add your logo <br/>and choose which "
+"alternative solutions you want to propose to your adblocker users."
