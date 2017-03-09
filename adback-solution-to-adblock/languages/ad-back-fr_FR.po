@@ -19,138 +19,136 @@ msgstr "S'authentifier avec Envato"
 msgid "Activate my Envato license"
 msgstr "Activer ma licence Envato"
 
-#: ad-back-admin-login-display.html:22
-msgid "If you download the plugin from Envato, enter your key below and click on Register"
+#: ad-back-admin-login-display.html:22 [[modified]]
+msgid "If you downloaded the plugin from Envato, enter your key below and click on Register"
 msgstr ""
 "Si vous avez téléchargé le plugin AdBack depuis la plateforme Envato, entrez vos identifiants ci-"
 "dessous :"
 
-#: ad-back-admin-login-display.html:38
+#: ad-back-admin-login-display.html:38 [[modified]]
 msgid ""
-"If you are a subscriber of AdBack.co, The usage of the plugins is free, enter your login and password "
-"below :"
+"If you already are a registered user of AdBack.co, enter your login and password below:"
 msgstr ""
-"Si vous avez un compte abonné AdBack.co, l’utilisation du plugin AdBack est gratuite, entrez vos "
-"identifiants ci-dessous :"
+"Si vous avez déjà un compte abonné AdBack.co, entrez vos identifiants ci-dessous :"
 
-#: ad-back-admin-login-display.html:23
-msgid "Envato License Key :"
-msgstr "Envato clé de licence"
+#: ad-back-admin-login-display.html:23 [[modified]]
+msgid "Envato License Key:"
+msgstr "Clé de licence Envato"
 
-#: ad-back-admin-login-display.html:31
-msgid "Register with AdBack Account"
-msgstr "S’authentifier avec AdBack"
+#: ad-back-admin-login-display.html:31 [[modified]]
+msgid "Register with AdBack"
+msgstr "S'authentifier avec AdBack"
 
 #: ad-back-admin-login-display.html:43
-msgid "Activate my AdBack account"
+msgid "Activate my AdBack"
 msgstr "Activer mon compte AdBack"
 
 #: ad-back-admin-login-display.html:35
 msgid "Create my AdBack account"
 msgstr "Créer mon compte AdBack"
 
-#: ad-back-admin-login-display.html:33
-msgid "Email :"
+#: ad-back-admin-login-display.html:33 [[modified]]
+msgid "Email:"
 msgstr "Email :"
 
-#: ad-back-admin-login-display.html:33
-msgid "Username :"
+#: ad-back-admin-login-display.html:33 [[modified]]
+msgid "Username:"
 msgstr "Nom d'utilisateur :"
 
-#: ad-back-admin-login-display.html:35
-msgid "Password :"
+#: ad-back-admin-login-display.html:35 [[modified]]
+msgid "Password:"
 msgstr "Mot de passe :"
 
-#: ad-back-admin-login-display.html:33
-msgid "Domain :"
+#: ad-back-admin-login-display.html:33 [[modified]]
+msgid "Domain:"
 msgstr "Domaine :"
 
-#: ad-back-admin-login-display.html:33
-msgid "Slug :"
+#: ad-back-admin-login-display.html:33 [[modified]]
+msgid "Slug:"
 msgstr "Slug :"
 
 #: ad-back-admin-login-display.html:33
 msgid "Log out"
 msgstr "Déconnexion"
 
-#: ad-back-admin-login-display.html:33
-msgid "Select the slug for your website :"
-msgstr "Sélectionnez le slug pour votre site web : "
+#: ad-back-admin-login-display.html:33 [[modified]]
+msgid "Select the slug for your website:"
+msgstr "Sélectionnez le slug pour votre site web :"
 
 #: ad-back-admin-login-display.html:26 ad-back-admin-login-display.html:38
 msgid "Register / Login"
 msgstr "S'enregistrer"
 
-#: ad-back-admin-login-display.html:33
-msgid "The key, email and domain fields should be fill"
+#: ad-back-admin-login-display.html:33 [[modified]]
+msgid "The key, email and domain fields should be filled"
 msgstr "La clé, l'email et le domaine doivent être remplis"
 
-#: ad-back-admin-login-display.html:33
-msgid "The email and password fields should be fill"
+#: ad-back-admin-login-display.html:33 [[modified]]
+msgid "The email and password fields should be filled"
 msgstr "L'email et le mot de passe doivent être remplis"
 
-#: ad-back-admin-login-display.html:33
-msgid "There is an error in the registration : {0}"
+#: ad-back-admin-login-display.html:33 [[modified]]
+msgid "There is an error in the registration: {0}"
 msgstr "Il y a une erreur dans l'enregistrement : {0}"
 
-#: class-ad-back-admin:102
-msgid "Bounce"
-msgstr "Taux de rebond des utilisateurs d’AdBlock"
+#: class-ad-back-admin:102 [[modified]]
+msgid "Bounce rate of adblocker users"
+msgstr "Taux de rebond des utilisateurs d'adblocker"
 
-#: class-ad-back-admin:103
-msgid "Ad Blocker"
-msgstr "Désactivation / Activation d’un bloqueur de publicité"
+#: class-ad-back-admin:103 [[modified]]
+msgid "Adblocker activation / deactivation"
+msgstr "Désactivation / Activation d'un bloqueur de publicité"
 
-#: class-ad-back-admin:104
+#: class-ad-back-admin:104 [[modified]]
 msgid "Ad blocker percent"
-msgstr "Pages vues bloquées vs taux d’utilisateurs d’AdBlock"
+msgstr "Pages vues bloquées vs taux d'utilisateurs d'adblocker"
 
-#: class-ad-back-admin:105
-msgid "Blocked page view"
+#: class-ad-back-admin:105 [[modified]]
+msgid "Blocked page views"
 msgstr "Taux de pages vues avec un bloqueur de publicité"
 
-#: class-ad-back-admin
+#: class-ad-back-admin [[modified]]
 msgid "Blocked page view and percent"
-msgstr "Pages vues bloquées vs taux d’utilisateurs d’AdBlock"
+msgstr "Pages vues bloquées vs taux d'utilisateurs d'adblocker"
 
-#: class-ad-back-admin
+#: class-ad-back-admin [[modified]]
 msgid "New - former adblock users"
-msgstr "Anciens - Nouveaux utilisateurs d’AdBlock"
+msgstr "Activation - Désactivation d'adblocker"
 
-#: class-ad-back-admin:106
+#: class-ad-back-admin:106 [[modified]]
 msgid "Browser"
-msgstr "Navigateurs des utilisateurs d’AdBlock"
+msgstr "Navigateurs des utilisateurs d'adblocker"
 
-#: class-ad-back-admin:107
+#: class-ad-back-admin:107 [[modified]]
 msgid "OS"
-msgstr "Système d’exploitation des utilisateurs avec un bloqueur de publicité"
+msgstr "Systèmes d’exploitation des utilisateurs d'adblocker"
 
-#: class-ad-back-admin:108
+#: class-ad-back-admin:108 [[modified]]
 msgid "Percent bounce adblock users"
-msgstr "Taux de rebond des utilisateurs avec un bloqueur de publicité"
+msgstr "Taux de rebond des utilisateurs d'adblocker"
 
-#: class-ad-back-admin:108
+#: class-ad-back-admin:108 [[modified]]
 msgid "Percent bounce all users"
-msgstr "Taux de rebond de tous les utilisateurs"
+msgstr "Taux de rebond global"
 
-#: class-ad-back-admin:108
+#: class-ad-back-admin:108 [[modified]]
 msgid "Users having ad blocker"
 msgstr "Utilisateurs ayant activé un bloqueur de publicité"
 
-#: class-ad-back-admin:108
+#: class-ad-back-admin:108 [[modified]]
 msgid "Percent page view"
-msgstr "% de pages vues sans AdBlock"
+msgstr "% de pages vues sans adblocker"
 
 msgid "Percent page view with AdBlock"
-msgstr "% de pages vues avec un Adblock"
+msgstr "% de pages vues avec un adblocker"
 
-#: class-ad-back-admin:108
+#: class-ad-back-admin:108 [[modified]]
 msgid "Users who have disabled an ad blocker"
 msgstr "Utilisateurs ayant désactivé un bloqueur de publicité"
 
-#: class-ad-back-admin:108
+#: class-ad-back-admin:108 [[modified]]
 msgid "Percent adblock users"
-msgstr "% d’utilisateurs avec un Adblock"
+msgstr "% d'utilisateurs d’adblocker"
 
 #: class-ad-back-admin:109
 msgid "Oops..."
@@ -160,15 +158,15 @@ msgstr "Oops..."
 msgid "Invalid email or password"
 msgstr "Email ou mot de passe non valide"
 
-#: class-ad-back-admin
+#: class-ad-back-admin [[modified]]
 msgid "All the fields should be fill"
 msgstr "Tous les champs doivent être remplis"
 
-#: ad-back-admin-display.html:17
+#: ad-back-admin-display.html:17 [[modified]]
 msgid "AdBack : The stats of your AdBlock audience"
-msgstr "AdBack : les statistiques de votre audience Adblock"
+msgstr "AdBack : les statistiques de votre audience adblockée"
 
-#: ad-back-admin-settings.html
+#: ad-back-admin-settings.html [[modified]]
 msgid "Show warning message for user with ad blocker"
 msgstr "Afficher le message d’alerte aux utilisateurs avec bloqueur de publicité"
 
@@ -180,7 +178,7 @@ msgstr "Texte d'en-tête"
 msgid "Text message"
 msgstr "Texte du message"
 
-#: ad-back-admin-settings.html
+#: ad-back-admin-settings.html [[modified]]
 msgid "Text close button"
 msgstr "Texte du bouton fermer"
 
@@ -204,42 +202,42 @@ msgstr "jours"
 msgid "day"
 msgstr "jour"
 
-#: ad-back-admin-settings.html
+#: ad-back-admin-settings.html [[modified]]
 msgid "Loading ..."
-msgstr "Chargement ..."
+msgstr "Chargement..."
 
 #: ad-back-admin-settings.html
 msgid "No Data"
 msgstr "Aucune donnée"
 
-#: class-ad-back-admin
+#: class-ad-back-admin [[modified]]
 msgid "Discover"
 msgstr "Découvrez bien plus de statistiques sur AdBack.co"
 
-#: class-ad-back-admin
+#: class-ad-back-admin [[modified]]
 msgid "Blocked page view and percent - Sub"
-msgstr "Volume de pages vues bloquées - non bloquées comparé au taux d’utilisateurs d’AdBlock"
+msgstr "Volume de pages vues bloquées - non bloquées comparé au taux d’utilisateurs d’adblocker"
 
-#: class-ad-back-admin
+#: class-ad-back-admin [[modified]]
 msgid "New - former adblock users - Sub"
-msgstr "Utilisateur ayant désactivé ou réactivé son bloqueur de publicité "
+msgstr "Utilisateur ayant désactivé ou réactivé son bloqueur de publicité"
 
-#: ad-back-admin-login-display.html:38
+#: ad-back-admin-login-display.html:38 [[modified]]
 msgid ""
 "If you are a subscriber of AdBack.co, The usage of the plugins is free, click below to identify "
 "yourself:"
 msgstr ""
-"Si vous avez un compte abonné AdBack.co, l’utilisation du plugin AdBack est gratuite, cliquez pour vous "
+"Si vous avez déjà un compte abonné AdBack.co, cliquez ci-dessous pour vous"
 "identifier :"
 
 #: ad-back-admin-login-display.html:38
 msgid "Checking credentials..."
 msgstr "Vérification des identifiants…"
 
-#: class-ad-back-admin
+#: class-ad-back-admin [[modified]]
 msgid "It's time to analyze your adblock users, activate your adback account !"
-msgstr "Pour analyser vos utilisateurs adblock, activez votre compte adback !"
+msgstr "Pour analyser vos utilisateurs d’adblocker, activez votre compte AdBack !"
 
-#: ad-back-admin-settings-display.html:35
+#: ad-back-admin-settings-display.html:35 [[modified]]
 msgid "No message for logged in Wordpress admin"
-msgstr "Ne pas afficher le message pour l'admin Wordpress connecté"
+msgstr "Ne pas afficher le message pour l'admin WordPress connecté"

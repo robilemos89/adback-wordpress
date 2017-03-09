@@ -7,23 +7,23 @@ msgid "Activate my Envato license"
 msgstr ""
 
 #: ad-back-admin-login-display.html:22
-msgid "If you download the plugin from Envato, enter your key below and click on Register"
+msgid "If you downloaded the plugin from Envato, enter your key below and click on Register"
 msgstr ""
 
 #: ad-back-admin-login-display.html:38
-msgid "If you are a subscriber of AdBack.co, The usage of the plugins is free, enter your login and password below :"
+msgid "If you already are a registered user of AdBack.co, enter your login and password below:"
 msgstr ""
 
 #: ad-back-admin-login-display.html:23
-msgid "Envato License Key :"
+msgid "Envato License Key:"
 msgstr ""
 
 #: ad-back-admin-login-display.html:31
-msgid "Register with AdBack Account"
+msgid "Register with AdBack"
 msgstr ""
 
 #: ad-back-admin-login-display.html:43
-msgid "Activate my AdBack account"
+msgid "Activate my AdBack"
 msgstr ""
 
 #: ad-back-admin-login-display.html:35
@@ -31,23 +31,23 @@ msgid "Create my AdBack account"
 msgstr ""
 
 #: ad-back-admin-login-display.html:33
-msgid "Email :"
+msgid "Email:"
 msgstr ""
 
 #: ad-back-admin-login-display.html:33
-msgid "Username :"
+msgid "Username:"
 msgstr ""
 
 #: ad-back-admin-login-display.html:35
-msgid "Password :"
+msgid "Password:"
 msgstr ""
 
 #: ad-back-admin-login-display.html:33
-msgid "Domain :"
+msgid "Domain:"
 msgstr ""
 
 #: ad-back-admin-login-display.html:33
-msgid "Slug :"
+msgid "Slug:"
 msgstr ""
 
 #: ad-back-admin-login-display.html:33
@@ -55,7 +55,7 @@ msgid "Log out"
 msgstr ""
 
 #: ad-back-admin-login-display.html:33
-msgid "Select the slug for your website :"
+msgid "Select the slug for your website:"
 msgstr ""
 
 #: ad-back-admin-login-display.html:26 ad-back-admin-login-display.html:38
@@ -63,23 +63,23 @@ msgid "Register / Login"
 msgstr ""
 
 #: ad-back-admin-login-display.html:33
-msgid "The key, email and domain fields should be fill"
+msgid "The key, email and domain fields should be filled"
 msgstr ""
 
 #: ad-back-admin-login-display.html:33
-msgid "The email and password fields should be fill"
+msgid "The email and password fields should be filled"
 msgstr ""
 
 #: ad-back-admin-login-display.html:33
-msgid "There is an error in the registration : {0}"
+msgid "There is an error in the registration: {0}"
 msgstr ""
 
 #: class-ad-back-admin:102
-msgid "Bounce"
+msgid "Bounce rate of adblocker users"
 msgstr ""
 
 #: class-ad-back-admin:103
-msgid "Ad Blocker"
+msgid "Adblocker activation / deactivation"
 msgstr ""
 
 #: class-ad-back-admin:104
@@ -87,7 +87,7 @@ msgid "Ad blocker percent"
 msgstr ""
 
 #: class-ad-back-admin:105
-msgid "Blocked page view"
+msgid "Blocked page views"
 msgstr ""
 
 #: class-ad-back-admin
@@ -100,7 +100,7 @@ msgstr ""
 
 #: class-ad-back-admin:106
 msgid "Browser"
-msgstr "Adblock users’ browsers"
+msgstr ""
 
 #: class-ad-back-admin:107
 msgid "OS"

@@ -22,54 +22,50 @@ msgstr "Activate my Envato license"
 
 #: ad-back-admin-login-display.html:22
 msgid ""
-"If you download the plugin from Envato, enter your key below and click on "
-"Register"
+"If you downloaded the plugin from Envato, enter your key below and click on Register"
 msgstr ""
-"If you download the plugin from Envato, enter your key below and click on "
-"Register"
+"If you downloaded the plugin from Envato, enter your key below and click on Register"
 
 #: ad-back-admin-login-display.html:38
 msgid ""
-"If you are a subscriber of AdBack.co, The usage of the plugins is free, "
-"enter your login and password below :"
+"If you already are a registered user of AdBack.co, enter your login and password below:"
 msgstr ""
-"If you are a subscriber of AdBack.co, the usage of the plugins is free, "
-"enter your login and password below:"
+"If you already are a registered user of AdBack.co, enter your login and password below:"
 
 #: ad-back-admin-login-display.html:23
-msgid "Envato License Key :"
+msgid "Envato License Key:"
 msgstr "Envato License Key:"
 
 #: ad-back-admin-login-display.html:31
-msgid "Register with AdBack Account"
-msgstr "Register with AdBack Account"
+msgid "Register with AdBack"
+msgstr "Register with AdBack"
 
 #: ad-back-admin-login-display.html:43
-msgid "Activate my AdBack account"
-msgstr "Activate my AdBack account"
+msgid "Activate my AdBack"
+msgstr "Activate my AdBack"
 
 #: ad-back-admin-login-display.html:35
 msgid "Create my AdBack account"
 msgstr "Create my AdBack account"
 
 #: ad-back-admin-login-display.html:33
-msgid "Email :"
-msgstr "Email :"
+msgid "Email:"
+msgstr "Email:"
 
 #: ad-back-admin-login-display.html:33
-msgid "Username :"
+msgid "Username:"
 msgstr "Username:"
 
 #: ad-back-admin-login-display.html:35
-msgid "Password :"
+msgid "Password:"
 msgstr "Password:"
 
 #: ad-back-admin-login-display.html:33
-msgid "Domain :"
+msgid "Domain:"
 msgstr "Domain:"
 
 #: ad-back-admin-login-display.html:33
-msgid "Slug :"
+msgid "Slug:"
 msgstr "Slug:"
 
 #: ad-back-admin-login-display.html:33
@@ -77,7 +73,7 @@ msgid "Log out"
 msgstr "Log out"
 
 #: ad-back-admin-login-display.html:33
-msgid "Select the slug for your website :"
+msgid "Select the slug for your website:"
 msgstr "Select the slug for your website:"
 
 #: ad-back-admin-login-display.html:26 ad-back-admin-login-display.html:38
@@ -85,32 +81,32 @@ msgid "Register / Login"
 msgstr "Register / Login"
 
 #: ad-back-admin-login-display.html:33
-msgid "The key, email and domain fields should be fill"
-msgstr "The key, email and domain fields should be fill"
+msgid "The key, email and domain fields should be filled"
+msgstr "The key, email and domain fields should be filled"
 
 #: ad-back-admin-login-display.html:33
-msgid "The email and password fields should be fill"
-msgstr "The email and password fields should be fill"
+msgid "The email and password fields should be filled"
+msgstr "The email and password fields should be filled"
 
 #: ad-back-admin-login-display.html:33
-msgid "There is an error in the registration : {0}"
+msgid "There is an error in the registration: {0}"
 msgstr "There is an error in the registration: {0}"
 
 #: class-ad-back-admin:102
-msgid "Bounce"
-msgstr "Bounce rate of Adblock users"
+msgid "Bounce rate of adblocker users"
+msgstr "Bounce rate of adblocker users"
 
 #: class-ad-back-admin:103
-msgid "Ad Blocker"
-msgstr "Ad Blocker"
+msgid "Adblocker activation / deactivation"
+msgstr "Adblocker activation / deactivation"
 
 #: class-ad-back-admin:104
 msgid "Ad blocker percent"
 msgstr "Ad blocker percent"
 
 #: class-ad-back-admin:105
-msgid "Blocked page view"
-msgstr "Blocked page view"
+msgid "Blocked page views"
+msgstr "Blocked page views"
 
 #: class-ad-back-admin
 msgid "Blocked page view and percent"
@@ -122,38 +118,38 @@ msgstr "New - former adblock users"
 
 #: class-ad-back-admin:106
 msgid "Browser"
-msgstr "Browser"
+msgstr "Browsers used by adblocker users"
 
 #: class-ad-back-admin:107
 msgid "OS"
-msgstr "OS"
+msgstr "Operating systems used by adblocker users"
 
 #: class-ad-back-admin:108
 msgid "Percent bounce adblock users"
-msgstr "Percent bounce adblock users"
+msgstr "Bounce rate of adblocker users"
 
 #: class-ad-back-admin:108
 msgid "Percent bounce all users"
-msgstr "Percent bounce all users"
+msgstr "Global bounce rate"
 
 #: class-ad-back-admin:108
 msgid "Users having ad blocker"
-msgstr "Users having adblocker"
+msgstr "Users that activated an adblocker"
 
 #: class-ad-back-admin:108
 msgid "Percent page view"
-msgstr "Percent page view"
+msgstr "Percent of page views without adblocker"
 
 msgid "Percent page view with AdBlock"
-msgstr "Percent page view with AdBlock"
+msgstr "Percent of page views with an adblocker"
 
 #: class-ad-back-admin:108
 msgid "Users who have disabled an ad blocker"
-msgstr "Users who have disabled an ad blocker"
+msgstr "Users who have disabled an adblocker"
 
 #: class-ad-back-admin:108
 msgid "Percent adblock users"
-msgstr "Percent adblock users"
+msgstr "Adblocker users rate"
 
 #: class-ad-back-admin:109
 msgid "Oops..."
@@ -165,15 +161,15 @@ msgstr "Invalid email or password"
 
 #: class-ad-back-admin
 msgid "All the fields should be fill"
-msgstr "All the fields should be fill"
+msgstr "All the fields should be filled"
 
 #: ad-back-admin-display.html:17
 msgid "AdBack : The stats of your AdBlock audience"
-msgstr "AdBack: The stats of your AdBlock audience"
+msgstr "AdBack: The statistics of your adblocked audience"
 
 #: ad-back-admin-settings.html
 msgid "Show warning message for user with ad blocker"
-msgstr "Show warning message for user with ad blocker"
+msgstr "Show a warning message to adblocker users"
 
 #: ad-back-admin-settings.html
 msgid "Header text"
@@ -185,7 +181,7 @@ msgstr "Text message"
 
 #: ad-back-admin-settings.html
 msgid "Text close button"
-msgstr "Text close button"
+msgstr "Close button text"
 
 #: ad-back-admin-settings.html
 msgid "Save"
@@ -217,25 +213,23 @@ msgstr "No Data"
 
 #: class-ad-back-admin
 msgid "Discover"
-msgstr "Get more statistics on AdBack.co"
+msgstr "Discover more data on AdBack.co"
 
 #: class-ad-back-admin
 msgid "Blocked page view and percent - Sub"
 msgstr ""
-"Number of blocked/non blocked page views compared to the percentage of "
-"adblock users"
+"Volume of blocked and non-blocked page views compared to adblocker users rate"
 
 #: class-ad-back-admin
 msgid "New - former adblock users - Sub"
-msgstr "Adblock users deactivation and reactivation"
+msgstr "User who deactivated or reactivated its adblocker"
 
 #: ad-back-admin-login-display.html:38
 msgid ""
 "If you are a subscriber of AdBack.co, The usage of the plugins is free, "
 "click below to identify yourself:"
 msgstr ""
-"If you are a subscriber of AdBack.co, The usage of the plugins is free, "
-"click below to identify yourself:"
+"If you already are a registered user of AdBack.co, click below to log in"
 
 #: ad-back-admin-login-display.html:38
 msgid "Checking credentials..."
@@ -243,8 +237,8 @@ msgstr "Checking credentials..."
 
 #: class-ad-back-admin
 msgid "It's time to analyze your adblock users, activate your adback account !"
-msgstr "It's time to analyze your adblock users, activate your adback account !"
+msgstr "It's time to analyze your adblocker users, activate your AdBack account!"
 
 #: ad-back-admin-settings-display.html:35
 msgid "No message for logged in Wordpress admin"
-msgstr "No message for logged in Wordpress admin"
+msgstr "No message for logged in WordPress admin"
