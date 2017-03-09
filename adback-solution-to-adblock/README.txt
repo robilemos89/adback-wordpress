@@ -4,7 +4,7 @@ Donate link: https://www.adback.co
 Tags: adblock, analytics, message, detection, detect, block, ad block, ads, advertising, adblock killer, anti adblock, adblocker, popup, notification, message, custom, personalize, analyze, stats, adblocker, dashboard widget, block adblock, ghostery, ublock, adblock plus, ad free
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 1.1.5
+Stable tag: 1.1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -68,6 +68,9 @@ Target the profile of your adblocker users depending on:
 Download AdBack plugin on your Wordpress website. Enable it, then register for an AdBack account or enter your existing credentials.
 
 == Changelog ==
+
+= 1.1.6 =
+* Fixes
 
 = 1.1.5 =
 * Updated translations

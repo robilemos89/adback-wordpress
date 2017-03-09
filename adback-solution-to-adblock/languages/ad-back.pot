@@ -220,3 +220,23 @@ msgstr ""
 #: ad-back-admin-settings-display.html:35
 msgid "No message for logged in Wordpress admin"
 msgstr ""
+
+#: ad-back-admin-settings-display.html:35
+msgid "Activate your message"
+msgstr ""
+
+#: ad-back-admin-settings-display.html:35
+msgid "AdBack Settings"
+msgstr ""
+
+#: ad-back-admin-settings-display.html:35
+msgid "Activate and customize your message!"
+msgstr ""
+
+#: ad-back-admin-settings-display.html:35
+msgid "Customize my message on AdBack.co"
+msgstr ""
+
+#: ad-back-admin-settings-display.html:35
+msgid "Customize message description"
+msgstr ""
