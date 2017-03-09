@@ -31,7 +31,7 @@
 </div>
 <hr>
 
-<h2><?php _e( 'Bounce', 'ad-back' ); ?></h2>
+<h2><?php _e( 'Bounce rate of adblocker users', 'ad-back' ); ?></h2>
 <div data-ab-graph data-ab-type="bounce" style="width: 95%; height: 400px; margin-bottom: 50px;">
 </div>
 <hr>

@@ -107,10 +107,10 @@ class Ad_Back_Admin extends Ad_Back_Generic
         }
 
         $translation_array = array(
-            'bounce' => __( 'Bounce', 'ad-back' ),
-            'ad_blocker' => __('Ad Blocker', 'ad-back'),
+            'bounce' => __( 'Bounce rate of adblocker users', 'ad-back' ),
+            'ad_blocker' => __('Adblocker activation / deactivation', 'ad-back'),
             'ad_blocker_percent' => __('Ad blocker percent', 'ad-back'),
-            'blocked_page_view' => __('Blocked page view', 'ad-back'),
+            'blocked_page_view' => __('Blocked page views', 'ad-back'),
             'browser' => __('Browser', 'ad-back'),
             'os' => __('OS', 'ad-back'),
             'percent_adblock_users' => __('Percent adblock users', 'ad-back'),
@@ -118,9 +118,9 @@ class Ad_Back_Admin extends Ad_Back_Generic
             'percent_bounce_all_users' => __('Percent bounce all users', 'ad-back'),
             'oops' => __('Oops...', 'ad-back'),
             'invalid_email_or_password' => __('Invalid email or password', 'ad-back'),
-            'the_key_email_and_domain_fields_should_be_fill' => __('The key, email and domain fields should be fill', 'ad-back'),
-            'the_email_and_password_fields_should_be_fill' => __('The email and password fields should be fill', 'ad-back'),
-            'there_is_an_error_in_the_registration' => __('There is an error in the registration : {0}', 'ad-back'),
+            'the_key_email_and_domain_fields_should_be_fill' => __('The key, email and domain fields should be filled', 'ad-back'),
+            'the_email_and_password_fields_should_be_fill' => __('The email and password fields should be filled', 'ad-back'),
+            'there_is_an_error_in_the_registration' => __('There is an error in the registration: {0}', 'ad-back'),
             'users_having_ad_blocker' => __('Users having ad blocker', 'ad-back'),
             'users_who_have_disabled_an_ad_blocker' => __('Users who have disabled an ad blocker', 'ad-back'),
             'percent_page_view_with_ad_block' => __('Percent page view with AdBlock', 'ad-back'),
