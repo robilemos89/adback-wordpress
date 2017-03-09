@@ -46,7 +46,7 @@ msgstr "Register with AdBack"
 
 #: ad-back-admin-login-display.html:43
 msgid "Activate my AdBack"
-msgstr "Activate my AdBack"
+msgstr "Activate my AdBack account"
 
 #: ad-back-admin-login-display.html:35
 msgid "Create my AdBack account"
