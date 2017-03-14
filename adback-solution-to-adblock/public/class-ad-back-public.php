@@ -91,7 +91,7 @@ class Ad_Back_Public extends Ad_Back_Generic
                         || (current_user_can('manage_options') && get_option('adback_admin_hide_message', '1') === '0')
                     )
                 ) {
-                    echo "<script>(function (a,d){var s,t,u;s=d.createElement('script');if(d.referrer){u=d.createElement('a');u.href=d.referrer;a=a+u.hostname;}s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://".$me['message_domain']."/".$me['message_script'].".js?ref=', document);</script>";
+                    echo "<script>(function (a,d){var s,t,u;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://".$me['message_domain']."/".$me['message_script'].".js', document);</script>";
                 }
             }
         }
