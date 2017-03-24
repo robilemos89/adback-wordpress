@@ -157,7 +157,6 @@ class Ad_Back
 
         // Add Ajax
         $this->loader->addAction( 'wp_ajax_callApi', $plugin_admin,'callApiCallback' );
-        $this->loader->addAction( 'wp_ajax_registerWithAbBackAccount', $plugin_admin, 'registerWithAbBackAccountCallback');
         $this->loader->addAction( 'wp_ajax_ab_logout', $plugin_admin, 'logoutCallback');
         $this->loader->addAction( 'wp_ajax_saveMessage', $plugin_admin, 'saveMessageCallback');
 

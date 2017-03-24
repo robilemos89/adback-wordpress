@@ -180,29 +180,6 @@ class Ad_Back_Generic
         return $token;
     }
 
-    public function askToken()
-    {
-        global $wpdb; // this is how you get access to the database
-
-        $url = "https://www.adback.co/oauth/access_token?grant_type=bearer";
-        $fields = array();
-        $headers = array();
-
-        $table_name = $wpdb->prefix . 'adback_account';
-
-        $auth = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = 1");
-        if ($auth->key != "" && $auth->secret != "") {
-            $headers[] = "Authorization: Basic " . base64_encode($auth->key . ":" . $auth->secret);
-
-            $result = json_decode($this->postContents($url, $fields, $headers), true);
-
-            $this->saveToken($result);
-
-            return $result;
-        }
-        return null;
-    }
-
     public function saveToken($token)
     {
         global $wpdb; // this is how you get access to the database
