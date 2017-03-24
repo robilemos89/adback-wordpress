@@ -29,17 +29,9 @@ class Ad_Back_Generic
 
     public function postContents($url, $fields, $header = array())
     {
-        $fields_string = '';
-        $header[] = 'Content-Type: application/x-www-form-urlencoded';
+        $header[] = 'Content-Type: application/json';
 
         if (function_exists('curl_version')) {
-            if (is_array($fields)) {
-                //url-ify the data for the POST
-                foreach ($fields as $key => $value) {
-                    $fields_string .= $key . '=' . urlencode($value) . '&';
-                }
-                rtrim($fields_string, '&');
-            }
 
             //open connection
             $ch = curl_init();
@@ -48,7 +40,7 @@ class Ad_Back_Generic
             curl_setopt($ch, CURLOPT_URL, $url);
             if (is_array($fields)) {
                 curl_setopt($ch, CURLOPT_POST, count($fields));
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
+                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
             } else {
                 curl_setopt($ch, CURLOPT_POST, 1);
                 curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
@@ -70,7 +62,7 @@ class Ad_Back_Generic
                 'http' => array(
                     'header' => implode("\r\n", $header),
                     'method' => 'POST',
-                    'content' => is_array($fields) ? http_build_query($fields) : $fields
+                    'content' => is_array($fields) ? json_encode($fields) : $fields
                 )
             );
             $context = stream_context_create($options);
@@ -150,6 +142,10 @@ class Ad_Back_Generic
 
     public function saveMessage($display)
     {
+        $url = 'https://adback.co/api/custom-message/update-status?_format=json&access_token=' . $this->getToken()->access_token;
+        $displayAsBoolean = 'true' === $display ? true : false;
+        $fields = ['display' => $displayAsBoolean];
+        $this->postContents($url, $fields);
         $this->saveCacheMessage($display);
 
         return true;
