@@ -234,34 +234,6 @@ class Ad_Back_Admin extends Ad_Back_Generic
         add_submenu_page('ab', 'AdBack Settings', __('Settings', 'ad-back'), 'manage_options', 'ab-settings', array($this, 'displayPluginSettingsPage'));
     }
 
-    public function registerWithAbBackAccountCallback()
-    {
-        $url = 'https://www.adback.co/oauth/access_token?grant_type=password';
-        $fields = array(
-            'username' => $_POST['username'],
-            'password' => $_POST['password']
-        );
-
-        $headers = array(
-            'Authorization: Basic YzAxMDY1ZWQ5ZWZlZDI1ZDQ1ZTlmN2ZmYmQ3NDFiYmFkZTRiODljY2Q0ZDJiOGE4NDQ1Mjc5MWYxMmNkZjNhOTozOGNmM2JjNjQ0OGMzYjYyODBiODI5OGFmNzBhNzU1MDEyNDY2NTE4YTllODEyZmRkZGU2YWVmN2JjNmM3YjQ1'
-        );
-
-        $result = $this->postContents($url, $fields, $headers);
-        $token = json_decode($result, true);
-
-        if(array_key_exists("error", $token) == false) {
-            $this->saveToken($token);
-
-            if($this->isConnected($token)) {
-                echo "{\"done\":true}";
-                wp_die();
-            }
-        }
-
-        echo "{\"done\":false}";
-        wp_die(); // this is required to terminate immediately and return a proper response
-    }
-
     public function saveMessageCallback()
     {
         update_option('adback_admin_hide_message', $_POST['hide-admin'] == 'true' ? '1' : '0');
