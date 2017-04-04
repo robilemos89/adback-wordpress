@@ -40,7 +40,7 @@
 <div id="ab-go-settings">
     <div class="ab-login-box ab-discover">
         <h2><?php esc_html_e('Activate and customize your message!', 'ad-back'); ?></h2>
-        <a href="https://www.adback.co" target="_blank"><img style="max-width: 710px;width: 100%;" src="<?php echo plugin_dir_url( __FILE__ ); ?>images/head.png"/></a>
+        <a href="https://www.adback.co/en/monitoring/custom" target="_blank"><img style="max-width: 710px;width: 100%;" src="<?php echo plugin_dir_url( __FILE__ ); ?>images/head.png"/></a>
         <p>
             <?php _e('Customize message description', 'ad-back'); ?>
         </p>
