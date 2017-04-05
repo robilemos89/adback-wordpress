@@ -92,7 +92,7 @@
     function _logout() {
         var data = {
             'action': 'ab_logout'
-        }
+        };
 
         $.post(ajaxurl, data, function(response) {
             var obj = JSON.parse(response);
@@ -105,9 +105,7 @@
     }
 
     $(document).ready(function() {
-        if($("[data-ab-type]").length>0) {
-            $("#ab-logout").on('click', _logout);
-        }
+        $("#ab-logout").on('click', _logout);
 
         if($("#ab-login").length>0) {
             $("#ab-login-adback").on('click', loginAdback);

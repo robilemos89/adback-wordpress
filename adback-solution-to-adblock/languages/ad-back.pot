@@ -240,3 +240,11 @@ msgstr ""
 #: ad-back-admin-settings-display.html:35
 msgid "Customize message description"
 msgstr ""
+
+#: ad-back-admin-settings-display.html:35
+msgid "Adback Account"
+msgstr ""
+
+#: ad-back-admin-settings-display.html:35
+msgid "Display message"
+msgstr ""

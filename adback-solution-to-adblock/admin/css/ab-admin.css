@@ -51,8 +51,6 @@
 
 #ab-logout {
 	float: left;
-    margin-top: 12px;
-    margin-left: 20px;
 }
 
 #ab-charts {
@@ -110,4 +108,12 @@ a.button.button-ab {
 
 .clear {
 	clear: both;
+}
+
+.ab-primary-setting {
+	display: inline-block;
+}
+
+.ab-h1 {
+    padding-bottom: 1em;
 }

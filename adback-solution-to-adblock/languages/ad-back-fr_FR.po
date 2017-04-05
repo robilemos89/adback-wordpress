@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.12\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: ad-back-admin-login-display.html:20
 msgid "Register with Envato"
@@ -275,3 +275,11 @@ msgstr ""
 "message et personnalisez la couleur, sélectionnez un template, un thème, "
 "ajoutez votre logo<br/>et choisissez quelles solutions alternatives vous "
 "souhaitez proposer à vos utilisateurs d'adblocker."
+
+#: ad-back-admin-settings-display.html:35
+msgid "Adback Account"
+msgstr "Compte Adback"
+
+#: ad-back-admin-settings-display.html:35
+msgid "Display message"
+msgstr "Afficher le message"
