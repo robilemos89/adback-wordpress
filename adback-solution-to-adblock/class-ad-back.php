@@ -79,7 +79,7 @@ class Ad_Back_Generic
         $table_name = $wpdb->prefix . 'adback_myinfo';
         $myinfo = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = 1");
 
-        if ($myinfo->myinfo == "" || strtotime($myinfo->update_time) < (time() - 86400)) {
+        if ($myinfo->myinfo == "" || strtotime($myinfo->update_time) < (time() - 10800)) {
             $mysite = $this->askScripts();
 
             if ($mysite === null) {
@@ -253,7 +253,8 @@ class Ad_Back_Generic
         global $wpdb; // this is how you get access to the database
 
         $table_name = $wpdb->prefix . 'adback_myinfo';
-        $myinfo = $wpdb->get_row("SELECT domain FROM " . $table_name . " WHERE id = 1");
-        return $myinfo->domain;
+        $myinfo = $wpdb->get_row("SELECT domain FROM " . $table_name . " WHERE id = 1 AND update_time >= DATE_SUB(NOW(),INTERVAL 3 HOUR);");
+
+        return $myinfo ? $myinfo->domain : '';
     }
 }
