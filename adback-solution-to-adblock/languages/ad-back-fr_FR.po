@@ -283,3 +283,11 @@ msgstr "Compte Adback"
 #: ad-back-admin-settings-display.html:35
 msgid "Display message"
 msgstr "Afficher le message"
+
+#: ad-back-admin-display.html:22
+msgid "Tweet about it"
+msgstr "Écrire un tweet"
+
+#: ad-back-admin-display.html:25
+msgid "Leave a review"
+msgstr "Noter le plugin"

@@ -248,3 +248,11 @@ msgstr ""
 #: ad-back-admin-settings-display.html:35
 msgid "Display message"
 msgstr ""
+
+#: ad-back-admin-display.html:22
+msgid "Tweet about it"
+msgstr ""
+
+#: ad-back-admin-display.html:25
+msgid "Leave a review"
+msgstr ""
