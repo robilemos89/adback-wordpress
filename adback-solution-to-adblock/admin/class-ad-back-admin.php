@@ -150,7 +150,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function isPluginPage()
     {
-        if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings')) {
+        if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings' || $_GET['page'] == 'ab-message')) {
             return true;
         }
 
@@ -209,6 +209,32 @@ class Ad_Back_Admin extends Ad_Back_Generic
     }
 
     /**
+     * Render the message page for this plugin.
+     *
+     * @since    1.0.0
+     */
+    public function displayPluginMessagePage()
+    {
+        if($this->isConnected()) {
+            if($this->getDomain() == '') {
+                $this->askDomain();
+            }
+            $messages = $this->getMessages();
+            include_once( 'partials/ad-back-admin-message-display.php' );
+        } else {
+            if(isset($_GET['access_token'])) {
+                $this->saveToken([
+                    'access_token' => $_GET['access_token'],
+                    'refresh_token' => '',
+                    ]);
+                include_once( 'partials/ad-back-admin-redirect.php');
+            } else {
+                include_once( 'partials/ad-back-admin-login-display.php');
+            }
+        }
+    }
+
+    /**
      * Register the administration menu for this plugin into the WordPress Dashboard menu.
      *
      * @since    1.0.0
@@ -231,6 +257,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
         add_menu_page( 'AdBack', 'AdBack', 'manage_options', 'ab', '', 'dashicons-chart-bar', $_wp_last_object_menu );
 
         add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'ad-back'), 'manage_options', 'ab', array($this, 'displayPluginStatsPage'));
+        add_submenu_page('ab', 'AdBack Message', __('Message', 'ad-back'), 'manage_options', 'ab-message', array($this, 'displayPluginMessagePage'));
         add_submenu_page('ab', 'AdBack Settings', __('Settings', 'ad-back'), 'manage_options', 'ab-settings', array($this, 'displayPluginSettingsPage'));
     }
 

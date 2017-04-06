@@ -272,3 +272,11 @@ msgstr ""
 "your ad revenues</strong>.</br>Set up your message and personalize the "
 "color, select a template, a theme, add your logo <br/>and choose which "
 "alternative solutions you want to propose to your adblocker users."
+
+#: ad-back-admin-settings-display.html:35
+msgid "Adback Account"
+msgstr "Adback Account"
+
+#: ad-back-admin-settings-display.html:35
+msgid "Display message"
+msgstr "Display message"
