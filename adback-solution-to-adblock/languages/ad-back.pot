@@ -256,3 +256,7 @@ msgstr ""
 #: ad-back-admin-display.html:25
 msgid "Leave a review"
 msgstr ""
+
+#: ad-back-admin-display.html:31
+msgid "Statistics description"
+msgstr ""

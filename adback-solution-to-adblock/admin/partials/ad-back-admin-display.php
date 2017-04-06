@@ -27,6 +27,9 @@
     </div>
     <div class="clear"></div>
 </div>
+<p>
+    <?php _e('Statistics description', 'ad-back'); ?>
+</p>
 <hr class="clear">
 
 <h2><?php _e( 'Blocked page view and percent', 'ad-back' ); ?></h2>
