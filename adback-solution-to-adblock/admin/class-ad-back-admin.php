@@ -254,7 +254,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
          *
          */
 
-        add_menu_page( 'AdBack', 'AdBack', 'manage_options', 'ab', '', 'dashicons-chart-bar', $_wp_last_object_menu );
+        add_menu_page( 'AdBack', 'AdBack', 'manage_options', 'ab', '', plugin_dir_url( __FILE__ ).'/partials/images/_dback_blanc_logo.png', $_wp_last_object_menu );
 
         add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'ad-back'), 'manage_options', 'ab', array($this, 'displayPluginStatsPage'));
         add_submenu_page('ab', 'AdBack Message', __('Message', 'ad-back'), 'manage_options', 'ab-message', array($this, 'displayPluginMessagePage'));
