@@ -27,7 +27,7 @@ class Ad_Back_Generic
         }
     }
 
-    public function postContents($url, $fields, $header = array())
+    public static function postContents($url, $fields, $header = array())
     {
         $header[] = 'Content-Type: application/json';
 
