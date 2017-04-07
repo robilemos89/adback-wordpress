@@ -89,6 +89,24 @@
         });
     }
 
+    function saveGoMessage() {
+        $("#ab-go-settings-submit").prop('disabled', true);
+        var data = {
+            'action': 'saveGoMessage',
+            'display' : $("#ab-go-settings-display").is(":checked"),
+        };
+
+        $.post(ajaxurl, data, function(response) {
+            var obj = JSON.parse(response);
+            $("#ab-go-settings-submit").prop('disabled', false);
+            if(obj.done === true) {
+                window.location.reload();
+            } else {
+                sweetAlert(trans_arr.oops, trans_arr.error, "error");
+            }
+        });
+    }
+
     function _logout() {
         var data = {
             'action': 'ab_logout'
@@ -127,6 +145,10 @@
 
         if($("#ab-settings").length>0) {
             $("#ab-settings-submit").on('click', saveMessage);
+        }
+
+        if($("#ab-go-settings").length>0) {
+            $("#ab-go-settings-submit").on('click', saveGoMessage);
         }
     });
 

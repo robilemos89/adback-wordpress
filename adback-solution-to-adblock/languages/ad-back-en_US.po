@@ -267,11 +267,16 @@ msgstr "Customize my message on AdBack.co"
 #: ad-back-admin-settings-display.html:35
 msgid "Customize message description"
 msgstr ""
-"You certainly started your analysis about your adblocker users.<br/>Now it's "
-"time to custom your message <br/>and win back between <strong>28% and 60% of "
-"your ad revenues</strong>.</br>Set up your message and personalize the "
-"color, select a template, a theme, add your logo <br/>and choose which "
-"alternative solutions you want to propose to your adblocker users."
+"Click below to personalize the text and colors of your message, select a "
+"template, a theme, add your logo and choose which alternative solutions "
+"you want to propose to your adblocker users: deactivation, video, survey…"
+
+#: ad-back-admin-settings-display.html:35
+msgid "Activate message description"
+msgstr ""
+"Now you have a better understanding of your adblocked audience, it's "
+"time to activate your message.<br />Re-engage dialogue with your "
+"adblocked audience and win back up to 60% of your lost ad revenue."
 
 #: ad-back-admin-settings-display.html:35
 msgid "Adback Account"
@@ -297,4 +302,16 @@ msgstr ""
 "your key figures and discover all the detailed data about your audience <a "
 "href=\"https://www.adback.co/en/sites/dashboard\">here, on your dashboard.</a>"
 "<br />Check out the “Message” tab to activate and customize your message!"
+
+#: ad-back-admin-message-display:44
+msgid "Free trial description"
+msgstr ""
+"Start your 14-day free trial "
+"and benefit from "
+"10,000 FREE customizable messages "
+"to communicate with your adblocked audience"
+
+#: ad-back-admin-message-display:46
+msgid "Free trial start"
+msgstr "START FREE TRIAL"
 
