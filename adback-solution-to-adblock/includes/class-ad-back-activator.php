@@ -96,6 +96,8 @@ class Ad_Back_Activator
             )
         );
 
+        $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = 1");
+
         //create myinfo table
         $table_name = $wpdb->prefix . 'adback_myinfo';
 
@@ -147,5 +149,11 @@ class Ad_Back_Activator
                 "update_time" => ""
             )
         );
+
+        if ('' == $accessToken && '' == $savedToken->access_token) {
+            $notices= get_option('adback_deferred_admin_notices', array());
+            $notices[]= 'Registration error';
+            update_option('adback_deferred_admin_notices', $notices);
+        }
     }
 }

@@ -21,20 +21,12 @@ msgid "Activate my Envato license"
 msgstr "Activate my Envato license"
 
 #: ad-back-admin-login-display.html:22
-msgid ""
-"If you downloaded the plugin from Envato, enter your key below and click on "
-"Register"
-msgstr ""
-"If you downloaded the plugin from Envato, enter your key below and click on "
-"Register"
+msgid "If you downloaded the plugin from Envato, enter your key below and click on Register"
+msgstr "If you downloaded the plugin from Envato, enter your key below and click on Register"
 
 #: ad-back-admin-login-display.html:38
-msgid ""
-"If you already are a registered user of AdBack.co, enter your login and "
-"password below:"
-msgstr ""
-"If you already are a registered user of AdBack.co, enter your login and "
-"password below:"
+msgid "If you already are a registered user of AdBack.co, enter your login and password below:"
+msgstr "If you already are a registered user of AdBack.co, enter your login and password below:"
 
 #: ad-back-admin-login-display.html:23
 msgid "Envato License Key:"
@@ -221,19 +213,15 @@ msgstr "Discover more data on AdBack.co"
 
 #: class-ad-back-admin
 msgid "Blocked page view and percent - Sub"
-msgstr ""
-"Volume of blocked and non-blocked page views compared to adblocker users rate"
+msgstr "Volume of blocked and non-blocked page views compared to adblocker users rate"
 
 #: class-ad-back-admin
 msgid "New - former adblock users - Sub"
 msgstr "User who deactivated or reactivated its adblocker"
 
 #: ad-back-admin-login-display.html:38
-msgid ""
-"If you are a subscriber of AdBack.co, The usage of the plugins is free, "
-"click below to identify yourself:"
-msgstr ""
-"If you already are a registered user of AdBack.co, click below to log in"
+msgid "If you are a subscriber of AdBack.co, The usage of the plugins is free, click below to identify yourself:"
+msgstr "If you already are a registered user of AdBack.co, click below to log in"
 
 #: ad-back-admin-login-display.html:38
 msgid "Checking credentials..."
@@ -241,8 +229,7 @@ msgstr "Checking credentials..."
 
 #: class-ad-back-admin
 msgid "It's time to analyze your adblock users, activate your adback account !"
-msgstr ""
-"It's time to analyze your adblocker users, activate your AdBack account!"
+msgstr "It's time to analyze your adblocker users, activate your AdBack account!"
 
 #: ad-back-admin-settings-display.html:35
 msgid "No message for logged in Wordpress admin"
@@ -297,11 +284,9 @@ msgstr "Leave a review"
 #: ad-back-admin-display.html:31
 msgid "Statistics description"
 msgstr ""
-"Use AdBack to understand your adblocked audience, to engage them with customised "
-"messages and to propose alternative solutions to advertising.<br />Find below "
-"your key figures and discover all the detailed data about your audience <a "
-"href=\"https://www.adback.co/en/sites/dashboard\">here, on your dashboard.</a>"
-"<br />Check out the “Message” tab to activate and customize your message!"
+"Use AdBack to understand your adblocked audience, to engage them with customised messages and to propose alternative solutions to advertising."
+"<br />Find below your key figures and discover all the detailed data about your audience <a href=\"http://172.17.0.1/app_dev.php/en/sites/"
+"dashboard\">here, on your dashboard.</a><br />Check out the “Message” tab to activate and customize your message!"
 
 #: ad-back-admin-message-display:44
 msgid "Free trial description"
@@ -315,3 +300,6 @@ msgstr ""
 msgid "Free trial start"
 msgstr "START FREE TRIAL"
 
+#: class-ad-back-activator.php:155
+msgid "Registration error"
+msgstr "An error occurred during your AdBack plugin activation. Please go to the <a href='%s'>administration</a> page to complete your installation"
