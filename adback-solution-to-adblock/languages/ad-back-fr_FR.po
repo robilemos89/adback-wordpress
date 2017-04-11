@@ -253,18 +253,14 @@ msgstr "Personnalisez votre message sur AdBack.co"
 #: ad-back-admin-settings-display.html:35
 msgid "Customize message description"
 msgstr ""
-"Suivez le lien ci-dessous pour personnaliser le texte et les couleurs de "
-"votre message, sélectionnez un template, un thème, ajoutez votre logo et "
-"choisissez quelles solutions alternatives vous souhaitez proposer à vos  "
-"utilisateurs d'adblocker: désactivation, vidéo, sondage…"
+"Suivez le lien ci-dessous pour personnaliser le texte et les couleurs de votre message, sélectionnez un template, un thème, ajoutez votre logo et choisissez quelles "
+"solutions alternatives vous souhaitez proposer à vos  utilisateurs d'adblocker: désactivation, vidéo, sondage…"
 
 #: ad-back-admin-settings-display.html:35
 msgid "Activate message description"
 msgstr ""
-"Vous avez certainement commencé à analyser vos utilisateurs d'adblocker. "
-"Il est temps de personnaliser votre message.<br />Ré-engagez le dialogue "
-"avec vos utilisateurs d'adblocker et regagnez jusqu'à 60% de vos revenus "
-"publicitaires."
+"Vous avez certainement commencé à analyser vos utilisateurs d'adblocker. Il est temps de personnaliser votre message.<br />Ré-engagez le dialogue avec vos utilisateurs "
+"d'adblocker et regagnez jusqu'à 60% de vos revenus publicitaires."
 
 #: ad-back-admin-settings-display.html:35
 msgid "Adback Account"
@@ -285,22 +281,13 @@ msgstr "Noter le plugin"
 #: ad-back-admin-display.html:31
 msgid "Statistics description"
 msgstr ""
-"Avec AdBack, comprenez le comportement des vos utilisateurs d'adblocker, "
-"rétablissez le dialogue avec eux via un message personnalisable et "
-"proposez des solutions alternatives à la publicité.<br /> Vous trouverez "
-"ci-dessous vos chiffres clés et découvrez toutes les données détaillées "
-"sur votre audience adblockée <a "
-"href=\"https://www.adback.co/fr/sites/dashboard\">ici, sur votre "
-"dashboard.</a><br />Rendez-vous sur l’onglet “Message” pour activer "
-"et personnaliser votre message !"
+"Avec AdBack, comprenez le comportement des vos utilisateurs d'adblocker, rétablissez le dialogue avec eux via un message personnalisable et proposez des solutions "
+"alternatives à la publicité.<br /> Vous trouverez ci-dessous vos chiffres clés et découvrez toutes les données détaillées sur votre audience adblockée <a href="
+"\"https://www.adback.co/fr/sites/dashboard\">ici, sur votre dashboard.</a><br />Rendez-vous sur l’onglet “Message” pour activer et personnaliser votre message !"
 
 #: ad-back-admin-message-display:44
 msgid "Free trial description"
-msgstr ""
-"Démarrez votre essai de 14 jours "
-"et bénéficiez de 10000 messages "
-"personnalisables gratuits "
-"pour communiquer avec vos utilisateurs d'adblocker"
+msgstr "Démarrez votre essai de 14 jours et bénéficiez de 10000 messages personnalisables gratuits pour communiquer avec vos utilisateurs d'adblocker"
 
 #: ad-back-admin-message-display:46
 msgid "Free trial start"
