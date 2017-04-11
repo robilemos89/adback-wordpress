@@ -150,11 +150,40 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function isPluginPage()
     {
-        if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings' || $_GET['page'] == 'ab-message')) {
-            return true;
+        if (is_admin()) {
+            $screen = get_current_screen();
+            if ($screen -> id == "dashboard") {
+                return true;
+            }
+
+            if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings' || $_GET['page'] == 'ab-message')) {
+                return true;
+            }
+
         }
 
+
         return false;
+    }
+
+    public function dashboardWidget() {
+        wp_add_dashboard_widget(
+            'adback',
+            'Adback',
+            array($this, 'dashboardWidgetContent')
+        );
+    }
+
+    public function dashboardWidgetContent() {
+
+        if($this->isConnected()) {
+            if($this->getDomain() == '') {
+                $this->askDomain();
+            }
+            include_once( 'partials/ad-back-admin-widget.php');
+        } else {
+            //include_once( 'partials/ad-back-admin-login-display.php');
+        }
     }
 
     /**

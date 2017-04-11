@@ -154,6 +154,8 @@ class Ad_Back
         // Add menu item
         $this->loader->addAction( 'admin_menu', $plugin_admin, 'addPluginAdminMenu' );
 
+        // Add widget
+        $this->loader->addAction( 'wp_dashboard_setup', $plugin_admin, 'dashboardWidget' );
 
         // Add Ajax
         $this->loader->addAction( 'wp_ajax_callApi', $plugin_admin,'callApiCallback' );
