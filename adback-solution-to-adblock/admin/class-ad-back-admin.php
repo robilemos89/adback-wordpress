@@ -182,7 +182,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
             }
             include_once( 'partials/ad-back-admin-widget.php');
         } else {
-            //include_once( 'partials/ad-back-admin-login-display.php');
+            echo 'You must be log in to see stats. Go to <a href="'. $_SERVER['PHP_SELF'] . '?page=ab'.'">Log in page</a>';
         }
     }
 
