@@ -257,4 +257,16 @@ class Ad_Back_Generic
 
         return $myinfo ? $myinfo->domain : '';
     }
+
+    public function askSubscription()
+    {
+        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+            return null;
+        }
+
+        $jsonDomain = $this->getContents("https://www.adback.co/api/subscription/me?access_token=" . $this->getToken()->access_token);
+        $result = json_decode($jsonDomain, true);
+
+        return $result;
+    }
 }

@@ -242,6 +242,10 @@ msgid "Customize message description"
 msgstr ""
 
 #: ad-back-admin-settings-display.html:35
+msgid "Activate message description"
+msgstr ""
+
+#: ad-back-admin-settings-display.html:35
 msgid "Adback Account"
 msgstr ""
 
@@ -259,4 +263,12 @@ msgstr ""
 
 #: ad-back-admin-display.html:31
 msgid "Statistics description"
+msgstr ""
+
+#: ad-back-admin-message-display:44
+msgid "Free trial description"
+msgstr ""
+
+#: ad-back-admin-message-display:46
+msgid "Free trial start"
 msgstr ""

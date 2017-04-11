@@ -271,6 +271,14 @@ class Ad_Back_Admin extends Ad_Back_Generic
         wp_die(); // this is required to terminate immediately and return a proper response
     }
 
+    public function saveGoMessageCallback()
+    {
+        $this->saveMessage($_POST['display']);
+
+        echo "{\"done\":true}";
+        wp_die(); // this is required to terminate immediately and return a proper response
+    }
+
     public function logoutCallback()
     {
         global $wpdb; // this is how you get access to the database
