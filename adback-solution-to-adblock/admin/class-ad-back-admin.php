@@ -342,8 +342,13 @@ class Ad_Back_Admin extends Ad_Back_Generic
     {
         if (current_user_can('manage_options')) {
             if (!$this->isConnected()) {
-                echo '<div class="error"><p>'.__("It's time to analyze your adblock users, activate your adback account !", 'ad-back').' <a href="'. esc_url( get_admin_url(null, 'admin.php?page=ab-settings') ) .'">'.__('Settings').'</a></p></div>';
+                echo '<div class="notice error adback-incentive is-dismissible"><p>'.__("It's time to analyze your adblock users, activate your adback account !", 'ad-back').' <a href="'. esc_url( get_admin_url(null, 'admin.php?page=ab-settings') ) .'">'.__('Settings').'</a></p></div>';
             }
         }
+    }
+
+    public function dismissAdbackIncentive()
+    {
+        update_option('adback-incentive-dismissed', 1);
     }
 }

@@ -160,9 +160,12 @@ class Ad_Back
         $this->loader->addAction( 'wp_ajax_ab_logout', $plugin_admin, 'logoutCallback');
         $this->loader->addAction( 'wp_ajax_saveMessage', $plugin_admin, 'saveMessageCallback');
         $this->loader->addAction( 'wp_ajax_saveGoMessage', $plugin_admin, 'saveGoMessageCallback');
+        $this->loader->addAction( 'wp_ajax_dismiss_adback_incentive', $plugin_admin, 'dismissAdbackIncentive');
 
-        // Add admin notice
-        $this->loader->addAction( 'admin_notices', $plugin_admin, 'addConfigNotice' );
+        // Add admin notice if isn't dismissed
+        if (empty(get_option('adback-incentive-dismissed'))) {
+            $this->loader->addAction('admin_notices', $plugin_admin, 'addConfigNotice');
+        }
     }
 
     /**
