@@ -1,4 +1,4 @@
-(function( $ ) {
+(function ($) {
     'use strict';
 
     /**
@@ -45,16 +45,16 @@
     }
 
     function saveSlug() {
-        if($("#ab-select-slug-field").val() == "") return;
+        if ($("#ab-select-slug-field").val() == "") return;
 
         var data = {
             'action': 'saveSlug',
-            'slug' :  $("#ab-select-slug-field").val()
-        }
+            'slug': $("#ab-select-slug-field").val()
+        };
 
-        $.post(ajaxurl, data, function(response) {
+        $.post(ajaxurl, data, function (response) {
             var obj = JSON.parse(response);
-            if(obj.done === true) {
+            if (obj.done === true) {
                 window.location.reload();
             } else {
                 sweetAlert(trans_arr.oops, trans_arr.error, "error");
@@ -63,7 +63,7 @@
     }
 
     function saveMessage() {
-        if($("#ab-settings-header-text").val() == "" || $("#ab-settings-close-text").val() == "" || $("#ab-settings-message").val() == "") {
+        if ($("#ab-settings-header-text").val() == "" || $("#ab-settings-close-text").val() == "" || $("#ab-settings-message").val() == "") {
             sweetAlert(trans_arr.oops, trans_arr.all_the_fields_should_be_fill, "error");
             return;
         }
@@ -71,17 +71,17 @@
         $("#ab-settings-submit").prop('disabled', true);
         var data = {
             'action': 'saveMessage',
-            'header-text' :  $("#ab-settings-header-text").val(),
-            'close-text' : $("#ab-settings-close-text").val(),
-            'message' : $("#ab-settings-message").val(),
-            'display' : $("#ab-settings-display").is(":checked"),
-            'hide-admin' : $("#ab-settings-hide-admin").is(":checked")
+            'header-text': $("#ab-settings-header-text").val(),
+            'close-text': $("#ab-settings-close-text").val(),
+            'message': $("#ab-settings-message").val(),
+            'display': $("#ab-settings-display").is(":checked"),
+            'hide-admin': $("#ab-settings-hide-admin").is(":checked")
         };
 
-        $.post(ajaxurl, data, function(response) {
+        $.post(ajaxurl, data, function (response) {
             var obj = JSON.parse(response);
             $("#ab-settings-submit").prop('disabled', false);
-            if(obj.done === true) {
+            if (obj.done === true) {
                 window.location.reload();
             } else {
                 sweetAlert(trans_arr.oops, trans_arr.error, "error");
@@ -93,13 +93,13 @@
         $("#ab-go-settings-submit").prop('disabled', true);
         var data = {
             'action': 'saveGoMessage',
-            'display' : $("#ab-go-settings-display").is(":checked"),
+            'display': $("#ab-go-settings-display").is(":checked"),
         };
 
-        $.post(ajaxurl, data, function(response) {
+        $.post(ajaxurl, data, function (response) {
             var obj = JSON.parse(response);
             $("#ab-go-settings-submit").prop('disabled', false);
-            if(obj.done === true) {
+            if (obj.done === true) {
                 window.location.reload();
             } else {
                 sweetAlert(trans_arr.oops, trans_arr.error, "error");
@@ -112,9 +112,9 @@
             'action': 'ab_logout'
         };
 
-        $.post(ajaxurl, data, function(response) {
+        $.post(ajaxurl, data, function (response) {
             var obj = JSON.parse(response);
-            if(obj.done === true) {
+            if (obj.done === true) {
                 window.location.reload();
             } else {
                 sweetAlert(trans_arr.oops, trans_arr.error, "error");
@@ -122,35 +122,45 @@
         });
     }
 
-    $(document).ready(function() {
+    $(document).ready(function () {
         $("#ab-logout").on('click', _logout);
 
-        if($("#ab-login").length>0) {
+        if ($("#ab-login").length > 0) {
             $("#ab-login-adback").on('click', loginAdback);
             $("#ab-register-adback").on('click', registerAdback);
 
 
-            $("#ab-username,#ab-password").on('keyup', function(e) {
+            $("#ab-username,#ab-password").on('keyup', function (e) {
                 var code = e.which; // recommended to use e.which, it's normalized across browsers
-                if(code==13) {
+                if (code == 13) {
                     e.preventDefault();
                     loginAdback();
                 }
             });
         }
 
-        if($("#ab-select-slug").length>0) {
+        if ($("#ab-select-slug").length > 0) {
             $("#ab-select-slug-save").on('click', saveSlug);
         }
 
-        if($("#ab-settings").length>0) {
+        if ($("#ab-settings").length > 0) {
             $("#ab-settings-submit").on('click', saveMessage);
         }
 
-        if($("#ab-go-settings").length>0) {
+        if ($("#ab-go-settings").length > 0) {
             $("#ab-go-settings-submit").on('click', saveGoMessage);
         }
+
+        $(".adback-incentive").on('click', function () {
+            $.ajax({
+                url: ajaxurl,
+                data: {
+                    action: 'dismiss_adback_incentive'
+                }
+            })
+        })
+
     });
 
 
-})( jQuery );
+})(jQuery);
