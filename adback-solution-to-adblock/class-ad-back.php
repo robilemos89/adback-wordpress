@@ -11,67 +11,6 @@
  */
 class Ad_Back_Generic
 {
-    public function getContents($url)
-    {
-        if (function_exists('curl_version')) {
-            $curl = curl_init($url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
-            $data = curl_exec($curl);
-            curl_close($curl);
-            return $data;
-        } else {
-            return @file_get_contents($url);
-        }
-    }
-
-    public function postContents($url, $fields, $header = array())
-    {
-        $header[] = 'Content-Type: application/json';
-
-        if (function_exists('curl_version')) {
-
-            //open connection
-            $ch = curl_init();
-
-            //set the url, number of POST vars, POST data
-            curl_setopt($ch, CURLOPT_URL, $url);
-            if (is_array($fields)) {
-                curl_setopt($ch, CURLOPT_POST, count($fields));
-                curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-            } else {
-                curl_setopt($ch, CURLOPT_POST, 1);
-                curl_setopt($ch, CURLOPT_POSTFIELDS, $fields);
-            }
-            curl_setopt($ch, CURLOPT_HTTPHEADER, $header);
-
-            curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, 0);
-
-            //execute post
-            $result = curl_exec($ch);
-
-            //close connection
-            curl_close($ch);
-        } else {
-            $options = array(
-                'http' => array(
-                    'header' => implode("\r\n", $header),
-                    'method' => 'POST',
-                    'content' => is_array($fields) ? json_encode($fields) : $fields
-                )
-            );
-            $context = stream_context_create($options);
-            $result = file_get_contents($url, false, $context);
-        }
-
-        return $result;
-    }
-
     public function getMyInfo()
     {
         global $wpdb; // this is how you get access to the database
@@ -145,7 +84,7 @@ class Ad_Back_Generic
         $url = 'https://adback.co/api/custom-message/update-status?_format=json&access_token=' . $this->getToken()->access_token;
         $displayAsBoolean = 'true' === $display ? true : false;
         $fields = ['display' => $displayAsBoolean];
-        $this->postContents($url, $fields);
+        Ad_Back_Post::execute($url, $fields);
         $this->saveCacheMessage($display);
 
         return true;
@@ -163,7 +102,7 @@ class Ad_Back_Generic
 
         if (isset($token->access_token)) {
             $url = "https://www.adback.co/api/test/normal?access_token=" . $token->access_token;
-            $result = json_decode($this->getContents($url), true);
+            $result = json_decode(Ad_Back_Get::execute($url), true);
             return is_array($result) && array_key_exists("name", $result);
         } else {
             return false;
@@ -205,7 +144,7 @@ class Ad_Back_Generic
     {
         $notifyUrl = 'https://www.adback.co/api/plugin-activate/wordpress?access_token=' . $accessToken;
 
-        $this->getContents($notifyUrl);
+        Ad_Back_Get::execute($notifyUrl);
     }
 
     public function askDomain()
@@ -214,7 +153,7 @@ class Ad_Back_Generic
             return null;
         }
 
-        $jsonDomain = $this->getContents("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
+        $jsonDomain = Ad_Back_Get::execute("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
         $result = json_decode($jsonDomain, true);
         if (isset($result['analytics_domain'])) {
             $this->saveDomain($result['analytics_domain']);
@@ -227,7 +166,7 @@ class Ad_Back_Generic
             return null;
         }
 
-        $jsonScripts = $this->getContents("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
+        $jsonScripts = Ad_Back_Get::execute("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
         $result = json_decode($jsonScripts, true);
 
         return $result;
@@ -264,7 +203,7 @@ class Ad_Back_Generic
             return null;
         }
 
-        $jsonDomain = $this->getContents("https://www.adback.co/api/subscription/me?access_token=" . $this->getToken()->access_token);
+        $jsonDomain = Ad_Back_Get::execute("https://www.adback.co/api/subscription/me?access_token=" . $this->getToken()->access_token);
         $result = json_decode($jsonDomain, true);
 
         return $result;

@@ -61,7 +61,18 @@ function deactivate_ad_back() {
     Ad_Back_Deactivator::deactivate();
 }
 
+function adback_admin_notices() {
+    if ($notices= get_option('adback_deferred_admin_notices')) {
+        foreach ($notices as $notice) {
+            $message = sprintf(__($notice, 'ad-back'), get_admin_url(null, 'admin.php?page=ab-settings'));
+            echo "<div class='error notice is-dismissible'><p>" . $message . "</p></div>";
+        }
+        delete_option('adback_deferred_admin_notices');
+    }
+}
 
+
+add_action('admin_notices', 'adback_admin_notices');
 register_activation_hook( __FILE__, 'activate_ad_back' );
 register_deactivation_hook( __FILE__, 'deactivate_ad_back' );
 
@@ -70,6 +81,8 @@ register_deactivation_hook( __FILE__, 'deactivate_ad_back' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-get.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-post.php';
 
 /**
  * Begins execution of the plugin.
