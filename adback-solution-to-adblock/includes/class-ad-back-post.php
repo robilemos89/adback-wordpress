@@ -27,7 +27,6 @@ class Ad_Back_Post
         $header[] = 'Content-Type: application/json';
 
         if (function_exists('curl_version')) {
-
             //open connection
             $ch = curl_init();
 

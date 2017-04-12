@@ -81,6 +81,8 @@ register_deactivation_hook( __FILE__, 'deactivate_ad_back' );
  * admin-specific hooks, and public-facing site hooks.
  */
 require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-get.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-post.php';
 
 /**
  * Begins execution of the plugin.
