@@ -41,7 +41,7 @@ class Ad_Back_Activator
             'email' => get_bloginfo('admin_email'),
             'website' => get_site_url(),
         ];
-        $response = Ad_Back_Generic::postContents('https://adback.co/tokenoauth/register/en', $fields);
+        $response = Ad_Back_Post::execute('https://adback.co/tokenoauth/register/en', $fields);
         $data = json_decode($response, true);
         $accessToken = '';
         if (array_key_exists('access_token', $data)) {
