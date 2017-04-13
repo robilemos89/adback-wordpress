@@ -30,6 +30,7 @@
     </tr>
     </tbody>
 </table>
+<hr/>
 <br/>
 <h2><?php _e('Last 7 days', 'ad-back'); ?></h2>
 <br/>
