@@ -75,7 +75,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
          * class.
          */
 
-        if (!$this->isPluginPage()) {
+        if (!$this->shouldPageHaveLib()) {
             return;
         }
 
@@ -102,7 +102,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
          * class.
          */
 
-        if (!$this->isPluginPage()) {
+        if (!$this->shouldPageHaveLib()) {
             return;
         }
 
@@ -148,11 +148,11 @@ class Ad_Back_Admin extends Ad_Back_Generic
      *
      * @return bool
      */
-    public function isPluginPage()
+    public function shouldPageHaveLib()
     {
         if (is_admin()) {
             $screen = get_current_screen();
-            if ($screen -> id == "dashboard") {
+            if ($screen->id == "dashboard") {
                 return true;
             }
 
@@ -182,7 +182,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
             }
             include_once( 'partials/ad-back-admin-widget.php');
         } else {
-            echo 'You must be log in to see stats. Go to <a href="'. $_SERVER['PHP_SELF'] . '?page=ab'.'">Log in page</a>';
+            printf(__('You must be log in to see stats. Go to <a href="%s">Log in page</a>','ad-back'), get_admin_url(null, 'admin.php?page=ab'));
         }
     }
 

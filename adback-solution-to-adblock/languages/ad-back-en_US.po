@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ad-back\n"
-"POT-Creation-Date: 2017-04-13 11:29+0200\n"
+"POT-Creation-Date: 2017-04-13 11:40+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -105,6 +105,11 @@ msgstr "Loading..."
 #: admin/class-ad-back-admin.php:130
 msgid "No Data"
 msgstr "No Data"
+
+#: admin/class-ad-back-admin.php:186
+#, php-format
+msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
+msgstr "You must be log in to see stats. Go to <a href=\"%s\">login page</a>"
 
 #: admin/class-ad-back-admin.php:289
 msgid "Statistics"
