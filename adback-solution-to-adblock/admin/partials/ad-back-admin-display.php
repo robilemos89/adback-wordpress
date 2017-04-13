@@ -56,7 +56,7 @@
 <hr>
 
 <center>
-	<a href="https://www.adback.co" target="_blank" class="button button-primary button-ab"><?php esc_html_e('Discover', 'ad-back'); ?></a>
+	<a href="<?php _e('https://www.adback.co/en/sites/dashboard', 'ad-back'); ?>" target="_blank" class="button button-primary button-ab"><?php esc_html_e('Discover', 'ad-back'); ?></a>
 </center>
 
 <script type="text/javascript">

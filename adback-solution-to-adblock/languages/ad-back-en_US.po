@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ad-back\n"
-"POT-Creation-Date: 2017-04-13 11:57+0200\n"
+"POT-Creation-Date: 2017-04-13 15:38+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -147,7 +147,7 @@ msgstr ""
 "your message!"
 
 #: admin/partials/ad-back-admin-display.php:35
-#: admin/partials/ad-back-admin-widget.php:41
+#: admin/partials/ad-back-admin-widget.php:42
 msgid "Blocked page view and percent"
 msgstr "Blocked page views and adblocker rate"
 
@@ -163,6 +163,10 @@ msgstr "New - former adblock users"
 #: admin/partials/ad-back-admin-display.php:43
 msgid "New - former adblock users - Sub"
 msgstr "User who deactivated or reactivated its adblocker"
+
+#: admin/partials/ad-back-admin-display.php:59
+msgid "https://www.adback.co/en/sites/dashboard"
+msgstr "https://www.adback.co/en/sites/dashboard"
 
 #: admin/partials/ad-back-admin-display.php:59
 msgid "Discover"
@@ -270,19 +274,19 @@ msgstr "Yesterday"
 msgid "Number"
 msgstr "Number"
 
-#: admin/partials/ad-back-admin-widget.php:34
+#: admin/partials/ad-back-admin-widget.php:35
 msgid "Last 7 days"
 msgstr "Last 7 days"
 
-#: admin/partials/ad-back-admin-widget.php:36
+#: admin/partials/ad-back-admin-widget.php:37
 msgid "Adblock removals"
 msgstr "Adblock removals"
 
-#: admin/partials/ad-back-admin-widget.php:37
+#: admin/partials/ad-back-admin-widget.php:38
 msgid "% adblock removals after showing message"
 msgstr "% adblock removals after showing message"
 
-#: admin/partials/ad-back-admin-widget.php:38
+#: admin/partials/ad-back-admin-widget.php:39
 #, php-format
 msgid "No custom message enabled. You can enable it <a href=\"%s\">here</a>"
 msgstr "No custom message enabled. You can enable it <a href=\"%s\">here</a>"
