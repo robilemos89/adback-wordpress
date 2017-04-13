@@ -124,11 +124,11 @@ We propose:
 == Changelog ==
 
 = 1.2.0 =
-* Register at activation
-* Dismissable incentive
-* Updates custom message
+* Automatic registration on activation
+* Add reminder about custom message activation
+* Custom message page updates
 * Add dashboard widget
-* Updates plugin menu
+* Plugin menu updates
 
 = 1.1.9 =
 * Clean unused method
