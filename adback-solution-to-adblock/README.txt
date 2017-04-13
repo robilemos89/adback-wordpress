@@ -125,9 +125,9 @@ We propose:
 
 = 1.2.0 =
 * Automatic registration on activation
-* Add reminder about custom message activation
+* Reminder about custom message activation added
 * Custom message page updates
-* Add dashboard widget
+* Dashboard widget added
 * Plugin menu updates
 
 = 1.1.9 =
