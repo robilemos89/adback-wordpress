@@ -123,6 +123,13 @@ We propose:
 
 == Changelog ==
 
+= 1.2.0 =
+* Automatic registration on activation
+* Reminder about custom message activation added
+* Custom message page updates
+* Dashboard widget added
+* Plugin menu updates
+
 = 1.1.9 =
 * Clean unused method
 
