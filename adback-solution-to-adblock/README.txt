@@ -123,6 +123,13 @@ We propose:
 
 == Changelog ==
 
+= 1.2.0 =
+* Register at activation
+* Dismissable incentive
+* Updates custom message
+* Add dashboard widget
+* Updates plugin menu
+
 = 1.1.9 =
 * Clean unused method
 
