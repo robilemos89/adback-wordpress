@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ad-back\n"
-"POT-Creation-Date: 2017-04-13 11:41+0200\n"
+"POT-Creation-Date: 2017-04-13 12:02+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:291
-#: admin/class-ad-back-admin.php:375
+#: ad-back.php:36 admin/class-ad-back-admin.php:290
+#: admin/class-ad-back-admin.php:374
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -105,22 +105,22 @@ msgstr "Chargement..."
 msgid "No Data"
 msgstr "Aucune donnée"
 
-#: admin/class-ad-back-admin.php:186
+#: admin/class-ad-back-admin.php:185
 #, php-format
 msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr ""
 "Vous devez être identifié pour voir les statistiques. Pour vous identifier, "
 "rendez-vous à la <a href=\"%s\">page d'identification</a>"
 
-#: admin/class-ad-back-admin.php:289
+#: admin/class-ad-back-admin.php:288
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: admin/class-ad-back-admin.php:290
+#: admin/class-ad-back-admin.php:289
 msgid "Message"
 msgstr "Message"
 
-#: admin/class-ad-back-admin.php:375
+#: admin/class-ad-back-admin.php:374
 msgid "It's time to analyze your adblock users, activate your adback account !"
 msgstr ""
 "Pour analyser vos utilisateurs d’adblocker, activez votre compte AdBack !"
@@ -293,6 +293,13 @@ msgid "No custom message enabled. You can enable it <a href=\"%s\">here</a>"
 msgstr ""
 "Aucun message personnalisé activé. Vous pouvez l'activer <a href=\"%s\">à "
 "cette page</a>"
+
+#: includes/class-ad-back-activator.php:155
+msgid "Registration error"
+msgstr ""
+"Une erreur est survenue lors de l'activation du plugin AdBack. Veuillez vous "
+"rendre sur la page d'<a href='%s'>administration</a> pour compléter votre "
+"activation"
 
 #~ msgid "Register with Envato"
 #~ msgstr "S'authentifier avec Envato"
