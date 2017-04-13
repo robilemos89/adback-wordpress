@@ -64,8 +64,7 @@ function deactivate_ad_back() {
 function adback_admin_notices() {
     if ($notices= get_option('adback_deferred_admin_notices')) {
         foreach ($notices as $notice) {
-            $message = sprintf(__($notice, 'ad-back'), get_admin_url(null, 'admin.php?page=ab-settings'));
-            echo "<div class='error notice is-dismissible'><p>" . $message . "</p></div>";
+            echo "<div class='error notice is-dismissible'><p>" . $notice . "</p></div>";
         }
         delete_option('adback_deferred_admin_notices');
     }

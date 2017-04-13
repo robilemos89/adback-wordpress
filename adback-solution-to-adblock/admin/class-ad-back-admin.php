@@ -75,7 +75,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
          * class.
          */
 
-        if (!$this->isPluginPage()) {
+        if (!$this->shouldPageHaveLib()) {
             return;
         }
 
@@ -102,7 +102,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
          * class.
          */
 
-        if (!$this->isPluginPage()) {
+        if (!$this->shouldPageHaveLib()) {
             return;
         }
 
@@ -148,13 +148,42 @@ class Ad_Back_Admin extends Ad_Back_Generic
      *
      * @return bool
      */
-    public function isPluginPage()
+    public function shouldPageHaveLib()
     {
-        if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings' || $_GET['page'] == 'ab-message')) {
-            return true;
+        if (is_admin()) {
+            $screen = get_current_screen();
+            if ($screen->id == "dashboard") {
+                return true;
+            }
+
+            if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings' || $_GET['page'] == 'ab-message')) {
+                return true;
+            }
+
         }
 
+
         return false;
+    }
+
+    public function dashboardWidget() {
+        wp_add_dashboard_widget(
+            'adback',
+            'Adback',
+            array($this, 'dashboardWidgetContent')
+        );
+    }
+
+    public function dashboardWidgetContent() {
+
+        if($this->isConnected()) {
+            if($this->getDomain() == '') {
+                $this->askDomain();
+            }
+            include_once( 'partials/ad-back-admin-widget.php');
+        } else {
+            printf(__('You must be log in to see stats. Go to <a href="%s">Log in page</a>','ad-back'), get_admin_url(null, 'admin.php?page=ab'));
+        }
     }
 
     /**
