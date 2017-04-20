@@ -90,8 +90,7 @@
             });
         } else {
             (function ($) {
-                $(".no-data-domain-block").each(function (index) {
-                    console.log(index + ": " + $(this).text());
+                $(".no-data-domain-block").each(function () {
                     $(this).toggle();
                 });
             })(jQuery);

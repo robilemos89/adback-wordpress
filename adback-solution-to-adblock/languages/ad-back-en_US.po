@@ -297,6 +297,14 @@ msgstr ""
 "An error occurred during your AdBack plugin activation. Please go to the <a "
 "href='%s'>administration</a> page to complete your installation"
 
+#: admin/partials/ad-back-admin-display.php:71
+msgid "No data available, please"
+msgstr "No data available, please"
+
+#: admin/partials/ad-back-admin-display.php:71
+msgid "refresh domain"
+msgstr "refresh domain"
+
 #~ msgid "Register with Envato"
 #~ msgstr "Register with Envato"
 

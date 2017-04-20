@@ -305,6 +305,14 @@ msgstr ""
 "rendre sur la page d'<a href='%s'>administration</a> pour compléter votre "
 "activation"
 
+#: admin/partials/ad-back-admin-display.php:71
+msgid "No data available, please"
+msgstr "Pas de données disponible, veuillez"
+
+#: admin/partials/ad-back-admin-display.php:71
+msgid "refresh domain"
+msgstr "rafraichir le domaine"
+
 #~ msgid "Register with Envato"
 #~ msgstr "S'authentifier avec Envato"
 
