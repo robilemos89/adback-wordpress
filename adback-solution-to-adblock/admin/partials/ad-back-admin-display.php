@@ -35,6 +35,11 @@
 <h2><?php _e( 'Blocked page view and percent', 'ad-back' ); ?></h2>
 <h4><?php _e( 'Blocked page view and percent - Sub', 'ad-back' ); ?></h4>
 <div data-ab-graph data-ab-type="page-view-adblocker-percent" style="width: 95%; height: 400px; margin-bottom: 50px;">
+    <div class="no-data-domain-block" style="display: none">
+        <p><?php _e('No data available, please', 'ad-back'); ?>
+            <a href="<?php echo esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')); ?>"> <?php _e('refresh domain', 'ad-back'); ?></a>
+        </p>
+    </div>
 </div>
 <hr>
 
@@ -42,45 +47,54 @@
 <h2><?php _e( 'New - former adblock users', 'ad-back' ); ?></h2>
 <h4><?php _e( 'New - former adblock users - Sub', 'ad-back' ); ?></h4>
 <div data-ab-graph data-ab-type="adblocker-new-old" style="width: 95%; height: 400px; margin-bottom: 50px;">
+    <div class="no-data-domain-block" style="display: none">
+        <p><?php _e('No data available, please', 'ad-back'); ?>
+            <a href="<?php echo esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')); ?>"> <?php _e('refresh domain', 'ad-back'); ?></a>
+        </p>
+    </div>
 </div>
 <hr>
 
 <h2><?php _e( 'Bounce rate of adblocker users', 'ad-back' ); ?></h2>
 <div data-ab-graph data-ab-type="bounce" style="width: 95%; height: 400px; margin-bottom: 50px;">
+    <div class="no-data-domain-block" style="display: none">
+        <p><?php _e('No data available, please', 'ad-back'); ?>
+            <a href="<?php echo esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')); ?>"> <?php _e('refresh domain', 'ad-back'); ?></a>
+        </p>
+    </div>
 </div>
 <hr>
 
 <h2><?php _e( 'Browser', 'ad-back' ); ?></h2>
 <div data-ab-graph data-ab-type="browser" style="width: 95%; height: 400px; margin-bottom: 50px;">
+    <div class="no-data-domain-block" style="display: none">
+        <p><?php _e('No data available, please', 'ad-back'); ?>
+            <a href="<?php echo esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')); ?>"> <?php _e('refresh domain', 'ad-back'); ?></a>
+        </p>
+    </div>
 </div>
 <hr>
-<div class="">
-    <p><?php _e('No data available, please', 'ad-back'); ?>
-        <a href="<?php echo esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')); ?>"> <?php _e('refresh', 'ad-back'); ?></a>
-    </p>
-</div>
+
 
 <center>
 	<a href="<?php _e('https://www.adback.co/en/sites/dashboard', 'ad-back'); ?>" target="_blank" class="button button-primary button-ab"><?php esc_html_e('Discover', 'ad-back'); ?></a>
 </center>
 
 <script type="text/javascript">
-	window.onload = function() {
-		if(typeof adbackjs === 'object') {
+    window.onload = function () {
+        if (typeof adbackjs === 'object') {
             adbackjs.init({
                 token: '<?php echo $this->getToken()->access_token; ?>',
                 url: 'https://<?php echo $this->getDomain(); ?>/api/',
                 language: '<?php echo str_replace('_', '-', get_locale()); ?>'
             });
         } else {
-		    var divs = document.querySelectorAll("div[data-ab-graph]");
-            divs.forEach(function (elem) {
-                var div = document.createElement("div");
-                div.style.width = "100px";
-                div.style.height = "100px";
-                div.innerHTML = "no data";
-                elem.appendChild(div);
-            });
+            (function ($) {
+                $(".no-data-domain-block").each(function (index) {
+                    console.log(index + ": " + $(this).text());
+                    $(this).toggle();
+                });
+            })(jQuery);
         }
     }
 </script>
