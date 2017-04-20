@@ -307,7 +307,7 @@ msgstr ""
 
 #: admin/partials/ad-back-admin-display.php:71
 msgid "No data available, please"
-msgstr "Pas de données disponible, veuillez"
+msgstr "Pas de données disponibles, veuillez"
 
 #: admin/partials/ad-back-admin-display.php:71
 msgid "refresh domain"
