@@ -76,7 +76,7 @@ class Ad_Back_Activator
 
         if (null === $savedToken || '' == $savedToken->access_token) {
             $fields = [
-                'email'   => 'sergeaue' . get_bloginfo('admin_email'),
+                'email'   => get_bloginfo('admin_email'),
                 'website' => get_site_url(),
             ];
             $response = Ad_Back_Post::execute('https://www.adback.co/tokenoauth/register/en', $fields);
