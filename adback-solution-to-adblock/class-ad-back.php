@@ -81,7 +81,7 @@ class Ad_Back_Generic
 
     public function saveMessage($display)
     {
-        $url = 'https://adback.co/api/custom-message/update-status?_format=json&access_token=' . $this->getToken()->access_token;
+        $url = 'https://www.adback.co/api/custom-message/update-status?_format=json&access_token=' . $this->getToken()->access_token;
         $displayAsBoolean = 'true' === $display ? true : false;
         $fields = ['display' => $displayAsBoolean];
         Ad_Back_Post::execute($url, $fields);

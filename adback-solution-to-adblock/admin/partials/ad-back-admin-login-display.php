@@ -35,6 +35,6 @@
                 <center>
                     <button class="button" id="ab-login-adback" style="width:100%;margin-top: 30px;"><?php esc_html_e('Activate my AdBack', 'ad-back'); ?></button>
                 </center>
-                </div>
+            </div>
     </div>
 </div>
