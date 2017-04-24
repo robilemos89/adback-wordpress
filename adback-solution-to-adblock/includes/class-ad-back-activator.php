@@ -37,21 +37,6 @@ class Ad_Back_Activator
 
         $charset_collate = $wpdb->get_charset_collate();
 
-        $fields = [
-            'email' => get_bloginfo('admin_email'),
-            'website' => get_site_url(),
-        ];
-        $response = Ad_Back_Post::execute('https://adback.co/tokenoauth/register/en', $fields);
-        $data = json_decode($response, true);
-        $accessToken = '';
-        if (array_key_exists('access_token', $data)) {
-            $accessToken = $data['access_token'];
-        }
-        $refreshToken = '';
-        if (array_key_exists('refresh_token', $data)) {
-            $refreshToken = $data['refresh_token'];
-        }
-
         //create account table
         $table_name = $wpdb->prefix . 'adback_account';
 
@@ -87,16 +72,35 @@ class Ad_Back_Activator
 
         dbDelta( $sql );
 
-        $wpdb->insert(
-            $table_name,
-            array(
-                "id" => "1",
-                "access_token" => $accessToken,
-                "refresh_token" => $refreshToken
-            )
-        );
-
         $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = 1");
+
+        if (null === $savedToken || '' == $savedToken->access_token) {
+            $fields = [
+                'email'   => 'sergeaue' . get_bloginfo('admin_email'),
+                'website' => get_site_url(),
+            ];
+            $response = Ad_Back_Post::execute('https://www.adback.co/tokenoauth/register/en', $fields);
+            $data = json_decode($response, true);
+            $accessToken = '';
+            if (array_key_exists('access_token', $data)) {
+                $accessToken = $data['access_token'];
+            }
+            $refreshToken = '';
+            if (array_key_exists('refresh_token', $data)) {
+                $refreshToken = $data['refresh_token'];
+            }
+
+            $wpdb->insert(
+                $table_name,
+                [
+                    "id"            => "1",
+                    "access_token"  => $accessToken,
+                    "refresh_token" => $refreshToken
+                ]
+            );
+
+            $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = 1");
+        }
 
         //create myinfo table
         $table_name = $wpdb->prefix . 'adback_myinfo';
