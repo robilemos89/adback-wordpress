@@ -35,11 +35,6 @@
 <h2><?php _e( 'Blocked page view and percent', 'ad-back' ); ?></h2>
 <h4><?php _e( 'Blocked page view and percent - Sub', 'ad-back' ); ?></h4>
 <div data-ab-graph data-ab-type="page-view-adblocker-percent" style="width: 95%; height: 400px; margin-bottom: 50px;">
-    <div class="no-data-domain-block" style="display: none">
-        <p><?php _e('No data available, please', 'ad-back'); ?>
-            <a href="<?php echo esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')); ?>"> <?php _e('refresh domain', 'ad-back'); ?></a>
-        </p>
-    </div>
 </div>
 <hr>
 
@@ -47,31 +42,16 @@
 <h2><?php _e( 'New - former adblock users', 'ad-back' ); ?></h2>
 <h4><?php _e( 'New - former adblock users - Sub', 'ad-back' ); ?></h4>
 <div data-ab-graph data-ab-type="adblocker-new-old" style="width: 95%; height: 400px; margin-bottom: 50px;">
-    <div class="no-data-domain-block" style="display: none">
-        <p><?php _e('No data available, please', 'ad-back'); ?>
-            <a href="<?php echo esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')); ?>"> <?php _e('refresh domain', 'ad-back'); ?></a>
-        </p>
-    </div>
 </div>
 <hr>
 
 <h2><?php _e( 'Bounce rate of adblocker users', 'ad-back' ); ?></h2>
 <div data-ab-graph data-ab-type="bounce" style="width: 95%; height: 400px; margin-bottom: 50px;">
-    <div class="no-data-domain-block" style="display: none">
-        <p><?php _e('No data available, please', 'ad-back'); ?>
-            <a href="<?php echo esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')); ?>"> <?php _e('refresh domain', 'ad-back'); ?></a>
-        </p>
-    </div>
 </div>
 <hr>
 
 <h2><?php _e( 'Browser', 'ad-back' ); ?></h2>
 <div data-ab-graph data-ab-type="browser" style="width: 95%; height: 400px; margin-bottom: 50px;">
-    <div class="no-data-domain-block" style="display: none">
-        <p><?php _e('No data available, please', 'ad-back'); ?>
-            <a href="<?php echo esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')); ?>"> <?php _e('refresh domain', 'ad-back'); ?></a>
-        </p>
-    </div>
 </div>
 <hr>
 
@@ -90,8 +70,9 @@
             });
         } else {
             (function ($) {
-                $(".no-data-domain-block").each(function () {
-                    $(this).toggle();
+                $("div[data-ab-graph]").each(function () {
+                    $(this).append('<?php esc_js(printf(__('No data available, please <a href="%s">refresh domain</a>', 'ad-back'),
+                        esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')))); ?>');
                 });
             })(jQuery);
         }

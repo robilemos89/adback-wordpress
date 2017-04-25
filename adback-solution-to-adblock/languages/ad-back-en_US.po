@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ad-back\n"
-"POT-Creation-Date: 2017-04-13 15:38+0200\n"
+"POT-Creation-Date: 2017-04-25 09:55+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,8 +15,8 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:290
-#: admin/class-ad-back-admin.php:374
+#: ad-back.php:36 admin/class-ad-back-admin.php:305
+#: admin/class-ad-back-admin.php:391
 msgid "Settings"
 msgstr "Settings"
 
@@ -111,15 +111,15 @@ msgstr "No Data"
 msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr "You must be log in to see stats. Go to <a href=\"%s\">login page</a>"
 
-#: admin/class-ad-back-admin.php:288
+#: admin/class-ad-back-admin.php:303
 msgid "Statistics"
 msgstr "Statistics"
 
-#: admin/class-ad-back-admin.php:289
+#: admin/class-ad-back-admin.php:304
 msgid "Message"
 msgstr "Message"
 
-#: admin/class-ad-back-admin.php:374
+#: admin/class-ad-back-admin.php:391
 msgid "It's time to analyze your adblock users, activate your adback account !"
 msgstr ""
 "It's time to analyze your adblocker users, activate your AdBack account!"
@@ -164,13 +164,18 @@ msgstr "New - former adblock users"
 msgid "New - former adblock users - Sub"
 msgstr "User who deactivated or reactivated its adblocker"
 
-#: admin/partials/ad-back-admin-display.php:59
+#: admin/partials/ad-back-admin-display.php:60
 msgid "https://www.adback.co/en/sites/dashboard"
 msgstr "https://www.adback.co/en/sites/dashboard"
 
-#: admin/partials/ad-back-admin-display.php:59
+#: admin/partials/ad-back-admin-display.php:60
 msgid "Discover"
 msgstr "Discover more data on AdBack.co"
+
+#: admin/partials/ad-back-admin-display.php:74
+#, php-format
+msgid "No data available, please <a href=\"%s\">refresh domain</a>"
+msgstr "No data available, please <a href=\"%s\">refresh domain</a>"
 
 #: admin/partials/ad-back-admin-login-display.php:16
 msgid "AdBack"
@@ -245,6 +250,10 @@ msgstr "START FREE TRIAL"
 msgid "Checking credentials..."
 msgstr "Checking credentials..."
 
+#: admin/partials/ad-back-admin-refresh-domain.php:16
+msgid "Refresh domain..."
+msgstr "Refresh domain..."
+
 #: admin/partials/ad-back-admin-settings-display.php:16
 msgid "AdBack Settings"
 msgstr "AdBack Settings"
@@ -291,19 +300,17 @@ msgstr "% adblock removals after showing message"
 msgid "No custom message enabled. You can enable it <a href=\"%s\">here</a>"
 msgstr "No custom message enabled. You can enable it <a href=\"%s\">here</a>"
 
-#: includes/class-ad-back-activator.php:155
+#: includes/class-ad-back-activator.php:159
 msgid "Registration error"
 msgstr ""
 "An error occurred during your AdBack plugin activation. Please go to the <a "
 "href='%s'>administration</a> page to complete your installation"
 
-#: admin/partials/ad-back-admin-display.php:71
-msgid "No data available, please"
-msgstr "No data available, please"
+#~ msgid "No data available, please"
+#~ msgstr "No data available, please"
 
-#: admin/partials/ad-back-admin-display.php:71
-msgid "refresh domain"
-msgstr "refresh domain"
+#~ msgid "refresh domain"
+#~ msgstr "refresh domain"
 
 #~ msgid "Register with Envato"
 #~ msgstr "Register with Envato"
