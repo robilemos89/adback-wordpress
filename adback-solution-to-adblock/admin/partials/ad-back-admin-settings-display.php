@@ -13,6 +13,7 @@
  */
 
 ?>
+<?php include "ad-back-admin-header.php" ?>
 <h1 class="ab-h1"><?php _e( 'AdBack Settings', 'ad-back' ); ?></h1>
 <div id="ab-settings">
     <h3><?php _e('Display message', 'ad-back'); ?></h3>

@@ -12,21 +12,10 @@
  * @subpackage Ad_Back/admin/partials
  */
 ?>
-
+<?php include "ad-back-admin-header.php" ?>
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<h1 class="ab-lefty"><?php _e( 'AdBack : The stats of your AdBlock audience', 'ad-back' ); ?></h1>
-<div class="ab-share">
-    <div class="ab-share-actions">
-        <a target="_blank"
-           href="https://twitter.com/intent/tweet?text=<?php echo urlencode("Re-establish dialogue and monetize your adblocked audience with this stunning WordPress plugin"); ?>&url=http://bit.ly/2oLYrHs&via=adback_co"
-           class="ab-tweet"><span></span><?php _e( 'Tweet about it', 'ad-back' ); ?>
-        </a>
-        <a target="_blank" href="https://wordpress.org/support/plugin/adback-solution-to-adblock/reviews/"
-           class="ab-review"><span></span><?php _e( 'Leave a review', 'ad-back' ); ?>
-        </a>
-    </div>
-    <div class="clear"></div>
-</div>
+<h1><?php _e( 'AdBack : The stats of your AdBlock audience', 'ad-back' ); ?></h1>
+
 <p>
     <?php _e('Statistics description', 'ad-back'); ?>
 </p>
