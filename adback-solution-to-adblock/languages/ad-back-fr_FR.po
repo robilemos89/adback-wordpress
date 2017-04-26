@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ad-back\n"
-"POT-Creation-Date: 2017-04-13 15:38+0200\n"
+"POT-Creation-Date: 2017-04-25 09:58+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:290
-#: admin/class-ad-back-admin.php:374
+#: ad-back.php:36 admin/class-ad-back-admin.php:305
+#: admin/class-ad-back-admin.php:391
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -112,15 +112,15 @@ msgstr ""
 "Vous devez être identifié pour voir les statistiques. Pour vous identifier, "
 "rendez-vous à la <a href=\"%s\">page d'identification</a>"
 
-#: admin/class-ad-back-admin.php:288
+#: admin/class-ad-back-admin.php:303
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: admin/class-ad-back-admin.php:289
+#: admin/class-ad-back-admin.php:304
 msgid "Message"
 msgstr "Message"
 
-#: admin/class-ad-back-admin.php:374
+#: admin/class-ad-back-admin.php:391
 msgid "It's time to analyze your adblock users, activate your adback account !"
 msgstr ""
 "Pour analyser vos utilisateurs d’adblocker, activez votre compte AdBack !"
@@ -167,13 +167,19 @@ msgstr "Activation - Désactivation d'adblocker"
 msgid "New - former adblock users - Sub"
 msgstr "Utilisateur ayant désactivé ou réactivé son bloqueur de publicité"
 
-#: admin/partials/ad-back-admin-display.php:59
+#: admin/partials/ad-back-admin-display.php:60
 msgid "https://www.adback.co/en/sites/dashboard"
 msgstr "https://www.adback.co/fr/sites/dashboard"
 
-#: admin/partials/ad-back-admin-display.php:59
+#: admin/partials/ad-back-admin-display.php:60
 msgid "Discover"
 msgstr "Découvrez bien plus de statistiques sur AdBack.co"
+
+#: admin/partials/ad-back-admin-display.php:74
+#, php-format
+msgid "No data available, please <a href=\"%s\">refresh domain</a>"
+msgstr ""
+"Pas de données disponible, veuillez <a href=\"%s\">rafraichir les domains</a>"
 
 #: admin/partials/ad-back-admin-login-display.php:16
 msgid "AdBack"
@@ -250,6 +256,10 @@ msgstr "DÉMARREZ VOTRE ESSAI"
 msgid "Checking credentials..."
 msgstr "Vérification des identifiants…"
 
+#: admin/partials/ad-back-admin-refresh-domain.php:16
+msgid "Refresh domain..."
+msgstr "Mise à jour des domains ..."
+
 #: admin/partials/ad-back-admin-settings-display.php:16
 msgid "AdBack Settings"
 msgstr "Paramètres AdBack"
@@ -298,12 +308,18 @@ msgstr ""
 "Aucun message personnalisé activé. Vous pouvez l'activer <a href=\"%s\">à "
 "cette page</a>"
 
-#: includes/class-ad-back-activator.php:155
+#: includes/class-ad-back-activator.php:159
 msgid "Registration error"
 msgstr ""
 "Une erreur est survenue lors de l'activation du plugin AdBack. Veuillez vous "
 "rendre sur la page d'<a href='%s'>administration</a> pour compléter votre "
 "activation"
+
+#~ msgid "No data available, please"
+#~ msgstr "Pas de données disponibles, veuillez"
+
+#~ msgid "refresh domain"
+#~ msgstr "rafraichir le domaine"
 
 #~ msgid "Register with Envato"
 #~ msgstr "S'authentifier avec Envato"

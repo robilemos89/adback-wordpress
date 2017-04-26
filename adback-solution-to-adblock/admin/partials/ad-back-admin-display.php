@@ -55,18 +55,26 @@
 </div>
 <hr>
 
+
 <center>
 	<a href="<?php _e('https://www.adback.co/en/sites/dashboard', 'ad-back'); ?>" target="_blank" class="button button-primary button-ab"><?php esc_html_e('Discover', 'ad-back'); ?></a>
 </center>
 
 <script type="text/javascript">
-	window.onload = function() {
-		if(typeof adbackjs === 'object') {
+    window.onload = function () {
+        if (typeof adbackjs === 'object') {
             adbackjs.init({
                 token: '<?php echo $this->getToken()->access_token; ?>',
                 url: 'https://<?php echo $this->getDomain(); ?>/api/',
                 language: '<?php echo str_replace('_', '-', get_locale()); ?>'
             });
+        } else {
+            (function ($) {
+                $("div[data-ab-graph]").each(function () {
+                    $(this).append('<?php esc_js(printf(__('No data available, please <a href="%s">refresh domain</a>', 'ad-back'),
+                        esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')))); ?>');
+                });
+            })(jQuery);
         }
     }
 </script>

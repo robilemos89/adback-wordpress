@@ -288,3 +288,11 @@ msgstr ""
 #: ad-back-admin-message-display:46
 msgid "Free trial start"
 msgstr ""
+
+#: admin/partials/ad-back-admin-display.php:71
+msgid "No data available, please"
+msgstr ""
+
+#: admin/partials/ad-back-admin-display.php:71
+msgid "refresh domain"
+msgstr ""

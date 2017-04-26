@@ -4,80 +4,80 @@
  */
 
 .ab-col-md-6 {
-	float:left;
-	width:50%;
+    float: left;
+    width: 50%;
 }
 
 #ab-login input {
-	width:100%;
+    width: 100%;
 }
 
 #ab-login button {
-	padding:30px;
-	margin-top:30px;
-	line-height: 0px;
+    padding: 30px;
+    margin-top: 30px;
+    line-height: 0px;
 }
 
 .ab-login-envato-desc {
-	color:#666;
+    color: #666;
 }
 
 .ab-login-box {
-	width:50%;
-	margin:auto;
-	border: 1px solid #e5e5e5;
-	border-radius: 11px;
-	padding: 24px;
-	background:white;
-	min-height: 420px;
+    width: 50%;
+    margin: auto;
+    border: 1px solid #e5e5e5;
+    border-radius: 11px;
+    padding: 24px;
+    background: white;
+    min-height: 420px;
 }
 
 .ab-login-logo {
-	height:150px;
-	width:150px;
-	background-size: contain;
-	background-repeat: no-repeat;
-	background-position: 50% 50%;
-	margin-bottom: 30px;
+    height: 150px;
+    width: 150px;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    margin-bottom: 30px;
 }
 
-@media screen and (max-width:782px) {
-	.ab-col-md-6 {
-		width:100%;
-		margin-bottom:25px;
-	}
+@media screen and (max-width: 782px) {
+    .ab-col-md-6 {
+        width: 100%;
+        margin-bottom: 25px;
+    }
 }
 
 #ab-logout {
-	float: left;
+    float: left;
 }
 
 #ab-charts {
-	clear: both;
+    clear: both;
 }
 
 .ab-lefty {
-	float: left;
+    float: left;
 }
 
 .ab-loading {
-	height: 300px;
-	width: 100%;
+    height: 300px;
+    width: 100%;
 }
 
 .button-ab {
-	background-color: #54AFF6 !important;
-	margin-top: 30px !important;
+    background-color: #54AFF6 !important;
+    margin-top: 30px !important;
 }
 
 .ab-discover {
-	width:70%;
-	margin: auto;
-	border: 1px solid #e5e5e5;
-	border-radius: 11px;
-	padding: 24px;
-	background:white;
-	min-height: 420px;
+    width: 70%;
+    margin: auto;
+    border: 1px solid #e5e5e5;
+    border-radius: 11px;
+    padding: 24px;
+    background: white;
+    min-height: 420px;
 }
 
 .ab-discover.ab-with-trial {
@@ -86,8 +86,8 @@
 }
 
 .ab-trial-box {
-    float:left;
-    width:220px;
+    float: left;
+    width: 220px;
     margin-left: 20px;
     border: 1px solid #54aff6;
     border-radius: 11px;
@@ -145,25 +145,25 @@
     color: #fff;
     text-align: center;
     background-color: #50D050;
-    -webkit-box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
-    box-shadow: inset 0 -1px 0 rgba(0,0,0,.15);
+    -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
+    box-shadow: inset 0 -1px 0 rgba(0, 0, 0, .15);
     -webkit-transition: width .6s ease;
     -o-transition: width .6s ease;
     transition: width .6s ease;
 }
 
 a.button.button-ab {
-	background: #54aff6 !important;
-	color: #ffffff !important;
-	margin: 18px 0 34px;
-	height: 50px;
-	border: 1px #54aff6 solid;
-	border-radius: 0;
-	text-align: center;
-	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-	font-size: 1.2rem;
-	line-height: 52px;
-	text-shadow: none;
+    background: #54aff6 !important;
+    color: #ffffff !important;
+    margin: 18px 0 34px;
+    height: 50px;
+    border: 1px #54aff6 solid;
+    border-radius: 0;
+    text-align: center;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 1.2rem;
+    line-height: 52px;
+    text-shadow: none;
 }
 
 .ab-trial-box a.button.button-ab {
@@ -181,7 +181,7 @@ a.button.button-ab {
 }
 
 .ab-discover {
-	text-align: center;
+    text-align: center;
 }
 
 .ab-login-box.ab-discover {
@@ -195,11 +195,11 @@ a.button.button-ab {
 }
 
 .clear {
-	clear: both;
+    clear: both;
 }
 
 .ab-primary-setting {
-	display: inline-block;
+    display: inline-block;
 }
 
 .ab-h1 {
@@ -267,4 +267,13 @@ a.button.button-ab {
 .ab-share .ab-share-actions .ab-review span {
     background: url(../partials/images/review_icon.png) no-repeat center center, #f16848;
     background-image: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAANCAYAAACgu+4kAAAA2ElEQVR42o3RIUvEYBzH8b86UCwarDbRJiiIYLhoNVh9G2YFswbBN2A0mU0GwSJyl66KC4JoOJkmYfcJ2xi7u7EvfJb2wO/Z5vI8j46tM+KHqnlCPWa1w5B3vrnhmFMiLAhSrkiImkVSmmVcsFq++EauF/aJQo9p/XFEteCcegMuuWZafYJIQtpgxAqhbZjZZ/MjyuHu9ZGKKWs80rVdgmrBF09kqLUHXqktgE1S2srYIkrhUbfMbcvhQ6KuvP8JZwxaftse0ZQU9x9ywAK/LPHBM3fc889EY9XRpegVPS4oAAAAAElFTkSuQmCC");
+}
+
+.not-representative-data-chart {
+    position: relative;
+    text-align: center;
+    border: 1px solid #ddd;
+    color: rgba(0,0,0,.2);
+    background: #f8f8f8;
+    min-height: 8em;
 }
