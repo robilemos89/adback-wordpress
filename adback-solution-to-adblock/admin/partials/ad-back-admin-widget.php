@@ -36,11 +36,11 @@
 <br/>
 <h3><?php _e( 'Adblock removals', 'ad-back' ); ?></h3>
 <p><?php _e( '% adblock removals after showing message', 'ad-back' ); ?></p>
-<div data-ab-graph data-ab-type="last-7-adblocker-rate" data-ab-no-period="1" data-ab-no-data="<?php printf(esc_attr('No custom message enabled. You can enable it <a href="%s">here</a>', 'ad-back'), get_admin_url(null, 'admin.php?page=ab-settings') ); ?>" style="width: 95%; height: 200px; margin-bottom: 10px;">
+<div data-ab-graph data-ab-type="last-7-adblocker-rate" data-ab-no-data="<?php printf(esc_attr('No custom message enabled. You can enable it <a href="%s">here</a>', 'ad-back'), get_admin_url(null, 'admin.php?page=ab-settings') ); ?>" style="width: 95%; height: 200px; margin-bottom: 10px;">
 </div>
 <hr/>
 <h3><?php _e( 'Blocked page view and percent', 'ad-back' ); ?></h3>
-<div data-ab-graph data-ab-type="last-7-page-view-adblocker-percent" data-ab-no-period="1" style="width: 95%; height: 400px; margin-bottom: 50px;">
+<div data-ab-graph data-ab-type="last-7-page-view-adblocker-percent" style="width: 95%; height: 400px; margin-bottom: 50px;">
 </div>
 
 <script type="text/javascript">
