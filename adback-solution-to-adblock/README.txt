@@ -122,6 +122,10 @@ We propose:
 * To watch a video ad to access the content
 
 == Changelog ==
+= 1.2.4 =
+* Fix for PHP version prior to 5.5
+* Global header
+
 = 1.2.3 =
 * Suppress debug data
 

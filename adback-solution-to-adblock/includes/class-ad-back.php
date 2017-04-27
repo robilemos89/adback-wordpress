@@ -165,7 +165,7 @@ class Ad_Back
         $this->loader->addAction( 'wp_ajax_dismiss_adback_incentive', $plugin_admin, 'dismissAdbackIncentive');
 
         // Add admin notice if isn't dismissed
-        if (empty(get_option('adback-incentive-dismissed'))) {
+        if (get_option('adback-incentive-dismissed') === false) {
             $this->loader->addAction('admin_notices', $plugin_admin, 'addConfigNotice');
         }
     }
