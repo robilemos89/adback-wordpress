@@ -4,7 +4,7 @@ Donate link: https://www.adback.co
 Tags: adblock, analytics, message, detection, detect, block, ad block, ads, advertising, adblock killer, anti adblock, adblocker, popup, notification, message, custom, personalize, analyze, stats, adblocker, dashboard widget, block adblock, ghostery, ublock, adblock plus, ad free
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 1.2.3
+Stable tag: 1.2.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
