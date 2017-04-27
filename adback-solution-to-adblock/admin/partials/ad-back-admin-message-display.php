@@ -20,6 +20,7 @@ $progress = $subscription['progress'];
 $allowed = $subscription['trial_status'] == 1 ? 10000 : $subscription['allowed'];
 
 ?>
+<?php include "ad-back-admin-header.php" ?>
 <h1><?php _e( 'AdBack Message', 'ad-back' ); ?></h1>
 
 <div id="ab-go-settings">
