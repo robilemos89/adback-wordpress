@@ -23,26 +23,9 @@ $allowed = $subscription['trial_status'] == 1 ? 10000 : $subscription['allowed']
 <?php include "ad-back-admin-header.php" ?>
 <h1><?php _e( 'AdBack Message', 'ad-back' ); ?></h1>
 
+<div id="ab-full-form"></div>
+<div id="ab-full-app"></div>
 <div id="ab-go-settings">
-    <div class="ab-login-box ab-discover <?php if ($showTrial) { echo 'ab-with-trial'; } ?>">
-        <h2><?php esc_html_e('Activate and customize your message!', 'ad-back'); ?></h2>
-        <h3>1. <?php esc_html_e('Activate your message', 'ad-back'); ?></h3>
-        <fieldset>
-            <legend class="screen-reader-text">
-                <span><?php esc_html_e('Activate your message', 'ad-back'); ?></span>
-            </legend>
-            <label for="ab-go-settings-display">
-                <input type="checkbox" id="ab-go-settings-display" value="1" <?php echo ($messages['display'] == '1' ? "checked='checked'" : ""); ?>> <?php esc_html_e('Activate your message', 'ad-back'); ?>
-                <input type="submit" id="ab-go-settings-submit" class="button button-primary" value="<?php esc_html_e('Save', 'ad-back'); ?>">
-            </label>
-        </fieldset>
-        <h3>2. <?php esc_html_e('Customize your message', 'ad-back'); ?></h3>
-        <p>
-            <?php _e('Customize message description', 'ad-back'); ?>
-        </p>
-        <span><a href="https://www.adback.co/en/monitoring/custom" target="_blank" class="button button-ab"><?php _e('Customize my message on AdBack.co', 'ad-back'); ?></a></span>
-        <span><a href="https://www.adback.co/en/monitoring/custom" target="_blank"><img style="max-width: 710px;width: 100%;" src="<?php echo plugin_dir_url( __FILE__ ); ?>images/custom_message.png"/></a></span>
-    </div>
     <?php if ($showTrial) { ?>
     <div class="ab-trial-box">
         <h2><?php echo $progress."/".$allowed." messages"; ?></h2>
@@ -59,3 +42,15 @@ $allowed = $subscription['trial_status'] == 1 ? 10000 : $subscription['allowed']
     </div>
     <?php } ?>
 </div>
+
+<script type="text/javascript">
+    window.onload = function () {
+        if (typeof adbackjs === 'object') {
+            adbackjs.init({
+                token: '<?php echo $this->getToken()->access_token; ?>',
+                url: 'https://<?php echo $this->getDomain(); ?>/api/',
+                language: '<?php echo str_replace('_', '-', get_locale()); ?>'
+            });
+        }
+    }
+</script>
