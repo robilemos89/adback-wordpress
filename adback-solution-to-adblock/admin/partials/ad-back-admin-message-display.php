@@ -23,8 +23,9 @@ $allowed = $subscription['trial_status'] == 1 ? 10000 : $subscription['allowed']
 <?php include "ad-back-admin-header.php" ?>
 <h1><?php _e( 'AdBack Message', 'ad-back' ); ?></h1>
 
-<div id="ab-full-form"></div>
-<div id="ab-full-app"></div>
+<div id="ab-full-app">
+    <div id="ab-full-form"></div>
+</div>
 <div id="ab-go-settings">
     <?php if ($showTrial) { ?>
     <div class="ab-trial-box">
