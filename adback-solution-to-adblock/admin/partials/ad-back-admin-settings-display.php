@@ -18,11 +18,11 @@
 <div id="ab-settings">
     <div id="ab-full-app">
         <div id="ab-configuration-form"></div>
+        <div class="ab-primary-setting">
+            <h3><?php esc_html_e('Adback Account', 'ad-back'); ?></h3>
+            <button id="ab-logout" primary m-full><?php esc_html_e('Log out', 'ad-back'); ?></button>
+        </div>
     </div>
-</div>
-<div class="ab-primary-setting">
-    <h3><?php esc_html_e('Adback Account', 'ad-back'); ?></h3>
-    <button id="ab-logout" class="button button-primary"><?php esc_html_e('Log out', 'ad-back'); ?></button>
 </div>
 
 <script type="text/javascript">
