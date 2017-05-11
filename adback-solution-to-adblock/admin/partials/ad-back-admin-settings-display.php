@@ -19,7 +19,7 @@
     <div id="ab-full-app">
         <div id="ab-configuration-form"></div>
         <div class="ab-primary-setting">
-            <h3><?php esc_html_e('Adback Account', 'ad-back'); ?></h3>
+            <h4><?php esc_html_e('Adback Account', 'ad-back'); ?></h4>
             <button id="ab-logout" primary m-full><?php esc_html_e('Log out', 'ad-back'); ?></button>
         </div>
     </div>
