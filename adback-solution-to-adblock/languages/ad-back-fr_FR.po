@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: ad-back\n"
-"POT-Creation-Date: 2017-04-28 15:43+0200\n"
+"POT-Creation-Date: 2017-05-11 11:12+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,13 +14,13 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:306
-#: admin/class-ad-back-admin.php:392
+#: ad-back.php:36 admin/class-ad-back-admin.php:305
+#: admin/class-ad-back-admin.php:391
 msgid "Settings"
 msgstr "Paramètres"
 
 #: admin/class-ad-back-admin.php:110
-#: admin/partials/ad-back-admin-display.php:51
+#: admin/partials/ad-back-admin-display.php:58
 msgid "Bounce rate of adblocker users"
 msgstr "Taux de rebond des utilisateurs d'adblocker"
 
@@ -37,7 +37,7 @@ msgid "Blocked page views"
 msgstr "Taux de pages vues avec un bloqueur de publicité"
 
 #: admin/class-ad-back-admin.php:114
-#: admin/partials/ad-back-admin-display.php:58
+#: admin/partials/ad-back-admin-display.php:65
 msgid "Browser"
 msgstr "Navigateurs des utilisateurs d'adblocker"
 
@@ -105,22 +105,22 @@ msgstr "Chargement..."
 msgid "No Data"
 msgstr "Aucune donnée"
 
-#: admin/class-ad-back-admin.php:186
+#: admin/class-ad-back-admin.php:185
 #, php-format
 msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr ""
 "Vous devez être identifié pour voir les statistiques. Pour vous identifier, "
 "rendez-vous à la <a href=\"%s\">page d'identification</a>"
 
-#: admin/class-ad-back-admin.php:304
+#: admin/class-ad-back-admin.php:303
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: admin/class-ad-back-admin.php:305
+#: admin/class-ad-back-admin.php:304
 msgid "Message"
 msgstr "Message"
 
-#: admin/class-ad-back-admin.php:392
+#: admin/class-ad-back-admin.php:391
 msgid "It's time to analyze your adblock users, activate your adback account !"
 msgstr ""
 "Pour analyser vos utilisateurs d’adblocker, activez votre compte AdBack !"
@@ -140,42 +140,84 @@ msgstr ""
 "sur votre dashboard.</a><br />Rendez-vous sur l’onglet “Message” pour "
 "activer et personnaliser votre message !"
 
-#: admin/partials/ad-back-admin-display.php:25
+#: admin/partials/ad-back-admin-display.php:29
 msgid "Global Statistics"
 msgstr "Statistiques globales"
 
-#: admin/partials/ad-back-admin-display.php:26
-msgid "Monetisation Statistics"
-msgstr "Statistiques de monétisation"
+#: admin/partials/ad-back-admin-display.php:33
+msgid "Today"
+msgstr "Aujourd'hui"
 
-#: admin/partials/ad-back-admin-display.php:35
-#: admin/partials/ad-back-admin-widget.php:42
+#: admin/partials/ad-back-admin-display.php:36
+msgid "Period: Last 7 days"
+msgstr "Période: Les 7 derniers jours"
+
+#: admin/partials/ad-back-admin-display.php:42
+#: admin/partials/ad-back-admin-widget.php:29
 msgid "Blocked page view and percent"
 msgstr "Pages vues bloquées et taux d’adblocker"
 
-#: admin/partials/ad-back-admin-display.php:36
+#: admin/partials/ad-back-admin-display.php:43
 msgid "Blocked page view and percent - Sub"
 msgstr ""
 "Volume de pages vues bloquées - non bloquées comparé au taux d’utilisateurs "
 "d’adblocker"
 
-#: admin/partials/ad-back-admin-display.php:43
+#: admin/partials/ad-back-admin-display.php:50
 msgid "New - former adblock users"
 msgstr "Activation - Désactivation d'adblocker"
 
-#: admin/partials/ad-back-admin-display.php:44
+#: admin/partials/ad-back-admin-display.php:51
 msgid "New - former adblock users - Sub"
 msgstr "Utilisateur ayant désactivé ou réactivé son bloqueur de publicité"
 
-#: admin/partials/ad-back-admin-display.php:87
+#: admin/partials/ad-back-admin-display.php:73
+msgid ""
+"When connecting to your AdBack dashboard, you'll discover the share of your "
+"adblocker visitors using a whitelist, the type of adblocker they use, the "
+"share of your analytics tools that are blocked (Google Analytics and Xiti), "
+"the geolocation of your adblocker users, their connection type, their "
+"operating system, the browser they use, on which device they are ; as well "
+"as data about their behavior on your site: the referral traffic, a list of "
+"your blocked pages, the bounce rate, the visit duration and the recurrence..."
+msgstr ""
+"En vous connectant à votre dashboard AdBack, vous découvrirez la part de vos "
+"visiteurs utilisant un adblocker avec liste blanche, le type d'adblocker "
+"qu'ils utilisent, la part de vos outils analytics bloqués (Google Analytics "
+"et Xiti), les données de géolocalisation de vos utilisateurs d'adblocker, "
+"leur type de connexion, leur système d'exploitation, le navigateur qu'ils "
+"utilisent, sur quel appareil ils naviguent ; ainsi que des données sur leur "
+"comportement sur votre site : les sites référents, la liste des pages "
+"bloquées, le taux de rebond, la durée de leur visite ainsi que leur "
+"récurrence…"
+
+#: admin/partials/ad-back-admin-display.php:76
+#: admin/partials/ad-back-admin-display.php:97
+#: admin/partials/ad-back-admin-message-display.php:34
 msgid "https://www.adback.co/en/sites/dashboard"
 msgstr "https://www.adback.co/fr/sites/dashboard"
 
-#: admin/partials/ad-back-admin-display.php:88
-msgid "Discover"
-msgstr "Découvrez bien plus de statistiques sur AdBack.co"
+#: admin/partials/ad-back-admin-display.php:77
+msgid ""
+"Discover the top 10 of the blocked pages on your site and many other "
+"statistics!"
+msgstr ""
+"Découvrez le top 10 des pages les plus bloquées sur votre site et bien "
+"d’autres statistiques !"
 
-#: admin/partials/ad-back-admin-display.php:105
+#: admin/partials/ad-back-admin-display.php:98
+#: admin/partials/ad-back-admin-message-display.php:35
+msgid "https://www.adback.co/en/#prix"
+msgstr "https://www.adback.co/fr/#prix"
+
+#: admin/partials/ad-back-admin-display.php:99
+#: admin/partials/ad-back-admin-message-display.php:36
+msgid ""
+"https://wordpress.org/support/plugin/adback-solution-to-adblock/reviews/"
+msgstr ""
+"https://wordpress.org/support/plugin/adback-solution-to-adblock/reviews/"
+
+#: admin/partials/ad-back-admin-display.php:129
 #, php-format
 msgid "No data available, please <a href=\"%s\">refresh domain</a>"
 msgstr ""
@@ -221,49 +263,6 @@ msgstr "Activer mon compte AdBack"
 msgid "AdBack Message"
 msgstr "AdBack Message"
 
-#: admin/partials/ad-back-admin-message-display.php:28
-msgid "Activate and customize your message!"
-msgstr "Activez et personnalisez votre message !"
-
-#: admin/partials/ad-back-admin-message-display.php:29
-#: admin/partials/ad-back-admin-message-display.php:32
-#: admin/partials/ad-back-admin-message-display.php:35
-#: admin/partials/ad-back-admin-settings-display.php:22
-#: admin/partials/ad-back-admin-settings-display.php:25
-msgid "Activate your message"
-msgstr "Activer votre message"
-
-#: admin/partials/ad-back-admin-message-display.php:36
-#: admin/partials/ad-back-admin-settings-display.php:38
-msgid "Save"
-msgstr "Enregistrer les modifications"
-
-#: admin/partials/ad-back-admin-message-display.php:39
-msgid "Customize your message"
-msgstr "Personnalisez votre message"
-
-#: admin/partials/ad-back-admin-message-display.php:41
-msgid "Customize message description"
-msgstr ""
-"Suivez le lien ci-dessous pour personnaliser le texte et les couleurs de "
-"votre message, sélectionnez un template, un thème, ajoutez votre logo et "
-"choisissez quelles solutions alternatives vous souhaitez proposer à vos  "
-"utilisateurs d'adblocker: désactivation, vidéo, sondage…"
-
-#: admin/partials/ad-back-admin-message-display.php:43
-msgid "Customize my message on AdBack.co"
-msgstr "Personnalisez votre message sur AdBack.co"
-
-#: admin/partials/ad-back-admin-message-display.php:55
-msgid "Free trial description"
-msgstr ""
-"Démarrez votre essai de 14 jours et bénéficiez de 10000 messages "
-"personnalisables gratuits pour communiquer avec vos utilisateurs d'adblocker"
-
-#: admin/partials/ad-back-admin-message-display.php:57
-msgid "Free trial start"
-msgstr "DÉMARREZ VOTRE ESSAI"
-
 #: admin/partials/ad-back-admin-redirect.php:16
 msgid "Checking credentials..."
 msgstr "Vérification des identifiants…"
@@ -276,44 +275,31 @@ msgstr "Mise à jour des domains ..."
 msgid "AdBack Settings"
 msgstr "Paramètres AdBack"
 
-#: admin/partials/ad-back-admin-settings-display.php:19
-msgid "Display message"
-msgstr "Afficher le message"
-
-#: admin/partials/ad-back-admin-settings-display.php:31
-#: admin/partials/ad-back-admin-settings-display.php:34
-msgid "No message for logged in Wordpress admin"
-msgstr "Ne pas afficher le message pour l'admin WordPress connecté"
-
-#: admin/partials/ad-back-admin-settings-display.php:42
+#: admin/partials/ad-back-admin-settings-display.php:22
 msgid "Adback Account"
 msgstr "Compte Adback"
 
-#: admin/partials/ad-back-admin-settings-display.php:43
+#: admin/partials/ad-back-admin-settings-display.php:23
 msgid "Log out"
 msgstr "Déconnexion"
 
-#: admin/partials/ad-back-admin-widget.php:15
+#: admin/partials/ad-back-admin-widget.php:16
 msgid "Yesterday"
 msgstr "Hier"
 
-#: admin/partials/ad-back-admin-widget.php:21
-msgid "Number"
-msgstr "Nombre"
-
-#: admin/partials/ad-back-admin-widget.php:35
+#: admin/partials/ad-back-admin-widget.php:22
 msgid "Last 7 days"
 msgstr "Les 7 derniers jours"
 
-#: admin/partials/ad-back-admin-widget.php:37
+#: admin/partials/ad-back-admin-widget.php:24
 msgid "Adblock removals"
 msgstr "Désactivation d'adblock"
 
-#: admin/partials/ad-back-admin-widget.php:38
+#: admin/partials/ad-back-admin-widget.php:25
 msgid "% adblock removals after showing message"
 msgstr "% d'utilisateur d'adblock qui le désactive après avoir vu le message"
 
-#: admin/partials/ad-back-admin-widget.php:39
+#: admin/partials/ad-back-admin-widget.php:26
 #, php-format
 msgid "No custom message enabled. You can enable it <a href=\"%s\">here</a>"
 msgstr ""
@@ -326,6 +312,52 @@ msgstr ""
 "Une erreur est survenue lors de l'activation du plugin AdBack. Veuillez vous "
 "rendre sur la page d'<a href='%s'>administration</a> pour compléter votre "
 "activation"
+
+#~ msgid "Discover"
+#~ msgstr "Découvrez bien plus de statistiques sur AdBack.co"
+
+#~ msgid "Monetisation Statistics"
+#~ msgstr "Statistiques de monétisation"
+
+#~ msgid "Activate and customize your message!"
+#~ msgstr "Activez et personnalisez votre message !"
+
+#~ msgid "Activate your message"
+#~ msgstr "Activer votre message"
+
+#~ msgid "Save"
+#~ msgstr "Enregistrer les modifications"
+
+#~ msgid "Customize your message"
+#~ msgstr "Personnalisez votre message"
+
+#~ msgid "Customize message description"
+#~ msgstr ""
+#~ "Suivez le lien ci-dessous pour personnaliser le texte et les couleurs de "
+#~ "votre message, sélectionnez un template, un thème, ajoutez votre logo et "
+#~ "choisissez quelles solutions alternatives vous souhaitez proposer à vos  "
+#~ "utilisateurs d'adblocker: désactivation, vidéo, sondage…"
+
+#~ msgid "Customize my message on AdBack.co"
+#~ msgstr "Personnalisez votre message sur AdBack.co"
+
+#~ msgid "Free trial description"
+#~ msgstr ""
+#~ "Démarrez votre essai de 14 jours et bénéficiez de 10000 messages "
+#~ "personnalisables gratuits pour communiquer avec vos utilisateurs "
+#~ "d'adblocker"
+
+#~ msgid "Free trial start"
+#~ msgstr "DÉMARREZ VOTRE ESSAI"
+
+#~ msgid "Display message"
+#~ msgstr "Afficher le message"
+
+#~ msgid "No message for logged in Wordpress admin"
+#~ msgstr "Ne pas afficher le message pour l'admin WordPress connecté"
+
+#~ msgid "Number"
+#~ msgstr "Nombre"
 
 #~ msgid "No data available, please"
 #~ msgstr "Pas de données disponibles, veuillez"
