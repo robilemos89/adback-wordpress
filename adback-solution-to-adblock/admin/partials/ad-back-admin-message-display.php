@@ -21,14 +21,12 @@ $allowed = $subscription['trial_status'] == 1 ? 10000 : $subscription['allowed']
 
 ?>
 <?php include "ad-back-admin-header.php" ?>
-<h1><?php _e( 'AdBack Message', 'ad-back' ); ?></h1>
-
 <div id="ab-full-app" style="overflow: hidden;">
     <grid>
-        <div col="3/4">
+        <div col="5/6">
             <div id="ab-full-form"></div>
         </div>
-        <div col="1/4">
+        <div col="1/6">
             <div id="adb-stats">
                 <progress-bar type="subscription"
                               dashboardlink="<?php _e('https://www.adback.co/en/sites/dashboard', 'ad-back'); ?>"

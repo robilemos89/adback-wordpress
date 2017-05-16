@@ -14,19 +14,12 @@
 ?>
 <?php include "ad-back-admin-header.php" ?>
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
-<h1><?php _e('AdBack : The stats of your AdBlock audience', 'ad-back'); ?></h1>
-
-<p>
-    <?php _e('Statistics description', 'ad-back'); ?>
-</p>
-<hr class="clear">
-
 <div id="ab-full-app">
     <div id="adb-stats">
         <grid>
-            <div col="3/4">
-                <tabs>
-                    <tab header="<?php _e('Global Statistics', 'ad-back'); ?>">
+            <div col="5/6">
+                <!--<tabs>
+                    <tab header="<?php /*_e('Global Statistics', 'ad-back'); */?>">-->
                         <page>
                             <h3><?php _e('Today', 'ad-back'); ?></h3>
                             <today-widget></today-widget>
@@ -36,48 +29,63 @@
                                 <browser-type style="display:inline-block"></browser-type>
                                 <datepicker style="float:right"></datepicker>
                             </div>
-                            <div class="block-white">
-                                <h4><?php _e('Blocked page view and percent', 'ad-back'); ?></h4>
+                            <section>
+                                <h4 class="header-section"><?php _e('Blocked page view and percent', 'ad-back'); ?></h4>
                                 <h7><?php _e('Blocked page view and percent - Sub', 'ad-back'); ?></h7>
-                                <graph type="page-view-adblocker-percent"
-                                       style="width: 95%; height: 400px; margin-bottom: 50px; position:relative;">
-                                </graph>
-                            </div>
+                                <hr/>
+                                <div class="section-content">
+                                    <graph type="page-view-adblocker-percent"
+                                           style="width: 95%; height: 400px; margin-bottom: 50px; position:relative;">
+                                    </graph>
+                                </div>
+                            </section>
 
-                            <div class="block-white">
-                                <h4><?php _e('New - former adblock users', 'ad-back'); ?></h4>
+                            <section>
+                                <h4 class="header-section"><?php _e('New - former adblock users', 'ad-back'); ?></h4>
                                 <h7><?php _e('New - former adblock users - Sub', 'ad-back'); ?></h7>
-                                <graph type="adblocker-new-old"
-                                       style="width: 95%; height: 400px; margin-bottom: 50px; position:relative;">
-                                </graph>
-                            </div>
+                                <hr/>
+                                <div class="section-content">
+                                    <graph type="adblocker-new-old"
+                                           style="width: 95%; height: 400px; margin-bottom: 50px; position:relative;">
+                                    </graph>
+                                </div>
+                            </section>
 
-                            <div class="block-white">
-                                <h4><?php _e('Bounce rate of adblocker users', 'ad-back'); ?></h4>
-                                <graph type="bounce"
-                                       style="width: 95%; height: 400px; margin-bottom: 50px; position:relative;">
-                                </graph>
-                            </div>
+                            <section>
+                                <h4 class="header-section"><?php _e('Bounce rate of adblocker users', 'ad-back'); ?></h4>
+                                <hr/>
+                                <div class="section-content">
+                                    <graph type="bounce"
+                                           style="width: 95%; height: 400px; margin-bottom: 50px; position:relative;">
+                                    </graph>
+                                </div>
+                            </section>
 
-                            <div class="block-white">
-                                <h4><?php _e('Browser', 'ad-back'); ?></h4>
-                                <graph type="browser"
-                                       style="width: 95%; height: 400px; margin-bottom: 50px; position:relative;">
-                                </graph>
-                            </div>
+                            <section>
+                                <h4 class="header-section"><?php _e('Browser', 'ad-back'); ?></h4>
+                                <hr/>
+                                <div class="section-content">
+                                    <graph type="browser"
+                                           style="width: 95%; height: 400px; margin-bottom: 50px; position:relative;">
+                                    </graph>
+                                </div>
+                            </section>
 
-                            <div class="block-white" style="padding: 20px 10px;">
-                                <p>
-                                    <?php _e("When connecting to your AdBack dashboard, you'll discover the share of your adblocker visitors using a whitelist, the type of adblocker they use, the share of your analytics tools that are blocked (Google Analytics and Xiti), the geolocation of your adblocker users, their connection type, their operating system, the browser they use, on which device they are ; as well as data about their behavior on your site: the referral traffic, a list of your blocked pages, the bounce rate, the visit duration and the recurrence...", 'ad-back'); ?>
-                                </p>
-                                <center>
-                                    <a href="<?php _e('https://www.adback.co/en/sites/dashboard', 'ad-back'); ?>"
-                                       target="_blank"
-                                       class="button button-primary button-ab"><?php esc_html_e('Discover the top 10 of the blocked pages on your site and many other statistics!', 'ad-back'); ?></a>
-                                </center>
-                            </div>
+                            <section>
+                                <hr/>
+                                <div class="section-content">
+                                    <p>
+                                        <?php _e("When connecting to your AdBack dashboard, you'll discover the share of your adblocker visitors using a whitelist, the type of adblocker they use, the share of your analytics tools that are blocked (Google Analytics and Xiti), the geolocation of your adblocker users, their connection type, their operating system, the browser they use, on which device they are ; as well as data about their behavior on your site: the referral traffic, a list of your blocked pages, the bounce rate, the visit duration and the recurrence...", 'ad-back'); ?>
+                                    </p>
+                                    <center>
+                                        <a href="<?php _e('https://www.adback.co/en/sites/dashboard', 'ad-back'); ?>"
+                                           target="_blank"
+                                           class="button button-primary button-ab"><?php esc_html_e('Discover the top 10 of the blocked pages on your site and many other statistics!', 'ad-back'); ?></a>
+                                    </center>
+                                </div>
+                            </section>
                         </page>
-                    </tab>
+                    <!--</tab>-->
                     <!--<tab header="<?php /*_e('Monetisation Statistics', 'ad-back'); */ ?>">
                         <page>
                         <datepicker></datepicker>
@@ -86,10 +94,10 @@
                         </graph>
                         </page>
                     </tab>-->
-                </tabs>
+                <!--</tabs>-->
             </div>
 
-            <div col="1/4">
+            <div col="1/6">
                 <div>
                     <progress-bar type="subscription"
                                   dashboardlink="<?php _e('https://www.adback.co/en/sites/dashboard', 'ad-back'); ?>"

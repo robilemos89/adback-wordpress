@@ -14,14 +14,28 @@
 
 ?>
 <?php include "ad-back-admin-header.php" ?>
-<h1 class="ab-h1"><?php _e( 'AdBack Settings', 'ad-back' ); ?></h1>
 <div id="ab-settings">
     <div id="ab-full-app">
-        <div id="ab-configuration-form"></div>
-        <div class="ab-primary-setting">
-            <h4><?php esc_html_e('Adback Account', 'ad-back'); ?></h4>
-            <button id="ab-logout" primary m-full><?php esc_html_e('Log out', 'ad-back'); ?></button>
-        </div>
+        <grid>
+            <div col="5/6">
+                <div id="ab-configuration-form"></div>
+                <div class="ab-primary-setting">
+                    <h4><?php esc_html_e('Adback Account', 'ad-back'); ?></h4>
+                    <button id="ab-logout" primary m-full><?php esc_html_e('Log out', 'ad-back'); ?></button>
+                </div>
+            </div>
+            <div col="1/6">
+                <div id="adb-stats">
+                    <progress-bar type="subscription"
+                                  dashboardlink="<?php _e('https://www.adback.co/en/sites/dashboard', 'ad-back'); ?>"
+                                  pricelink="<?php _e('https://www.adback.co/en/#prix', 'ad-back'); ?>"
+                                  reviewlink="<?php _e('https://wordpress.org/support/plugin/adback-solution-to-adblock/reviews/', 'ad-back') ?>"
+                    >
+
+                    </progress-bar>
+                </div>
+            </div>
+        </grid>
     </div>
 </div>
 
