@@ -151,11 +151,11 @@
     -o-transition: width .6s ease;
     transition: width .6s ease;
 }
-
+/*
 a.button.button-ab {
     background: #54aff6 !important;
     color: #ffffff !important;
-    /*margin: 18px 0 34px;*/
+    !*margin: 18px 0 34px;*!
     height: 50px;
     border: 1px #54aff6 solid;
     border-radius: 0;
@@ -178,7 +178,7 @@ a.button.button-ab {
     font-size: 1rem;
     line-height: 52px;
     text-shadow: none;
-}
+}*/
 
 .ab-discover {
     text-align: center;
