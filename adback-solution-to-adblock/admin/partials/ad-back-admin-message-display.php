@@ -27,15 +27,9 @@ $allowed = $subscription['trial_status'] == 1 ? 10000 : $subscription['allowed']
             <div id="ab-full-form"></div>
         </div>
         <div col="1/6">
-            <div id="adb-stats">
-                <progress-bar type="subscription"
-                              dashboardlink="<?php _e('https://www.adback.co/en/sites/dashboard', 'ad-back'); ?>"
-                              pricelink="<?php _e('https://www.adback.co/en/#prix', 'ad-back'); ?>"
-                              reviewlink="<?php _e('https://wordpress.org/support/plugin/adback-solution-to-adblock/reviews/', 'ad-back') ?>"
-                >
-
-                </progress-bar>
-            </div>
+            <div id="adb-sidebar-standalone"
+                 data-reviewlink="https://wordpress.org/support/plugin/adback-solution-to-adblock/reviews/"
+                 data-supportlink="https://wordpress.org/support/plugin/adback-solution-to-adblock"></div>
         </div>
     </grid>
 
