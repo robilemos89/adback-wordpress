@@ -156,7 +156,8 @@ class Ad_Back_Admin extends Ad_Back_Generic
                 return true;
             }
 
-            if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings' || $_GET['page'] == 'ab-message')) {
+            if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings' ||
+                    $_GET['page'] == 'ab-message' || $_GET['page'] == 'ab-diagnostic')) {
                 return true;
             }
 
@@ -264,6 +265,35 @@ class Ad_Back_Admin extends Ad_Back_Generic
     }
 
     /**
+     * Render the message page for this plugin.
+     *
+     * @since    1.0.0
+     */
+    public function displayPluginDiagnosticPage()
+    {
+        if($this->isConnected()) {
+            if($this->getDomain() === '') {
+                $this->askDomain();
+            }
+            $adback = new Ad_Back_Public($this->plugin_name, $this->version);
+            $adback->enqueueScripts();
+            $token = $this->getToken();
+            $script = $this->askScripts();
+            include_once( 'partials/ad-back-admin-diagnostic.php' );
+        } else {
+            if(isset($_GET['access_token'])) {
+                $this->saveToken([
+                    'access_token' => $_GET['access_token'],
+                    'refresh_token' => '',
+                    ]);
+                include_once( 'partials/ad-back-admin-redirect.php');
+            } else {
+                include_once( 'partials/ad-back-admin-login-display.php');
+            }
+        }
+    }
+
+    /**
      * Render the refresh domain page for this plugin.
      *
      * @since    1.0.0
@@ -303,6 +333,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
         add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'ad-back'), 'manage_options', 'ab', array($this, 'displayPluginStatsPage'));
         add_submenu_page('ab', 'AdBack Message', __('Message', 'ad-back'), 'manage_options', 'ab-message', array($this, 'displayPluginMessagePage'));
         add_submenu_page('ab', 'AdBack Settings', __('Settings', 'ad-back'), 'manage_options', 'ab-settings', array($this, 'displayPluginSettingsPage'));
+        add_submenu_page('ab', 'AdBack Diagnostic', __('Diagnostic', 'ad-back'), 'manage_options', 'ab-diagnostic', array($this, 'displayPluginDiagnosticPage'));
 
         add_plugins_page('ab', '', 'manage_options', 'ab-refresh-domain', array($this, 'displayPluginRefreshDomainPage'));
     }
