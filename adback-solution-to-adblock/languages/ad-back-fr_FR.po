@@ -120,6 +120,10 @@ msgstr "Statistiques"
 msgid "Message"
 msgstr "Message"
 
+#: admin/class-ad-back-admin.php:336
+msgid "Diagnostic"
+msgstr "Diagnostique"
+
 #: admin/class-ad-back-admin.php:391
 msgid "It's time to analyze your adblock users, activate your adback account !"
 msgstr ""
