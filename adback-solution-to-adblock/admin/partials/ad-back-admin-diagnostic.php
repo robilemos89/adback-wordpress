@@ -87,10 +87,10 @@ $ko = "<svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://crea
 </div>
 <script type="text/javascript">
     (function ($) {
-        $(document).ajaxStop(function () {
+        $(window).on("load", function () {
             if ('function' === typeof adback.API().start) {
-                $(".working-script").replaceWith(<?php echo "<td>" . $ok . "</td>"; ?>);
-            };
-        }
+                $(".working-script").replaceWith('<?php echo "<td>" . $ok . "</td>"; ?>')
+            }
+        });
     })(jQuery);
 </script>
