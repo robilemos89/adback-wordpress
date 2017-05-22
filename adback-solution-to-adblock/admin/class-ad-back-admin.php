@@ -18,7 +18,7 @@
  *
  * @package    Ad_Back
  * @subpackage Ad_Back/admin
- * @author     Antoine Ferrier <contact@adback.co>
+ * @author     AdBack <contact@adback.co>
  */
 
 include_once( plugin_dir_path( __FILE__ ) . '../class-ad-back.php');

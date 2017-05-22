@@ -25,7 +25,7 @@
  * @since      1.0.0
  * @package    Ad_Back
  * @subpackage Ad_Back/includes
- * @author     Antoine Ferrier <contact@adback.co>
+ * @author     AdBack <contact@adback.co>
  */
 class Ad_Back
 {
