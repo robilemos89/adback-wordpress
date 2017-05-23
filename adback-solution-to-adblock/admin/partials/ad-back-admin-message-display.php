@@ -42,7 +42,7 @@ $allowed = $subscription['trial_status'] == 1 ? 10000 : $subscription['allowed']
                 token: '<?php echo $this->getToken()->access_token; ?>',
                 url: 'https://<?php echo $this->getDomain(); ?>/api/',
                 language: '<?php echo str_replace('_', '-', get_locale()); ?>',
-                version: 1
+                version: 2
             });
         }
     }
