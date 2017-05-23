@@ -21,27 +21,18 @@ $allowed = $subscription['trial_status'] == 1 ? 10000 : $subscription['allowed']
 
 ?>
 <?php include "ad-back-admin-header.php" ?>
-<h1><?php _e( 'AdBack Message', 'ad-back' ); ?></h1>
-
-<div id="ab-full-app">
-    <div id="ab-full-form"></div>
-</div>
-<div id="ab-go-settings">
-    <?php if ($showTrial) { ?>
-    <div class="ab-trial-box">
-        <h2><?php echo $progress."/".$allowed." messages"; ?></h2>
-        <div class="ab-progress">
-            <div class="ab-progress-bar" role="progressbar" style="width:<?php echo $allowed > 0 ? ceil($progress / $allowed * 100) : 100 ?>%">
-            </div>
+<div id="ab-full-app" style="overflow: hidden;">
+    <grid>
+        <div col="5/6">
+            <div id="ab-full-form"></div>
         </div>
-        <?php if ($subscription['trial_status'] == 1) { ?>
-            <p>
-                <?php _e('Free trial description', 'ad-back'); ?>
-            </p>
-            <a href="https://www.adback.co" target="_blank" class="button button-ab"><?php _e('Free trial start', 'ad-back'); ?></a>
-        <?php } ?>
-    </div>
-    <?php } ?>
+        <div col="1/6">
+            <div id="adb-sidebar-standalone"
+                 data-reviewlink="https://wordpress.org/support/plugin/adback-solution-to-adblock/reviews/"
+                 data-supportlink="https://wordpress.org/support/plugin/adback-solution-to-adblock"></div>
+        </div>
+    </grid>
+
 </div>
 
 <script type="text/javascript">
@@ -50,7 +41,8 @@ $allowed = $subscription['trial_status'] == 1 ? 10000 : $subscription['allowed']
             adbackjs.init({
                 token: '<?php echo $this->getToken()->access_token; ?>',
                 url: 'https://<?php echo $this->getDomain(); ?>/api/',
-                language: '<?php echo str_replace('_', '-', get_locale()); ?>'
+                language: '<?php echo str_replace('_', '-', get_locale()); ?>',
+                version: 1
             });
         }
     }

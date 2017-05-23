@@ -16,8 +16,8 @@
  * Plugin Name:       AdBack solution to adblock
  * Plugin URI:        adback.co
  * Description:       With AdBack, access analytics about adblocker users, address them personalized messages, propose alternative solutions to advertising (video, survey).
- * Version:           1.2.6
- * Author:            Antoine Ferrier
+ * Version:           2.0.0
+ * Author:            AdBack
  * Author URI:        https://www.adback.co
  * License:           GPL-2.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt

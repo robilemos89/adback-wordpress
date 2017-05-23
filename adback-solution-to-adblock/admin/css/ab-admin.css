@@ -50,6 +50,7 @@
 
 #ab-logout {
     float: left;
+    background-color: #949494 !important;
 }
 
 #ab-charts {
@@ -67,7 +68,7 @@
 
 .button-ab {
     background-color: #54AFF6 !important;
-    margin-top: 30px !important;
+    /*margin-top: 30px !important;*/
 }
 
 .ab-discover {
@@ -151,11 +152,11 @@
     -o-transition: width .6s ease;
     transition: width .6s ease;
 }
-
+/*
 a.button.button-ab {
     background: #54aff6 !important;
     color: #ffffff !important;
-    margin: 18px 0 34px;
+    !*margin: 18px 0 34px;*!
     height: 50px;
     border: 1px #54aff6 solid;
     border-radius: 0;
@@ -178,7 +179,7 @@ a.button.button-ab {
     font-size: 1rem;
     line-height: 52px;
     text-shadow: none;
-}
+}*/
 
 .ab-discover {
     text-align: center;
@@ -200,6 +201,13 @@ a.button.button-ab {
 
 .ab-primary-setting {
     display: inline-block;
+    margin-top: 10px;
+    background-color: white;
+    padding: 2rem;
+}
+
+#ab-full-app .ab-primary-setting h4:not([class]) {
+    margin-bottom: 10px;
 }
 
 .ab-h1 {
@@ -277,7 +285,6 @@ a.button.button-ab {
     padding: 20px 10px;
     border-top: 5px solid #252b37;
     border-bottom: 1px solid #d4d4d4;
-    background: #fff;
 }
 
 .ab-top .logo {
@@ -330,25 +337,4 @@ a.button.button-ab {
     color: rgba(0,0,0,.2);
     background: #f8f8f8;
     min-height: 8em;
-}
-
-.hide {
-    display: none;
-}
-
-.block-graph{
-    background-color: #FFF;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 10px;
-}
-
-.col-9 {
-    display: inline-block;
-    width: 75%;
-}
-
-.col-3 {
-    display: inline-block;
-    width: 25%;
 }

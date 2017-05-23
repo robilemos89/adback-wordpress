@@ -11,6 +11,8 @@
  */
 class Ad_Back_Generic
 {
+    private $connected = null;
+
     public function getMyInfo()
     {
         global $wpdb; // this is how you get access to the database
@@ -92,6 +94,10 @@ class Ad_Back_Generic
 
     public function isConnected($token = null)
     {
+        if ($this->connected !== null) {
+            return $this->connected;
+        }
+
         if ($token == null) {
             $token = $this->getToken();
         }
@@ -100,12 +106,15 @@ class Ad_Back_Generic
             $token = (object)$token;
         }
 
-        if (isset($token->access_token)) {
-            $url = "https://www.adback.co/api/test/normal?access_token=" . $token->access_token;
+        if (isset($token->access_token) && $token->access_token !== '') {
+            $apiDomain = $this->getDomain();
+            $domain = $apiDomain === '' ? 'www.adback.co' : $apiDomain;
+            $url = "https://".$domain."/api/test/normal?access_token=" . $token->access_token;
+
             $result = json_decode(Ad_Back_Get::execute($url), true);
-            return is_array($result) && array_key_exists("name", $result);
+            return $this->connected = is_array($result) && array_key_exists("name", $result);
         } else {
-            return false;
+            return $this->connected = false;
         }
     }
 
