@@ -56,14 +56,11 @@ Target the profile of your adblocker users depending on:
 
 == Screenshots ==
 
-1. Register with AdBack. Activate your account if you already have one or create an account.
-2. Log in and submit your website to activate the plugin.
-3. Find statistics about your adblocker users directly in your WordPress interface. Here, you can discover the percentage of adblocker users on your website and the number of blocked page views compared to the total number of page views.
-4. Analyze the bounce rate of your adblocker users compared to all your visitors.
-5. Discover on what browser your adblocker users navigate.
-6. Activate and customize the message to display to your adblocker users. You can access loads of customization options on your AdBack dashboard (color, logo, format, theme, etc.)
-7. Pick a format, choose a theme, personalize your graphism and customize the text you want to display.
-8. Access your dashboard with all the detailed statistics on https://www.adback.co/en/sites/dashboard
+1. Find statistics about your adblocker users directly in your WordPress interface. Here, you can discover the percentage of adblocker users on your website, the number of blocked page views, your estimated revenue loss…
+2. Activate and customize the message to display to your adblocker users. Pick a format, choose a theme, customize your graphism with your logo and your colors.
+3. Personalize the text you want to display, offer various alternative solutions and define the targeting and frequency of your message as well as scenarios.
+4. Display your customized message and propose alternative solutions to your users to recover up to 60% of your lost online ad revenue (video, deactivation…).
+5. Access your AdBack dashboard with all the detailed statistics of your website on https://www.adback.co/en/sites/dashboard
 
 == Installation ==
 
