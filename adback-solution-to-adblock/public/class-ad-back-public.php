@@ -79,7 +79,6 @@ class Ad_Back_Public extends Ad_Back_Generic
         $mess = $this->getCacheMessages();
 
         if (is_array($me)) {
-            var_dump($me);
             if (!empty($me['analytics_domain']) && !empty($me['analytics_script'])) {
                 echo "<script>(function (a,d){var s,t;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://" . $me['analytics_domain'] . "/" . $me['analytics_script'] . ".js', document);</script>";
             }
