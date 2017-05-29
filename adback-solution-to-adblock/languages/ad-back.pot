@@ -14,285 +14,153 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ad-back-admin-login-display.html:20
-msgid "Register with Envato"
-msgstr ""
-
-#: ad-back-admin-login-display.html:31
-msgid "Activate my Envato license"
-msgstr ""
-
-#: ad-back-admin-login-display.html:22
-msgid "If you downloaded the plugin from Envato, enter your key below and click on Register"
-msgstr ""
-
-#: ad-back-admin-login-display.html:38
-msgid "If you already are a registered user of AdBack.co, enter your login and password below:"
-msgstr ""
-
-#: ad-back-admin-login-display.html:23
-msgid "Envato License Key:"
-msgstr ""
-
-#: ad-back-admin-login-display.html:31
-msgid "Register with AdBack"
-msgstr ""
-
-#: ad-back-admin-login-display.html:43
-msgid "Activate my AdBack"
-msgstr ""
-
-#: ad-back-admin-login-display.html:35
-msgid "Create my AdBack account"
-msgstr ""
-
-#: ad-back-admin-login-display.html:33
-msgid "Email:"
-msgstr ""
-
-#: ad-back-admin-login-display.html:33
-msgid "Username:"
-msgstr ""
-
-#: ad-back-admin-login-display.html:35
-msgid "Password:"
-msgstr ""
-
-#: ad-back-admin-login-display.html:33
-msgid "Domain:"
-msgstr ""
-
-#: ad-back-admin-login-display.html:33
-msgid "Slug:"
-msgstr ""
-
-#: ad-back-admin-login-display.html:33
-msgid "Log out"
-msgstr ""
-
-#: ad-back-admin-login-display.html:33
-msgid "Select the slug for your website:"
-msgstr ""
-
-#: ad-back-admin-login-display.html:26 ad-back-admin-login-display.html:38
-msgid "Register / Login"
-msgstr ""
-
-#: ad-back-admin-login-display.html:33
-msgid "The key, email and domain fields should be filled"
-msgstr ""
-
-#: ad-back-admin-login-display.html:33
-msgid "The email and password fields should be filled"
-msgstr ""
-
-#: ad-back-admin-login-display.html:33
-msgid "There is an error in the registration: {0}"
-msgstr ""
-
-#: class-ad-back-admin:102
-msgid "Bounce rate of adblocker users"
-msgstr ""
-
-#: class-ad-back-admin:103
-msgid "Adblocker activation / deactivation"
-msgstr ""
-
-#: class-ad-back-admin:104
-msgid "Ad blocker percent"
-msgstr ""
-
-#: class-ad-back-admin:105
-msgid "Blocked page views"
-msgstr ""
-
-#: class-ad-back-admin
-msgid "Blocked page view and percent"
-msgstr ""
-
-#: class-ad-back-admin
-msgid "New - former adblock users"
-msgstr ""
-
-#: class-ad-back-admin:106
-msgid "Browser"
-msgstr ""
-
-#: class-ad-back-admin:107
-msgid "OS"
-msgstr ""
-
-#: class-ad-back-admin:108
-msgid "Percent bounce adblock users"
-msgstr ""
-
-#: class-ad-back-admin:108
-msgid "Percent bounce all users"
-msgstr ""
-
-#: class-ad-back-admin:108
-msgid "Users having ad blocker"
-msgstr ""
-
-#: class-ad-back-admin:108
-msgid "Percent page view"
-msgstr ""
-
-msgid "Percent page view with AdBlock"
-msgstr ""
-
-#: class-ad-back-admin:108
-msgid "Users who have disabled an ad blocker"
-msgstr ""
-
-#: class-ad-back-admin:108
-msgid "Percent adblock users"
-msgstr ""
-
-#: class-ad-back-admin:109
-msgid "Oops..."
-msgstr ""
-
-#: class-ad-back-admin:110
-msgid "Invalid email or password"
-msgstr ""
-
-#: class-ad-back-admin
-msgid "All the fields should be fill"
-msgstr ""
-
-#: ad-back-admin-display.html:17
-msgid "AdBack : The stats of your AdBlock audience"
-msgstr ""
-
-#: ad-back-admin-settings.html
-msgid "Show warning message for user with ad blocker"
-msgstr ""
-
-#: ad-back-admin-settings.html
-msgid "Header text"
-msgstr ""
-
-#: ad-back-admin-settings.html
-msgid "Text message"
-msgstr ""
-
-#: ad-back-admin-settings.html
-msgid "Text close button"
-msgstr ""
-
-#: ad-back-admin-settings.html
-msgid "Save"
-msgstr ""
-
-#: ad-back-admin-settings.html
+#: ad-back.php:36 admin/class-ad-back-admin.php:335
+#: admin/class-ad-back-admin.php:422
 msgid "Settings"
 msgstr ""
 
-#: ad-back-admin-settings.html
-msgid "Statistics"
+#: admin/class-ad-back-admin.php:110
+msgid "Bounce rate of adblocker users"
 msgstr ""
 
-#: ad-back-admin-settings.html
+#: admin/class-ad-back-admin.php:111
+msgid "Adblocker activation / deactivation"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:112
+msgid "Ad blocker percent"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:113
+msgid "Blocked page views"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:114
+msgid "Browser"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:115
+msgid "OS"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:116
+msgid "Percent adblock users"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:117
+msgid "Percent bounce adblock users"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:118
+msgid "Percent bounce all users"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:119
+msgid "Oops..."
+msgstr ""
+
+#: admin/class-ad-back-admin.php:120
+msgid "Invalid email or password"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:121
+msgid "The key, email and domain fields should be filled"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:122
+msgid "The email and password fields should be filled"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:123
+msgid "There is an error in the registration: {0}"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:124
+msgid "Users having ad blocker"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:125
+msgid "Users who have disabled an ad blocker"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:126
+msgid "Percent page view with AdBlock"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:127
+msgid "Percent page view"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:128
 msgid "days"
 msgstr ""
 
-#: ad-back-admin-settings.html
-msgid "day"
-msgstr ""
-
-#: ad-back-admin-settings.html
+#: admin/class-ad-back-admin.php:129
 msgid "Loading ..."
 msgstr ""
 
-#: ad-back-admin-settings.html
+#: admin/class-ad-back-admin.php:130
 msgid "No Data"
 msgstr ""
 
-#: class-ad-back-admin
-msgid "Discover"
-msgstr "Get more statistics on AdBack.co"
-
-#: class-ad-back-admin
-msgid "Blocked page view and percent - Sub"
+#: admin/class-ad-back-admin.php:186
+#, php-format
+msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr ""
 
-#: class-ad-back-admin
-msgid "New - former adblock users - Sub"
+#: admin/class-ad-back-admin.php:333
+msgid "Statistics"
 msgstr ""
 
-#: ad-back-admin-login-display.html:38
-msgid "If you are a subscriber of AdBack.co, The usage of the plugins is free, click below to identify yourself:"
+#: admin/class-ad-back-admin.php:334
+msgid "Message"
 msgstr ""
 
-#: ad-back-admin-login-display.html:38
-msgid "Checking credentials..."
+#: admin/class-ad-back-admin.php:336
+msgid "Diagnostic"
 msgstr ""
 
-#: class-ad-back-admin
+#: admin/class-ad-back-admin.php:422
 msgid "It's time to analyze your adblock users, activate your adback account !"
 msgstr ""
 
-#: ad-back-admin-settings-display.html:35
-msgid "No message for logged in Wordpress admin"
+#: admin/partials/ad-back-admin-diagnostic.php:17
+msgid "AdBack : The stats of your AdBlock audience"
 msgstr ""
 
-#: ad-back-admin-settings-display.html:35
-msgid "Activate your message"
-msgstr ""
-
-#: ad-back-admin-settings-display.html:35
-msgid "AdBack Settings"
-msgstr ""
-
-#: ad-back-admin-settings-display.html:35
-msgid "Activate and customize your message!"
-msgstr ""
-
-#: ad-back-admin-settings-display.html:35
-msgid "Customize my message on AdBack.co"
-msgstr ""
-
-#: ad-back-admin-settings-display.html:35
-msgid "Customize message description"
-msgstr ""
-
-#: ad-back-admin-settings-display.html:35
-msgid "Activate message description"
-msgstr ""
-
-#: ad-back-admin-settings-display.html:35
-msgid "Adback Account"
-msgstr ""
-
-#: ad-back-admin-settings-display.html:35
-msgid "Display message"
-msgstr ""
-
-#: ad-back-admin-display.html:22
-msgid "Tweet about it"
-msgstr ""
-
-#: ad-back-admin-display.html:25
-msgid "Leave a review"
-msgstr ""
-
-#: ad-back-admin-display.html:31
+#: admin/partials/ad-back-admin-diagnostic.php:20
 msgid "Statistics description"
 msgstr ""
 
-#: ad-back-admin-message-display:44
-msgid "Free trial description"
+#: admin/partials/ad-back-admin-display.php:36
+#, php-format
+msgid "No data available, please <a href=\"%s\">refresh domain</a>"
 msgstr ""
 
-#: ad-back-admin-message-display:46
-msgid "Free trial start"
+#: admin/partials/ad-back-admin-header.php:3
+msgid "by"
 msgstr ""
 
-#: admin/partials/ad-back-admin-display.php:71
-msgid "No data available, please"
+#: admin/partials/ad-back-admin-header.php:8
+msgid "Tweet about it"
 msgstr ""
 
-#: admin/partials/ad-back-admin-display.php:71
-msgid "refresh domain"
+#: admin/partials/ad-back-admin-header.php:11
+msgid "Leave a review"
+msgstr ""
+
+#: admin/partials/ad-back-admin-login-display.php:16
+msgid "AdBack"
+msgstr ""
+
+#: admin/partials/ad-back-admin-redirect.php:16
+msgid "Checking credentials..."
+msgstr ""
+
+#: admin/partials/ad-back-admin-refresh-domain.php:16
+msgid "Refresh domain..."
+msgstr ""
+
+#: includes/class-ad-back-activator.php:159
+msgid "Registration error"
 msgstr ""
