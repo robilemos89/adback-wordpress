@@ -22,6 +22,13 @@
                 <div id="ab-configuration-form"></div>
 <!--                <div class="ab-primary-setting">-->
                     <section style="background-color:transparent;">
+                        <h4 class="header-section"><?php esc_html_e('Get more statistics', 'ad-back'); ?></h4>
+                        <hr/>
+                        <div class="section-content">
+                            <button id="ab-website" primary m-full><?php esc_html_e('Redirect me to my AdBack dashboard', 'ad-back'); ?></button>
+                        </div>
+                    </section>
+                    <section style="background-color:transparent;">
                         <h4 class="header-section"><?php esc_html_e('Adback Account', 'ad-back'); ?></h4>
                         <hr/>
                         <div class="section-content">
@@ -50,5 +57,15 @@
                 version: 2
             });
         }
-    }
+    };
+
+    (function ($) {
+        $(document).ready(function () {
+            $("#ab-website").on('click', function () {
+                var locale = "<?php echo explode('_', get_locale())[0]; ?>";
+                var email = "<?php echo get_bloginfo('admin_email') ?>";
+                window.location.href = 'https://www.adback.co/'+locale+'/login?_login_email='+email;
+            });
+        });
+    })(jQuery);
 </script>
