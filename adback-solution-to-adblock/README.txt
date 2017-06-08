@@ -76,7 +76,7 @@ Target the profile of your adblocker users depending on:
 
 6) Analyze. You now have an AdBack tab on your WordPress interface with a statistics part where you’ll find the main graphics and a settings part where you’ll be able to set up the custom message to display to your adblocker users. On WordPress, you have the access to the basic features and statistics. To access the detailed statistics and the advanced features about the custom message, go to your dashboard on AdBack.
 
-More details : http://adback-docs.readthedocs.io/en/latest/faq/adback.html#how-to-install-the-adback-plugin-on-wordpress
+More details : http://support.adback.co/article/272-adback-wordpress-plugin
 
 == Frequently Asked Questions ==
 
