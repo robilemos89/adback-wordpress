@@ -43,51 +43,12 @@ class Ad_Back_Generic
         return $mysite;
     }
 
-    public function getCacheMessages()
-    {
-        global $wpdb; // this is how you get access to the database
-
-        $table_name = $wpdb->prefix . 'adback_message';
-        return stripslashes_deep($wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = 1"));
-    }
-
-    public function saveCacheMessage($display)
-    {
-        global $wpdb; // this is how you get access to the database
-
-        $fields = array(
-            "message" => '',
-            "header_text" => '',
-            "close_text" => '',
-            "display" => filter_var($display, FILTER_VALIDATE_BOOLEAN),
-            "update_time" => current_time('mysql', 1)
-        );
-
-        $table_name = $wpdb->prefix . 'adback_message';
-        $wpdb->update(
-            $table_name,
-            $fields,
-            array("id" => 1)
-        );
-    }
-
-    public function getMessages()
-    {
-        $message = $this->getCacheMessages();
-
-        $result = array();
-        $result['display'] = $message->display;
-
-        return stripslashes_deep($result);
-    }
-
     public function saveMessage($display)
     {
         $url = 'https://www.adback.co/api/custom-message/update-status?_format=json&access_token=' . $this->getToken()->access_token;
         $displayAsBoolean = 'true' === $display ? true : false;
         $fields = ['display' => $displayAsBoolean];
         Ad_Back_Post::execute($url, $fields);
-        $this->saveCacheMessage($display);
 
         return true;
     }
