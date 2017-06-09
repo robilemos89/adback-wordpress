@@ -76,7 +76,6 @@ class Ad_Back_Public extends Ad_Back_Generic
          */
 
         $me = $this->getMyInfo();
-        $mess = $this->getCacheMessages();
 
         if (is_array($me)) {
             if (!empty($me['analytics_domain']) && !empty($me['analytics_script'])) {
@@ -88,12 +87,7 @@ class Ad_Back_Public extends Ad_Back_Generic
             }
 
             if (!empty($me['message_domain']) && !empty($me['message_script'])) {
-                if ($mess->display == '1' &&
-                    (!current_user_can('manage_options') ||
-                    (current_user_can('manage_options') && get_option('adback_admin_hide_message', '1') === '0'))
-                ) {
-                    echo "<script>(function (a,d){var s,t,u;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://" . $me['message_domain'] . "/" . $me['message_script'] . ".js', document);</script>";
-                }
+                echo "<script>(function (a,d){var s,t,u;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://" . $me['message_domain'] . "/" . $me['message_script'] . ".js', document);</script>";
             }
         }
     }

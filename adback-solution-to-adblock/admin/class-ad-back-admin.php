@@ -223,7 +223,6 @@ class Ad_Back_Admin extends Ad_Back_Generic
             if($this->getDomain() == '') {
                 $this->askDomain();
             }
-            $messages = $this->getMessages();
             include_once( 'partials/ad-back-admin-settings-display.php' );
         } else {
             if(isset($_GET['access_token'])) {
@@ -249,7 +248,6 @@ class Ad_Back_Admin extends Ad_Back_Generic
             if($this->getDomain() == '') {
                 $this->askDomain();
             }
-            $messages = $this->getMessages();
             include_once( 'partials/ad-back-admin-message-display.php' );
         } else {
             if(isset($_GET['access_token'])) {
@@ -392,20 +390,6 @@ class Ad_Back_Admin extends Ad_Back_Generic
                 "id" => "1",
                 "myinfo" => "",
                 "domain" => "",
-                "update_time" => current_time('mysql', 1)
-            ),
-            array("id"=>1)
-        );
-
-        $table_name = $wpdb->prefix . 'adback_message';
-        $wpdb->update(
-            $table_name,
-            array(
-                "id" => "1",
-                "message" => "",
-                "header_text" => "",
-                "close_text" => "",
-                "display" => 0,
                 "update_time" => current_time('mysql', 1)
             ),
             array("id"=>1)

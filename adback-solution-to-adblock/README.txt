@@ -119,6 +119,9 @@ We propose:
 * To watch a video ad to access the content
 
 == Changelog ==
+= 2.1.1 =
+* Form fix
+
 = 2.1.0 =
 * Diagnostic page
 * Product tool

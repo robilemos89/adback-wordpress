@@ -125,35 +125,6 @@ class Ad_Back_Activator
             )
         );
 
-        //create message table
-        $table_name = $wpdb->prefix . 'adback_message';
-
-        $sql = "CREATE TABLE ".$table_name." (
-            `id` mediumint(9) NOT NULL,
-            `link` varchar(1024) DEFAULT '' NOT NULL,
-            `header_text` varchar(1024) DEFAULT '' NOT NULL,
-            `message` text DEFAULT '' NOT NULL,
-            `close_text` varchar(1024) DEFAULT '' NOT NULL,
-            `display` TINYINT NOT NULL,
-            `update_time` DATETIME NULL,
-            UNIQUE KEY id (id)
-        ) ".$charset_collate.";";
-
-        dbDelta( $sql );
-
-        $wpdb->insert(
-            $table_name,
-            array(
-                "id" => "1",
-                "link" => "",
-                "header_text" => "",
-                "message" => "",
-                "close_text" => "",
-                "display" => '0',
-                "update_time" => ""
-            )
-        );
-
         if ('' == $accessToken && '' == $savedToken->access_token) {
             $notices= get_option('adback_deferred_admin_notices', array());
             $notices[]= sprintf(__('Registration error', 'ad-back'), get_admin_url(null, 'admin.php?page=ab-settings'));
