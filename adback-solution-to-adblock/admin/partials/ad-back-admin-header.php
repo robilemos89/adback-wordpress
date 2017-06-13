@@ -1,6 +1,6 @@
 <div class="ab-top">
     <p class="logo">AdBack solution to Adblock</p>
-    <span class="slogan"><?PHP _e('by', 'ad-back');?> <a
+    <span class="slogan"><?PHP _e('by', 'adback-solution-to-adblock');?> <a
                 href="https://www.adback.co">AdBack</a></span>
     <div class="ab-actions" style="padding-top: 10px;">
         <a target="_blank"

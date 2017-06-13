@@ -22,17 +22,17 @@
                 <div id="ab-configuration-form"></div>
 <!--                <div class="ab-primary-setting">-->
                     <section style="background-color:transparent;">
-                        <h4 class="header-section"><?php esc_html_e('Get more statistics', 'ad-back'); ?></h4>
+                        <h4 class="header-section"><?php esc_html_e('Get more statistics', 'adback-solution-to-adblock'); ?></h4>
                         <hr/>
                         <div class="section-content">
-                            <button id="ab-website" primary m-full><?php esc_html_e('Redirect me to my AdBack dashboard', 'ad-back'); ?></button>
+                            <button id="ab-website" primary m-full><?php esc_html_e('Redirect me to my AdBack dashboard', 'adback-solution-to-adblock'); ?></button>
                         </div>
                     </section>
                     <section style="background-color:transparent;">
-                        <h4 class="header-section"><?php esc_html_e('Adback Account', 'ad-back'); ?></h4>
+                        <h4 class="header-section"><?php esc_html_e('Adback Account', 'adback-solution-to-adblock'); ?></h4>
                         <hr/>
                         <div class="section-content">
-                            <button id="ab-logout" primary m-full><?php esc_html_e('Log out', 'ad-back'); ?></button>
+                            <button id="ab-logout" primary m-full><?php esc_html_e('Log out', 'adback-solution-to-adblock'); ?></button>
                         </div>
                     </section>
 <!--                </div>-->
