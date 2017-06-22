@@ -33,7 +33,7 @@ if ( ! defined( 'WPINC' ) ) {
 add_filter('plugin_action_links_'.plugin_basename(__FILE__), 'ad_back_action_links' );
 
 function ad_back_action_links( $links ) {
-    $links[] = '<a href="'. esc_url( get_admin_url(null, 'admin.php?page=ab-settings') ) .'">'.__('Settings').'</a>';
+    $links[] = '<a href="'. esc_url( get_admin_url(get_current_blog_id(), 'admin.php?page=ab-settings') ) .'">'.__('Settings').'</a>';
     return $links;
 }
 

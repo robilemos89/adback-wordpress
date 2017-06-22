@@ -13,7 +13,7 @@
  */
 ?>
 
-<div id="adb-widget" data-links="<?php echo get_admin_url(null, 'admin.php?page=ab-settings')?>"></div>
+<div id="adb-widget" data-links="<?php echo get_admin_url(get_current_blog_id(), 'admin.php?page=ab-settings')?>"></div>
 <script type="text/javascript">
     window.onload = function() {
         if(typeof adbackjs === 'object') {

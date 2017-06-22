@@ -183,7 +183,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
             }
             include_once( 'partials/ad-back-admin-widget.php');
         } else {
-            printf(__('You must be log in to see stats. Go to <a href="%s">Log in page</a>','ad-back'), get_admin_url(null, 'admin.php?page=ab'));
+            printf(__('You must be log in to see stats. Go to <a href="%s">Log in page</a>','ad-back'), get_admin_url(get_current_blog_id(), 'admin.php?page=ab'));
         }
     }
 
@@ -362,12 +362,12 @@ class Ad_Back_Admin extends Ad_Back_Generic
         $wpdb->update(
             $table_name,
             array(
-                "id" => "1",
+                "id" => get_current_blog_id(),
                 "username" => "",
                 "key" => "",
                 "secret" => ""
             ),
-            array("id"=>1)
+            array("id" => get_current_blog_id())
         );
 
         //create token table
@@ -375,11 +375,11 @@ class Ad_Back_Admin extends Ad_Back_Generic
         $wpdb->update(
             $table_name,
             array(
-                "id" => "1",
+                "id" => get_current_blog_id(),
                 "access_token" => "",
                 "refresh_token" => ""
             ),
-            array("id"=>1)
+            array("id"=> get_current_blog_id())
         );
 
         //create myinfo table
@@ -387,12 +387,12 @@ class Ad_Back_Admin extends Ad_Back_Generic
         $wpdb->update(
             $table_name,
             array(
-                "id" => "1",
+                "id" => get_current_blog_id(),
                 "myinfo" => "",
                 "domain" => "",
                 "update_time" => current_time('mysql', 1)
             ),
-            array("id"=>1)
+            array("id" => get_current_blog_id())
         );
 
         echo "{\"done\":true}";
@@ -403,7 +403,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
     {
         if (current_user_can('manage_options')) {
             if (!$this->isConnected()) {
-                echo '<div class="notice error adback-incentive is-dismissible"><p>'.__("It's time to analyze your adblock users, activate your adback account !", 'adback-solution-to-adblock').' <a href="'. esc_url( get_admin_url(null, 'admin.php?page=ab-settings') ) .'">'.__('Settings').'</a></p></div>';
+                echo '<div class="notice error adback-incentive is-dismissible"><p>'.__("It's time to analyze your adblock users, activate your adback account !", 'adback-solution-to-adblock').' <a href="'. esc_url( get_admin_url(get_current_blog_id(), 'admin.php?page=ab-settings') ) .'">'.__('Settings').'</a></p></div>';
             }
         }
     }

@@ -32,18 +32,25 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
 
 global $wpdb;
 
-$table_name = $wpdb->prefix . 'adback_account';
-$sql = "DROP TABLE IF EXISTS ".$table_name;
-$wpdb->query($sql);
+$sites = get_sites();
 
-$table_name = $wpdb->prefix . 'adback_token';
-$sql = "DROP TABLE IF EXISTS ".$table_name;
-$wpdb->query($sql);
+foreach ($sites as $site) {
+    $blogId = $site->blog_id;
+    $prefix = $blogId == 1 ? '' : $blogId."_";
 
-$table_name = $wpdb->prefix . 'adback_myinfo';
-$sql = "DROP TABLE IF EXISTS ".$table_name;
-$wpdb->query($sql);
+    $table_name = $wpdb->prefix . $prefix . 'adback_account';
+    $sql = "DROP TABLE IF EXISTS ".$table_name;
+    $wpdb->query($sql);
 
-$table_name = $wpdb->prefix . 'adback_message';
-$sql = "DROP TABLE IF EXISTS ".$table_name;
-$wpdb->query($sql);
+    $table_name = $wpdb->prefix . $prefix . 'adback_token';
+    $sql = "DROP TABLE IF EXISTS ".$table_name;
+    $wpdb->query($sql);
+
+    $table_name = $wpdb->prefix . $prefix . 'adback_myinfo';
+    $sql = "DROP TABLE IF EXISTS ".$table_name;
+    $wpdb->query($sql);
+
+    $table_name = $wpdb->prefix . $prefix . 'adback_message';
+    $sql = "DROP TABLE IF EXISTS ".$table_name;
+    $wpdb->query($sql);
+}
