@@ -70,8 +70,13 @@ function adback_admin_notices() {
     }
 }
 
+function adback_new_blog($blog_id) {
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-activator.php';
+    Ad_Back_Activator::initializeBlog($blog_id);
+}
 
 add_action('admin_notices', 'adback_admin_notices');
+add_action('wpmu_new_blog', 'adback_new_blog');
 register_activation_hook( __FILE__, 'activate_ad_back' );
 register_deactivation_hook( __FILE__, 'deactivate_ad_back' );
 
