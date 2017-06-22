@@ -41,12 +41,12 @@ function ad_back_action_links( $links ) {
  * The code that runs during plugin activation.
  * This action is documented in includes/class-ad-back-activator.php
  */
-function activate_ad_back() {
+function activate_ad_back($networkwide) {
     if (!current_user_can( 'activate_plugins' ) )
         return;
 
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-activator.php';
-    Ad_Back_Activator::activate();
+    Ad_Back_Activator::activate($networkwide);
 }
 
 /**
@@ -70,13 +70,24 @@ function adback_admin_notices() {
     }
 }
 
-function adback_new_blog($blog_id) {
-    require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-activator.php';
-    Ad_Back_Activator::initializeBlog($blog_id);
+function adback_new_blog($blogId) {
+    if (is_plugin_active_for_network( 'adback-solution-to-adblock/ad-back.php') ) {
+        require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-activator.php';
+
+        switch_to_blog($blogId);
+        Ad_Back_Activator::initializeBlog();
+        restore_current_blog();
+    }
+}
+
+function adback_delete_blog($tables) {
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-deactivator.php';
+    Ad_Back_Deactivator::deleteBlog($tables);
 }
 
 add_action('admin_notices', 'adback_admin_notices');
 add_action('wpmu_new_blog', 'adback_new_blog');
+add_filter('wpmu_drop_tables', 'adback_delete_blog' );
 register_activation_hook( __FILE__, 'activate_ad_back' );
 register_deactivation_hook( __FILE__, 'deactivate_ad_back' );
 

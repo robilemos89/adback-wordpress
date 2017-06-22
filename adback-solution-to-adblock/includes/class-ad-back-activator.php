@@ -29,34 +29,37 @@ class Ad_Back_Activator
      *
      * @since    1.0.0
      */
-    public static function activate()
+    public static function activate($networkwide)
     {
-        $default = new \stdClass();
-        $default->blog_id = 1;
+        global $wpdb;
 
-        $sites = function_exists('get_sites') ? get_sites() : [$default];
+        if (is_multisite() && $networkwide) {
+            $sites = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
 
-        foreach ($sites as $site) {
-            $blogId = $site->blog_id;
-
-            self::initializeBlog($blogId);
+            foreach ($sites as $blogId) {
+                switch_to_blog($blogId);
+                self::initializeBlog();
+                restore_current_blog();
+            }
+        } else {
+            self::initializeBlog();
         }
     }
 
-    public static function initializeBlog($blogId)
+    public static function initializeBlog()
     {
         global $wpdb;
 
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
 
-        $prefix = $blogId == 1 ? '' : $blogId."_";
-
         $charset_collate = $wpdb->get_charset_collate();
 
+        $blogId = get_current_blog_id();
+
         //create tables
-        $table_name_account = $wpdb->prefix . $prefix . 'adback_account';
-        $table_name_token = $wpdb->prefix . $prefix . 'adback_token';
-        $table_name_info = $wpdb->prefix . $prefix . 'adback_myinfo';
+        $table_name_account = $wpdb->prefix . 'adback_account';
+        $table_name_token = $wpdb->prefix . 'adback_token';
+        $table_name_info = $wpdb->prefix . 'adback_myinfo';
 
         $sql = "CREATE TABLE ".$table_name_account." (
             `id` mediumint(9) NOT NULL,
