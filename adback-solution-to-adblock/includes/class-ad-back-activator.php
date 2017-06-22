@@ -37,7 +37,10 @@ class Ad_Back_Activator
 
         $charset_collate = $wpdb->get_charset_collate();
 
-        $sites = get_sites();
+        $default = new \stdClass();
+        $default->blog_id = 1;
+
+        $sites = function_exists('get_sites') ? get_sites() : [$default];
 
         foreach ($sites as $site) {
             $blogId = $site->blog_id;
