@@ -18,7 +18,7 @@ class Ad_Back_Generic
         global $wpdb; // this is how you get access to the database
 
         $table_name = $wpdb->prefix . 'adback_myinfo';
-        $myinfo = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = 1");
+        $myinfo = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = ".get_current_blog_id());
 
         if ($myinfo->myinfo == "" || strtotime($myinfo->update_time) < (time() - 10800)) {
             $mysite = $this->askScripts();
@@ -33,7 +33,7 @@ class Ad_Back_Generic
                     'myinfo' => json_encode($mysite),
                     'update_time' => current_time('mysql', 1)
                 ),
-                array("id" => 1)
+                array("id" => get_current_blog_id())
             );
 
         } else if ($myinfo->myinfo != "") {
@@ -84,7 +84,7 @@ class Ad_Back_Generic
         global $wpdb; // this is how you get access to the database
 
         $table_name = $wpdb->prefix . 'adback_token';
-        $token = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = 1");
+        $token = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = ".get_current_blog_id());
 
         return $token;
     }
@@ -104,7 +104,7 @@ class Ad_Back_Generic
                 "access_token" => $token["access_token"],
                 "refresh_token" => $token["refresh_token"]
             ),
-            array("id" => 1)
+            array("id" => get_current_blog_id())
         );
 
         $this->notifyInstallation($token["access_token"]);
@@ -153,7 +153,7 @@ class Ad_Back_Generic
                 'domain' => $domain,
                 'update_time' => current_time('mysql', 1)
             ),
-            array("id" => 1)
+            array("id" => get_current_blog_id())
         );
     }
 
@@ -162,7 +162,7 @@ class Ad_Back_Generic
         global $wpdb; // this is how you get access to the database
 
         $table_name = $wpdb->prefix . 'adback_myinfo';
-        $myinfo = $wpdb->get_row("SELECT domain FROM " . $table_name . " WHERE id = 1 AND update_time >= DATE_SUB(NOW(),INTERVAL 3 HOUR);");
+        $myinfo = $wpdb->get_row("SELECT domain FROM " . $table_name . " WHERE id = ".get_current_blog_id()." AND update_time >= DATE_SUB(NOW(),INTERVAL 3 HOUR);");
 
         return $myinfo ? $myinfo->domain : '';
     }

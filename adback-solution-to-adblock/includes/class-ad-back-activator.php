@@ -29,7 +29,24 @@ class Ad_Back_Activator
      *
      * @since    1.0.0
      */
-    public static function activate()
+    public static function activate($networkwide)
+    {
+        global $wpdb;
+
+        if (is_multisite() && $networkwide) {
+            $sites = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+
+            foreach ($sites as $blogId) {
+                switch_to_blog($blogId);
+                self::initializeBlog();
+                restore_current_blog();
+            }
+        } else {
+            self::initializeBlog();
+        }
+    }
+
+    public static function initializeBlog()
     {
         global $wpdb;
 
@@ -37,10 +54,14 @@ class Ad_Back_Activator
 
         $charset_collate = $wpdb->get_charset_collate();
 
-        //create account table
-        $table_name = $wpdb->prefix . 'adback_account';
+        $blogId = get_current_blog_id();
 
-        $sql = "CREATE TABLE ".$table_name." (
+        //create tables
+        $table_name_account = $wpdb->prefix . 'adback_account';
+        $table_name_token = $wpdb->prefix . 'adback_token';
+        $table_name_info = $wpdb->prefix . 'adback_myinfo';
+
+        $sql = "CREATE TABLE ".$table_name_account." (
             `id` mediumint(9) NOT NULL,
             `username` varchar(100) DEFAULT '' NOT NULL,
             `key` varchar(100) DEFAULT '' NOT NULL,
@@ -48,36 +69,39 @@ class Ad_Back_Activator
             UNIQUE KEY id (id)
         ) ".$charset_collate.";";
 
-        dbDelta( $sql );
-
-        $wpdb->insert(
-            $table_name,
-            array(
-                "id" => "1",
-                "username" => "",
-                "key" => "",
-                "secret" => ""
-            )
-        );
-
-        //create token table
-        $table_name = $wpdb->prefix . 'adback_token';
-
-        $sql = "CREATE TABLE ".$table_name." (
+        $sql .= "CREATE TABLE ".$table_name_token." (
             `id` mediumint(9) NOT NULL,
             `access_token` varchar(64) DEFAULT '' NOT NULL,
             `refresh_token` varchar(64) DEFAULT '' NOT NULL,
             UNIQUE KEY id (id)
         ) ".$charset_collate.";";
 
+        $sql .= "CREATE TABLE ".$table_name_info." (
+            `id` mediumint(9) NOT NULL,
+            `myinfo` text DEFAULT '' NOT NULL,
+            `domain` text DEFAULT '' NOT NULL,
+            `update_time` DATETIME NULL,
+            UNIQUE KEY id (id)
+        ) ".$charset_collate.";";
+
         dbDelta( $sql );
 
-        $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = 1");
+        $wpdb->insert(
+            $table_name_account,
+            array(
+                "id" => $blogId,
+                "username" => "",
+                "key" => "",
+                "secret" => ""
+            )
+        );
+
+        $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = ".$blogId);
 
         if (null === $savedToken || '' == $savedToken->access_token) {
             $fields = [
                 'email'   => get_bloginfo('admin_email'),
-                'website' => get_site_url(),
+                'website' => get_site_url($blogId),
             ];
             $response = Ad_Back_Post::execute('https://www.adback.co/tokenoauth/register/en', $fields);
             $data = json_decode($response, true);
@@ -91,34 +115,21 @@ class Ad_Back_Activator
             }
 
             $wpdb->insert(
-                $table_name,
+                $table_name_token,
                 [
-                    "id"            => "1",
+                    "id"            => $blogId,
                     "access_token"  => $accessToken,
                     "refresh_token" => $refreshToken
                 ]
             );
 
-            $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = 1");
+            $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = ".$blogId);
         }
 
-        //create myinfo table
-        $table_name = $wpdb->prefix . 'adback_myinfo';
-
-        $sql = "CREATE TABLE ".$table_name." (
-            `id` mediumint(9) NOT NULL,
-            `myinfo` text DEFAULT '' NOT NULL,
-            `domain` text DEFAULT '' NOT NULL,
-            `update_time` DATETIME NULL,
-            UNIQUE KEY id (id)
-        ) ".$charset_collate.";";
-
-        dbDelta( $sql );
-
         $wpdb->insert(
-            $table_name,
+            $table_name_info,
             array(
-                "id" => "1",
+                "id" => $blogId,
                 "myinfo" => "",
                 "domain" => "",
                 "update_time" => ""
@@ -126,8 +137,8 @@ class Ad_Back_Activator
         );
 
         if ('' == $accessToken && '' == $savedToken->access_token) {
-            $notices= get_option('adback_deferred_admin_notices', array());
-            $notices[]= sprintf(__('Registration error', 'adback-solution-to-adblock'), get_admin_url(null, 'admin.php?page=ab-settings'));
+            $notices = get_option('adback_deferred_admin_notices', array());
+            $notices[] = sprintf(__('Registration error', 'adback-solution-to-adblock'), get_admin_url($blogId, 'admin.php?page=ab-settings'));
             update_option('adback_deferred_admin_notices', $notices);
         }
     }

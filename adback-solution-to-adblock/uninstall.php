@@ -30,20 +30,37 @@ if (!defined('WP_UNINSTALL_PLUGIN')) {
 	exit;
 }
 
-global $wpdb;
+function adback_delete_tables()
+{
+    global $wpdb;
 
-$table_name = $wpdb->prefix . 'adback_account';
-$sql = "DROP TABLE IF EXISTS ".$table_name;
-$wpdb->query($sql);
+    $table_name = $wpdb->prefix . 'adback_account';
+    $sql = "DROP TABLE IF EXISTS ".$table_name;
+    $wpdb->query($sql);
 
-$table_name = $wpdb->prefix . 'adback_token';
-$sql = "DROP TABLE IF EXISTS ".$table_name;
-$wpdb->query($sql);
+    $table_name = $wpdb->prefix . 'adback_token';
+    $sql = "DROP TABLE IF EXISTS ".$table_name;
+    $wpdb->query($sql);
 
-$table_name = $wpdb->prefix . 'adback_myinfo';
-$sql = "DROP TABLE IF EXISTS ".$table_name;
-$wpdb->query($sql);
+    $table_name = $wpdb->prefix . 'adback_myinfo';
+    $sql = "DROP TABLE IF EXISTS ".$table_name;
+    $wpdb->query($sql);
 
-$table_name = $wpdb->prefix . 'adback_message';
-$sql = "DROP TABLE IF EXISTS ".$table_name;
-$wpdb->query($sql);
+    $table_name = $wpdb->prefix . 'adback_message';
+    $sql = "DROP TABLE IF EXISTS ".$table_name;
+    $wpdb->query($sql);
+}
+
+if (is_multisite()) {
+    global $wpdb;
+
+    $sites = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+
+    foreach ($sites as $blogId) {
+        switch_to_blog($blogId);
+        adback_delete_tables();
+        restore_current_blog();
+    }
+} else {
+    adback_delete_tables();
+}

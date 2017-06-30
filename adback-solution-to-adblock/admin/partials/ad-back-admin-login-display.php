@@ -26,7 +26,7 @@
                             class="button button-primary"
                             id="ab-register-adback"
                             style="width:100%;margin-top: 30px;"
-                            data-site-url="<?php echo get_site_url() ?>"
+                            data-site-url="<?php echo get_site_url(get_current_blog_id()) ?>"
                             data-email="<?php echo get_bloginfo('admin_email') ?>"
                     >
                         <?php esc_html_e('Create my AdBack account', 'adback-solution-to-adblock'); ?>

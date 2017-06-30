@@ -30,4 +30,15 @@ class Ad_Back_Deactivator
      * @since    1.0.0
      */
     public static function deactivate() {}
+
+    public static function deleteBlog($tables)
+    {
+        global $wpdb;
+
+        $tables[] = $wpdb->prefix . 'adback_account';
+        $tables[] = $wpdb->prefix . 'adback_token';
+        $tables[] = $wpdb->prefix . 'adback_myinfo';
+
+        return $tables;
+    }
 }
