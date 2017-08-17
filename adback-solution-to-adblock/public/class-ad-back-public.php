@@ -89,6 +89,14 @@ class Ad_Back_Public extends Ad_Back_Generic
             if (!empty($me['message_domain']) && !empty($me['message_script'])) {
                 echo "<script>(function (a,d){var s,t,u;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://" . $me['message_domain'] . "/" . $me['message_script'] . ".js', document);</script>";
             }
+
+            if (!empty($me['autopromo_domain']) && !empty($me['autopromo_script'])) {
+                echo "<script>(function (a,d){var s,t;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://" . $me['autopromo_domain'] . "/" . $me['autopromo_script'] . ".js', document);</script>";
+            }
+
+            if (!empty($me['iab_banner_domain']) && !empty($me['iab_banner_script'])) {
+                echo "<script>(function (a,d){var s,t;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://" . $me['iab_banner_domain'] . "/" . $me['iab_banner_script'] . ".js', document);</script>";
+            }
         }
     }
 }
