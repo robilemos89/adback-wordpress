@@ -157,7 +157,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
             }
 
             if(isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings' ||
-                    $_GET['page'] == 'ab-message' || $_GET['page'] == 'ab-diagnostic')) {
+                    $_GET['page'] == 'ab-message' || $_GET['page'] == 'ab-diagnostic') || $_GET['page'] == 'ab-iab-banners') {
                 return true;
             }
 
@@ -263,6 +263,31 @@ class Ad_Back_Admin extends Ad_Back_Generic
     }
 
     /**
+     * Render the iab banners page for this plugin.
+     *
+     * @since    1.0.0
+     */
+    public function displayPluginIabBannersPage()
+    {
+        if($this->isConnected()) {
+            if($this->getDomain() == '') {
+                $this->askDomain();
+            }
+            include_once( 'partials/ad-back-admin-iab-banners-display.php' );
+        } else {
+            if(isset($_GET['access_token'])) {
+                $this->saveToken([
+                    'access_token' => $_GET['access_token'],
+                    'refresh_token' => '',
+                ]);
+                include_once( 'partials/ad-back-admin-redirect.php');
+            } else {
+                include_once( 'partials/ad-back-admin-login-display.php');
+            }
+        }
+    }
+
+    /**
      * Render the message page for this plugin.
      *
      * @since    1.0.0
@@ -330,6 +355,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
         add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'adback-solution-to-adblock'), 'manage_options', 'ab', array($this, 'displayPluginStatsPage'));
         add_submenu_page('ab', 'AdBack Message', __('Message', 'adback-solution-to-adblock'), 'manage_options', 'ab-message', array($this, 'displayPluginMessagePage'));
+        add_submenu_page('ab', 'AdBack IAB banners', __('IAB Banners', 'adback-solution-to-adblock'), 'manage_options', 'ab-iab-banners', array($this, 'displayPluginIabBannersPage'));
         add_submenu_page('ab', 'AdBack Settings', __('Settings', 'adback-solution-to-adblock'), 'manage_options', 'ab-settings', array($this, 'displayPluginSettingsPage'));
         add_submenu_page('ab', 'AdBack Diagnostic', __('Diagnostic', 'adback-solution-to-adblock'), 'manage_options', 'ab-diagnostic', array($this, 'displayPluginDiagnosticPage'));
 

@@ -367,7 +367,7 @@ a.button.button-ab {
     width: 100%;
 }
 
-.ad-back-diagnostic th, td {
+.ad-back-diagnostic th, .ad-back-diagnostic td {
     text-align: center;
     padding: 15px;
     border-bottom: 1px solid #ddd;
