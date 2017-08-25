@@ -57,14 +57,14 @@
             if (obj.done === true) {
                 window.location.reload();
             } else {
-                sweetAlert(trans_arr.oops, trans_arr.error, "error");
+                vex.dialog.alert(trans_arr.oops + ' ' + trans_arr.error);
             }
         });
     }
 
     function saveMessage() {
         if ($("#ab-settings-header-text").val() == "" || $("#ab-settings-close-text").val() == "" || $("#ab-settings-message").val() == "") {
-            sweetAlert(trans_arr.oops, trans_arr.all_the_fields_should_be_fill, "error");
+            vex.dialog.alert(trans_arr.oops + ' ' + trans_arr.all_the_fields_should_be_fill);
             return;
         }
 
@@ -84,7 +84,7 @@
             if (obj.done === true) {
                 window.location.reload();
             } else {
-                sweetAlert(trans_arr.oops, trans_arr.error, "error");
+                vex.dialog.alert(trans_arr.oops + ' ' + trans_arr.error);
             }
         });
     }
@@ -102,7 +102,7 @@
             if (obj.done === true) {
                 window.location.reload();
             } else {
-                sweetAlert(trans_arr.oops, trans_arr.error, "error");
+                vex.dialog.alert(trans_arr.oops + ' ' + trans_arr.error);
             }
         });
     }
@@ -117,12 +117,17 @@
             if (obj.done === true) {
                 window.location.reload();
             } else {
-                sweetAlert(trans_arr.oops, trans_arr.error, "error");
+                vex.dialog.alert(trans_arr.oops + ' ' + trans_arr.error);
             }
         });
     }
 
     $(document).ready(function () {
+        // Alert
+        if(typeof vex === 'object') {
+            vex.defaultOptions.className = 'vex-theme-default';
+        }
+
         $("#ab-logout").on('click', _logout);
 
         if ($("#ab-login").length > 0) {
