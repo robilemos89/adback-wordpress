@@ -79,7 +79,8 @@ class Ad_Back_Admin extends Ad_Back_Generic
             return;
         }
 
-        wp_enqueue_style('sweetalert-css', plugin_dir_url( __FILE__ ) . 'css/sweetalert2.min.css', array(), $this->version, 'all' );
+        wp_enqueue_style('vex-css', plugin_dir_url( __FILE__ ) . 'css/vex.css', array(), $this->version, 'all' );
+        wp_enqueue_style('vex-theme-css', plugin_dir_url( __FILE__ ) . 'css/vex-theme-default.css', array(), $this->version, 'all' );
         wp_enqueue_style( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'css/ab-admin.css', array(), $this->version, 'all' );
     }
 
@@ -128,6 +129,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
             'days' => __('days', 'adback-solution-to-adblock'),
             'loading' => __('Loading ...', 'adback-solution-to-adblock'),
             'no_data' => __('No Data', 'adback-solution-to-adblock'),
+            'error' => __('Something went wrong', 'adback-solution-to-adblock'),
         );
 
         if($this->isConnected()) {
@@ -138,7 +140,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
             wp_enqueue_script('adback', 'https://'. $this->getDomain() .'/lib/ab.min.js', $this->version, true );
         }
 
-        wp_enqueue_script('sweetalert-js', plugin_dir_url( __FILE__ ) . 'js/sweetalert2.min.js', $this->version, false );
+        wp_enqueue_script('vex-js', plugin_dir_url( __FILE__ ) . 'js/vex.combined.min.js', $this->version, false );
         wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/ab-admin.js', array( 'jquery' ), $this->version, false );
         wp_localize_script( $this->plugin_name, 'trans_arr', $translation_array );
     }
