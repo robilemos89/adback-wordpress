@@ -1,0 +1,144 @@
+<?php
+
+/**
+ * Fired during plugin activation
+ *
+ * @link       https://www.adback.co
+ * @since      1.0.0
+ *
+ * @package    Ad_Back
+ * @subpackage Ad_Back/includes
+ */
+
+/**
+ * Fired during plugin activation.
+ *
+ * This class defines all code necessary to run during the plugin's activation.
+ *
+ * @since      1.0.0
+ * @package    Ad_Back
+ * @subpackage Ad_Back/includes
+ * @author     AdBack <contact@adback.co>
+ */
+class Ad_Back_Updator
+{
+    /**
+     * Short Description. (use period)
+     *
+     * Long Description.
+     *
+     * @since    1.0.0
+     */
+    public static function update()
+    {
+        global $wpdb;
+
+        $currentVersion = (int) get_option( "adback_solution_to_adblock_db_version");
+
+        if (null === $currentVersion || $currentVersion < 2) {
+            $currentVersion = 2;
+            add_option( "adback_solution_to_adblock_db_version", $currentVersion);
+            if (is_multisite()) {
+                $sites = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
+
+                foreach ($sites as $blogId) {
+                    switch_to_blog($blogId);
+                    self::createFullTagAndEndPointDatabase();
+                    restore_current_blog();
+                }
+            } else {
+                self::createFullTagAndEndPointDatabase();
+            }
+        }
+    }
+
+    /**
+     * Update full tag and endpoint database
+     */
+    public static function createFullTagAndEndPointDatabase()
+    {
+        global $wpdb;
+
+        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+
+        $charset_collate = $wpdb->get_charset_collate();
+
+        $blogId = get_current_blog_id();
+
+        // List tables names
+        $table_name_full_tag = $wpdb->prefix . 'adback_full_tag';
+        $table_name_end_point = $wpdb->prefix . 'adback_end_point';
+        $table_name_token = $wpdb->prefix . 'adback_token';
+
+        $sql = "CREATE TABLE IF NOT EXISTS ".$table_name_full_tag." (
+            `id` mediumint(9) NOT NULL,
+            `blog_id` mediumint(9) NOT NULL,
+            `type` varchar(100) DEFAULT '' NOT NULL,
+            `value` mediumtext DEFAULT '' NOT NULL,
+            `update_time` DATETIME NULL,
+            UNIQUE KEY id (id)
+        ) ".$charset_collate.";";
+
+        $sql .= "CREATE TABLE ".$table_name_end_point." (
+            `id` mediumint(9) NOT NULL,
+            `old_end_point` varchar(64) DEFAULT '' NOT NULL,
+            `end_point` varchar(64) DEFAULT '' NOT NULL,
+            `next_end_point` varchar(64) DEFAULT '' NOT NULL,
+            UNIQUE KEY id (id)
+        ) ".$charset_collate.";";
+
+
+        dbDelta( $sql );
+
+        $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = ".$blogId);
+
+        if (null !== $savedToken || '' !== $savedToken->access_token) {
+            Ad_Back_Post::execute("https://www.adback.co/api/end-point/activate?access_token=" . $savedToken->access_token, []);
+
+            $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $savedToken->access_token);
+            $endPoints = json_decode($endPointData, true);
+            $wpdb->insert(
+                $table_name_end_point,
+                array(
+                    "id" => $blogId,
+                    'old_end_point' => $endPoints['old_end_point'],
+                    'end_point' => $endPoints['end_point'],
+                    'next_end_point' => $endPoints['next_end_point'],
+                )
+            );
+
+            $fullScriptData = Ad_Back_Get::execute("https://www.adback.co/api/script/me/full?access_token=" . $savedToken->access_token);
+            $fullScripts = json_decode($fullScriptData, true);
+            $types = self::getTypes();
+            foreach ($types as $key => $type) {
+                if (array_key_exists($type, $fullScripts['script_codes'])) {
+                    $wpdb->insert(
+                        $table_name_full_tag,
+                        array(
+                            'id' => $key,
+                            'blog_id' => $blogId,
+                            'type' => $type,
+                            'value' => $fullScripts['script_codes'][$type]['code'],
+                            'update_time' => current_time('mysql', 1),
+                        )
+                    );
+                }
+            }
+        }
+    }
+
+    /**
+     * @return array
+     */
+    public static function getTypes()
+    {
+        return [
+            'analytics',
+            'message',
+            'product',
+            'banner',
+            'catcher',
+            'iab_banner',
+        ];
+    }
+}

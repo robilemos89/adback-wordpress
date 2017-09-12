@@ -17,30 +17,46 @@ class Ad_Back_Generic
     {
         global $wpdb; // this is how you get access to the database
 
-        $table_name = $wpdb->prefix . 'adback_myinfo';
-        $myinfo = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = ".get_current_blog_id());
+        $table_name = $wpdb->prefix . 'adback_full_tag';
+        $blogId = get_current_blog_id();
+        $myinfo = $wpdb->get_results("SELECT * FROM " . $table_name . " WHERE blog_id = ". $blogId);
+        $scriptData = [];
 
-        if ($myinfo->myinfo == "" || strtotime($myinfo->update_time) < (time() - 10800)) {
-            $mysite = $this->askScripts();
-
-            if ($mysite === null) {
-                return null;
+        foreach ($myinfo as $scriptInfo) {
+            if (strtotime($scriptInfo->update_time) > (time() - 10800)) {
+                $scriptData[$scriptInfo->type] = $scriptInfo->value;
             }
-
-            $wpdb->update(
-                $table_name,
-                array(
-                    'myinfo' => json_encode($mysite),
-                    'update_time' => current_time('mysql', 1)
-                ),
-                array("id" => get_current_blog_id())
-            );
-
-        } else if ($myinfo->myinfo != "") {
-            $mysite = json_decode($myinfo->myinfo, true);
         }
 
-        return $mysite;
+        if (empty($scriptData)) {
+            $fullScripts = $this->askFullScripts();
+
+            $types = [
+                'analytics',
+                'message',
+                'product',
+                'banner',
+                'catcher',
+                'iab_banner',
+            ];
+            foreach ($types as $key => $type) {
+                if (array_key_exists($type, $fullScripts['script_codes'])) {
+                    $wpdb->update(
+                        $table_name,
+                        array(
+                            'id' => $key,
+                            'blog_id' => $blogId,
+                            'type' => $type,
+                            'value' => $fullScripts['script_codes'][$type]['code'],
+                            'update_time' => current_time('mysql', 1),
+                        )
+                    );
+                    $scriptData[$type] = $fullScripts['script_codes'][$type]['code'];
+                }
+            }
+        }
+
+        return $scriptData;
     }
 
     public function saveMessage($display)
@@ -137,6 +153,18 @@ class Ad_Back_Generic
         }
 
         $jsonScripts = Ad_Back_Get::execute("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
+        $result = json_decode($jsonScripts, true);
+
+        return $result;
+    }
+
+    public function askFullScripts()
+    {
+        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+            return null;
+        }
+
+        $jsonScripts = Ad_Back_Get::execute("https://www.adback.co/api/script/me/full?access_token=" . $this->getToken()->access_token);
         $result = json_decode($jsonScripts, true);
 
         return $result;

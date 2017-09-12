@@ -38,6 +38,8 @@ class Ad_Back_Deactivator
         $tables[] = $wpdb->prefix . 'adback_account';
         $tables[] = $wpdb->prefix . 'adback_token';
         $tables[] = $wpdb->prefix . 'adback_myinfo';
+        $tables[] = $wpdb->prefix . 'adback_full_tag';
+        $tables[] = $wpdb->prefix . 'adback_end_point';
 
         return $tables;
     }

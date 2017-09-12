@@ -46,7 +46,9 @@ function activate_ad_back($networkwide) {
         return;
 
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-activator.php';
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-updator.php';
     Ad_Back_Activator::activate($networkwide);
+    Ad_Back_Updator::update();
 }
 
 /**
@@ -70,6 +72,11 @@ function adback_admin_notices() {
     }
 }
 
+function adback_plugins_loaded() {
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-updator.php';
+    Ad_Back_Updator::update();
+}
+
 function adback_new_blog($blogId) {
     if (is_plugin_active_for_network( 'adback-solution-to-adblock/ad-back.php') ) {
         require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-activator.php';
@@ -87,6 +94,7 @@ function adback_delete_blog($tables) {
 
 add_action('admin_notices', 'adback_admin_notices');
 add_action('wpmu_new_blog', 'adback_new_blog');
+add_action('plugins_loaded', 'adback_plugins_loaded');
 add_filter('wpmu_drop_tables', 'adback_delete_blog' );
 register_activation_hook( __FILE__, 'activate_ad_back' );
 register_deactivation_hook( __FILE__, 'deactivate_ad_back' );
