@@ -93,19 +93,21 @@ class Ad_Back_Updator
         $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = ".$blogId);
 
         if (null !== $savedToken || '' !== $savedToken->access_token) {
-            Ad_Back_Post::execute("https://www.adback.co/api/end-point/activate?access_token=" . $savedToken->access_token, []);
+            if (self::isRewriteRouteEnabled()) {
+                Ad_Back_Post::execute("https://www.adback.co/api/end-point/activate?access_token=" . $savedToken->access_token, []);
 
-            $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $savedToken->access_token);
-            $endPoints = json_decode($endPointData, true);
-            $wpdb->insert(
-                $table_name_end_point,
-                array(
-                    "id" => $blogId,
-                    'old_end_point' => $endPoints['old_end_point'],
-                    'end_point' => $endPoints['end_point'],
-                    'next_end_point' => $endPoints['next_end_point'],
-                )
-            );
+                $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $savedToken->access_token);
+                $endPoints = json_decode($endPointData, true);
+                $wpdb->insert(
+                    $table_name_end_point,
+                    array(
+                        "id" => $blogId,
+                        'old_end_point' => $endPoints['old_end_point'],
+                        'end_point' => $endPoints['end_point'],
+                        'next_end_point' => $endPoints['next_end_point'],
+                    )
+                );
+            }
 
             $fullScriptData = Ad_Back_Get::execute("https://www.adback.co/api/script/me/full?access_token=" . $savedToken->access_token);
             $fullScripts = json_decode($fullScriptData, true);
@@ -125,6 +127,11 @@ class Ad_Back_Updator
                 }
             }
         }
+    }
+
+    public static function isRewriteRouteEnabled()
+    {
+        return (bool) get_option('permalink_structure');
     }
 
     /**

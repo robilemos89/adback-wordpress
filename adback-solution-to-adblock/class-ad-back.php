@@ -29,6 +29,12 @@ class Ad_Back_Generic
         }
 
         if (empty($scriptData)) {
+            if ($this->isRewriteRouteEnabled()) {
+                $this->ensureSiteIsConfiguredForEndPoints();
+                $endPoints = $this->askEndPoints();
+                $this->saveEndPointsAndUpdateRoutes($endPoints, $blogId);
+            }
+
             $fullScripts = $this->askFullScripts();
 
             $types = [
@@ -49,7 +55,8 @@ class Ad_Back_Generic
                             'type' => $type,
                             'value' => $fullScripts['script_codes'][$type]['code'],
                             'update_time' => current_time('mysql', 1),
-                        )
+                        ),
+                        array('id' => $key)
                     );
                     $scriptData[$type] = $fullScripts['script_codes'][$type]['code'];
                 }
@@ -168,6 +175,45 @@ class Ad_Back_Generic
         $result = json_decode($jsonScripts, true);
 
         return $result;
+    }
+
+    public function isRewriteRouteEnabled()
+    {
+        return (bool) get_option('permalink_structure');
+    }
+
+    public function ensureSiteIsConfiguredForEndPoints()
+    {
+        Ad_Back_Post::execute("https://www.adback.co/api/end-point/activate?access_token=" . $this->getToken()->access_token, []);
+    }
+
+    public function askEndPoints()
+    {
+        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+            return null;
+        }
+
+        $jsonEndPoints = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $this->getToken()->access_token);
+        $result = json_decode($jsonEndPoints, true);
+
+        return $result;
+    }
+
+    public function saveEndPointsAndUpdateRoutes($endPoints, $blogId)
+    {
+        global $wpdb;
+
+        $table_name_end_point = $wpdb->prefix . 'adback_end_point';
+        $wpdb->update(
+            $table_name_end_point,
+            array(
+                "id" => $blogId,
+                'old_end_point' => $endPoints['old_end_point'],
+                'end_point' => $endPoints['end_point'],
+                'next_end_point' => $endPoints['next_end_point'],
+            ),
+            array('id' => $blogId)
+        );
     }
 
     public function saveDomain($domain)
