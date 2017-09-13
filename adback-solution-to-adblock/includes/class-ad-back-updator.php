@@ -112,18 +112,20 @@ class Ad_Back_Updator
             $fullScriptData = Ad_Back_Get::execute("https://www.adback.co/api/script/me/full?access_token=" . $savedToken->access_token);
             $fullScripts = json_decode($fullScriptData, true);
             $types = self::getTypes();
-            foreach ($types as $key => $type) {
-                if (array_key_exists($type, $fullScripts['script_codes'])) {
-                    $wpdb->insert(
-                        $table_name_full_tag,
-                        array(
-                            'id' => $key,
-                            'blog_id' => $blogId,
-                            'type' => $type,
-                            'value' => $fullScripts['script_codes'][$type]['code'],
-                            'update_time' => current_time('mysql', 1),
-                        )
-                    );
+            if (is_array($fullScripts) && !empty($fullScripts) && array_key_exists('script_codes', $fullScripts)) {
+                foreach ($types as $key => $type) {
+                    if (array_key_exists($type, $fullScripts['script_codes'])) {
+                        $wpdb->insert(
+                            $table_name_full_tag,
+                            array(
+                                'id' => $key,
+                                'blog_id' => $blogId,
+                                'type' => $type,
+                                'value' => $fullScripts['script_codes'][$type]['code'],
+                                'update_time' => current_time('mysql', 1),
+                            )
+                        );
+                    }
                 }
             }
         }
