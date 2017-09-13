@@ -4,7 +4,7 @@ Donate link: https://www.adback.co
 Tags: adblock, analytics, message, detection, detect, block, ad block, ads, advertising, adblock killer, anti adblock, adblocker, popup, notification, message, custom, personalize, analyze, stats, adblocker, dashboard widget, block adblock, ghostery, ublock, adblock plus, ad free
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 2.3.1
+Stable tag: 2.4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -119,6 +119,10 @@ We propose:
 * To watch a video ad to access the content
 
 == Changelog ==
+= 2.4.0 =
+* Include full script inside the page
+* Allow data to transit through the internal proxy if permalink are configured
+
 = 2.3.1 =
 * External library fix
 

@@ -4,7 +4,7 @@
  * Used to proxy content to the adback satellites
  *
  * @link       https://www.adback.co
- * @since      1.0.0
+ * @since      2.4.0
  *
  * @package    Ad_Back
  * @subpackage Ad_Back/includes
@@ -15,7 +15,7 @@
  *
  * This class defines all code to send some data
  *
- * @since      1.0.0
+ * @since      2.4.0
  * @package    Ad_Back
  * @subpackage Ad_Back/includes
  * @author     AdBack <contact@adback.co>

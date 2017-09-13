@@ -1,21 +1,21 @@
 <?php
 
 /**
- * Fired during plugin activation
+ * Fired during plugin activation and upgrade
  *
  * @link       https://www.adback.co
- * @since      1.0.0
+ * @since      2.4.0
  *
  * @package    Ad_Back
  * @subpackage Ad_Back/includes
  */
 
 /**
- * Fired during plugin activation.
+ * Fired during plugin activation and upgrade
  *
- * This class defines all code necessary to run during the plugin's activation.
+ * This class defines all code necessary to run during the plugin's upgrade
  *
- * @since      1.0.0
+ * @since      2.4.0
  * @package    Ad_Back
  * @subpackage Ad_Back/includes
  * @author     AdBack <contact@adback.co>
