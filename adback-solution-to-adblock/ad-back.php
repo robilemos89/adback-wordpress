@@ -16,7 +16,7 @@
  * Plugin Name:       AdBack solution to adblock
  * Plugin URI:        adback.co
  * Description:       With AdBack, access analytics about adblocker users, address them personalized messages, propose alternative solutions to advertising (video, survey).
- * Version:           2.3.1
+ * Version:           2.4.0
  * Author:            AdBack
  * Author URI:        https://www.adback.co
  * License:           GPL-2.0+
@@ -46,7 +46,12 @@ function activate_ad_back($networkwide) {
         return;
 
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-activator.php';
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-updator.php';
     Ad_Back_Activator::activate($networkwide);
+    Ad_Back_Updator::update();
+
+    adback_plugin_rules();
+    flush_rewrite_rules();
 }
 
 /**
@@ -70,6 +75,38 @@ function adback_admin_notices() {
     }
 }
 
+function adback_plugins_loaded() {
+    require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-updator.php';
+    Ad_Back_Updator::update();
+}
+
+function adback_plugin_rules() {
+    global $wpdb;
+    $table_name_end_point = $wpdb->prefix . 'adback_end_point';
+    $endPoints = $wpdb->get_row("SELECT * FROM " . $table_name_end_point . " WHERE id = ".get_current_blog_id());
+    if (null !== $endPoints) {
+        add_rewrite_rule($endPoints->old_end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
+        add_rewrite_rule($endPoints->end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
+        add_rewrite_rule($endPoints->next_end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
+    }
+}
+
+function adback_plugin_query_vars($vars) {
+    $vars[] = 'adback_request';
+
+    return $vars;
+}
+
+function adback_plugin_display() {
+    $adback_proxy_page = get_query_var('pagename');
+    if ('adback_proxy' == $adback_proxy_page):
+        require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-proxy.php';
+        $adback_request = get_query_var('adback_request');
+        Ad_Back_Proxy::execute($adback_request);
+        exit;
+    endif;
+}
+
 function adback_new_blog($blogId) {
     if (is_plugin_active_for_network( 'adback-solution-to-adblock/ad-back.php') ) {
         require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-activator.php';
@@ -87,9 +124,16 @@ function adback_delete_blog($tables) {
 
 add_action('admin_notices', 'adback_admin_notices');
 add_action('wpmu_new_blog', 'adback_new_blog');
+add_action('plugins_loaded', 'adback_plugins_loaded');
 add_filter('wpmu_drop_tables', 'adback_delete_blog' );
 register_activation_hook( __FILE__, 'activate_ad_back' );
 register_deactivation_hook( __FILE__, 'deactivate_ad_back' );
+//add rewrite rules in case another plugin flushes rules
+add_action('init', 'adback_plugin_rules');
+//add plugin query vars (product_id) to wordpress
+add_filter('query_vars', 'adback_plugin_query_vars');
+//register plugin custom pages display
+add_filter('template_redirect', 'adback_plugin_display');
 
 /**
  * The core plugin class that is used to define internationalization,

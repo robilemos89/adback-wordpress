@@ -75,27 +75,13 @@ class Ad_Back_Public extends Ad_Back_Generic
          * class.
          */
 
-        $me = $this->getMyInfo();
+        $elements = $this->getMyInfo();
 
-        if (is_array($me)) {
-            if (!empty($me['analytics_domain']) && !empty($me['analytics_script'])) {
-                echo "<script>(function (a,d){var s,t;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://" . $me['analytics_domain'] . "/" . $me['analytics_script'] . ".js', document);</script>";
-            }
-
-            if (!empty($me['product_domain']) && !empty($me['product_script'])) {
-                echo "<script>(function (a,d){var s,t;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://" . $me['product_domain'] . "/" . $me['product_script'] . ".js', document);</script>";
-            }
-
-            if (!empty($me['message_domain']) && !empty($me['message_script'])) {
-                echo "<script>(function (a,d){var s,t,u;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://" . $me['message_domain'] . "/" . $me['message_script'] . ".js', document);</script>";
-            }
-
-            if (!empty($me['autopromo_domain']) && !empty($me['autopromo_script'])) {
-                echo "<script>(function (a,d){var s,t;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://" . $me['autopromo_domain'] . "/" . $me['autopromo_script'] . ".js', document);</script>";
-            }
-
-            if (!empty($me['iab_banner_domain']) && !empty($me['iab_banner_script'])) {
-                echo "<script>(function (a,d){var s,t;s=d.createElement('script');s.src=a;s.async=1;t=d.getElementsByTagName('script')[0];t.parentNode.insertBefore(s,t);})('https://" . $me['iab_banner_domain'] . "/" . $me['iab_banner_script'] . ".js', document);</script>";
+        if (is_array($elements)) {
+            foreach ($elements as $type => $element) {
+                if ('product' != $type) {
+                    echo "<script type='text/javascript'>\n$element\n</script>\n";
+                }
             }
         }
     }

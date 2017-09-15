@@ -22,6 +22,8 @@
  */
 class Ad_Back_Activator
 {
+    const DB_VERSION = 1;
+
     /**
      * Short Description. (use period)
      *
@@ -32,6 +34,8 @@ class Ad_Back_Activator
     public static function activate($networkwide)
     {
         global $wpdb;
+
+        add_option( "adback_solution_to_adblock_db_version", self::DB_VERSION);
 
         if (is_multisite() && $networkwide) {
             $sites = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
