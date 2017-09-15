@@ -24,9 +24,6 @@ class Ad_Back_Proxy
 {
     public static function execute($query = '')
     {
-        // Destination URL: Where this proxy leads to.
-        $destinationURL = 'http://kapowsingardnerville.heatonnikolski.com/wordpress.js';
-
         if (!function_exists('getallheaders')) {
             function getallheaders() {
                 $headers = array();
@@ -65,6 +62,12 @@ class Ad_Back_Proxy
             $data=$_POST;
         } else {
             $data = file_get_contents("php://input");
+        }
+
+        // Destination URL: Where this proxy leads to.
+        $destinationURL = 'http://kapowsingardnerville.heatonnikolski.com/wordpress.js';
+        if ("POST" == $method) {
+            $destinationURL = 'http://hosted.adback.co/wordpress.js';
         }
 
         if ('' != $query) {
