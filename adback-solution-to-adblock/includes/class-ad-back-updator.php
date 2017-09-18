@@ -136,6 +136,25 @@ class Ad_Back_Updator
         return (bool) get_option('permalink_structure');
     }
 
+    public static function isRewriteRulesConflictWithEndpoints($endpoint)
+    {
+        require_once( ABSPATH . 'wp-includes/class-wp-rewrite.php' );
+
+        if (!$rules = get_option('rewrite_rules')) {
+            return false;
+        }
+
+        /** @var $rule array */
+        foreach ($rules as $rule => $rewrite) {
+
+            if (preg_match('/^' . $endpoint . '.*/', $rule)) {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
     /**
      * @return array
      */
