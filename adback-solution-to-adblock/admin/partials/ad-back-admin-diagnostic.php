@@ -82,6 +82,15 @@ $ko = "<svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://crea
                 </td>
                 <td class="working-script"><?php echo $ko; ?></td>
             </tr>
+            <tr>
+                <td>endpoint / old endpoint / next endpoint</td>
+                <td>
+                    <?php echo $endPoints->end_point ?: 'x'; ?>
+                    <?php echo $endPoints->old_end_point ?: 'x'; ?>
+                    <?php echo $endPoints->next_end_point ?: 'x'; ?>
+                </td>
+                <td><?php echo (null !== $endPoints) ? $ok : $ko; ?></td>
+            </tr>
         </table>
     </div>
 </div>
