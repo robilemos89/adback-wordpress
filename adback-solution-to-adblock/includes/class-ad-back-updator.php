@@ -94,19 +94,26 @@ class Ad_Back_Updator
 
         if (null !== $savedToken || '' !== $savedToken->access_token) {
             if (self::isRewriteRouteEnabled()) {
+                $endPointsOk = false;
                 Ad_Back_Post::execute("https://www.adback.co/api/end-point/activate?access_token=" . $savedToken->access_token, []);
+                // loop while endpoints (next) conflict with rewrite rules, if not, insert all endpoint datas
+                while (!$endPointsOk) {
+                    $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $savedToken->access_token);
+                    $endPoints = json_decode($endPointData, true);
 
-                $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $savedToken->access_token);
-                $endPoints = json_decode($endPointData, true);
-                $wpdb->insert(
-                    $table_name_end_point,
-                    array(
-                        "id" => $blogId,
-                        'old_end_point' => $endPoints['old_end_point'],
-                        'end_point' => $endPoints['end_point'],
-                        'next_end_point' => $endPoints['next_end_point'],
-                    )
-                );
+                    if (!self::isRewriteRulesConflictWithEndpoints($endPoints['next_end_point'])) {
+                        $wpdb->insert(
+                            $table_name_end_point,
+                            array(
+                                'id' => $blogId,
+                                'old_end_point' => $endPoints['old_end_point'],
+                                'end_point' => $endPoints['end_point'],
+                                'next_end_point' => $endPoints['next_end_point'],
+                            )
+                        );
+                        $endPointsOk = true;
+                    }
+                }
             }
 
             $fullScriptData = Ad_Back_Get::execute("https://www.adback.co/api/script/me/full?access_token=" . $savedToken->access_token);
@@ -138,15 +145,12 @@ class Ad_Back_Updator
 
     public static function isRewriteRulesConflictWithEndpoints($endpoint)
     {
-        require_once( ABSPATH . 'wp-includes/class-wp-rewrite.php' );
-
         if (!$rules = get_option('rewrite_rules')) {
             return false;
         }
 
         /** @var $rule array */
         foreach ($rules as $rule => $rewrite) {
-
             if (preg_match('/^' . $endpoint . '.*/', $rule)) {
                 return true;
             }
