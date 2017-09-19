@@ -98,9 +98,8 @@ class Ad_Back_Updator
                 $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $savedToken->access_token);
                 $endPoints = json_decode($endPointData, true);
 
-                // loop while endpoints (next) conflict with rewrite rules, if not, insert all endpoint datas
-                $endPointsOk = false;
-                while (!$endPointsOk) {
+                // loop while endpoints (next) conflict with rewrite rules, if not, insert all endpoint data
+                for ($i = 0; $i < 5; $i++) {
                     if (!self::isRewriteRulesConflictWithEndpoints($endPoints['next_end_point'])) {
                         $wpdb->insert(
                             $table_name_end_point,
@@ -111,11 +110,10 @@ class Ad_Back_Updator
                                 'next_end_point' => $endPoints['next_end_point'],
                             )
                         );
-                        $endPointsOk = true;
-                    } else {
-                        $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/refresh?access_token=" . $savedToken->access_token);
-                        $endPoints = json_decode($endPointData, true);
+                        break;
                     }
+                    $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/refresh?access_token=" . $savedToken->access_token);
+                    $endPoints = json_decode($endPointData, true);
                 }
             }
 
