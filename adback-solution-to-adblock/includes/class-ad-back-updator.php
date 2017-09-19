@@ -33,11 +33,11 @@ class Ad_Back_Updator
     {
         global $wpdb;
 
-        $currentVersion = (int) get_option( "adback_solution_to_adblock_db_version");
+        $currentVersion = (int)get_option("adback_solution_to_adblock_db_version");
 
         if (null === $currentVersion || $currentVersion < 2) {
             $currentVersion = 2;
-            update_option( "adback_solution_to_adblock_db_version", $currentVersion);
+            update_option("adback_solution_to_adblock_db_version", $currentVersion);
             if (is_multisite()) {
                 $sites = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
 
@@ -59,7 +59,7 @@ class Ad_Back_Updator
     {
         global $wpdb;
 
-        require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
+        require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
 
         $charset_collate = $wpdb->get_charset_collate();
 
@@ -70,37 +70,37 @@ class Ad_Back_Updator
         $table_name_end_point = $wpdb->prefix . 'adback_end_point';
         $table_name_token = $wpdb->prefix . 'adback_token';
 
-        $sql = "CREATE TABLE IF NOT EXISTS ".$table_name_full_tag." (
+        $sql = "CREATE TABLE IF NOT EXISTS " . $table_name_full_tag . " (
             `id` mediumint(9) NOT NULL,
             `blog_id` mediumint(9) NOT NULL,
             `type` varchar(100) DEFAULT '' NOT NULL,
             `value` mediumtext DEFAULT '' NOT NULL,
             `update_time` DATETIME NULL,
             UNIQUE KEY id (id)
-        ) ".$charset_collate.";";
+        ) " . $charset_collate . ";";
 
-        $sql .= "CREATE TABLE ".$table_name_end_point." (
+        $sql .= "CREATE TABLE " . $table_name_end_point . " (
             `id` mediumint(9) NOT NULL,
             `old_end_point` varchar(64) DEFAULT '' NOT NULL,
             `end_point` varchar(64) DEFAULT '' NOT NULL,
             `next_end_point` varchar(64) DEFAULT '' NOT NULL,
             UNIQUE KEY id (id)
-        ) ".$charset_collate.";";
+        ) " . $charset_collate . ";";
 
 
-        dbDelta( $sql );
+        dbDelta($sql);
 
-        $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = ".$blogId);
+        $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = " . $blogId);
 
         if (null !== $savedToken || '' !== $savedToken->access_token) {
             if (self::isRewriteRouteEnabled()) {
-                $endPointsOk = false;
                 Ad_Back_Post::execute("https://www.adback.co/api/end-point/activate?access_token=" . $savedToken->access_token, []);
-                // loop while endpoints (next) conflict with rewrite rules, if not, insert all endpoint datas
-                while (!$endPointsOk) {
-                    $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $savedToken->access_token);
-                    $endPoints = json_decode($endPointData, true);
+                $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $savedToken->access_token);
+                $endPoints = json_decode($endPointData, true);
 
+                // loop while endpoints (next) conflict with rewrite rules, if not, insert all endpoint datas
+                $endPointsOk = false;
+                while (!$endPointsOk) {
                     if (!self::isRewriteRulesConflictWithEndpoints($endPoints['next_end_point'])) {
                         $wpdb->insert(
                             $table_name_end_point,
@@ -112,6 +112,9 @@ class Ad_Back_Updator
                             )
                         );
                         $endPointsOk = true;
+                    } else {
+                        $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/refresh?access_token=" . $savedToken->access_token);
+                        $endPoints = json_decode($endPointData, true);
                     }
                 }
             }
@@ -140,7 +143,7 @@ class Ad_Back_Updator
 
     public static function isRewriteRouteEnabled()
     {
-        return (bool) get_option('permalink_structure');
+        return (bool)get_option('permalink_structure');
     }
 
     public static function isRewriteRulesConflictWithEndpoints($endpoint)
