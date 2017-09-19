@@ -296,6 +296,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginDiagnosticPage()
     {
+        global $wpdb;
         if($this->isConnected()) {
             if($this->getDomain() === '') {
                 $this->askDomain();
@@ -304,6 +305,8 @@ class Ad_Back_Admin extends Ad_Back_Generic
             $adback->enqueueScripts();
             $token = $this->getToken();
             $script = $this->askScripts();
+            $table_name_end_point = $wpdb->prefix . 'adback_end_point';
+            $endPoints = $wpdb->get_row("SELECT * FROM " . $table_name_end_point . " WHERE id = ".get_current_blog_id());
             include_once( 'partials/ad-back-admin-diagnostic.php' );
         } else {
             if(isset($_GET['access_token'])) {
