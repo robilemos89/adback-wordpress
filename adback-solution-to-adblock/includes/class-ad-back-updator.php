@@ -60,6 +60,7 @@ class Ad_Back_Updator
         global $wpdb;
 
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
+        require_once(__DIR__ . 'ad-back-rewrite-rule-validator.php');
 
         $charset_collate = $wpdb->get_charset_collate();
 
@@ -100,7 +101,7 @@ class Ad_Back_Updator
 
                 // loop while endpoints (next) conflict with rewrite rules, if not, insert all endpoint data
                 for ($i = 0; $i < 5; $i++) {
-                    if (!self::isRewriteRulesConflictWithEndpoints($endPoints['next_end_point'])) {
+                    if (!Ad_Back_Rewrite_Rule_Validator::validate($endPoints['next_end_point'])) {
                         $wpdb->insert(
                             $table_name_end_point,
                             array(
@@ -142,22 +143,6 @@ class Ad_Back_Updator
     public static function isRewriteRouteEnabled()
     {
         return (bool)get_option('permalink_structure');
-    }
-
-    public static function isRewriteRulesConflictWithEndpoints($endpoint)
-    {
-        if (!$rules = get_option('rewrite_rules')) {
-            return false;
-        }
-
-        /** @var $rule array */
-        foreach ($rules as $rule => $rewrite) {
-            if (preg_match('/^' . $endpoint . '.*/', $rule)) {
-                return true;
-            }
-        }
-
-        return false;
     }
 
     /**

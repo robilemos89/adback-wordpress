@@ -16,6 +16,7 @@ class Ad_Back_Generic
     public function getMyInfo()
     {
         global $wpdb; // this is how you get access to the database
+        require_once(__DIR__ . '/includes/ad-back-rewrite-rule-validator.php');
 
         $table_name = $wpdb->prefix . 'adback_full_tag';
         $blogId = get_current_blog_id();
@@ -204,28 +205,48 @@ SQL;
         return $result;
     }
 
+    public function refreshEndPoints()
+    {
+        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+            return null;
+        }
+
+        $jsonEndPoints = Ad_Back_Get::execute("https://www.adback.co/api/end-point/refresh?access_token=" . $this->getToken()->access_token);
+        $result = json_decode($jsonEndPoints, true);
+
+        return $result;
+    }
+
     public function saveEndPointsAndUpdateRoutes($endPoints, $blogId)
     {
         global $wpdb;
 
         $table_name_end_point = $wpdb->prefix . 'adback_end_point';
 
-        $sql = <<<SQL
+        // loop while endpoints (next) conflict with rewrite rules, if not, insert all endpoint data
+        for ($i = 0; $i < 5; $i++) {
+            if (!Ad_Back_Rewrite_Rule_Validator::validate($endPoints['next_end_point'])) {
+
+                $sql = <<<SQL
 INSERT INTO $table_name_end_point
   (id,old_end_point,end_point,next_end_point) VALUES (%d,%s,%s,%s)
   ON DUPLICATE KEY UPDATE old_end_point = %s, end_point = %s, next_end_point = %s;
 SQL;
-        $sql = $wpdb->prepare(
-            $sql,
-            $blogId,
-            $endPoints['old_end_point'],
-            $endPoints['end_point'],
-            $endPoints['next_end_point'],
-            $endPoints['old_end_point'],
-            $endPoints['end_point'],
-            $endPoints['next_end_point']
-        );
-        $wpdb->query($sql);
+                $sql = $wpdb->prepare(
+                    $sql,
+                    $blogId,
+                    $endPoints['old_end_point'],
+                    $endPoints['end_point'],
+                    $endPoints['next_end_point'],
+                    $endPoints['old_end_point'],
+                    $endPoints['end_point'],
+                    $endPoints['next_end_point']
+                );
+                $wpdb->query($sql);
+                break;
+            }
+            $endPoints = $this->refreshEndPoints();
+        }
     }
 
     public function saveDomain($domain)
