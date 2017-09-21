@@ -29,7 +29,12 @@ class Ad_Back_Deactivator
      *
      * @since    1.0.0
      */
-    public static function deactivate() {}
+    public static function deactivate()
+    {
+        global $wpdb;
+
+        $wpdb->query('delete from ' . $wpdb->prefix . 'adback_full_tag');
+    }
 
     public static function deleteBlog($tables)
     {
