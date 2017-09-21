@@ -226,7 +226,6 @@ SQL;
         // loop while endpoints (next) conflict with rewrite rules, if not, insert all endpoint data
         for ($i = 0; $i < 5; $i++) {
             if (!Ad_Back_Rewrite_Rule_Validator::validate($endPoints['next_end_point'])) {
-
                 $sql = <<<SQL
 INSERT INTO $table_name_end_point
   (id,old_end_point,end_point,next_end_point) VALUES (%d,%s,%s,%s)
@@ -247,6 +246,9 @@ SQL;
             }
             $endPoints = $this->refreshEndPoints();
         }
+
+        adback_plugin_rules();
+        flush_rewrite_rules();
     }
 
     public function saveDomain($domain)
