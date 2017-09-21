@@ -47,17 +47,22 @@ class Ad_Back_Generic
             ];
             foreach ($types as $key => $type) {
                 if (array_key_exists($type, $fullScripts['script_codes'])) {
-                    $wpdb->update(
-                        $table_name,
-                        array(
-                            'id' => $key,
-                            'blog_id' => $blogId,
-                            'type' => $type,
-                            'value' => $fullScripts['script_codes'][$type]['code'],
-                            'update_time' => current_time('mysql', 1),
-                        ),
-                        array('id' => $key)
+                    $sql = <<<SQL
+INSERT INTO $table_name
+  (id,blog_id,type,value,update_time) VALUES (%d,%d,%s,%s,%s)
+  ON DUPLICATE KEY UPDATE value = %s, update_time = %s;
+SQL;
+                    $sql = $wpdb->prepare(
+                        $sql,
+                        $key,
+                        $blogId,
+                        $type,
+                        $fullScripts['script_codes'][$type]['code'],
+                        current_time('mysql', 1),
+                        $fullScripts['script_codes'][$type]['code'],
+                        current_time('mysql', 1)
                     );
+                    $wpdb->query($sql);
                     $scriptData[$type] = $fullScripts['script_codes'][$type]['code'];
                 }
             }
@@ -204,16 +209,23 @@ class Ad_Back_Generic
         global $wpdb;
 
         $table_name_end_point = $wpdb->prefix . 'adback_end_point';
-        $wpdb->update(
-            $table_name_end_point,
-            array(
-                "id" => $blogId,
-                'old_end_point' => $endPoints['old_end_point'],
-                'end_point' => $endPoints['end_point'],
-                'next_end_point' => $endPoints['next_end_point'],
-            ),
-            array('id' => $blogId)
+
+        $sql = <<<SQL
+INSERT INTO $table_name_end_point
+  (id,old_end_point,end_point,next_end_point) VALUES (%d,%s,%s,%s)
+  ON DUPLICATE KEY UPDATE old_end_point = %s, end_point = %s, next_end_point = %s;
+SQL;
+        $sql = $wpdb->prepare(
+            $sql,
+            $blogId,
+            $endPoints['old_end_point'],
+            $endPoints['end_point'],
+            $endPoints['next_end_point'],
+            $endPoints['old_end_point'],
+            $endPoints['end_point'],
+            $endPoints['next_end_point']
         );
+        $wpdb->query($sql);
     }
 
     public function saveDomain($domain)
