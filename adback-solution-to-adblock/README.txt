@@ -121,6 +121,7 @@ We propose:
 == Changelog ==
 = 2.4.2 =
 * Fix update or insert database that made some performance issue
+* Add validator on rewrite rule to avoid conflict with existing urls
 
 = 2.4.1 =
 * Fix proxy url
