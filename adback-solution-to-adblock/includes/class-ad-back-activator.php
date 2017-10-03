@@ -65,40 +65,39 @@ class Ad_Back_Activator
         $table_name_token = $wpdb->prefix . 'adback_token';
         $table_name_info = $wpdb->prefix . 'adback_myinfo';
 
-        $sql = "CREATE TABLE ".$table_name_account." (
-            `id` mediumint(9) NOT NULL,
-            `username` varchar(100) DEFAULT '' NOT NULL,
-            `key` varchar(100) DEFAULT '' NOT NULL,
-            `secret` varchar(100) DEFAULT '' NOT NULL,
-            UNIQUE KEY id (id)
-        ) ".$charset_collate.";";
+        $sql = '';
+        if ($wpdb->get_var("SHOW TABLES LIKE '$table_name_account'") != $table_name_account) {
+            $sql = "CREATE TABLE " . $table_name_account . " (
+                `id` mediumint(9) NOT NULL,
+                `username` varchar(100) DEFAULT '' NOT NULL,
+                `key` varchar(100) DEFAULT '' NOT NULL,
+                `secret` varchar(100) DEFAULT '' NOT NULL,
+                UNIQUE KEY id (id)
+            ) " . $charset_collate . ";";
+        }
 
-        $sql .= "CREATE TABLE ".$table_name_token." (
-            `id` mediumint(9) NOT NULL,
-            `access_token` varchar(64) DEFAULT '' NOT NULL,
-            `refresh_token` varchar(64) DEFAULT '' NOT NULL,
-            UNIQUE KEY id (id)
-        ) ".$charset_collate.";";
+        if ($wpdb->get_var("SHOW TABLES LIKE '$table_name_token'") != $table_name_token) {
+            $sql .= "CREATE TABLE " . $table_name_token . " (
+                `id` mediumint(9) NOT NULL,
+                `access_token` varchar(64) DEFAULT '' NOT NULL,
+                `refresh_token` varchar(64) DEFAULT '' NOT NULL,
+                UNIQUE KEY id (id)
+            ) " . $charset_collate . ";";
+        }
 
-        $sql .= "CREATE TABLE ".$table_name_info." (
-            `id` mediumint(9) NOT NULL,
-            `myinfo` text DEFAULT '' NOT NULL,
-            `domain` text DEFAULT '' NOT NULL,
-            `update_time` DATETIME NULL,
-            UNIQUE KEY id (id)
-        ) ".$charset_collate.";";
+        if($wpdb->get_var("SHOW TABLES LIKE '$table_name_info'") != $table_name_info) {
+            $sql .= "CREATE TABLE ".$table_name_info." (
+                `id` mediumint(9) NOT NULL,
+                `myinfo` text DEFAULT '' NOT NULL,
+                `domain` text DEFAULT '' NOT NULL,
+                `update_time` DATETIME NULL,
+                UNIQUE KEY id (id)
+            ) ".$charset_collate.";";
+        }
 
-        dbDelta( $sql );
-
-        $wpdb->insert(
-            $table_name_account,
-            array(
-                "id" => $blogId,
-                "username" => "",
-                "key" => "",
-                "secret" => ""
-            )
-        );
+        if ('' !== $sql) {
+            dbDelta( $sql );
+        }
 
         $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = ".$blogId);
 
@@ -118,27 +117,40 @@ class Ad_Back_Activator
                 $refreshToken = $data['refresh_token'];
             }
 
-            $wpdb->insert(
-                $table_name_token,
-                [
-                    "id"            => $blogId,
-                    "access_token"  => $accessToken,
-                    "refresh_token" => $refreshToken
-                ]
+            $sql = <<<SQL
+INSERT INTO $table_name_token
+  (id,access_token,refresh_token) values (%d,%s,%s)
+  ON DUPLICATE KEY UPDATE access_token = %s, refresh_token = %s;
+SQL;
+            $sql = $wpdb->prepare(
+                $sql,
+                $blogId,
+                $accessToken,
+                $refreshToken,
+                $accessToken,
+                $refreshToken
             );
+            $wpdb->query($sql);
 
             $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = ".$blogId);
         }
 
-        $wpdb->insert(
-            $table_name_info,
-            array(
-                "id" => $blogId,
-                "myinfo" => "",
-                "domain" => "",
-                "update_time" => ""
-            )
+        $sql = <<<SQL
+INSERT INTO $table_name_info
+  (id,myinfo,domain,update_time) VALUES (%d,%s,%s,%s)
+  ON DUPLICATE KEY UPDATE myinfo = %s, domain = %s, update_time = %s;
+SQL;
+        $sql = $wpdb->prepare(
+            $sql,
+            $blogId,
+            "",
+            "",
+            "",
+            "",
+            "",
+            ""
         );
+        $wpdb->query($sql);
 
         if ('' == $accessToken && '' == $savedToken->access_token) {
             $notices = get_option('adback_deferred_admin_notices', array());
