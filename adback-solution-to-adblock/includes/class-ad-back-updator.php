@@ -37,7 +37,6 @@ class Ad_Back_Updator
 
         if (null === $currentVersion || $currentVersion < 2) {
             $currentVersion = 2;
-            update_option("adback_solution_to_adblock_db_version", $currentVersion);
             if (is_multisite()) {
                 $sites = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
 
@@ -49,6 +48,7 @@ class Ad_Back_Updator
             } else {
                 self::createFullTagAndEndPointDatabase();
             }
+            update_option("adback_solution_to_adblock_db_version", $currentVersion);
         }
     }
 
@@ -60,7 +60,7 @@ class Ad_Back_Updator
         global $wpdb;
 
         require_once(ABSPATH . 'wp-admin/includes/upgrade.php');
-        require_once(__DIR__ . 'ad-back-rewrite-rule-validator.php');
+        require_once(__DIR__ . '/ad-back-rewrite-rule-validator.php');
 
         $charset_collate = $wpdb->get_charset_collate();
 
@@ -71,25 +71,31 @@ class Ad_Back_Updator
         $table_name_end_point = $wpdb->prefix . 'adback_end_point';
         $table_name_token = $wpdb->prefix . 'adback_token';
 
-        $sql = "CREATE TABLE IF NOT EXISTS " . $table_name_full_tag . " (
-            `id` mediumint(9) NOT NULL,
-            `blog_id` mediumint(9) NOT NULL,
-            `type` varchar(100) DEFAULT '' NOT NULL,
-            `value` mediumtext DEFAULT '' NOT NULL,
-            `update_time` DATETIME NULL,
-            UNIQUE KEY id (id)
-        ) " . $charset_collate . ";";
+        $sql = '';
+        if ($wpdb->get_var("SHOW TABLES LIKE '$table_name_full_tag'") != $table_name_full_tag) {
+            $sql = "CREATE TABLE " . $table_name_full_tag . " (
+                `id` mediumint(9) NOT NULL,
+                `blog_id` mediumint(9) NOT NULL,
+                `type` varchar(100) DEFAULT '' NOT NULL,
+                `value` mediumtext DEFAULT '' NOT NULL,
+                `update_time` DATETIME NULL,
+                UNIQUE KEY id (id)
+            ) " . $charset_collate . ";";
+        }
 
-        $sql .= "CREATE TABLE " . $table_name_end_point . " (
-            `id` mediumint(9) NOT NULL,
-            `old_end_point` varchar(64) DEFAULT '' NOT NULL,
-            `end_point` varchar(64) DEFAULT '' NOT NULL,
-            `next_end_point` varchar(64) DEFAULT '' NOT NULL,
-            UNIQUE KEY id (id)
-        ) " . $charset_collate . ";";
+        if ($wpdb->get_var("SHOW TABLES LIKE '$table_name_end_point'") != $table_name_end_point) {
+            $sql .= "CREATE TABLE " . $table_name_end_point . " (
+                `id` mediumint(9) NOT NULL,
+                `old_end_point` varchar(64) DEFAULT '' NOT NULL,
+                `end_point` varchar(64) DEFAULT '' NOT NULL,
+                `next_end_point` varchar(64) DEFAULT '' NOT NULL,
+                UNIQUE KEY id (id)
+            ) " . $charset_collate . ";";
+        }
 
-
-        dbDelta($sql);
+        if ('' !== $sql) {
+            dbDelta($sql);
+        }
 
         $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = " . $blogId);
 

@@ -34,6 +34,8 @@ class Ad_Back_Deactivator
         global $wpdb;
 
         $wpdb->query('delete from ' . $wpdb->prefix . 'adback_full_tag');
+        $wpdb->query('delete from ' . $wpdb->prefix . 'adback_end_point');
+        delete_option("adback_solution_to_adblock_db_version");
     }
 
     public static function deleteBlog($tables)
