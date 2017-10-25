@@ -14,16 +14,11 @@ With AdBack, access analytics about adblocker users, address them personalized m
 
 ## What is AdBack?
 
-AdBack is a professional and unblockable solution that analyzes your Internet audience using adblockers. It collects,
-analyzes and alerts you about the evolution of this audience. It allows you to react, to inform and monetize this specific
-audience. If you want an estimation of the revenues you could earn with AdBack,
-[fill in the form](http://landing.adback.co/en/estimate-your-potential-earnings/)!
+AdBack is a professional and unblockable solution that analyzes your Internet audience using adblockers. It collects, analyzes and alerts you about the evolution of this audience. It allows you to react, to inform and monetize this specific audience. If you want an estimation of the revenues you could earn with AdBack, [fill in the form](http://landing.adback.co/en/estimate-your-potential-earnings/)!
 
 ## For who?
 
-AdBack is for every content publisher who wants to understand and monetize its adblock audience: media websites, regional
-magazines, bloggers, e-commerce websites who want to take an audit on their website, verify in real-time that adblocker users
-don’t impact the conversion rate and utilize tools to generate leads specifically on this audience.
+AdBack is for every content publisher who wants to understand and monetize its adblock audience: media websites, regional magazines, bloggers, e-commerce websites who want to take an audit on their website, verify in real-time that adblocker users don’t impact the conversion rate and utilize tools to generate leads specifically on this audience.
 
 ## What data can I collect?
 
@@ -39,27 +34,21 @@ Find for exemple:
 
 ## What are the monetization solutions?
 
-We propose 3 types of solutions. Need an audit? [Fill in the form](http://landing.adback.co/en/estimate-your-potential-earnings/)
-and we’ll tell you which solutions are the most adapted for you.
+We propose 3 types of solutions. Need an audit? [Fill in the form](http://landing.adback.co/en/estimate-your-potential-earnings/) and we’ll tell you which solutions are the most adapted for you.
 
 ### AdBack Direct
 
-Thanks to our encryption technology, you can display your premium and autopromotion campaigns to your adblocker users.
-It’s easy and fast with our DFP and Smart AdServer connectors.
+Thanks to our encryption technology, you can display your premium and autopromotion campaigns to your adblocker users. It’s easy and fast with our DFP and Smart AdServer connectors.
 
 ### AdBack Ads
 
-In connection with our partner networks, we provide you with native or contextual advertising flow. Display these native
-flows to fill your blocked ad placements or in addition to your existing placements.
+In connection with our partner networks, we provide you with native or contextual advertising flow. Display these native flows to fill your blocked ad placements or in addition to your existing placements.
 
 ### AdBack Experience
 
-With AdBack, you can lock the access to your content to your adblocker users and display personalized messages depending
-on the different user profiles you’ll identify with our tool. Ask them to turn off their adblocker or propose to answer surveys,
-newsletter subscriptions, to watch a video ad to access the content, etc.
+With AdBack, you can lock the access to your content to your adblocker users and display personalized messages depending on the different user profiles you’ll identify with our tool. Ask them to turn off their adblocker or propose to answer surveys, newsletter subscriptions, to watch a video ad to access the content, etc.
 
-You can personalize your messages with colors, logos, different themes and target the profile of your adblocker users depending
-on the geolocation, browser, visit duration, among many other targeting options.
+You can personalize your messages with colors, logos, different themes and target the profile of your adblocker users depending on the geolocation, browser, visit duration, among many other targeting options.
 
 == Screenshots ==
 
