@@ -1,10 +1,10 @@
-=== Plugin Name ===
+=== AdBack solution to adblock ===
 Contributors: getadback
 Donate link: https://www.adback.co
 Tags: adblock, analytics, message, detection, detect, block, ad block, ads, advertising, adblock killer, anti adblock, adblocker, popup, notification, message, custom, personalize, analyze, stats, adblocker, dashboard widget, block adblock, ghostery, ublock, adblock plus, ad free
 Requires at least: 3.0.1
 Tested up to: 4.8
-Stable tag: 2.4.4
+Stable tag: 2.4.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -12,47 +12,54 @@ With AdBack, access analytics about adblocker users, address them personalized m
 
 == Description ==
 
-AdBack is a professional solution that analyzes your Internet audience using adblockers. It collects, decrypts and alerts you about the evolution of this audience. It allows you to react, to inform and monetize this specific audience.
+## What is AdBack?
 
-By installing AdBack, you’ll have access to a highly technological tool which is not detected by adblockers, to real-time informations, to a maximized and constantly evolving script and also to a wide range of solutions to dialogue with the adblocker user audience.
+AdBack is a professional and unblockable solution that analyzes your Internet audience using adblockers. It collects,
+analyzes and alerts you about the evolution of this audience. It allows you to react, to inform and monetize this specific
+audience. If you want an estimation of the revenues you could earn with AdBack,
+[fill in the form](http://landing.adback.co/en/estimate-your-potential-earnings/)!
 
-AdBack is for every content publisher who wants to understand and monetize its adblocked audience: media websites, regional magazines, bloggers who want to take an audit on their website, verify in real-time that adblocker users don’t impact the conversion rate and utilize tools to generate leads specifically on this audience.
+## For who?
 
-AdBack proposes a very easy ready-to-use solution for all the WordPress website owners. It allows you to use AdBack’s solution directly from the WordPress interface where the main data are displayed. You can also access at every moment all the detailed statistics on the AdBack dashboard.
+AdBack is for every content publisher who wants to understand and monetize its adblock audience: media websites, regional
+magazines, bloggers, e-commerce websites who want to take an audit on their website, verify in real-time that adblocker users
+don’t impact the conversion rate and utilize tools to generate leads specifically on this audience.
 
-Find loads of statistics about the adblockers with AdBack:
+## What data can I collect?
 
+Find loads of statistics about the adblockers with AdBack and identify up to 5 adblocker users profiles.
+
+Find for exemple:
+
+* The estimated lost revenue
 * The number of activations/deactivations
 * The number of adblockers users allowing the acceptable ads of Eyeo
 * The type of adblocker used
-* The estimated lost revenue
 * The number of blocked analytics (Google Analytics, AT Internet)
 
-Create automatic personalized reports with all the variables you’re interested in.
+## What are the monetization solutions?
 
-With AdBack, you can lock the access to your content to your adblocker users and display personalized messages depending on the different user profiles you’ll identify with our tool. Ask them to deactivate their adblocker or propose:
+We propose 3 types of solutions. Need an audit? [Fill in the form](http://landing.adback.co/en/estimate-your-potential-earnings/)
+and we’ll tell you which solutions are the most adapted for you.
 
-* To answer surveys
-* Paywalls
-* Newsletter subscriptions
-* To watch a video ad to access the content
+### AdBack Direct
 
-You can personalize your messages with colors, logos, different templates and themes.
+Thanks to our encryption technology, you can display your premium and autopromotion campaigns to your adblocker users.
+It’s easy and fast with our DFP and Smart AdServer connectors.
 
-Target the profile of your adblocker users depending on:
+### AdBack Ads
 
-* Geolocation
-* Browser language
-* Connection types
-* Operating system
-* Browsers
-* Desktop/mobile
-* Screen resolution
-* Page views
-* Bounce rate
-* Duration
-* Recurrence
-* Referral traffic
+In connection with our partner networks, we provide you with native or contextual advertising flow. Display these native
+flows to fill your blocked ad placements or in addition to your existing placements.
+
+### AdBack Experience
+
+With AdBack, you can lock the access to your content to your adblocker users and display personalized messages depending
+on the different user profiles you’ll identify with our tool. Ask them to turn off their adblocker or propose to answer surveys,
+newsletter subscriptions, to watch a video ad to access the content, etc.
+
+You can personalize your messages with colors, logos, different themes and target the profile of your adblocker users depending
+on the geolocation, browser, visit duration, among many other targeting options.
 
 == Screenshots ==
 
@@ -119,6 +126,9 @@ We propose:
 * To watch a video ad to access the content
 
 == Changelog ==
+= 2.4.5 =
+* Update plugin description
+
 = 2.4.4 =
 * Fix activation deactivation of plugin
 
@@ -214,3 +224,7 @@ We propose:
 
 = 1.1.3 =
 * First logged version
+
+== Upgrade Notice ==
+= 2.4.4 =
+This version fix a workflow bug. Upgrade immediately
