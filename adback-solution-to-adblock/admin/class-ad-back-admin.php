@@ -137,11 +137,11 @@ class Ad_Back_Admin extends Ad_Back_Generic
                 $this->askDomain();
             }
             // Loading AdBack library
-            wp_enqueue_script('adback', 'https://'. $this->getDomain() .'/lib/ab.min.js', $this->version, true );
+            wp_enqueue_script('adback', 'https://'. $this->getDomain() .'/lib/ab.min.js', [], $this->version, true);
         }
 
-        wp_enqueue_script('vex-js', plugin_dir_url( __FILE__ ) . 'js/vex.combined.min.js', $this->version, false );
-        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/ab-admin.js', array( 'jquery' ), $this->version, false );
+        wp_enqueue_script('vex-js', plugin_dir_url( __FILE__ ) . 'js/vex.combined.min.js', [], $this->version, true);
+        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/ab-admin.js', ['jquery'], $this->version, true);
         wp_localize_script( $this->plugin_name, 'trans_arr', $translation_array );
     }
 
