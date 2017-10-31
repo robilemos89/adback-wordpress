@@ -141,7 +141,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
         }
 
         wp_enqueue_script('vex-js', plugin_dir_url( __FILE__ ) . 'js/vex.combined.min.js', [], $this->version, true);
-        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/ab-admin.js', ['jquery'], $this->version, true );
+        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/ab-admin.js', ['jquery'], $this->version, true);
         wp_localize_script( $this->plugin_name, 'trans_arr', $translation_array );
     }
 
