@@ -78,6 +78,11 @@ class Ad_Back_Public extends Ad_Back_Generic
         $elements = $this->getMyInfo();
 
         if (is_array($elements)) {
+            if (!is_ssl()) {
+                $domain = str_replace(['http://', 'https://'], '', get_site_url(get_current_blog_id()));
+                echo "<script type=\"text/javascript\">window.ak_shell_url = \"$domain\";</script>\n";
+            }
+
             foreach ($elements as $type => $element) {
                 if ('product' != $type) {
                     echo "<script type='text/javascript'>\n$element\n</script>\n";
