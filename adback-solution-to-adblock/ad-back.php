@@ -85,9 +85,15 @@ function adback_plugin_rules() {
     $table_name_end_point = $wpdb->prefix . 'adback_end_point';
     $endPoints = $wpdb->get_row("SELECT * FROM " . $table_name_end_point . " WHERE id = ".get_current_blog_id());
     if (null !== $endPoints) {
-        add_rewrite_rule($endPoints->old_end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
-        add_rewrite_rule($endPoints->end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
-        add_rewrite_rule($endPoints->next_end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
+        if ('' != $endPoints->old_end_point) {
+            add_rewrite_rule($endPoints->old_end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
+        }
+        if ('' != $endPoints->end_point) {
+            add_rewrite_rule($endPoints->end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
+        }
+        if ('' != $endPoints->next_end_point) {
+            add_rewrite_rule($endPoints->next_end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
+        }
     }
 }
 
