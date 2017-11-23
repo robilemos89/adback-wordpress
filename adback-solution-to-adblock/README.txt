@@ -4,7 +4,7 @@ Donate link: https://www.adback.co
 Tags: adblock, analytics, message, detection, detect, block, ad block, ads, advertising, adblock killer, anti adblock, adblocker, popup, notification, message, custom, personalize, analyze, stats, adblocker, dashboard widget, block adblock, ghostery, ublock, adblock plus, ad free
 Requires at least: 3.0.1
 Tested up to: 4.9
-Stable tag: 2.5.0
+Stable tag: 2.5.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -115,6 +115,9 @@ We propose:
 * To watch a video ad to access the content
 
 == Changelog ==
+= 2.5.1 =
+* Fix empty array analysis
+
 = 2.5.0 =
 * Update requirements for wordpress 4.9
 
@@ -224,5 +227,8 @@ We propose:
 * First logged version
 
 == Upgrade Notice ==
+= 2.5.1 =
+This version fix a workflow bug. Upgrade immediately if you haven't activated the plugin
+
 = 2.4.4 =
 This version fix a workflow bug. Upgrade immediately
