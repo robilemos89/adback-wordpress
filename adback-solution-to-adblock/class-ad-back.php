@@ -47,7 +47,7 @@ class Ad_Back_Generic
                 'iab_banner',
             ];
             foreach ($types as $key => $type) {
-                if (array_key_exists($type, $fullScripts['script_codes'])) {
+                if (is_array($fullScripts['script_codes']) && array_key_exists($type, $fullScripts['script_codes'])) {
                     $sql = <<<SQL
 INSERT INTO $table_name
   (id,blog_id,type,value,update_time) VALUES (%d,%d,%s,%s,%s)

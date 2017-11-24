@@ -16,7 +16,7 @@
  * Plugin Name:       AdBack solution to adblock
  * Plugin URI:        adback.co
  * Description:       With AdBack, access analytics about adblocker users, address them personalized messages, propose alternative solutions to advertising (video, survey).
- * Version:           2.5.0
+ * Version:           2.5.1
  * Author:            AdBack
  * Author URI:        https://www.adback.co
  * License:           GPL-2.0+
@@ -85,9 +85,15 @@ function adback_plugin_rules() {
     $table_name_end_point = $wpdb->prefix . 'adback_end_point';
     $endPoints = $wpdb->get_row("SELECT * FROM " . $table_name_end_point . " WHERE id = ".get_current_blog_id());
     if (null !== $endPoints) {
-        add_rewrite_rule($endPoints->old_end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
-        add_rewrite_rule($endPoints->end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
-        add_rewrite_rule($endPoints->next_end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
+        if ('' != $endPoints->old_end_point) {
+            add_rewrite_rule($endPoints->old_end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
+        }
+        if ('' != $endPoints->end_point) {
+            add_rewrite_rule($endPoints->end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
+        }
+        if ('' != $endPoints->next_end_point) {
+            add_rewrite_rule($endPoints->next_end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
+        }
     }
 }
 
