@@ -76,29 +76,25 @@ class Ad_Back_Proxy
 
         $response = self::proxy_request($destinationURL, $data, $method, $params, $ip);
         $headerArray = explode("\r\n", $response['header']);
-        $is_gzip = false;
         $is_chunked = false;
         foreach($headerArray as $headerLine) {
-            // Toggle gzip decompression when appropriate.
-            if ($headerLine == "Content-Encoding: gzip") {
-                $is_gzip = true;
-                // Toggle chunk merging when appropriate
-            } elseif ($headerLine == "Transfer-Encoding: chunked") {
+            // Toggle chunk merging when appropriate
+            if ($headerLine == "Transfer-Encoding: chunked") {
                 $is_chunked = true;
             }
         }
         $contents = $response['content'];
         if ($is_chunked) {
-            $contents = self::decode_chunked($contents);
-        }
-        if ($is_gzip) {
-            $contents = gzdecode($contents);
+            $decodedContents = @self::decode_chunked($contents);
+
+            if (strlen($decodedContents)) {
+                $contents = $decodedContents;
+            }
         }
 
         foreach ($headerArray as $header) {
             if (
-                strpos($header, 'Content-Encoding') === false
-                && strpos($header, 'Transfer-Encoding') === false
+                strpos(strtolower($header), 'transfer-encoding') === false
             ) {
                 header($header, true);
             }
@@ -158,7 +154,13 @@ class Ad_Back_Proxy
             $requestHeaders = getallheaders();
 
             foreach ($requestHeaders as $header => $value) {
-                if ($header !== "Connection" && $header !== "Host" && $header !== "Content-length" && $header !== "Content-Type") {
+                $lowerHeader = strtolower($header);
+                if (
+                    $lowerHeader !== "connection"
+                    && $lowerHeader !== "host"
+                    && $lowerHeader !== "content-length"
+                    && $lowerHeader !== "content-type"
+                ) {
                     $callback .= "$header: $value\r\n";
                 }
             }
