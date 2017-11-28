@@ -307,6 +307,9 @@ class Ad_Back_Admin extends Ad_Back_Generic
             $script = $this->askScripts();
             $table_name_end_point = $wpdb->prefix . 'adback_end_point';
             $endPoints = $wpdb->get_row("SELECT * FROM " . $table_name_end_point . " WHERE id = ".get_current_blog_id());
+
+            $rules = get_option('rewrite_rules', array());
+
             include_once( 'partials/ad-back-admin-diagnostic.php' );
         } else {
             if(isset($_GET['access_token'])) {
