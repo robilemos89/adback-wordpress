@@ -97,8 +97,7 @@ SQL;
         }
 
         if (isset($token->access_token) && $token->access_token !== '') {
-            $apiDomain = $this->getDomain();
-            $domain = $apiDomain === '' ? 'www.adback.co' : $apiDomain;
+            $domain = 'www.adback.co';
             $url = "https://".$domain."/api/test/normal?access_token=" . $token->access_token;
 
             $result = json_decode(Ad_Back_Get::execute($url), true);
