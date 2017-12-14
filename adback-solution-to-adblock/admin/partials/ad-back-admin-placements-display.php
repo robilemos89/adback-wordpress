@@ -12,13 +12,6 @@
  * @subpackage Ad_Back/admin/partials
  */
 
-$subscription = $this->askSubscription();
-
-$showTrial = is_array($subscription) && ($subscription['trial'] || $subscription['trial_status'] == 1 || $subscription['allowed'] > 0);
-
-$progress = $subscription['progress'];
-$allowed = $subscription['trial_status'] == 1 ? 10000 : $subscription['allowed'];
-
 ?>
 <?php include "ad-back-admin-header.php" ?>
 <div id="ab-full-app" style="overflow: hidden;">
