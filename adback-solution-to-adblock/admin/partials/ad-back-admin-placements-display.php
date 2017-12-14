@@ -24,7 +24,7 @@ $allowed = $subscription['trial_status'] == 1 ? 10000 : $subscription['allowed']
 <div id="ab-full-app" style="overflow: hidden;">
     <grid>
         <div col="5/6">
-            <div id="ab-iab-banner-form"></div>
+            <div id="adb-monetization-configuration"></div>
         </div>
         <div col="1/6">
             <div id="adb-sidebar-standalone"
