@@ -100,13 +100,15 @@ $ko = "<svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://crea
                 <th>Rewrite</th>
                 <th>AdBack?</th>
             </tr>
-            <?php foreach ($rules as $rule => $rewrite) : ?>
-                <tr>
-                    <td><?php echo $rule; ?></td>
-                    <td><?php echo $rewrite; ?></td>
-                    <td class="ad-back-rule-adback"><?php echo preg_match('/^('.($endPoints->old_end_point ?: '').'|'.($endPoints->end_point ?: '').'|'.($endPoints->next_end_point ?: '').')\/.*/', $rule) ? $ok : ''; ?></td>
-                </tr>
-            <?php endforeach; ?>
+            <?php if (is_array($rules)) : ?>
+                <?php foreach ($rules as $rule => $rewrite) : ?>
+                    <tr>
+                        <td><?php echo $rule; ?></td>
+                        <td><?php echo $rewrite; ?></td>
+                        <td class="ad-back-rule-adback"><?php echo preg_match('/^('.($endPoints->old_end_point ?: '').'|'.($endPoints->end_point ?: '').'|'.($endPoints->next_end_point ?: '').')\/.*/', $rule) ? $ok : ''; ?></td>
+                    </tr>
+                <?php endforeach; ?>
+            <?php endif; ?>
         </table>
     </div>
 </div>

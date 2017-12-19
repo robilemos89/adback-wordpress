@@ -118,6 +118,7 @@ We propose:
 = 2.6.2 =
 * Modify script content condition
 * Send wordpress activation type
+* Add protection if array not present in diagnostic page
 
 = 2.6.1 =
 * Add missing file
