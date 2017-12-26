@@ -106,7 +106,16 @@ class Ad_Back_Activator
                 'email'   => get_bloginfo('admin_email'),
                 'website' => get_site_url($blogId),
             ];
-            $response = Ad_Back_Post::execute('https://www.adback.co/tokenoauth/register/en', $fields);
+
+            $locale = explode("_", get_locale());
+
+            if (isset($locale[0]) && in_array($locale[0], ['en', 'fr'])) {
+                $locale = $locale[0];
+            } else {
+                $locale = 'en';
+            }
+
+            $response = Ad_Back_Post::execute('https://www.adback.co/tokenoauth/register/'.$locale, $fields);
             $data = json_decode($response, true);
             $accessToken = '';
             if (array_key_exists('access_token', $data)) {
