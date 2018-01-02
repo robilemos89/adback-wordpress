@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblockk\n"
-"POT-Creation-Date: 2017-12-14 14:43+0100\n"
+"POT-Creation-Date: 2018-01-02 16:20+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -217,6 +217,22 @@ msgid "Registration error"
 msgstr ""
 "An error occurred during your AdBack plugin activation. Please go to the <a "
 "href='%s'>administration</a> page to complete your installation"
+
+#: includes/class-ad-back-external-checker.php:38
+msgid ""
+"There is an incompatibility with the WP Rocket plugin configuration, please "
+"deactivate the iframe compression"
+msgstr ""
+"There is an incompatibility with the WP Rocket plugin configuration, please "
+"deactivate the iframe optimisation."
+
+#: includes/class-ad-back-external-checker.php:46
+msgid ""
+"There is an incompatibility with the WP Lazy Load Rocket plugin "
+"configuration, please deactivate the iframe compression"
+msgstr ""
+"There is an incompatibility with the WP Lazy Load Rocket plugin "
+"configuration, please deactivate the iframe optimisation."
 
 #~ msgid "IAB Banners"
 #~ msgstr "IAB Banners"
