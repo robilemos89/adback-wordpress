@@ -174,9 +174,9 @@ msgid "Registration error"
 msgstr ""
 
 #: includes/class-ad-back-external-checker.php:38
-msgid "There is an incompatibility with the WP Rocket plugin configuration, please deactivate the iframe compression"
+msgid "There is an incompatibility between the WP Rocket plugin and AdBack. Please uncheck the box \"Enable for iframes and videos\" in Settings > WP Rocket > Basic > LazyLoad to continue using AdBack. This change won't interfere with the operation of your website."
 msgstr ""
 
 #: includes/class-ad-back-external-checker.php:46
-msgid "There is an incompatibility with the WP Lazy Load Rocket plugin configuration, please deactivate the iframe compression"
+msgid "There is an incompatibility between the LazyLoad plugin and AdBack. Please uncheck the box \"iframes and videos\" in Settings > LazyLoad to continue using AdBack. This change won't interfere with the operation of your website."
 msgstr ""
