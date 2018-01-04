@@ -165,7 +165,11 @@ SQL;
             $notices = get_option('adback_deferred_admin_notices', array());
             $notices[] = sprintf(__('Registration error', 'adback-solution-to-adblock'), get_admin_url($blogId, 'admin.php?page=ab-settings'));
             update_option('adback_deferred_admin_notices', $notices);
+
+            $errorMsg = isset($data['error']['message']) ? $data['error']['message'] : 'error';
+            update_option('adback_registration_error', $errorMsg);
         } else {
+            delete_option('adback_registration_error');
             $notifyUrl = 'https://www.adback.co/api/plugin-activate/wordpress?access_token=' . $accessToken;
 
             Ad_Back_Get::execute($notifyUrl);
