@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
-"POT-Creation-Date: 2017-08-25 11:16+0200\n"
+"POT-Creation-Date: 2018-01-04 17:49+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -14,8 +14,8 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:362
-#: admin/class-ad-back-admin.php:435
+#: ad-back.php:36 admin/class-ad-back-admin.php:367
+#: admin/class-ad-back-admin.php:440
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -107,34 +107,30 @@ msgstr "Aucune donnée"
 msgid "Something went wrong"
 msgstr "Une erreur s’est produite"
 
-#: admin/class-ad-back-admin.php:189
+#: admin/class-ad-back-admin.php:188
 #, php-format
 msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr ""
 "Vous devez être identifié pour voir les statistiques. Pour vous identifier, "
 "rendez-vous à la <a href=\"%s\">page d'identification</a>"
 
-#: admin/class-ad-back-admin.php:359
+#: admin/class-ad-back-admin.php:364
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: admin/class-ad-back-admin.php:360
+#: admin/class-ad-back-admin.php:365
 msgid "Message"
 msgstr "Message"
 
-#: admin/class-ad-back-admin.php:361
-msgid "IAB Banners"
-msgstr "Bannières IAB"
-
 #: admin/class-ad-back-admin.php:366
 msgid "Placements"
-msgstr "Placements"
+msgstr "Emplacements"
 
-#: admin/class-ad-back-admin.php:363
+#: admin/class-ad-back-admin.php:368
 msgid "Diagnostic"
 msgstr "Diagnostique"
 
-#: admin/class-ad-back-admin.php:435
+#: admin/class-ad-back-admin.php:440
 msgid "It's time to analyze your adblock users, activate your adback account !"
 msgstr ""
 "Pour analyser vos utilisateurs d’adblocker, activez votre compte AdBack !"
@@ -220,12 +216,52 @@ msgstr "Compte Adback"
 msgid "Log out"
 msgstr "Déconnexion"
 
-#: includes/class-ad-back-activator.php:141
+#: includes/class-ad-back-activator.php:157
 msgid "Registration error"
 msgstr ""
 "Une erreur est survenue lors de l'activation du plugin AdBack. Veuillez vous "
 "rendre sur la page d'<a href='%s'>administration</a> pour compléter votre "
 "activation"
+
+#: includes/class-ad-back-external-checker.php:38
+msgid ""
+"There is an incompatibility between the WP Rocket plugin and AdBack. Please "
+"uncheck the box \"Enable for iframes and videos\" in Settings > WP Rocket > "
+"Basic > LazyLoad to continue using AdBack. This change won't interfere with "
+"the operation of your website."
+msgstr ""
+"Une incompatibilité entre le plugin WP Rocket et AdBack a été détectée. "
+"Veuillez décocher \"activer sur les iframes et vidéos\" dans Réglages > WP "
+"Rocket > Options de base > LazyLoad pour continuer à utiliser AdBack. Cette "
+"modification n'affectera en rien le fonctionnement de votre site."
+
+#: includes/class-ad-back-external-checker.php:46
+msgid ""
+"There is an incompatibility between the LazyLoad plugin and AdBack. Please "
+"uncheck the box \"iframes and videos\" in Settings > LazyLoad to continue "
+"using AdBack. This change won't interfere with the operation of your website."
+msgstr ""
+"Une incompatibilité entre le plugin LazyLoad et AdBack a été détectée. "
+"Veuillez décocher \"iframes et vidéos\" dans Réglages > LazyLoad pour "
+"continuer à utiliser AdBack. Cette modification n'affectera en rien le "
+"fonctionnement de votre site."
+
+#~ msgid ""
+#~ "There is an incompatibility with the WP Rocket plugin configuration, "
+#~ "please deactivate the iframe compression"
+#~ msgstr ""
+#~ "Il y a une incompatibilité avec le plugin WP Rocket, veuillez désactiver "
+#~ "l'optimisation des iframes."
+
+#~ msgid ""
+#~ "There is an incompatibility with the WP Lazy Load Rocket plugin "
+#~ "configuration, please deactivate the iframe compression"
+#~ msgstr ""
+#~ "Il y a une incompatibilité avec le plugin WP LazyLoad Rocket, veuillez "
+#~ "désactiver l'optimisation des iframes."
+
+#~ msgid "IAB Banners"
+#~ msgstr "Bannières IAB"
 
 #~ msgid "Today"
 #~ msgstr "Aujourd'hui"

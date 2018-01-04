@@ -439,6 +439,8 @@ class Ad_Back_Admin extends Ad_Back_Generic
             if (!$this->isConnected()) {
                 echo '<div class="notice error adback-incentive is-dismissible"><p>'.__("It's time to analyze your adblock users, activate your adback account !", 'adback-solution-to-adblock').' <a href="'. esc_url( get_admin_url(get_current_blog_id(), 'admin.php?page=ab-settings') ) .'">'.__('Settings').'</a></p></div>';
             }
+            require_once plugin_dir_path( __FILE__ ) . '../includes/class-ad-back-external-checker.php';
+            Ad_Back_External_Checker::check();
         }
     }
 

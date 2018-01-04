@@ -14,8 +14,8 @@ msgstr ""
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:362
-#: admin/class-ad-back-admin.php:435
+#: ad-back.php:36 admin/class-ad-back-admin.php:367
+#: admin/class-ad-back-admin.php:440
 msgid "Settings"
 msgstr ""
 
@@ -107,32 +107,28 @@ msgstr ""
 msgid "Something went wrong"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:189
+#: admin/class-ad-back-admin.php:188
 #, php-format
 msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:359
+#: admin/class-ad-back-admin.php:364
 msgid "Statistics"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:360
+#: admin/class-ad-back-admin.php:365
 msgid "Message"
-msgstr ""
-
-#: admin/class-ad-back-admin.php:361
-msgid "IAB Banners"
 msgstr ""
 
 #: admin/class-ad-back-admin.php:366
 msgid "Placements"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:363
+#: admin/class-ad-back-admin.php:368
 msgid "Diagnostic"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:435
+#: admin/class-ad-back-admin.php:440
 msgid "It's time to analyze your adblock users, activate your adback account !"
 msgstr ""
 
@@ -173,6 +169,14 @@ msgstr ""
 msgid "Refresh domain..."
 msgstr ""
 
-#: includes/class-ad-back-activator.php:141
+#: includes/class-ad-back-activator.php:157
 msgid "Registration error"
+msgstr ""
+
+#: includes/class-ad-back-external-checker.php:38
+msgid "There is an incompatibility between the WP Rocket plugin and AdBack. Please uncheck the box \"Enable for iframes and videos\" in Settings > WP Rocket > Basic > LazyLoad to continue using AdBack. This change won't interfere with the operation of your website."
+msgstr ""
+
+#: includes/class-ad-back-external-checker.php:46
+msgid "There is an incompatibility between the LazyLoad plugin and AdBack. Please uncheck the box \"iframes and videos\" in Settings > LazyLoad to continue using AdBack. This change won't interfere with the operation of your website."
 msgstr ""
