@@ -66,9 +66,65 @@
     width: 100%;
 }
 
-.button-ab {
-    background-color: #54AFF6 !important;
+.ab-button {
+    background-color: #FFFFFF;
+    box-shadow: 1px 1px 3px 0px rgba(0, 0, 0, 0.2);
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+    color: #333333;
+    border-color: #eaeaea;
     /*margin-top: 30px !important;*/
+}
+
+.ab-button-primary {
+    background-color: #54AFF6;
+    color: #FFFFFF;
+    border: none;
+    /*margin-top: 30px !important;*/
+}
+
+.ab-button:hover{
+    background-color: #e6e6e6;
+    cursor: pointer;
+}
+
+.ab-button-primary:hover {
+    background-color: #4098EA;
+}
+
+.ab-registration-error {
+    color: #dc3232;
+    font-weight: bold;
+}
+
+.ab-registration-advantages-box {
+    margin-top: 20px;
+    border: solid 3px #e6e6e6;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+    border-radius: 4px;
+}
+
+.ab-registration-advantages-box li {
+    margin-left: 10px;
+    list-style-type: none;
+}
+
+.ab-registration-advantages-box li:before {
+    content: '- ';
+}
+
+.ab-registration-advantages-intro {
+    padding: 10px;
+    color: #54AFF6;
+}
+
+.ab-title {
+    color: #54AFF6;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
 }
 
 .ab-discover {

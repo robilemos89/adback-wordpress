@@ -169,7 +169,7 @@ msgstr ""
 msgid "Refresh domain..."
 msgstr ""
 
-#: includes/class-ad-back-activator.php:157
+#: includes/class-ad-back-activator.php:166
 msgid "Registration error"
 msgstr ""
 
