@@ -102,14 +102,14 @@ class Ad_Back_Activator
         $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = ".$blogId);
 
         if (null === $savedToken || '' == $savedToken->access_token) {
-            $fields = [
+            $fields = array(
                 'email'   => get_bloginfo('admin_email'),
                 'website' => get_site_url($blogId),
-            ];
+            );
 
             $locale = explode("_", get_locale());
 
-            if (isset($locale[0]) && in_array($locale[0], ['en', 'fr'])) {
+            if (isset($locale[0]) && in_array($locale[0], array('en', 'fr'))) {
                 $locale = $locale[0];
             } else {
                 $locale = 'en';

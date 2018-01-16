@@ -137,11 +137,11 @@ class Ad_Back_Admin extends Ad_Back_Generic
                 $this->askDomain();
             }
             // Loading AdBack library
-            wp_enqueue_script('adback', 'https://'. $this->getDomain() .'/lib/ab.min.js', [], $this->version, true);
+            wp_enqueue_script('adback', 'https://'. $this->getDomain() .'/lib/ab.min.js', array(), $this->version, true);
         }
 
-        wp_enqueue_script('vex-js', plugin_dir_url( __FILE__ ) . 'js/vex.combined.min.js', [], $this->version, true);
-        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/ab-admin.js', ['jquery'], $this->version, true);
+        wp_enqueue_script('vex-js', plugin_dir_url( __FILE__ ) . 'js/vex.combined.min.js', array(), $this->version, true);
+        wp_enqueue_script( $this->plugin_name, plugin_dir_url( __FILE__ ) . 'js/ab-admin.js', array('jquery'), $this->version, true);
         wp_localize_script( $this->plugin_name, 'trans_arr', $translation_array );
     }
 
@@ -203,10 +203,10 @@ class Ad_Back_Admin extends Ad_Back_Generic
             include_once( 'partials/ad-back-admin-display.php' );
         } else {
             if(isset($_GET['access_token'])) {
-                $this->saveToken([
+                $this->saveToken(array(
                     'access_token' => $_GET['access_token'],
                     'refresh_token' => '',
-                    ]);
+                ));
                 include_once( 'partials/ad-back-admin-redirect.php');
             } else {
                 include_once( 'partials/ad-back-admin-login-display.php');
@@ -228,10 +228,10 @@ class Ad_Back_Admin extends Ad_Back_Generic
             include_once( 'partials/ad-back-admin-settings-display.php' );
         } else {
             if(isset($_GET['access_token'])) {
-                $this->saveToken([
+                $this->saveToken(array(
                     'access_token' => $_GET['access_token'],
                     'refresh_token' => '',
-                    ]);
+                ));
                 include_once( 'partials/ad-back-admin-redirect.php');
             } else {
                 include_once( 'partials/ad-back-admin-login-display.php');
@@ -253,10 +253,10 @@ class Ad_Back_Admin extends Ad_Back_Generic
             include_once( 'partials/ad-back-admin-message-display.php' );
         } else {
             if(isset($_GET['access_token'])) {
-                $this->saveToken([
+                $this->saveToken(array(
                     'access_token' => $_GET['access_token'],
                     'refresh_token' => '',
-                    ]);
+                ));
                 include_once( 'partials/ad-back-admin-redirect.php');
             } else {
                 include_once( 'partials/ad-back-admin-login-display.php');
@@ -278,10 +278,10 @@ class Ad_Back_Admin extends Ad_Back_Generic
             include_once( 'partials/ad-back-admin-placements-display.php' );
         } else {
             if(isset($_GET['access_token'])) {
-                $this->saveToken([
+                $this->saveToken(array(
                     'access_token' => $_GET['access_token'],
                     'refresh_token' => '',
-                ]);
+                ));
                 include_once( 'partials/ad-back-admin-redirect.php');
             } else {
                 include_once( 'partials/ad-back-admin-login-display.php');
@@ -313,10 +313,10 @@ class Ad_Back_Admin extends Ad_Back_Generic
             include_once( 'partials/ad-back-admin-diagnostic.php' );
         } else {
             if(isset($_GET['access_token'])) {
-                $this->saveToken([
+                $this->saveToken(array(
                     'access_token' => $_GET['access_token'],
                     'refresh_token' => '',
-                    ]);
+                ));
                 include_once( 'partials/ad-back-admin-redirect.php');
             } else {
                 include_once( 'partials/ad-back-admin-login-display.php');
