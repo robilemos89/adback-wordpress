@@ -21,7 +21,7 @@ class Ad_Back_Generic
         $table_name = $wpdb->prefix . 'adback_full_tag';
         $blogId = get_current_blog_id();
         $myinfo = $wpdb->get_results("SELECT * FROM " . $table_name . " WHERE blog_id = ". $blogId);
-        $scriptData = [];
+        $scriptData = array();
 
         foreach ($myinfo as $scriptInfo) {
             if (strtotime($scriptInfo->update_time) > (time() - 10800)) {
@@ -38,14 +38,14 @@ class Ad_Back_Generic
 
             $fullScripts = $this->askFullScripts();
 
-            $types = [
+            $types = array(
                 'analytics',
                 'message',
                 'product',
                 'banner',
                 'catcher',
                 'iab_banner',
-            ];
+            );
             foreach ($types as $key => $type) {
                 if (
                     is_array($fullScripts['script_codes'])
@@ -80,7 +80,7 @@ SQL;
     {
         $url = 'https://www.adback.co/api/custom-message/update-status?_format=json&access_token=' . $this->getToken()->access_token;
         $displayAsBoolean = 'true' === $display ? true : false;
-        $fields = ['display' => $displayAsBoolean];
+        $fields = array('display' => $displayAsBoolean);
         Ad_Back_Post::execute($url, $fields);
 
         return true;
@@ -193,7 +193,7 @@ SQL;
 
     public function ensureSiteIsConfiguredForEndPoints()
     {
-        Ad_Back_Post::execute("https://www.adback.co/api/end-point/activate?access_token=" . $this->getToken()->access_token, []);
+        Ad_Back_Post::execute("https://www.adback.co/api/end-point/activate?access_token=" . $this->getToken()->access_token, array());
     }
 
     public function askEndPoints()
