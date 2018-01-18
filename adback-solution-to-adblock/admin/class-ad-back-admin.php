@@ -461,9 +461,4 @@ class Ad_Back_Admin extends Ad_Back_Generic
             Ad_Back_External_Checker::check();
         }
     }
-
-    public function dismissAdbackIncentive()
-    {
-        update_option('adback-incentive-dismissed', 1);
-    }
 }
