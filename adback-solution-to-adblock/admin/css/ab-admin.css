@@ -471,7 +471,7 @@ a.button.button-ab {
     margin: 15px 0;
     background: #0079b1;
     background-image: -webkit-gradient(linear, 0% 0, 80% 100%, from(#8abedb), to(#1d86bc));
-    background-image: -moz-linear-gradient(80% 100% 120deg, #4F800D, #83AF24);
+    background-image: -moz-linear-gradient(80% 100% 120deg, #8abedb, #1d86bc);
     -moz-border-radius: 3px;
     border-radius: 3px;
     -webkit-border-radius: 3px;
@@ -488,8 +488,8 @@ a.button.button-ab {
     padding: 9px 0 8px 0;
     color: #FFF;
     background: #029DD6;
-    background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#029DD6), to(#0079B1));
-    background-image: -moz-linear-gradient(0% 100% 90deg, #0079B1, #029DD6);
+    background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#8abedb), to(#1d86bc));
+    background-image: -moz-linear-gradient(0% 100% 90deg, #8abedb, #1d86bc);
     -moz-border-radius: 2px;
     border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -507,8 +507,8 @@ a.button.button-ab {
     padding: 9px 0 8px 0;
     color: #F0F8FB;
     background: #0079B1;
-    background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#0079B1), to(#0092BF));
-    background-image: -moz-linear-gradient(0% 100% 90deg, #0092BF, #0079B1);
+    background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#8abedb), to(#1d86bc));
+    background-image: -moz-linear-gradient(0% 100% 90deg, #8abedb, #1d86bc);
     -moz-border-radius: 2px;
     border-radius: 2px;
     -webkit-border-radius: 2px;
@@ -520,8 +520,8 @@ a.button.button-ab {
     border-radius: 2px;
     -webkit-border-radius: 2px;
     background: #029DD6;
-    background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#029DD6), to(#0079B1));
-    background-image: -moz-linear-gradient(0% 100% 90deg, #0079B1, #029DD6);
+    background-image: -webkit-gradient(linear, 0% 0, 0% 100%, from(#8abedb), to(#1d86bc));
+    background-image: -moz-linear-gradient(0% 100% 90deg, #8abedb, #1d86bc);
 }
 
 .adback-incentive .adback-incentive-button-container {
