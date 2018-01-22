@@ -156,15 +156,6 @@
             $("#ab-go-settings-submit").on('click', saveGoMessage);
         }
 
-        $(".adback-incentive").on('click', function () {
-            $.ajax({
-                url: ajaxurl,
-                data: {
-                    action: 'dismiss_adback_incentive'
-                }
-            })
-        })
-
     });
 
 
