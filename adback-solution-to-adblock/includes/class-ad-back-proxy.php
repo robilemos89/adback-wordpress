@@ -77,6 +77,7 @@ class Ad_Back_Proxy
         $response = self::proxy_request($destinationURL, $data, $method, $params, $ip);
         $headerArray = explode("\r\n", $response['header']);
         $is_chunked = false;
+        $chunk_decode_ok = true;
         foreach($headerArray as $headerLine) {
             // Toggle chunk merging when appropriate
             if ($headerLine == "Transfer-Encoding: chunked") {
@@ -89,12 +90,15 @@ class Ad_Back_Proxy
 
             if (strlen($decodedContents)) {
                 $contents = $decodedContents;
+            } else {
+                $chunk_decode_ok = false;
             }
         }
 
         foreach ($headerArray as $header) {
             if (
                 strpos(strtolower($header), 'transfer-encoding') === false
+                || (strpos(strtolower($header), 'transfer-encoding') !== false && $chunk_decode_ok === false)
             ) {
                 header($header, true);
             }
