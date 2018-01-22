@@ -37,19 +37,29 @@
                                 <li><?php esc_html_e('Unique and user-friendly monetization solutions', 'adback-solution-to-adblock'); ?></li>
                             </ul>
                         </div>
+                    <?php } else { ?>
+                        <div class="ab-registration-advantages-box">
+                            <p class="ab-registration-advantages-intro"><?php esc_html_e('AdBack is an analytics and monetization tool of your adblock audience. It is 100&#37; free and without obligation. By authorizing AdBack, you will access:', 'adback-solution-to-adblock'); ?></p>
+                            <ul>
+                                <li><?php esc_html_e('A unique and unblockable technology', 'adback-solution-to-adblock'); ?></li>
+                                <li><?php esc_html_e('Detailed statistics directly on your WordPress and AdBack interface', 'adback-solution-to-adblock'); ?></li>
+                                <li><?php esc_html_e('Unique and user-friendly monetization solutions', 'adback-solution-to-adblock'); ?></li>
+                            </ul>
+                        </div>
                     <?php } ?>
                 </center>
                 <center>
                     <button
                             class="ab-button ab-button-primary"
                             id="ab-register-adback"
-                            style="margin-top: 30px;border-radius: 30px;"
+                            style="margin-top: 30px;"
                             data-site-url="<?php echo get_site_url(get_current_blog_id()) ?>"
                             data-email="<?php echo get_bloginfo('admin_email') ?>"
                     >
                         <?php esc_html_e('Create my AdBack account', 'adback-solution-to-adblock'); ?>
                     </button>
                 </center>
+                <br/>
                 <center>
                     <a href="#" id="ab-login-adback" style="width:100%;margin-top: 30px;"><?php esc_html_e('Log in', 'adback-solution-to-adblock'); ?></a>
                 </center>
