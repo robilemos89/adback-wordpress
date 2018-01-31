@@ -447,11 +447,11 @@ class Ad_Back_Admin extends Ad_Back_Generic
 		                <form name="adback-incentive" action="' . esc_url(get_admin_url(get_current_blog_id(), 'admin.php?page=ab-settings')) . '" method="POST">
                         <div class="adback-incentive-button-container">
                             <div class="adback-incentive-button-border">
-                                <input type="submit" class="adback-incentive-button" value="Set up your AdBack account">
+                                <input type="submit" class="adback-incentive-button" value="' . __("Activate my AdBack plugin", 'adback-solution-to-adblock') . '">
                             </div>
                         </div>
                         <div class="adback-incentive-description">
-                            <strong>Almost done</strong> - ' . __("It's time to analyze your adblock users, set up your adback account !", 'adback-solution-to-adblock') . '
+                            ' . __("It's time to analyze your adblock users, set up your AdBack account!", 'adback-solution-to-adblock') . '
                         </div>
                     </div>
                     </form>

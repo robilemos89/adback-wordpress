@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
-"Project-Id-Version: adback-solution-to-adblockk\n"
-"POT-Creation-Date: 2018-01-10 10:03+0100\n"
+"Project-Id-Version: adback-solution-to-adblock\n"
+"POT-Creation-Date: 2018-01-31 11:25+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,14 +9,13 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 2.0.5\n"
+"X-Generator: Poedit 1.8.7.1\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr;esc_html_e;esc_attr_e\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:367
-#: admin/class-ad-back-admin.php:440
+#: ad-back.php:36 admin/class-ad-back-admin.php:369
 msgid "Settings"
 msgstr "Settings"
 
@@ -108,31 +107,34 @@ msgstr "No Data"
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
-#: admin/class-ad-back-admin.php:188
+#: admin/class-ad-back-admin.php:190
 #, php-format
 msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr "You must be log in to see stats. Go to <a href=\"%s\">login page</a>"
 
-#: admin/class-ad-back-admin.php:364
+#: admin/class-ad-back-admin.php:366
 msgid "Statistics"
 msgstr "Statistics"
 
-#: admin/class-ad-back-admin.php:365
+#: admin/class-ad-back-admin.php:367
 msgid "Message"
 msgstr "Message"
 
-#: admin/class-ad-back-admin.php:366
+#: admin/class-ad-back-admin.php:368
 msgid "Placements"
 msgstr "Placements"
 
-#: admin/class-ad-back-admin.php:368
+#: admin/class-ad-back-admin.php:370
 msgid "Diagnostic"
 msgstr "Diagnostic"
 
-#: admin/class-ad-back-admin.php:440
-msgid "It's time to analyze your adblock users, activate your adback account !"
-msgstr ""
-"It's time to analyze your adblocker users, activate your AdBack account!"
+#: admin/class-ad-back-admin.php:450
+msgid "Activate my AdBack plugin"
+msgstr "Activate my AdBack plugin"
+
+#: admin/class-ad-back-admin.php:454
+msgid "It's time to analyze your adblock users, set up your AdBack account!"
+msgstr "It's time to analyze your adblock users, set up your AdBack account!"
 
 #: admin/partials/ad-back-admin-diagnostic.php:17
 msgid "AdBack : The stats of your AdBlock audience"
@@ -169,7 +171,7 @@ msgstr "Leave a review"
 msgid "AdBack"
 msgstr "AdBack"
 
-#: admin/partials/ad-back-admin-login-display.php:24
+#: admin/partials/ad-back-admin-login-display.php:25
 msgid ""
 "You already have an AdBack account. Connect to your account by clicking on "
 "the \"Log in\" link below the button :"
@@ -177,7 +179,7 @@ msgstr ""
 "You already have an AdBack account. Connect to your account by clicking on "
 "the \"Log in\" link below the button :"
 
-#: admin/partials/ad-back-admin-login-display.php:28
+#: admin/partials/ad-back-admin-login-display.php:29
 msgid ""
 "An error occured during your registration. Click on the \"Create my AdBack "
 "account\" button to try again."
@@ -185,11 +187,12 @@ msgstr ""
 "An error occured during your registration. Click on the « Create my AdBack "
 "account » button to try again."
 
-#: admin/partials/ad-back-admin-login-display.php:31
+#: admin/partials/ad-back-admin-login-display.php:32
 msgid "Why create an AdBack account ?"
 msgstr "Why create an AdBack account ?"
 
-#: admin/partials/ad-back-admin-login-display.php:32
+#: admin/partials/ad-back-admin-login-display.php:33
+#: admin/partials/ad-back-admin-login-display.php:42
 msgid ""
 "AdBack is an analytics and monetization tool of your adblock audience. It is "
 "100&#37; free and without obligation. By authorizing AdBack, you will access:"
@@ -197,23 +200,26 @@ msgstr ""
 "AdBack is an analytics and monetization tool of your adblock audience. It is "
 "100&#37; free and without obligation. By authorizing AdBack, you will access:"
 
-#: admin/partials/ad-back-admin-login-display.php:34
+#: admin/partials/ad-back-admin-login-display.php:35
+#: admin/partials/ad-back-admin-login-display.php:44
 msgid "A unique and unblockable technology"
 msgstr "A unique and unblockable technology"
 
-#: admin/partials/ad-back-admin-login-display.php:35
+#: admin/partials/ad-back-admin-login-display.php:36
+#: admin/partials/ad-back-admin-login-display.php:45
 msgid "Detailed statistics directly on your WordPress and AdBack interface"
 msgstr "Detailed statistics directly on your WordPress and AdBack interface"
 
-#: admin/partials/ad-back-admin-login-display.php:36
+#: admin/partials/ad-back-admin-login-display.php:37
+#: admin/partials/ad-back-admin-login-display.php:46
 msgid "Unique and user-friendly monetization solutions"
 msgstr "Unique and user-friendly monetization solutions"
 
-#: admin/partials/ad-back-admin-login-display.php:48
+#: admin/partials/ad-back-admin-login-display.php:59
 msgid "Create my AdBack account"
 msgstr "Create my AdBack account"
 
-#: admin/partials/ad-back-admin-login-display.php:52
+#: admin/partials/ad-back-admin-login-display.php:64
 msgid "Log in"
 msgstr "Log in"
 
@@ -225,7 +231,7 @@ msgstr "Checking credentials..."
 msgid "Refresh domain..."
 msgstr "Refresh domain..."
 
-#: admin/partials/ad-back-admin-settings-display.php:25
+#: admin/partials/ad-back-admin-settings-display.php:24
 msgid "Get more statistics"
 msgstr "Get more statistics"
 
@@ -237,7 +243,7 @@ msgstr "Redirect me to my AdBack dashboard"
 msgid "Adback Account"
 msgstr "Adback Account"
 
-#: admin/partials/ad-back-admin-settings-display.php:35
+#: admin/partials/ad-back-admin-settings-display.php:36
 msgid "Log out"
 msgstr "Log out"
 
@@ -268,6 +274,18 @@ msgstr ""
 "There is an incompatibility between the LazyLoad plugin and AdBack. Please "
 "uncheck the box \"iframes and videos\" in Settings > LazyLoad to continue "
 "using AdBack. This change won't interfere with the operation of your website."
+
+#~ msgid "Set up your AdBack account"
+#~ msgstr "Set up your AdBack account"
+
+#~ msgid "It's time to analyze your adblock users, set up your adback account!"
+#~ msgstr ""
+#~ "It's time to analyze your adblock users, set up your adback account!"
+
+#~ msgid ""
+#~ "It's time to analyze your adblock users, activate your adback account !"
+#~ msgstr ""
+#~ "It's time to analyze your adblocker users, activate your AdBack account!"
 
 #~ msgid ""
 #~ "There is an incompatibility with the WP Rocket plugin configuration, "
