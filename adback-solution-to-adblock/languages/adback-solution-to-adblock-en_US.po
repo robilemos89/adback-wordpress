@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
-"POT-Creation-Date: 2018-01-31 11:05+0100\n"
+"POT-Creation-Date: 2018-01-31 11:25+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -129,12 +129,12 @@ msgid "Diagnostic"
 msgstr "Diagnostic"
 
 #: admin/class-ad-back-admin.php:450
-msgid "Set up your AdBack account"
-msgstr "Set up your AdBack account"
+msgid "Activate my AdBack plugin"
+msgstr "Activate my AdBack plugin"
 
 #: admin/class-ad-back-admin.php:454
-msgid "It's time to analyze your adblock users, set up your adback account!"
-msgstr "It's time to analyze your adblock users, set up your adback account!"
+msgid "It's time to analyze your adblock users, set up your AdBack account!"
+msgstr "It's time to analyze your adblock users, set up your AdBack account!"
 
 #: admin/partials/ad-back-admin-diagnostic.php:17
 msgid "AdBack : The stats of your AdBlock audience"
@@ -274,6 +274,13 @@ msgstr ""
 "There is an incompatibility between the LazyLoad plugin and AdBack. Please "
 "uncheck the box \"iframes and videos\" in Settings > LazyLoad to continue "
 "using AdBack. This change won't interfere with the operation of your website."
+
+#~ msgid "Set up your AdBack account"
+#~ msgstr "Set up your AdBack account"
+
+#~ msgid "It's time to analyze your adblock users, set up your adback account!"
+#~ msgstr ""
+#~ "It's time to analyze your adblock users, set up your adback account!"
 
 #~ msgid ""
 #~ "It's time to analyze your adblock users, activate your adback account !"
