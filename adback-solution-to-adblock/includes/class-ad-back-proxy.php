@@ -168,6 +168,20 @@ class Ad_Back_Proxy
 
             foreach ($requestHeaders as $header => $value) {
                 $lowerHeader = strtolower($header);
+
+                if ($lowerHeader === "accept-encoding") {
+                    if (
+                        strpos($value, 'deflate') !== false
+                        || strpos($value, 'br') !== false
+                    ) {
+                        if (strpos($value, 'gzip' !== false)) {
+                            $value = 'gzip';
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+
                 if (
                     $lowerHeader !== "connection"
                     && $lowerHeader !== "host"
