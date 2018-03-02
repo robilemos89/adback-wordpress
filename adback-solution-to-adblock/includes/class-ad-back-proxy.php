@@ -53,6 +53,10 @@ class Ad_Back_Proxy
             $params = $matches['params'];
         }
 
+        if (strlen($params) == 0 && strlen($query) == 0 && preg_match('#^/[a-z]+(?<params>/.+)#', $_SERVER['REQUEST_URI'], $matches)) {
+            $params = $matches['params'];
+        }
+
         $_SERVER['HTTP_REFERER'] = isset($_SERVER['HTTP_REFERER']) ? $_SERVER['HTTP_REFERER'] : $currentUrl;
 
         $method = $_SERVER['REQUEST_METHOD'];
@@ -168,6 +172,20 @@ class Ad_Back_Proxy
 
             foreach ($requestHeaders as $header => $value) {
                 $lowerHeader = strtolower($header);
+
+                if ($lowerHeader === "accept-encoding") {
+                    if (
+                        strpos($value, 'deflate') !== false
+                        || strpos($value, 'br') !== false
+                    ) {
+                        if (strpos($value, 'gzip' !== false)) {
+                            $value = 'gzip';
+                        } else {
+                            continue;
+                        }
+                    }
+                }
+
                 if (
                     $lowerHeader !== "connection"
                     && $lowerHeader !== "host"
