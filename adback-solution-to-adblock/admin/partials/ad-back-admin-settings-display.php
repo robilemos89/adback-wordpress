@@ -62,7 +62,7 @@
     (function ($) {
         $(document).ready(function () {
             $("#ab-website").on('click', function () {
-                var locale = "<?php echo explode('_', get_locale())[0]; ?>";
+                var locale = "<?php $locales = explode('_', get_locale());echo $locales[0]; ?>";
                 var email = "<?php echo get_bloginfo('admin_email') ?>";
                 window.location.href = 'https://www.adback.co/' + locale + '/login?_login_email=' + email;
             });

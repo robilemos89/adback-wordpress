@@ -33,7 +33,7 @@ $ko = "<svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://crea
                     Analytics domain
                 </td>
                 <td>
-                    <?php echo $script['analytics_domain'] ?: null; ?>
+                    <?php echo $script['analytics_domain'] ? $script['analytics_domain']: null; ?>
                 </td>
                 <td><?php echo $script['analytics_domain'] ? $ok : $ko; ?></td>
             </tr>
@@ -42,7 +42,7 @@ $ko = "<svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://crea
                     Analytics script name
                 </td>
                 <td>
-                    <?php echo $script['analytics_script'] ?: null; ?>
+                    <?php echo $script['analytics_script'] ? $script['analytics_script'] : null; ?>
                 </td>
                 <td><?php echo $script['analytics_script'] ? $ok : $ko; ?></td>
             </tr>
@@ -51,7 +51,7 @@ $ko = "<svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://crea
                     Message domain
                 </td>
                 <td>
-                    <?php echo $script['message_domain'] ?: null; ?>
+                    <?php echo $script['message_domain'] ? $script['message_domain'] : null; ?>
                 </td>
                 <td><?php echo $script['message_domain'] ? $ok : $ko; ?></td>
             </tr>
@@ -60,7 +60,7 @@ $ko = "<svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://crea
                     Message script name
                 </td>
                 <td>
-                    <?php echo $script['message_script'] ?: null; ?>
+                    <?php echo $script['message_script'] ? $script['message_script'] : null; ?>
                 </td>
                 <td><?php echo $script['message_script'] ? $ok : $ko; ?></td>
             </tr>
@@ -69,7 +69,7 @@ $ko = "<svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://crea
                     Token
                 </td>
                 <td>
-                    <?php echo $token->access_token ?: null; ?>
+                    <?php echo $token->access_token ? $token->access_token : null; ?>
                 </td>
                 <td><?php echo $token->access_token ? $ok : $ko; ?></td>
             </tr>
@@ -85,9 +85,9 @@ $ko = "<svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://crea
             <tr>
                 <td>Endpoint / Old endpoint / Next endpoint</td>
                 <td>
-                    <?php echo $endPoints->end_point ?: 'x'; ?>
-                    <?php echo $endPoints->old_end_point ?: 'x'; ?>
-                    <?php echo $endPoints->next_end_point ?: 'x'; ?>
+                    <?php echo $endPoints->end_point ? $endPoints->end_point : 'x'; ?>
+                    <?php echo $endPoints->old_end_point ? $endPoints->old_end_point : 'x'; ?>
+                    <?php echo $endPoints->next_end_point ? $endPoints->next_end_point : 'x'; ?>
                 </td>
                 <td><?php echo (null !== $endPoints) ? $ok : $ko; ?></td>
             </tr>
@@ -105,7 +105,15 @@ $ko = "<svg xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns:cc=\"http://crea
                     <tr>
                         <td><?php echo $rule; ?></td>
                         <td><?php echo $rewrite; ?></td>
-                        <td class="ad-back-rule-adback"><?php echo preg_match('/^('.($endPoints->old_end_point ?: '').'|'.($endPoints->end_point ?: '').'|'.($endPoints->next_end_point ?: '').')\/.*/', $rule) ? $ok : ''; ?></td>
+                        <td class="ad-back-rule-adback">
+                            <?php echo preg_match('/^('
+                                . ($endPoints->old_end_point ? $endPoints->old_end_point : '')
+                                . '|'
+                                . ($endPoints->end_point ? $endPoints->end_point : '')
+                                . '|'.($endPoints->next_end_point ? $endPoints->next_end_point : '')
+                                .')\/.*/', $rule) ? $ok : '';
+                            ?>
+                        </td>
                     </tr>
                 <?php endforeach; ?>
             <?php endif; ?>
