@@ -109,10 +109,10 @@ class Ad_Back_Proxy
             if (
                 (
                     strpos(strtolower($header), 'transfer-encoding') === false
-                    || strpos(strtolower($header), 'content-length') === false
                     || (strpos(strtolower($header), 'transfer-encoding') !== false && $chunk_decode_ok === false)
                 )
                 && strpos(strtolower($header), 'content-encoding') === false
+                && strpos(strtolower($header), 'content-length') === false
             ) {
                 header($header, true);
             }
