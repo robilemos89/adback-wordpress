@@ -84,6 +84,8 @@ class Ad_Back_Proxy
         $is_chunked = false;
         $chunk_decode_ok = true;
 
+        $noResponse = false;
+
         foreach($headerArray as $headerLine) {
             // Toggle chunk merging when appropriate
             if (strtolower($headerLine) == "transfer-encoding: chunked") {
@@ -114,13 +116,23 @@ class Ad_Back_Proxy
                 && strpos(strtolower($header), 'content-encoding') === false
                 && strpos(strtolower($header), 'content-length') === false
             ) {
+                if (preg_match('#^HTTP/[0-9\.]+ (302|204)#', $header)) {
+                    $noResponse = true;
+                }
+
                 header($header, true);
             }
         }
 
-        header("Content-Length: ".strlen($contents));
+        if ($noResponse) {
+            header("Content-Length: 0");
 
-        echo $contents;
+            echo "";
+        } else {
+            header("Content-Length: ".strlen($contents));
+
+            echo $contents;
+        }
     }
 
     public static function proxy_request($url, $data, $method, $params, $ip)
