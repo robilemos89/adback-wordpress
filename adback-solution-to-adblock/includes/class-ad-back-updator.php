@@ -101,7 +101,6 @@ class Ad_Back_Updator
 
         if (null !== $savedToken || '' !== $savedToken->access_token) {
             if (self::isRewriteRouteEnabled()) {
-                Ad_Back_Post::execute("https://www.adback.co/api/end-point/activate?access_token=" . $savedToken->access_token, array());
                 $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $savedToken->access_token);
                 $endPoints = json_decode($endPointData, true);
 

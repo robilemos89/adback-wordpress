@@ -31,7 +31,6 @@ class Ad_Back_Generic
 
         if (empty($scriptData)) {
             if ($this->isRewriteRouteEnabled()) {
-                $this->ensureSiteIsConfiguredForEndPoints();
                 $endPoints = $this->askEndPoints();
                 $this->saveEndPointsAndUpdateRoutes($endPoints, $blogId);
             }
@@ -189,11 +188,6 @@ SQL;
     public function isRewriteRouteEnabled()
     {
         return (bool) get_option('permalink_structure');
-    }
-
-    public function ensureSiteIsConfiguredForEndPoints()
-    {
-        Ad_Back_Post::execute("https://www.adback.co/api/end-point/activate?access_token=" . $this->getToken()->access_token, array());
     }
 
     public function askEndPoints()
