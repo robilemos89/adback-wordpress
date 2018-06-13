@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
-"POT-Creation-Date: 2018-01-31 11:25+0100\n"
+"POT-Creation-Date: 2018-06-13 12:03+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,9 +13,11 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr;esc_html_e;esc_attr_e\n"
 "X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: admin/js\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:369
+#: ad-back.php:36 admin/class-ad-back-admin.php:371
 msgid "Settings"
 msgstr "Settings"
 
@@ -107,32 +109,32 @@ msgstr "No Data"
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
-#: admin/class-ad-back-admin.php:190
+#: admin/class-ad-back-admin.php:192
 #, php-format
 msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr "You must be log in to see stats. Go to <a href=\"%s\">login page</a>"
 
-#: admin/class-ad-back-admin.php:366
+#: admin/class-ad-back-admin.php:368
 msgid "Statistics"
 msgstr "Statistics"
 
-#: admin/class-ad-back-admin.php:367
+#: admin/class-ad-back-admin.php:369
 msgid "Message"
 msgstr "Message"
 
-#: admin/class-ad-back-admin.php:368
+#: admin/class-ad-back-admin.php:370
 msgid "Placements"
 msgstr "Placements"
 
-#: admin/class-ad-back-admin.php:370
+#: admin/class-ad-back-admin.php:372
 msgid "Diagnostic"
 msgstr "Diagnostic"
 
-#: admin/class-ad-back-admin.php:450
+#: admin/class-ad-back-admin.php:452
 msgid "Activate my AdBack plugin"
 msgstr "Activate my AdBack plugin"
 
-#: admin/class-ad-back-admin.php:454
+#: admin/class-ad-back-admin.php:456
 msgid "It's time to analyze your adblock users, set up your AdBack account!"
 msgstr "It's time to analyze your adblock users, set up your AdBack account!"
 
@@ -192,7 +194,7 @@ msgid "Why create an AdBack account ?"
 msgstr "Why create an AdBack account ?"
 
 #: admin/partials/ad-back-admin-login-display.php:33
-#: admin/partials/ad-back-admin-login-display.php:42
+#: admin/partials/ad-back-admin-login-display.php:53
 msgid ""
 "AdBack is an analytics and monetization tool of your adblock audience. It is "
 "100&#37; free and without obligation. By authorizing AdBack, you will access:"
@@ -201,27 +203,75 @@ msgstr ""
 "100&#37; free and without obligation. By authorizing AdBack, you will access:"
 
 #: admin/partials/ad-back-admin-login-display.php:35
-#: admin/partials/ad-back-admin-login-display.php:44
+#: admin/partials/ad-back-admin-login-display.php:55
 msgid "A unique and unblockable technology"
 msgstr "A unique and unblockable technology"
 
 #: admin/partials/ad-back-admin-login-display.php:36
-#: admin/partials/ad-back-admin-login-display.php:45
+#: admin/partials/ad-back-admin-login-display.php:56
 msgid "Detailed statistics directly on your WordPress and AdBack interface"
 msgstr "Detailed statistics directly on your WordPress and AdBack interface"
 
 #: admin/partials/ad-back-admin-login-display.php:37
-#: admin/partials/ad-back-admin-login-display.php:46
+#: admin/partials/ad-back-admin-login-display.php:57
 msgid "Unique and user-friendly monetization solutions"
 msgstr "Unique and user-friendly monetization solutions"
 
-#: admin/partials/ad-back-admin-login-display.php:59
+#: admin/partials/ad-back-admin-login-display.php:41
+#: admin/partials/ad-back-admin-login-display.php:61
+msgid "By activating the plugin:"
+msgstr "By activating the plugin:"
+
+#: admin/partials/ad-back-admin-login-display.php:43
+#: admin/partials/ad-back-admin-login-display.php:63
+msgid "You accept the AdBack Terms of Service"
+msgstr "You accept the AdBack Terms of Service"
+
+#: admin/partials/ad-back-admin-login-display.php:44
+#: admin/partials/ad-back-admin-login-display.php:64
+msgid ""
+"The application will collect automatically the name of your website and the "
+"associated email address.<br>&ensp; That address will be used to give you "
+"the information related to your account and to the AdBack news and products"
+msgstr ""
+"The application will collect automatically the name of your website and the "
+"associated email address.<br>&ensp; That address will be used to give you "
+"the information related to your account and to the AdBack news and products"
+
+#: admin/partials/ad-back-admin-login-display.php:45
+#: admin/partials/ad-back-admin-login-display.php:65
+msgid ""
+"The application will install the AdBack script, necessary to display the "
+"analytics and monetization solutions"
+msgstr ""
+"The application will install the AdBack script, necessary to display the "
+"analytics and monetization solutions"
+
+#: admin/partials/ad-back-admin-login-display.php:48
+#: admin/partials/ad-back-admin-login-display.php:68
+msgid ""
+"<a href=\"https://landing.adback.co/en/legal-notice/\">Terms of Service</a>"
+msgstr ""
+"<a href=\"https://landing.adback.co/en/legal-notice/\">Terms of Service</a>"
+
+#: admin/partials/ad-back-admin-login-display.php:48
+#: admin/partials/ad-back-admin-login-display.php:68
+msgid ""
+"<a href=\"https://landing.adback.co/en/privacy-policy/\">Privacy Policy</a>"
+msgstr ""
+"<a href=\"https://landing.adback.co/en/privacy-policy/\">Privacy Policy</a>"
+
+#: admin/partials/ad-back-admin-login-display.php:82
 msgid "Create my AdBack account"
 msgstr "Create my AdBack account"
 
-#: admin/partials/ad-back-admin-login-display.php:64
+#: admin/partials/ad-back-admin-login-display.php:87
 msgid "Log in"
 msgstr "Log in"
+
+#: admin/partials/ad-back-admin-login-display.php:91
+msgid "Refuse (you won’t be able to use AdBack solutions)"
+msgstr "Refuse (you won’t be able to use AdBack solutions)"
 
 #: admin/partials/ad-back-admin-redirect.php:16
 msgid "Checking credentials..."

@@ -37,6 +37,17 @@
                                 <li><?php esc_html_e('Unique and user-friendly monetization solutions', 'adback-solution-to-adblock'); ?></li>
                             </ul>
                         </div>
+                        <div class="ab-registration-advantages-box">
+                            <p class="ab-registration-advantages-intro"><?php esc_html_e('By activating the plugin:', 'adback-solution-to-adblock'); ?></p>
+                            <ul>
+                                <li><?php esc_html_e('You accept the AdBack Terms of Service', 'adback-solution-to-adblock'); ?></li>
+                                <li><?php _e('The application will collect automatically the name of your website and the associated email address.<br>&ensp; That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
+                                <li><?php esc_html_e('The application will install the AdBack script, necessary to display the analytics and monetization solutions', 'adback-solution-to-adblock'); ?></li>
+                            </ul>
+                            <center>
+                                <p><?php _e('<a href="https://landing.adback.co/en/legal-notice/">Terms of Service</a>', 'adback-solution-to-adblock'); ?> - <?php _e('<a href="https://landing.adback.co/en/privacy-policy/">Privacy Policy</a>', 'adback-solution-to-adblock'); ?></p>
+                            </center>
+                        </div>
                     <?php } else { ?>
                         <div class="ab-registration-advantages-box">
                             <p class="ab-registration-advantages-intro"><?php esc_html_e('AdBack is an analytics and monetization tool of your adblock audience. It is 100&#37; free and without obligation. By authorizing AdBack, you will access:', 'adback-solution-to-adblock'); ?></p>
@@ -45,6 +56,17 @@
                                 <li><?php esc_html_e('Detailed statistics directly on your WordPress and AdBack interface', 'adback-solution-to-adblock'); ?></li>
                                 <li><?php esc_html_e('Unique and user-friendly monetization solutions', 'adback-solution-to-adblock'); ?></li>
                             </ul>
+                        </div>
+                        <div class="ab-registration-advantages-box">
+                            <p class="ab-registration-advantages-intro"><?php esc_html_e('By activating the plugin:', 'adback-solution-to-adblock'); ?></p>
+                            <ul>
+                                <li><?php esc_html_e('You accept the AdBack Terms of Service', 'adback-solution-to-adblock'); ?></li>
+                                <li><?php _e('The application will collect automatically the name of your website and the associated email address.<br>&ensp; That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
+                                <li><?php esc_html_e('The application will install the AdBack script, necessary to display the analytics and monetization solutions', 'adback-solution-to-adblock'); ?></li>
+                            </ul>
+                            <center>
+                                <p><?php _e('<a href="https://landing.adback.co/en/legal-notice/">Terms of Service</a>', 'adback-solution-to-adblock'); ?> - <?php _e('<a href="https://landing.adback.co/en/privacy-policy/">Privacy Policy</a>', 'adback-solution-to-adblock'); ?></p>
+                            </center>
                         </div>
                     <?php } ?>
                 </center>
@@ -63,6 +85,10 @@
                 <br/>
                 <center>
                     <a href="#" id="ab-login-adback" style="width:100%;margin-top: 30px;"><?php esc_html_e('Log in', 'adback-solution-to-adblock'); ?></a>
+                </center>
+                <br/>
+                <center>
+                    <a href="/wp-admin/plugins.php" class="ab-refuse-adback"><?php esc_html_e('Refuse (you won’t be able to use AdBack solutions)', 'adback-solution-to-adblock'); ?></a>
                 </center>
             </div>
     </div>
