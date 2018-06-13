@@ -8,7 +8,15 @@ Stable tag: 2.11.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-With AdBack, access analytics about adblocker users, address them personalized messages, propose alternative solutions to advertising (video, survey).
+With AdBack, analyze and monetize your adblock audience.
+* strong technology
+* 100% unblockable tool
+* detailed statistics
+* educational message
+* unblockable ads through our partners
+* direct campaigns unblocked
+* conversion pixels unblocked
+* GDPR compliant solution
 
 == Description ==
 
