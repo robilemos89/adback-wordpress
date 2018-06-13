@@ -13,9 +13,9 @@ msgstr ""
 "X-Poedit-KeywordsList: __;_e;_esc_attr\n"
 "X-Poedit-Basepath: ..\n"
 "X-Poedit-SearchPath-0: .\n"
+"X-Poedit-SearchPathExcluded-0: admin/js\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:367
-#: admin/class-ad-back-admin.php:440
+#: ad-back.php:36 admin/class-ad-back-admin.php:371
 msgid "Settings"
 msgstr ""
 
@@ -107,29 +107,33 @@ msgstr ""
 msgid "Something went wrong"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:188
+#: admin/class-ad-back-admin.php:192
 #, php-format
 msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:364
+#: admin/class-ad-back-admin.php:368
 msgid "Statistics"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:365
+#: admin/class-ad-back-admin.php:369
 msgid "Message"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:366
+#: admin/class-ad-back-admin.php:370
 msgid "Placements"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:368
+#: admin/class-ad-back-admin.php:372
 msgid "Diagnostic"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:440
-msgid "It's time to analyze your adblock users, activate your adback account !"
+#: admin/class-ad-back-admin.php:452
+msgid "Activate my AdBack plugin"
+msgstr ""
+
+#: admin/class-ad-back-admin.php:456
+msgid "It's time to analyze your adblock users, set up your AdBack account!"
 msgstr ""
 
 #: admin/partials/ad-back-admin-diagnostic.php:17
@@ -159,6 +163,21 @@ msgstr ""
 
 #: admin/partials/ad-back-admin-login-display.php:16
 msgid "AdBack"
+msgstr ""
+
+#: admin/partials/ad-back-admin-login-display.php:44
+#: admin/partials/ad-back-admin-login-display.php:64
+msgid "The application will collect automatically the name of your website and the associated email address.<br>&ensp; That address will be used to give you the information related to your account and to the AdBack news and products"
+msgstr ""
+
+#: admin/partials/ad-back-admin-login-display.php:48
+#: admin/partials/ad-back-admin-login-display.php:68
+msgid "<a href=\"https://landing.adback.co/en/legal-notice/\">Terms of Service</a>"
+msgstr ""
+
+#: admin/partials/ad-back-admin-login-display.php:48
+#: admin/partials/ad-back-admin-login-display.php:68
+msgid "<a href=\"https://landing.adback.co/en/privacy-policy/\">Privacy Policy</a>"
 msgstr ""
 
 #: admin/partials/ad-back-admin-redirect.php:16
