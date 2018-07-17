@@ -425,6 +425,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
     public function changeIntegration()
     {
         Integration_Checker::switchIntegration();
+        Ad_Back_Updator::update();
 
         echo "{\"done\":true}";
         wp_die(); // this is required to terminate immediately and return a proper response

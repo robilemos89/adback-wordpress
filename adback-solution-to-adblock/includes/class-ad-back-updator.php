@@ -125,6 +125,11 @@ class Ad_Back_Updator
 
             $fullScriptData = Ad_Back_Get::execute("https://www.adback.co/api/script/me/full?access_token=" . $savedToken->access_token);
             $fullScripts = json_decode($fullScriptData, true);
+
+            $genericScriptData = Ocam_Get::execute("https://www.adback.co/api/script/me/generic?access_token=" . $savedToken->access_token);
+            $genericScript = json_decode($genericScriptData, true);
+
+            $fullScripts['script_codes']['generic'] = $genericScript;
             $types = self::getTypes();
             if (is_array($fullScripts) && !empty($fullScripts) && array_key_exists('script_codes', $fullScripts)) {
                 foreach ($types as $key => $type) {

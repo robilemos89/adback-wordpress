@@ -36,15 +36,11 @@ class Ad_Back_Generic
             }
 
             $fullScripts = $this->askFullScripts();
+            $genericScript = $this->askGenericScripts();
+            $fullScripts['script_codes']['generic'] = $genericScript;
 
-            $types = array(
-                'analytics',
-                'message',
-                'product',
-                'banner',
-                'catcher',
-                'iab_banner',
-            );
+            $types = Ad_Back_Updator::getTypes();
+
             foreach ($types as $key => $type) {
                 if (
                     is_array($fullScripts['script_codes'])
@@ -179,6 +175,17 @@ SQL;
         }
 
         $jsonScripts = Ad_Back_Get::execute("https://www.adback.co/api/script/me/full?access_token=" . $this->getToken()->access_token);
+
+        return json_decode($jsonScripts, true);
+    }
+
+    public function askGenericScripts()
+    {
+        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+            return null;
+        }
+
+        $jsonScripts = Ad_Back_Get::execute("https://www.adback.co/api/script/me/generic?access_token=" . $this->getToken()->access_token);
 
         return json_decode($jsonScripts, true);
     }
