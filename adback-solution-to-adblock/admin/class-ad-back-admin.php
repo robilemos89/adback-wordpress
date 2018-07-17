@@ -22,6 +22,7 @@
  */
 
 include_once(plugin_dir_path(__FILE__) . '../class-ad-back.php');
+include_once(plugin_dir_path(__FILE__) . '../includes/class-ad-back-integration-checker.php');
 
 class Ad_Back_Admin extends Ad_Back_Generic
 {
@@ -223,6 +224,31 @@ class Ad_Back_Admin extends Ad_Back_Generic
      *
      * @since    1.0.0
      */
+    public function displayPluginStatsLitePage()
+    {
+        if ($this->isConnected()) {
+            if ($this->getDomain() == '') {
+                $this->askDomain();
+            }
+            include_once('partials/ad-back-admin-lite-display.php');
+        } else {
+            if (isset($_GET['access_token'])) {
+                $this->saveToken(array(
+                    'access_token' => $_GET['access_token'],
+                    'refresh_token' => '',
+                ));
+                include_once('partials/ad-back-admin-redirect.php');
+            } else {
+                include_once('partials/ad-back-admin-login-display.php');
+            }
+        }
+    }
+
+    /**
+     * Render the settings page for this plugin.
+     *
+     * @since    1.0.0
+     */
     public function displayPluginSettingsPage()
     {
         if ($this->isConnected()) {
@@ -365,10 +391,14 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
         add_menu_page('AdBack', 'AdBack', 'manage_options', 'ab', '', plugin_dir_url(__FILE__) . '/partials/images/_dback_blanc_logo.png', $_wp_last_object_menu);
 
-        add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'adback-solution-to-adblock'), 'manage_options', 'ab', array($this, 'displayPluginStatsPage'));
-        add_submenu_page('ab', 'AdBack Message', __('Message', 'adback-solution-to-adblock'), 'manage_options', 'ab-message', array($this, 'displayPluginMessagePage'));
-        add_submenu_page('ab', 'AdBack Placements', __('Placements', 'adback-solution-to-adblock'), 'manage_options', 'ab-placements', array($this, 'displayPluginPlacementsPage'));
-        add_submenu_page('ab', 'AdBack Settings', __('Settings', 'adback-solution-to-adblock'), 'manage_options', 'ab-settings', array($this, 'displayPluginSettingsPage'));
+        if (Integration_Checker::isFullIntegration()) {
+            add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'adback-solution-to-adblock'), 'manage_options', 'ab', array($this, 'displayPluginStatsPage'));
+            add_submenu_page('ab', 'AdBack Message', __('Message', 'adback-solution-to-adblock'), 'manage_options', 'ab-message', array($this, 'displayPluginMessagePage'));
+            add_submenu_page('ab', 'AdBack Placements', __('Placements', 'adback-solution-to-adblock'), 'manage_options', 'ab-placements', array($this, 'displayPluginPlacementsPage'));
+            add_submenu_page('ab', 'AdBack Settings', __('Settings', 'adback-solution-to-adblock'), 'manage_options', 'ab-settings', array($this, 'displayPluginSettingsPage'));
+        } else {
+            add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', '\'adback-solution-to-adblock'), 'manage_options', 'ab', array($this, 'displayPluginStatsLitePage'));
+        }
         add_submenu_page('ab', 'AdBack Diagnostic', __('Diagnostic', 'adback-solution-to-adblock'), 'manage_options', 'ab-diagnostic', array($this, 'displayPluginDiagnosticPage'));
 
         add_plugins_page('ab', '', 'manage_options', 'ab-refresh-domain', array($this, 'displayPluginRefreshDomainPage'));
@@ -387,6 +417,14 @@ class Ad_Back_Admin extends Ad_Back_Generic
     public function saveGoMessageCallback()
     {
         $this->saveMessage($_POST['display']);
+
+        echo "{\"done\":true}";
+        wp_die(); // this is required to terminate immediately and return a proper response
+    }
+
+    public function changeIntegration()
+    {
+        Integration_Checker::switchIntegration();
 
         echo "{\"done\":true}";
         wp_die(); // this is required to terminate immediately and return a proper response

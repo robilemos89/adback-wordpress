@@ -76,10 +76,11 @@ class Ad_Back_Public extends Ad_Back_Generic
          */
 
         $elements = $this->getMyInfo();
+        $types = Ad_Back_Updator::getTypes();
 
         if (is_array($elements)) {
             foreach ($elements as $type => $element) {
-                if ('product' != $type) {
+                if ('product' !== $type && in_array($type, $types, true)) {
                     echo "<script type='text/javascript'>\n$element\n</script>\n";
                 }
             }

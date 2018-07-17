@@ -155,13 +155,23 @@ class Ad_Back_Updator
      */
     public static function getTypes()
     {
-        return array(
-            'analytics',
-            'message',
-            'product',
-            'banner',
-            'catcher',
-            'iab_banner',
-        );
+        if (Integration_Checker::isFullIntegration()) {
+            $types = [
+                'analytics',
+                'message',
+                'product',
+                'banner',
+                'catcher',
+                'iab_banner',
+            ];
+        } else {
+            $types = [
+                'analytics',
+                'iab_banner',
+                'generic',
+            ];
+        }
+
+        return $types;
     }
 }

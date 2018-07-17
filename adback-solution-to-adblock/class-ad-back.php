@@ -168,9 +168,8 @@ SQL;
         }
 
         $jsonScripts = Ad_Back_Get::execute("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
-        $result = json_decode($jsonScripts, true);
 
-        return $result;
+        return json_decode($jsonScripts, true);
     }
 
     public function askFullScripts()
@@ -180,9 +179,8 @@ SQL;
         }
 
         $jsonScripts = Ad_Back_Get::execute("https://www.adback.co/api/script/me/full?access_token=" . $this->getToken()->access_token);
-        $result = json_decode($jsonScripts, true);
 
-        return $result;
+        return json_decode($jsonScripts, true);
     }
 
     public function isRewriteRouteEnabled()
@@ -197,9 +195,8 @@ SQL;
         }
 
         $jsonEndPoints = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $this->getToken()->access_token);
-        $result = json_decode($jsonEndPoints, true);
 
-        return $result;
+        return json_decode($jsonEndPoints, true);
     }
 
     public function refreshEndPoints()
@@ -209,9 +206,8 @@ SQL;
         }
 
         $jsonEndPoints = Ad_Back_Get::execute("https://www.adback.co/api/end-point/refresh?access_token=" . $this->getToken()->access_token);
-        $result = json_decode($jsonEndPoints, true);
 
-        return $result;
+        return json_decode($jsonEndPoints, true);
     }
 
     public function saveEndPointsAndUpdateRoutes($endPoints, $blogId)
@@ -280,8 +276,7 @@ SQL;
         }
 
         $jsonDomain = Ad_Back_Get::execute("https://www.adback.co/api/subscription/me?access_token=" . $this->getToken()->access_token);
-        $result = json_decode($jsonDomain, true);
 
-        return $result;
+        return json_decode($jsonDomain, true);
     }
 }
