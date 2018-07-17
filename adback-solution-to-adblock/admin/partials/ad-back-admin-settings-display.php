@@ -32,8 +32,15 @@
                     <h4 class="header-section"><?php esc_html_e('Adback Account', 'adback-solution-to-adblock'); ?></h4>
                     <hr/>
                     <div class="section-content">
-                        <button id="ab-logout" class="btn-generic-save" primary
-                                m-full><?php esc_html_e('Log out', 'adback-solution-to-adblock'); ?></button>
+                        <button id="ab-logout" class="btn-generic-save" primary m-full>
+                            <?php esc_html_e('Log out', 'adback-solution-to-adblock'); ?>
+                        </button>
+                    </div>
+                    <br>
+                    <div class="section-content">
+                        <button class="ab-button ab-button-primary copy-png-btn" id="switch-integration">
+                            Switch plugin integration
+                        </button>
                     </div>
                 </section>
             </div>
@@ -65,6 +72,20 @@
                 var locale = "<?php $locales = explode('_', get_locale());echo $locales[0]; ?>";
                 var email = "<?php echo get_bloginfo('admin_email') ?>";
                 window.location.href = 'https://www.adback.co/' + locale + '/login?_login_email=' + email;
+            });
+        });
+
+        $("#switch-integration").on('click', function () {
+            var data = {
+                'action': 'change_integration'
+            };
+            $.post(ajaxurl, data, function (response) {
+                var obj = JSON.parse(response);
+                if (obj.done === true) {
+                    window.location.href = location.protocol + '//' + location.host + location.pathname + '?page=ab';
+                } else {
+                    vex.dialog.alert(trans_arr.oops + ' ' + trans_arr.error);
+                }
             });
         });
     })(jQuery);

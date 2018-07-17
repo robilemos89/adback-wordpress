@@ -33,9 +33,9 @@
             });
         } else {
             (function ($) {
-                $("div[data-ocam-graph]").each(function () {
+                $("div[data-ab-graph]").each(function () {
                     $(this).append('<?php esc_js(printf(__('No data available, please <a href="%s">refresh domain</a>', 'adback-solution-to-adblock'),
-                        esc_url(home_url('/wp-admin/admin.php?page=ocam-lite-refresh-domain')))); ?>');
+                        esc_url(home_url('/wp-admin/admin.php?page=ab-refresh-domain')))); ?>');
                 });
             })(jQuery);
         }

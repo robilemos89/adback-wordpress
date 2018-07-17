@@ -395,10 +395,10 @@ class Ad_Back_Admin extends Ad_Back_Generic
             add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'adback-solution-to-adblock'), 'manage_options', 'ab', array($this, 'displayPluginStatsPage'));
             add_submenu_page('ab', 'AdBack Message', __('Message', 'adback-solution-to-adblock'), 'manage_options', 'ab-message', array($this, 'displayPluginMessagePage'));
             add_submenu_page('ab', 'AdBack Placements', __('Placements', 'adback-solution-to-adblock'), 'manage_options', 'ab-placements', array($this, 'displayPluginPlacementsPage'));
-            add_submenu_page('ab', 'AdBack Settings', __('Settings', 'adback-solution-to-adblock'), 'manage_options', 'ab-settings', array($this, 'displayPluginSettingsPage'));
         } else {
             add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', '\'adback-solution-to-adblock'), 'manage_options', 'ab', array($this, 'displayPluginStatsLitePage'));
         }
+        add_submenu_page('ab', 'AdBack Settings', __('Settings', 'adback-solution-to-adblock'), 'manage_options', 'ab-settings', array($this, 'displayPluginSettingsPage'));
         add_submenu_page('ab', 'AdBack Diagnostic', __('Diagnostic', 'adback-solution-to-adblock'), 'manage_options', 'ab-diagnostic', array($this, 'displayPluginDiagnosticPage'));
 
         add_plugins_page('ab', '', 'manage_options', 'ab-refresh-domain', array($this, 'displayPluginRefreshDomainPage'));

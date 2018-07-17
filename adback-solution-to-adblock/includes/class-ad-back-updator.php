@@ -126,7 +126,7 @@ class Ad_Back_Updator
             $fullScriptData = Ad_Back_Get::execute("https://www.adback.co/api/script/me/full?access_token=" . $savedToken->access_token);
             $fullScripts = json_decode($fullScriptData, true);
 
-            $genericScriptData = Ocam_Get::execute("https://www.adback.co/api/script/me/generic?access_token=" . $savedToken->access_token);
+            $genericScriptData = Ad_Back_Get::execute("https://www.adback.co/api/script/me/generic?access_token=" . $savedToken->access_token);
             $genericScript = json_decode($genericScriptData, true);
 
             $fullScripts['script_codes']['generic'] = $genericScript;
