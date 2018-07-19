@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
-"POT-Creation-Date: 2018-06-13 12:02+0200\n"
+"POT-Creation-Date: 2018-07-19 18:24+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,95 +17,95 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: admin/js\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:371
+#: ad-back.php:36 admin/class-ad-back-admin.php:427
 msgid "Settings"
 msgstr "Paramètres"
 
-#: admin/class-ad-back-admin.php:111
+#: admin/class-ad-back-admin.php:112
 msgid "Bounce rate of adblocker users"
 msgstr "Taux de rebond des utilisateurs d'adblocker"
 
-#: admin/class-ad-back-admin.php:112
+#: admin/class-ad-back-admin.php:113
 msgid "Adblocker activation / deactivation"
 msgstr "Désactivation / Activation d'un bloqueur de publicité"
 
-#: admin/class-ad-back-admin.php:113
+#: admin/class-ad-back-admin.php:114
 msgid "Ad blocker percent"
 msgstr "Pages vues bloquées vs taux d'utilisateurs d'adblocker"
 
-#: admin/class-ad-back-admin.php:114
+#: admin/class-ad-back-admin.php:115
 msgid "Blocked page views"
 msgstr "Taux de pages vues avec un bloqueur de publicité"
 
-#: admin/class-ad-back-admin.php:115
+#: admin/class-ad-back-admin.php:116
 msgid "Browser"
 msgstr "Navigateurs des utilisateurs d'adblocker"
 
-#: admin/class-ad-back-admin.php:116
+#: admin/class-ad-back-admin.php:117
 msgid "OS"
 msgstr "Systèmes d’exploitation des utilisateurs d'adblocker"
 
-#: admin/class-ad-back-admin.php:117
+#: admin/class-ad-back-admin.php:118
 msgid "Percent adblock users"
 msgstr "% d'utilisateurs d’adblocker"
 
-#: admin/class-ad-back-admin.php:118
+#: admin/class-ad-back-admin.php:119
 msgid "Percent bounce adblock users"
 msgstr "Taux de rebond des utilisateurs d'adblocker"
 
-#: admin/class-ad-back-admin.php:119
+#: admin/class-ad-back-admin.php:120
 msgid "Percent bounce all users"
 msgstr "Taux de rebond global"
 
-#: admin/class-ad-back-admin.php:120
+#: admin/class-ad-back-admin.php:121
 msgid "Oops..."
 msgstr "Oops..."
 
-#: admin/class-ad-back-admin.php:121
+#: admin/class-ad-back-admin.php:122
 msgid "Invalid email or password"
 msgstr "Email ou mot de passe non valide"
 
-#: admin/class-ad-back-admin.php:122
+#: admin/class-ad-back-admin.php:123
 msgid "The key, email and domain fields should be filled"
 msgstr "La clé, l'email et le domaine doivent être remplis"
 
-#: admin/class-ad-back-admin.php:123
+#: admin/class-ad-back-admin.php:124
 msgid "The email and password fields should be filled"
 msgstr "L'email et le mot de passe doivent être remplis"
 
-#: admin/class-ad-back-admin.php:124
+#: admin/class-ad-back-admin.php:125
 msgid "There is an error in the registration: {0}"
 msgstr "Il y a une erreur dans l'enregistrement : {0}"
 
-#: admin/class-ad-back-admin.php:125
+#: admin/class-ad-back-admin.php:126
 msgid "Users having ad blocker"
 msgstr "Utilisateurs ayant activé un bloqueur de publicité"
 
-#: admin/class-ad-back-admin.php:126
+#: admin/class-ad-back-admin.php:127
 msgid "Users who have disabled an ad blocker"
 msgstr "Utilisateurs ayant désactivé un bloqueur de publicité"
 
-#: admin/class-ad-back-admin.php:127
+#: admin/class-ad-back-admin.php:128
 msgid "Percent page view with AdBlock"
 msgstr "% de pages vues avec un adblocker"
 
-#: admin/class-ad-back-admin.php:128
+#: admin/class-ad-back-admin.php:129
 msgid "Percent page view"
 msgstr "% de pages vues sans adblocker"
 
-#: admin/class-ad-back-admin.php:129
+#: admin/class-ad-back-admin.php:130
 msgid "days"
 msgstr "jours"
 
-#: admin/class-ad-back-admin.php:130
+#: admin/class-ad-back-admin.php:131
 msgid "Loading ..."
 msgstr "Chargement..."
 
-#: admin/class-ad-back-admin.php:131
+#: admin/class-ad-back-admin.php:132
 msgid "No Data"
 msgstr "Aucune donnée"
 
-#: admin/class-ad-back-admin.php:132
+#: admin/class-ad-back-admin.php:133
 msgid "Something went wrong"
 msgstr "Une erreur s’est produite"
 
@@ -116,31 +116,90 @@ msgstr ""
 "Vous devez être identifié pour voir les statistiques. Pour vous identifier, "
 "rendez-vous à la <a href=\"%s\">page d'identification</a>"
 
-#: admin/class-ad-back-admin.php:368
+#: admin/class-ad-back-admin.php:421 admin/class-ad-back-admin.php:425
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: admin/class-ad-back-admin.php:369
+#: admin/class-ad-back-admin.php:422
 msgid "Message"
 msgstr "Message"
 
-#: admin/class-ad-back-admin.php:370
+#: admin/class-ad-back-admin.php:423
 msgid "Placements"
 msgstr "Emplacements"
 
-#: admin/class-ad-back-admin.php:372
+#: admin/class-ad-back-admin.php:428
 msgid "Diagnostic"
 msgstr "Diagnostique"
 
-#: admin/class-ad-back-admin.php:452
+#: admin/class-ad-back-admin.php:526
 msgid "Activate my AdBack plugin"
 msgstr "Activer mon plugin AdBack"
 
-#: admin/class-ad-back-admin.php:456
+#: admin/class-ad-back-admin.php:530
 msgid "It's time to analyze your adblock users, set up your AdBack account!"
 msgstr ""
 "Il est temps d'analyser vos utilisateurs Adblock, configurez votre compte "
 "Adback !"
+
+#: admin/partials/ad-back-admin-choice.php:16
+#: admin/partials/ad-back-admin-login-display.php:16
+msgid "AdBack"
+msgstr "AdBack"
+
+#: admin/partials/ad-back-admin-choice.php:21
+msgid "Account creation"
+msgstr "Création du compte"
+
+#: admin/partials/ad-back-admin-choice.php:23
+msgid "Choice of the solution"
+msgstr "Choix de la solution"
+
+#: admin/partials/ad-back-admin-choice.php:25
+msgid "Let's go!"
+msgstr "Let's go!"
+
+#: admin/partials/ad-back-admin-choice.php:28
+msgid "Highly</br>recommended"
+msgstr "Highly</br>recommended"
+
+#: admin/partials/ad-back-admin-choice.php:29
+msgid "QUICK AND EASY MONETISATION"
+msgstr "MONÉTISATION RAPIDE ET FACILE"
+
+#: admin/partials/ad-back-admin-choice.php:30
+msgid "Only solution for websites with less than 1.5 million monthly pageviews"
+msgstr ""
+"Unique solution pour les sites de moins d’1,5 million de pages vues "
+"mensuelles"
+
+#: admin/partials/ad-back-admin-choice.php:31
+msgid ""
+"Monetize instantly your adblock audience by displaying a message offering 2 "
+"possibilities to\n"
+"                        access your content: disabling the adblocker or "
+"clicking on an ad. You win in every case!"
+msgstr ""
+"Monétisez instantanément votre audience adblock en affichant un message "
+"offrant 2\n"
+"\t\t\t possibilités d’accès à votre contenu :  désactiver adblock ou cliquer "
+"sur une pub. Vous êtes gagnant dans tous les cas ! "
+
+#: admin/partials/ad-back-admin-choice.php:34
+msgid "CONTINUE"
+msgstr "CONTINUER"
+
+#: admin/partials/ad-back-admin-choice.php:38
+msgid "or continue with the advanced mode"
+msgstr "ou continuer avec le mode avancé"
+
+#: admin/partials/ad-back-admin-choice.php:39
+msgid ""
+"Caution: only for premium websites and highly advanced users. Needs some "
+"technical integration."
+msgstr ""
+"Attention : uniquement pour les sites premium et les utilisateurs très "
+"avancés.Requiert des intégrations techniques."
 
 #: admin/partials/ad-back-admin-diagnostic.php:17
 msgid "AdBack : The stats of your AdBlock audience"
@@ -158,6 +217,7 @@ msgstr ""
 "activer et personnaliser votre message !"
 
 #: admin/partials/ad-back-admin-display.php:36
+#: admin/partials/ad-back-admin-lite-display.php:37
 #, php-format
 msgid "No data available, please <a href=\"%s\">refresh domain</a>"
 msgstr ""
@@ -174,10 +234,6 @@ msgstr "Écrire un tweet"
 #: admin/partials/ad-back-admin-header.php:11
 msgid "Leave a review"
 msgstr "Noter le plugin"
-
-#: admin/partials/ad-back-admin-login-display.php:16
-msgid "AdBack"
-msgstr "AdBack"
 
 #: admin/partials/ad-back-admin-login-display.php:25
 msgid ""
@@ -294,21 +350,37 @@ msgstr "Vérification des identifiants…"
 msgid "Refresh domain..."
 msgstr "Mise à jour des domains ..."
 
-#: admin/partials/ad-back-admin-settings-display.php:24
+#: admin/partials/ad-back-admin-settings-display.php:26
 msgid "Get more statistics"
 msgstr "Plus de statistiques"
 
-#: admin/partials/ad-back-admin-settings-display.php:28
+#: admin/partials/ad-back-admin-settings-display.php:30
 msgid "Redirect me to my AdBack dashboard"
 msgstr "Redirigez-moi vers mon dashboard AdBack"
 
-#: admin/partials/ad-back-admin-settings-display.php:32
+#: admin/partials/ad-back-admin-settings-display.php:34
 msgid "Adback Account"
 msgstr "Compte Adback"
 
-#: admin/partials/ad-back-admin-settings-display.php:36
+#: admin/partials/ad-back-admin-settings-display.php:38
 msgid "Log out"
 msgstr "Déconnexion"
+
+#: admin/partials/ad-back-admin-settings-display.php:44
+msgid "Change of solution"
+msgstr "Changement de solution"
+
+#: admin/partials/ad-back-admin-settings-display.php:47
+msgid "Your needs are growing or you want to change your solution:"
+msgstr "Vos besoins évoluent ou vous souhaitez changer de solution :"
+
+#: admin/partials/ad-back-admin-settings-display.php:52
+msgid "Switch to Quick monetization solution"
+msgstr "Solution de monétisation rapide"
+
+#: admin/partials/ad-back-admin-settings-display.php:58
+msgid "Switch to Advanced solution"
+msgstr "Solution avancée"
 
 #: includes/class-ad-back-activator.php:166
 msgid "Registration error"
