@@ -183,8 +183,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
     public function dashboardWidgetContent()
     {
-
-        if ($this->isConnected()) {
+        if ($this->isConnected() && $this->hasChooseIntegration()) {
             if ($this->getDomain() == '') {
                 $this->askDomain();
             }
@@ -201,21 +200,21 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginStatsPage()
     {
-        if ($this->isConnected()) {
+        if ($this->isConnected() && $this->hasChooseIntegration()) {
             if ($this->getDomain() == '') {
                 $this->askDomain();
             }
             include_once('partials/ad-back-admin-display.php');
+        } elseif ($this->hasntChooseIntegration()) {
+            include_once('partials/ad-back-admin-choice.php');
+        } elseif (isset($_GET['access_token'])) {
+            $this->saveToken(array(
+                'access_token' => $_GET['access_token'],
+                'refresh_token' => '',
+            ));
+            include_once('partials/ad-back-admin-redirect.php');
         } else {
-            if (isset($_GET['access_token'])) {
-                $this->saveToken(array(
-                    'access_token' => $_GET['access_token'],
-                    'refresh_token' => '',
-                ));
-                include_once('partials/ad-back-admin-redirect.php');
-            } else {
-                include_once('partials/ad-back-admin-login-display.php');
-            }
+            include_once('partials/ad-back-admin-login-display.php');
         }
     }
 
@@ -226,21 +225,46 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginStatsLitePage()
     {
-        if ($this->isConnected()) {
+        if ($this->isConnected() && $this->hasChooseIntegration()) {
             if ($this->getDomain() == '') {
                 $this->askDomain();
             }
             include_once('partials/ad-back-admin-lite-display.php');
+        } elseif ($this->hasntChooseIntegration()) {
+            include_once('partials/ad-back-admin-choice.php');
+        } elseif (isset($_GET['access_token'])) {
+            $this->saveToken(array(
+                'access_token' => $_GET['access_token'],
+                'refresh_token' => '',
+            ));
+            include_once('partials/ad-back-admin-redirect.php');
         } else {
-            if (isset($_GET['access_token'])) {
-                $this->saveToken(array(
-                    'access_token' => $_GET['access_token'],
-                    'refresh_token' => '',
-                ));
-                include_once('partials/ad-back-admin-redirect.php');
-            } else {
-                include_once('partials/ad-back-admin-login-display.php');
+            include_once('partials/ad-back-admin-login-display.php');
+        }
+    }
+
+    /**
+     * Render the choice page for this plugin.
+     *
+     * @since    1.0.0
+     */
+    public function displayPluginIntegrationChoicePage()
+    {
+        if ($this->isConnected() && $this->hasChooseIntegration()) {
+            if ($this->getDomain() == '') {
+                $this->askDomain();
             }
+            include_once('partials/ad-back-admin-choice.php');
+        } elseif ($this->hasntChooseIntegration()) {
+            include_once('partials/ad-back-admin-choice.php');
+        } elseif (isset($_GET['access_token'])) {
+            $this->saveToken(array(
+                'access_token' => $_GET['access_token'],
+                'refresh_token' => '',
+            ));
+            include_once('partials/ad-back-admin-redirect.php');
+        } else {
+            include_once('partials/ad-back-admin-login-display.php');
         }
     }
 
@@ -251,21 +275,21 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginSettingsPage()
     {
-        if ($this->isConnected()) {
+        if ($this->isConnected() && $this->hasChooseIntegration()) {
             if ($this->getDomain() == '') {
                 $this->askDomain();
             }
             include_once('partials/ad-back-admin-settings-display.php');
+        } elseif ($this->hasntChooseIntegration()) {
+            include_once('partials/ad-back-admin-choice.php');
+        } elseif (isset($_GET['access_token'])) {
+            $this->saveToken(array(
+                'access_token' => $_GET['access_token'],
+                'refresh_token' => '',
+            ));
+            include_once('partials/ad-back-admin-redirect.php');
         } else {
-            if (isset($_GET['access_token'])) {
-                $this->saveToken(array(
-                    'access_token' => $_GET['access_token'],
-                    'refresh_token' => '',
-                ));
-                include_once('partials/ad-back-admin-redirect.php');
-            } else {
-                include_once('partials/ad-back-admin-login-display.php');
-            }
+            include_once('partials/ad-back-admin-login-display.php');
         }
     }
 
@@ -276,21 +300,21 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginMessagePage()
     {
-        if ($this->isConnected()) {
+        if ($this->isConnected() && $this->hasChooseIntegration()) {
             if ($this->getDomain() == '') {
                 $this->askDomain();
             }
             include_once('partials/ad-back-admin-message-display.php');
+        } elseif ($this->hasntChooseIntegration()) {
+            include_once('partials/ad-back-admin-choice.php');
+        } elseif (isset($_GET['access_token'])) {
+            $this->saveToken(array(
+                'access_token' => $_GET['access_token'],
+                'refresh_token' => '',
+            ));
+            include_once('partials/ad-back-admin-redirect.php');
         } else {
-            if (isset($_GET['access_token'])) {
-                $this->saveToken(array(
-                    'access_token' => $_GET['access_token'],
-                    'refresh_token' => '',
-                ));
-                include_once('partials/ad-back-admin-redirect.php');
-            } else {
-                include_once('partials/ad-back-admin-login-display.php');
-            }
+            include_once('partials/ad-back-admin-login-display.php');
         }
     }
 
@@ -301,21 +325,21 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginPlacementsPage()
     {
-        if ($this->isConnected()) {
+        if ($this->isConnected() && $this->hasChooseIntegration()) {
             if ($this->getDomain() == '') {
                 $this->askDomain();
             }
             include_once('partials/ad-back-admin-placements-display.php');
+        } elseif ($this->hasntChooseIntegration()) {
+            include_once('partials/ad-back-admin-choice.php');
+        } elseif (isset($_GET['access_token'])) {
+            $this->saveToken(array(
+                'access_token' => $_GET['access_token'],
+                'refresh_token' => '',
+            ));
+            include_once('partials/ad-back-admin-redirect.php');
         } else {
-            if (isset($_GET['access_token'])) {
-                $this->saveToken(array(
-                    'access_token' => $_GET['access_token'],
-                    'refresh_token' => '',
-                ));
-                include_once('partials/ad-back-admin-redirect.php');
-            } else {
-                include_once('partials/ad-back-admin-login-display.php');
-            }
+            include_once('partials/ad-back-admin-login-display.php');
         }
     }
 
@@ -327,7 +351,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
     public function displayPluginDiagnosticPage()
     {
         global $wpdb;
-        if ($this->isConnected()) {
+        if ($this->isConnected() && $this->hasChooseIntegration()) {
             if ($this->getDomain() === '') {
                 $this->askDomain();
             }
@@ -341,16 +365,16 @@ class Ad_Back_Admin extends Ad_Back_Generic
             $rules = get_option('rewrite_rules', array());
 
             include_once('partials/ad-back-admin-diagnostic.php');
+        } elseif ($this->hasntChooseIntegration()) {
+            include_once('partials/ad-back-admin-choice.php');
+        } elseif (isset($_GET['access_token'])) {
+            $this->saveToken(array(
+                'access_token' => $_GET['access_token'],
+                'refresh_token' => '',
+            ));
+            include_once('partials/ad-back-admin-redirect.php');
         } else {
-            if (isset($_GET['access_token'])) {
-                $this->saveToken(array(
-                    'access_token' => $_GET['access_token'],
-                    'refresh_token' => '',
-                ));
-                include_once('partials/ad-back-admin-redirect.php');
-            } else {
-                include_once('partials/ad-back-admin-login-display.php');
-            }
+            include_once('partials/ad-back-admin-login-display.php');
         }
     }
 
@@ -361,9 +385,11 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginRefreshDomainPage()
     {
-        if ($this->isConnected()) {
+        if ($this->isConnected() && $this->hasChooseIntegration()) {
             $this->askDomain();
             include_once('partials/ad-back-admin-refresh-domain.php');
+        } elseif ($this->hasntChooseIntegration()) {
+            include_once('partials/ad-back-admin-choice.php');
         } else {
             include_once('partials/ad-back-admin-login-display.php');
         }
@@ -422,9 +448,18 @@ class Ad_Back_Admin extends Ad_Back_Generic
         wp_die(); // this is required to terminate immediately and return a proper response
     }
 
-    public function changeIntegration()
+    public function liteIntegration()
     {
-        Integration_Checker::switchIntegration();
+        Integration_Checker::liteIntegration();
+        Ad_Back_Updator::update();
+
+        echo "{\"done\":true}";
+        wp_die(); // this is required to terminate immediately and return a proper response
+    }
+
+    public function fullIntegration()
+    {
+        Integration_Checker::fullIntegration();
         Ad_Back_Updator::update();
 
         echo "{\"done\":true}";

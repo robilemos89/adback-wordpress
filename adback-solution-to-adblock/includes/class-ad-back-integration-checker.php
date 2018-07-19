@@ -24,12 +24,13 @@ class Integration_Checker
         return get_option('adback_integration') === '1';
     }
 
-    public static function switchIntegration()
+    public static function liteIntegration()
     {
-        if (self::isFullIntegration()) {
-            update_option('adback_integration', '0');
-        } else {
-            update_option('adback_integration', '1');
-        }
+        update_option('adback_integration', '0');
+    }
+
+    public static function fullIntegration()
+    {
+        update_option('adback_integration', '1');
     }
 }

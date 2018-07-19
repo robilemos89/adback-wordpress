@@ -163,7 +163,8 @@ class Ad_Back
         $this->loader->addAction( 'wp_ajax_saveMessage', $plugin_admin, 'saveMessageCallback');
         $this->loader->addAction( 'wp_ajax_saveGoMessage', $plugin_admin, 'saveGoMessageCallback');
         $this->loader->addAction( 'wp_ajax_dismiss_adback_incentive', $plugin_admin, 'dismissAdbackIncentive');
-        $this->loader->addAction( 'wp_ajax_change_integration', $plugin_admin, 'changeIntegration');
+        $this->loader->addAction( 'wp_ajax_lite_integration', $plugin_admin, 'liteIntegration');
+        $this->loader->addAction( 'wp_ajax_full_integration', $plugin_admin, 'fullIntegration');
 
         // Always display notice unless user is connected
         $this->loader->addAction('admin_notices', $plugin_admin, 'addConfigNotice');

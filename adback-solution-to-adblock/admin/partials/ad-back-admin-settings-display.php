@@ -19,7 +19,9 @@
         <grid>
             <div col="5/6">
 
+                <?php if (Integration_Checker::isFullIntegration()) { ?>
                 <div id="ab-configuration-form"></div>
+                <?php } ?>
                 <section style="background-color:transparent;">
                     <h4 class="header-section"><?php esc_html_e('Get more statistics', 'adback-solution-to-adblock'); ?></h4>
                     <hr/>
@@ -36,12 +38,27 @@
                             <?php esc_html_e('Log out', 'adback-solution-to-adblock'); ?>
                         </button>
                     </div>
-                    <br>
+                </section>
+                </br>
+                <section style="background-color: transparent;">
+                    <h4 class="header-section"><?php esc_html_e('Change of solution', 'adback-solution-to-adblock'); ?></h4>
+                    <hr/>
                     <div class="section-content">
-                        <button class="ab-button ab-button-primary copy-png-btn" id="switch-integration">
-                            Switch plugin integration
+                        <?php esc_html_e('Your needs are growing or you want to change your solution:', 'adback-solution-to-adblock'); ?>
+                    </div>
+                    <?php if (Integration_Checker::isFullIntegration()) { ?>
+                    <div class="section-content">
+                        <button class="ab-button ab-button-primary" style="padding: 10px" id="switch-integration-lite">
+                            <?php esc_html_e('Switch to Quick monetization solution', 'adback-solution-to-adblock'); ?>
                         </button>
                     </div>
+                    <?php } else { ?>
+                    <div class="section-content">
+                        <button class="ab-button ab-button-primary" style="padding: 10px" id="switch-integration-full">
+                            <?php esc_html_e('Switch to Advanced solution', 'adback-solution-to-adblock'); ?>
+                        </button>
+                    </div>
+                    <?php } ?>
                 </section>
             </div>
             <div col="1/6">
@@ -75,9 +92,23 @@
             });
         });
 
-        $("#switch-integration").on('click', function () {
+        $("#switch-integration-lite").on('click', function () {
             var data = {
-                'action': 'change_integration'
+                'action': 'lite_integration'
+            };
+            $.post(ajaxurl, data, function (response) {
+                var obj = JSON.parse(response);
+                if (obj.done === true) {
+                    window.location.href = location.protocol + '//' + location.host + location.pathname + '?page=ab';
+                } else {
+                    vex.dialog.alert(trans_arr.oops + ' ' + trans_arr.error);
+                }
+            });
+        });
+
+        $("#switch-integration-full").on('click', function () {
+            var data = {
+                'action': 'full_integration'
             };
             $.post(ajaxurl, data, function (response) {
                 var obj = JSON.parse(response);

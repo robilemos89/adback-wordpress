@@ -81,6 +81,22 @@ SQL;
         return true;
     }
 
+    /**
+     * @return boolean
+     */
+    public function hasChooseIntegration()
+    {
+        return (get_option('adback_integration', null) !== null);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasntChooseIntegration()
+    {
+        return (get_option('adback_integration', null) === null);
+    }
+
     public function isConnected($token = null)
     {
         if ($this->connected !== null) {
