@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
-"POT-Creation-Date: 2018-07-19 18:24+0200\n"
+"POT-Creation-Date: 2018-07-20 10:46+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,126 +17,126 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: admin/js\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:427
+#: ad-back.php:36 admin/class-ad-back-admin.php:429
 msgid "Settings"
 msgstr "Paramètres"
 
-#: admin/class-ad-back-admin.php:112
+#: admin/class-ad-back-admin.php:113
 msgid "Bounce rate of adblocker users"
 msgstr "Taux de rebond des utilisateurs d'adblocker"
 
-#: admin/class-ad-back-admin.php:113
+#: admin/class-ad-back-admin.php:114
 msgid "Adblocker activation / deactivation"
 msgstr "Désactivation / Activation d'un bloqueur de publicité"
 
-#: admin/class-ad-back-admin.php:114
+#: admin/class-ad-back-admin.php:115
 msgid "Ad blocker percent"
 msgstr "Pages vues bloquées vs taux d'utilisateurs d'adblocker"
 
-#: admin/class-ad-back-admin.php:115
+#: admin/class-ad-back-admin.php:116
 msgid "Blocked page views"
 msgstr "Taux de pages vues avec un bloqueur de publicité"
 
-#: admin/class-ad-back-admin.php:116
+#: admin/class-ad-back-admin.php:117
 msgid "Browser"
 msgstr "Navigateurs des utilisateurs d'adblocker"
 
-#: admin/class-ad-back-admin.php:117
+#: admin/class-ad-back-admin.php:118
 msgid "OS"
 msgstr "Systèmes d’exploitation des utilisateurs d'adblocker"
 
-#: admin/class-ad-back-admin.php:118
+#: admin/class-ad-back-admin.php:119
 msgid "Percent adblock users"
 msgstr "% d'utilisateurs d’adblocker"
 
-#: admin/class-ad-back-admin.php:119
+#: admin/class-ad-back-admin.php:120
 msgid "Percent bounce adblock users"
 msgstr "Taux de rebond des utilisateurs d'adblocker"
 
-#: admin/class-ad-back-admin.php:120
+#: admin/class-ad-back-admin.php:121
 msgid "Percent bounce all users"
 msgstr "Taux de rebond global"
 
-#: admin/class-ad-back-admin.php:121
+#: admin/class-ad-back-admin.php:122
 msgid "Oops..."
 msgstr "Oops..."
 
-#: admin/class-ad-back-admin.php:122
+#: admin/class-ad-back-admin.php:123
 msgid "Invalid email or password"
 msgstr "Email ou mot de passe non valide"
 
-#: admin/class-ad-back-admin.php:123
+#: admin/class-ad-back-admin.php:124
 msgid "The key, email and domain fields should be filled"
 msgstr "La clé, l'email et le domaine doivent être remplis"
 
-#: admin/class-ad-back-admin.php:124
+#: admin/class-ad-back-admin.php:125
 msgid "The email and password fields should be filled"
 msgstr "L'email et le mot de passe doivent être remplis"
 
-#: admin/class-ad-back-admin.php:125
+#: admin/class-ad-back-admin.php:126
 msgid "There is an error in the registration: {0}"
 msgstr "Il y a une erreur dans l'enregistrement : {0}"
 
-#: admin/class-ad-back-admin.php:126
+#: admin/class-ad-back-admin.php:127
 msgid "Users having ad blocker"
 msgstr "Utilisateurs ayant activé un bloqueur de publicité"
 
-#: admin/class-ad-back-admin.php:127
+#: admin/class-ad-back-admin.php:128
 msgid "Users who have disabled an ad blocker"
 msgstr "Utilisateurs ayant désactivé un bloqueur de publicité"
 
-#: admin/class-ad-back-admin.php:128
+#: admin/class-ad-back-admin.php:129
 msgid "Percent page view with AdBlock"
 msgstr "% de pages vues avec un adblocker"
 
-#: admin/class-ad-back-admin.php:129
+#: admin/class-ad-back-admin.php:130
 msgid "Percent page view"
 msgstr "% de pages vues sans adblocker"
 
-#: admin/class-ad-back-admin.php:130
+#: admin/class-ad-back-admin.php:131
 msgid "days"
 msgstr "jours"
 
-#: admin/class-ad-back-admin.php:131
+#: admin/class-ad-back-admin.php:132
 msgid "Loading ..."
 msgstr "Chargement..."
 
-#: admin/class-ad-back-admin.php:132
+#: admin/class-ad-back-admin.php:133
 msgid "No Data"
 msgstr "Aucune donnée"
 
-#: admin/class-ad-back-admin.php:133
+#: admin/class-ad-back-admin.php:134
 msgid "Something went wrong"
 msgstr "Une erreur s’est produite"
 
-#: admin/class-ad-back-admin.php:192
+#: admin/class-ad-back-admin.php:194
 #, php-format
 msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr ""
 "Vous devez être identifié pour voir les statistiques. Pour vous identifier, "
 "rendez-vous à la <a href=\"%s\">page d'identification</a>"
 
-#: admin/class-ad-back-admin.php:421 admin/class-ad-back-admin.php:425
+#: admin/class-ad-back-admin.php:423 admin/class-ad-back-admin.php:427
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: admin/class-ad-back-admin.php:422
+#: admin/class-ad-back-admin.php:424
 msgid "Message"
 msgstr "Message"
 
-#: admin/class-ad-back-admin.php:423
+#: admin/class-ad-back-admin.php:425
 msgid "Placements"
 msgstr "Emplacements"
 
-#: admin/class-ad-back-admin.php:428
+#: admin/class-ad-back-admin.php:430
 msgid "Diagnostic"
 msgstr "Diagnostique"
 
-#: admin/class-ad-back-admin.php:526
+#: admin/class-ad-back-admin.php:528
 msgid "Activate my AdBack plugin"
 msgstr "Activer mon plugin AdBack"
 
-#: admin/class-ad-back-admin.php:530
+#: admin/class-ad-back-admin.php:532
 msgid "It's time to analyze your adblock users, set up your AdBack account!"
 msgstr ""
 "Il est temps d'analyser vos utilisateurs Adblock, configurez votre compte "
@@ -381,6 +381,43 @@ msgstr "Solution de monétisation rapide"
 #: admin/partials/ad-back-admin-settings-display.php:58
 msgid "Switch to Advanced solution"
 msgstr "Solution avancée"
+
+#: admin/partials/ad-back-admin-settings-display.php:97
+#: admin/partials/ad-back-admin-settings-display.php:122
+msgid "Caution!"
+msgstr "Attention !"
+
+#: admin/partials/ad-back-admin-settings-display.php:98
+msgid ""
+"If you change the option, all the solutions currently running on your site "
+"will be stopped (message, banners, ads…).    You will have access to you "
+"statistics only in the AdBack back office.\\n"
+msgstr ""
+"Si vous changez d’option, toutes les solutions mises en place jusqu’à "
+"présent sur votre site ne seront plus diffusées (message, bannières, "
+"publicités...).    Vous n’aurez plus accès à vos statistiques actuelles que "
+"sur le back office AdBack."
+
+#: admin/partials/ad-back-admin-settings-display.php:103
+#: admin/partials/ad-back-admin-settings-display.php:128
+msgid "Cancel"
+msgstr "Annuler"
+
+#: admin/partials/ad-back-admin-settings-display.php:104
+#: admin/partials/ad-back-admin-settings-display.php:129
+msgid "Continue"
+msgstr "Continuer"
+
+#: admin/partials/ad-back-admin-settings-display.php:123
+msgid ""
+"If you change the option, all the solutions currently running on your site "
+"will be stopped (message, banners, ads…).   You will have access to you "
+"statistics only in the AdBack back office.\\n"
+msgstr ""
+"Si vous changez d’option, toutes les solutions mises en place jusqu’à "
+"présent sur votre site ne seront plus diffusées (message, bannières, "
+"publicités...).    Vous n’aurez plus accès à vos statistiques actuelles que "
+"sur le back office AdBack."
 
 #: includes/class-ad-back-activator.php:166
 msgid "Registration error"

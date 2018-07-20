@@ -82,6 +82,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
         wp_enqueue_style('vex-css', plugin_dir_url(__FILE__) . 'css/vex.css', array(), $this->version, 'all');
         wp_enqueue_style('vex-theme-css', plugin_dir_url(__FILE__) . 'css/vex-theme-default.css', array(), $this->version, 'all');
+        wp_enqueue_style('sweetalert2-css', plugin_dir_url(__FILE__) . 'css/sweetalert2.min.css', array(), $this->version, 'all');
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/ab-admin.css', array(), $this->version, 'all');
     }
 
@@ -145,6 +146,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/ab-admin.js', array('jquery'), $this->version, true);
         wp_enqueue_script('html2canvas-js', plugin_dir_url(__FILE__) . 'js/html2canvas.min.js', array(), $this->version, true);
         wp_enqueue_script('canvas2image-js', plugin_dir_url(__FILE__) . 'js/canvas2image.js', array(), $this->version, true);
+        wp_enqueue_script('sweetalert2-js', plugin_dir_url(__FILE__) . 'js/sweetalert2.min.js', array(), $this->version, true);
         wp_localize_script($this->plugin_name, 'trans_arr', $translation_array);
     }
 

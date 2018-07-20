@@ -8,63 +8,52 @@ Stable tag: 2.11.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-With AdBack, analyze and monetize your adblock audience.
-* strong technology
-* 100% unblockable tool
-* detailed statistics
-* educational message
-* unblockable ads through our partners
-* direct campaigns unblocked
-* conversion pixels unblocked
+Monetize your website in 1 click and benefit from:
+
+* statistics about your adblock users
+* message display offering 2 choices to access your site
+* monetization of all your visits
+* unblockable technology
 * GDPR compliant solution
 
 == Description ==
 
-## What is AdBack?
+## WHAT IS IT?
 
-AdBack is a professional and unblockable solution that analyzes your Internet audience using adblockers. It collects, analyzes and alerts you about the evolution of this audience. It allows you to react, to inform and monetize this specific audience. If you want an estimation of the revenues you could earn with AdBack, [fill in the form](http://landing.adback.co/en/estimate-your-potential-earnings/)!
+This plugin lets you monetize the part of your audience unreachable with your classic monetization tools: the adblock users. This plugin offers a solution only for this target. Your normal ads will be shown to the rest of your audience.
 
-## For who?
+## HOW DOES IT WORK?
 
-AdBack is for every content publisher who wants to understand and monetize its adblock audience: media websites, regional magazines, bloggers, e-commerce websites who want to take an audit on their website, verify in real-time that adblocker users don’t impact the conversion rate and utilize tools to generate leads specifically on this audience.
+Automatically display a footer message offering your users the possibility to turn off their adblock or to click on an ad to access the website.
 
-## What data can I collect?
+In any case, you monetize your site thanks to the adblocker deactivation (ads on your website are displayed again) or with the click on the ad. Monetization and performance guaranteed!
 
-Find loads of statistics about the adblockers with AdBack and identify up to 5 adblocker users profiles.
+Access simple statistics:
 
-Find for exemple:
+* Revenues earned
+* Number of clicks on the ad
+* Number of message display
+* Number of blocked pageviews
 
-* The estimated lost revenue
-* The number of activations/deactivations
-* The number of adblockers users allowing the acceptable ads of Eyeo
-* The type of adblocker used
-* The number of blocked analytics (Google Analytics, AT Internet)
+## PRICING
 
-## What are the monetization solutions?
+The solution is free, without subscription or obligation. You’re gaining money every time a user clicks on the ad. NO FEE, ONLY BONUS!
 
-We propose 3 types of solutions. Need an audit? [Fill in the form](http://landing.adback.co/en/estimate-your-potential-earnings/) and we’ll tell you which solutions are the most adapted for you.
+## INSTALLATION
 
-### AdBack Direct
+Activate the plugin and let the magic begin. The configuration is automatic and activated instantly on your site.
+Available in English and French.
 
-Thanks to our encryption technology, you can display your premium and autopromotion campaigns to your adblocker users. It’s easy and fast with our DFP and Smart AdServer connectors.
+## WANT MORE?
 
-### AdBack Ads
-
-In connection with our partner networks, we provide you with native or contextual advertising flow. Display these native flows to fill your blocked ad placements or in addition to your existing placements.
-
-### AdBack Experience
-
-With AdBack, you can lock the access to your content to your adblocker users and display personalized messages depending on the different user profiles you’ll identify with our tool. Ask them to turn off their adblocker or propose to answer surveys, newsletter subscriptions, to watch a video ad to access the content, etc.
-
-You can personalize your messages with colors, logos, different themes and target the profile of your adblocker users depending on the geolocation, browser, visit duration, among many other targeting options.
+After the plugin activation, you will have to choose to continue with the quick and easy monetization solution or the advanced solution. We highly recommend to continue with the quick monetization solution unless you are a premium and advanced user.
+The advanced solution will give you more detailed statistics, advanced message configuration and access to other monetization solutions. To learn more about AdBack, [visit our website](https://landing.adback.co/en/) or [contact us](mailto:support@adback.co).
 
 == Screenshots ==
 
-1. Find statistics about your adblocker users directly in your WordPress interface. Here, you can discover the percentage of adblocker users on your website, the number of blocked page views, your estimated revenue loss…
-2. Activate and customize the message to display to your adblocker users. Pick a format, choose a theme, customize your graphism with your logo and your colors.
-3. Personalize the text you want to display, offer various alternative solutions and define the targeting and frequency of your message as well as scenarios.
-4. Display your customized message and propose alternative solutions to your users to recover up to 60% of your lost online ad revenue (video, deactivation…).
-5. Access your AdBack dashboard with all the detailed statistics of your website on https://www.adback.co/en/sites/dashboard
+1. Display a message to your adblock users to monetize every single visit.
+2. Benefit from simple statistics about the number of message display and your earned revenues.
+3. Access your AdBack dashboard with all the detailed statistics of your website on https://www.adback.co/en/sites/dashboard
 
 == Installation ==
 
