@@ -98,12 +98,12 @@
                 text: '<?php _e('If you change the option, all the solutions currently running on your site will be stopped (message, banners, ads…).    You will have access to you statistics only in the AdBack back office.\n', 'adback-solution-to-adblock') ?>',
                 type: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#54AFF6',
-                cancelButtonColor: '#949494',
-                confirmButtonText: '<?php esc_html_e('Cancel', 'adback-solution-to-adblock') ?>',
-                cancelButtonText: '<?php esc_html_e('Continue', 'adback-solution-to-adblock') ?>'
+                confirmButtonColor: '#949494',
+                cancelButtonColor: '#54AFF6',
+                confirmButtonText: '<?php esc_html_e('Continue', 'adback-solution-to-adblock') ?>',
+                cancelButtonText: '<?php esc_html_e('Cancel', 'adback-solution-to-adblock') ?>'
             }).then(function (result) {
-                if (!result.value) {
+                if (result.value) {
                     var data = {'action': 'lite_integration'};
                     $.post(ajaxurl, data, function (response) {
                         var obj = JSON.parse(response);
@@ -123,12 +123,12 @@
                 text: '<?php _e('If you change the option, all the solutions currently running on your site will be stopped (message, banners, ads…).   You will have access to you statistics only in the AdBack back office.\n', 'adback-solution-to-adblock') ?>',
                 type: 'warning',
                 showCancelButton: true,
-                confirmButtonColor: '#54AFF6',
-                cancelButtonColor: '#949494',
-                confirmButtonText: '<?php esc_html_e('Cancel', 'adback-solution-to-adblock') ?>',
-                cancelButtonText: '<?php esc_html_e('Continue', 'adback-solution-to-adblock') ?>'
+                confirmButtonColor: '#949494',
+                cancelButtonColor: '#54AFF6',
+                confirmButtonText: '<?php esc_html_e('Continue', 'adback-solution-to-adblock') ?>',
+                cancelButtonText: '<?php esc_html_e('Cancel', 'adback-solution-to-adblock') ?>'
             }).then(function (result) {
-                if (!result.value) {
+                if (result.value) {
                     var data = {'action': 'full_integration'};
                     $.post(ajaxurl, data, function (response) {
                         var obj = JSON.parse(response);
