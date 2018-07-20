@@ -18,11 +18,9 @@
 <div id="ab-login">
     <div class="ab-col-md-12">
         <div class="ab-step-left">
-            <img src="<?php echo plugin_dir_url(__FILE__) . '/images/success.svg' ?>" class="ab-check"><a style="color: #00b988;" class="padding-10"><?php esc_html_e('Account creation', 'adback-solution-to-adblock'); ?></a>
-            <br>
-            <img src="<?php echo plugin_dir_url(__FILE__) . '/images/check-gray.svg' ?>" class="ab-check"><a style="color: black;" class="padding-10"><?php esc_html_e('Choice of the solution', 'adback-solution-to-adblock'); ?></a>
-            <br>
-            <img src="<?php echo plugin_dir_url(__FILE__) . '/images/check-gray.svg' ?>" class="ab-check"><a style="color: gray" class="padding-10"><?php esc_html_e('Let\'s go!', 'adback-solution-to-adblock'); ?></a>
+            <a style="color: #00b988;" class="padding-10"> <img src="<?php echo plugin_dir_url(__FILE__) . '/images/success.svg' ?>" class="ab-check"><?php esc_html_e('Account creation', 'adback-solution-to-adblock'); ?></a>
+            <a style="color: black;" class="padding-10"><img src="<?php echo plugin_dir_url(__FILE__) . '/images/check-gray.svg' ?>" class="ab-check"><?php esc_html_e('Choice of the solution', 'adback-solution-to-adblock'); ?></a>
+            <a style="color: gray" class="padding-10"><img src="<?php echo plugin_dir_url(__FILE__) . '/images/check-gray.svg' ?>" class="ab-check"><?php esc_html_e('Let\'s go!', 'adback-solution-to-adblock'); ?></a>
         </div>
         <div class="ab-choose-box">
             <div class="ab-choose-sticky multi-line"><?php _e('Highly</br>recommended', 'adback-solution-to-adblock'); ?></div>

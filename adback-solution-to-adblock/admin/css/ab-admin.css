@@ -628,6 +628,12 @@ a.button.button-ab {
 }
 
 .ab-check {
-    width: 2%;
+    width: 21px;
     padding-left: 15px;
+    padding-right: 8px;
+    padding-top: 3px;
+    margin-bottom: -4px;
+}
+.ab-step-left {
+    display: grid;
 }
