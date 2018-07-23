@@ -48,6 +48,7 @@ function activate_ad_back($networkwide) {
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-activator.php';
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-updator.php';
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-get.php';
+    Ad_Back_Updator::onUpdateFromOldVersion();
     Ad_Back_Activator::activate($networkwide);
     Ad_Back_Updator::update();
 

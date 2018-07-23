@@ -53,6 +53,22 @@ class Ad_Back_Updator
     }
 
     /**
+     * On update from version 2
+     *
+     * @since    1.0.0
+     */
+    public static function onUpdateFromOldVersion()
+    {
+        $currentVersion = (int)get_option("adback_solution_to_adblock_db_version");
+
+        if (2 === $currentVersion) {
+            $currentVersion = 3;
+            update_option('adback_integration', '1');
+            update_option("adback_solution_to_adblock_db_version", $currentVersion);
+        }
+    }
+
+    /**
      * Update full tag and endpoint database
      */
     public static function createFullTagAndEndPointDatabase()

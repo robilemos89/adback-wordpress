@@ -27,10 +27,12 @@ class Integration_Checker
     public static function liteIntegration()
     {
         update_option('adback_integration', '0');
+        update_option("adback_solution_to_adblock_db_version", '3');
     }
 
     public static function fullIntegration()
     {
         update_option('adback_integration', '1');
+        update_option("adback_solution_to_adblock_db_version", '3');
     }
 }
