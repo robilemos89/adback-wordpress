@@ -79,6 +79,7 @@ function adback_admin_notices() {
 
 function adback_plugins_loaded() {
     require_once plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-updator.php';
+    Ad_Back_Updator::onUpdateFromOldVersion();
     Ad_Back_Updator::update();
 }
 
