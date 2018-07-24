@@ -24,7 +24,7 @@
         </div>
         <div class="ab-choose-box">
             <div class="ab-choose-sticky multi-line"><?php _e('Highly</br>recommended', 'adback-solution-to-adblock'); ?></div>
-            <h2 class="ab-choose-h"><?php esc_html_e('QUICK AND EASY MONETISATION', 'adback-solution-to-adblock'); ?></h2>
+            <h2 class="ab-choose-h"><?php esc_html_e('ONE CLICK ADBLOCK MONETIZATION', 'adback-solution-to-adblock'); ?></h2>
             <h3 class="ab-choose-h"><?php esc_html_e('Only solution for websites with less than 1.5 million monthly pageviews', 'adback-solution-to-adblock'); ?></h3>
             <p class="ab-choose-text"><?php esc_html_e('Monetize instantly your adblock audience by displaying a message offering 2 possibilities to
                         access your content: disabling the adblocker or clicking on an ad. You win in every case!'); ?></p>

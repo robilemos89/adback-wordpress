@@ -1,5 +1,9 @@
 <div class="ab-top">
+    <?php if (Integration_Checker::isFullIntegration()) { ?>
     <p class="logo">AdBack solution to Adblock</p>
+    <?php } else { ?>
+    <p class="logo">One Click Adblock Monetization</p>
+    <?php } ?>
     <span class="slogan"><?PHP _e('by', 'adback-solution-to-adblock');?> <a
                 href="https://www.adback.co">AdBack</a></span>
     <div class="ab-actions" style="padding-top: 10px;">
