@@ -18,7 +18,7 @@
     window.onload = function() {
         if(typeof adbackjs === 'object') {
             adbackjs.init({
-                token: '<?php echo $this->getToken()->access_token; ?>',
+                token: '<?php echo Ad_Back_Generic::getToken()->access_token; ?>',
                 url: 'https://<?php echo $this->getDomain(); ?>/api/',
                 language: '<?php echo str_replace('_', '-', get_locale()); ?>',
                 version: 2

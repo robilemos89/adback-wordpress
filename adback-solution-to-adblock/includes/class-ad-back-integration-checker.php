@@ -15,24 +15,68 @@
 class Integration_Checker
 {
     /**
-     * Check integration & return 0 if lite 1 if full
+     * Check integration & return true if full
      *
-     * @since    2.7.0
+     * @since    3.0.0
      */
     public static function isFullIntegration()
     {
         return get_option('adback_integration') === '1';
     }
 
+    /**
+     * Check integration & return true if Lite
+     *
+     * @since    3.0.0
+     */
+    public static function isLiteIntegration()
+    {
+        return get_option('adback_integration') === '0';
+    }
+
+    /**
+     * Set lite integration
+     *
+     * @since    3.0.0
+     */
     public static function liteIntegration()
     {
         update_option('adback_integration', '0');
-        update_option("adback_solution_to_adblock_db_version", '3');
+        self::notifyLiteInstallation(Ad_Back_Generic::getToken()->access_token);
     }
 
+    /**
+     * Set full integration
+     *
+     * @since    3.0.0
+     */
     public static function fullIntegration()
     {
         update_option('adback_integration', '1');
-        update_option("adback_solution_to_adblock_db_version", '3');
+        self::notifyFullInstallation(Ad_Back_Generic::getToken()->access_token);
+    }
+
+    /**
+     * notify .co full integration
+     *
+     * @since    3.0.0
+     * @param    $accessToken
+     */
+    private static function notifyFullInstallation($accessToken)
+    {
+        $notifyUrl = 'https://www.adback.co/api/plugin-activate/wordpress?access_token=' . $accessToken;
+        Ad_Back_Get::execute($notifyUrl);
+    }
+
+    /**
+     * notify .co full integration
+     *
+     * @since    3.0.0
+     * @param    $accessToken
+     */
+    private static function notifyLiteInstallation($accessToken)
+    {
+        $notifyUrl = 'https://www.adback.co/api/plugin-activate/wordpressLite?access_token=' . $accessToken;
+        Ad_Back_Get::execute($notifyUrl);
     }
 }

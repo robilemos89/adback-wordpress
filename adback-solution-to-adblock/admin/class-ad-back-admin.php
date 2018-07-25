@@ -204,7 +204,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
     private function preDisplay($page)
     {
         if (isset($_GET['access_token'])) {
-            $this->saveToken(array(
+            self::saveToken(array(
                 'access_token' => $_GET['access_token'],
                 'refresh_token' => '',
             ));
@@ -222,7 +222,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
                 $adback = new Ad_Back_Public($this->plugin_name, $this->version);
                 $adback->enqueueScripts();
-                $token = $this->getToken();
+                $token = self::getToken();
                 $script = $this->askScripts();
                 $table_name_end_point = $wpdb->prefix . 'adback_end_point';
                 $endPoints = $wpdb->get_row("SELECT * FROM " . $table_name_end_point . " WHERE id = " . get_current_blog_id());

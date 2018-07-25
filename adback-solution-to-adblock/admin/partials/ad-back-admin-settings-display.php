@@ -18,10 +18,29 @@
     <div id="ab-full-app">
         <grid>
             <div col="5/6">
-
                 <?php if (Integration_Checker::isFullIntegration()) { ?>
                 <div id="ab-configuration-form"></div>
                 <?php } ?>
+                <section style="background-color: transparent;">
+                    <h4 class="header-section"><?php esc_html_e('Change of solution', 'adback-solution-to-adblock'); ?></h4>
+                    <hr/>
+                    <div class="section-content">
+                        <?php esc_html_e('Your needs are growing or you want to change your solution:', 'adback-solution-to-adblock'); ?>
+                    </div>
+                    <?php if (Integration_Checker::isFullIntegration()) { ?>
+                        <div class="section-content">
+                            <button class="ab-button ab-button-primary" style="padding: 10px" id="switch-integration-lite">
+                                <?php esc_html_e('Switch to Quick monetization solution', 'adback-solution-to-adblock'); ?>
+                            </button>
+                        </div>
+                    <?php } else { ?>
+                        <div class="section-content">
+                            <button class="ab-button ab-button-primary" style="padding: 10px" id="switch-integration-full">
+                                <?php esc_html_e('Switch to Advanced solution', 'adback-solution-to-adblock'); ?>
+                            </button>
+                        </div>
+                    <?php } ?>
+                </section>
                 <section style="background-color:transparent;">
                     <h4 class="header-section"><?php esc_html_e('Get more statistics', 'adback-solution-to-adblock'); ?></h4>
                     <hr/>
@@ -40,26 +59,6 @@
                     </div>
                 </section>
                 </br>
-                <section style="background-color: transparent;">
-                    <h4 class="header-section"><?php esc_html_e('Change of solution', 'adback-solution-to-adblock'); ?></h4>
-                    <hr/>
-                    <div class="section-content">
-                        <?php esc_html_e('Your needs are growing or you want to change your solution:', 'adback-solution-to-adblock'); ?>
-                    </div>
-                    <?php if (Integration_Checker::isFullIntegration()) { ?>
-                    <div class="section-content">
-                        <button class="ab-button ab-button-primary" style="padding: 10px" id="switch-integration-lite">
-                            <?php esc_html_e('Switch to Quick monetization solution', 'adback-solution-to-adblock'); ?>
-                        </button>
-                    </div>
-                    <?php } else { ?>
-                    <div class="section-content">
-                        <button class="ab-button ab-button-primary" style="padding: 10px" id="switch-integration-full">
-                            <?php esc_html_e('Switch to Advanced solution', 'adback-solution-to-adblock'); ?>
-                        </button>
-                    </div>
-                    <?php } ?>
-                </section>
             </div>
             <div col="1/6">
                 <div id="adb-sidebar-standalone"
@@ -75,7 +74,7 @@
     window.onload = function () {
         if (typeof adbackjs === 'object') {
             adbackjs.init({
-                token: '<?php echo $this->getToken()->access_token; ?>',
+                token: '<?php echo Ad_Back_Generic::getToken()->access_token; ?>',
                 url: 'https://<?php echo $this->getDomain(); ?>/api/',
                 language: '<?php echo str_replace('_', '-', get_locale()); ?>',
                 version: 2

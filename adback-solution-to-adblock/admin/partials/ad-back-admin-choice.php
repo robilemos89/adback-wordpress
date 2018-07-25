@@ -28,7 +28,6 @@
             <h3 class="ab-choose-h"><?php esc_html_e('Only solution for websites with less than 1.5 million monthly pageviews', 'adback-solution-to-adblock'); ?></h3>
             <p class="ab-choose-text"><?php esc_html_e('Monetize instantly your adblock audience by displaying a message offering 2 possibilities to
                         access your content: disabling the adblocker or clicking on an ad. You win in every case!'); ?></p>
-            <br/>
             <button id="ab-choose-light"><?php esc_html_e('CONTINUE', 'adback-solution-to-adblock'); ?></button>
         </div>
         <br/>

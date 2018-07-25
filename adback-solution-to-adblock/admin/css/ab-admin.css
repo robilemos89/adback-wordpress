@@ -36,9 +36,8 @@
     width: 50%;
     border-radius: 11px;
     background: white;
-    min-height: 320px;
     margin: 14px auto auto;
-    padding: 42px 23px 23px;
+    padding: 43px 23px 43px;
     position: relative;
     text-align: center;
 }
@@ -582,6 +581,7 @@ a.button.button-ab {
     border: 0px #00c688;
     padding: 25px 35px 23px !important;
     cursor: pointer;
+    margin-top: 10px !important;
 }
 
 #ab-choose-custom {

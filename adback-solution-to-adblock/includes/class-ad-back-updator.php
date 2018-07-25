@@ -176,6 +176,7 @@ class Ad_Back_Updator
      */
     public static function getTypes()
     {
+        $types = [];
         if (Integration_Checker::isFullIntegration()) {
             $types = [
                 'analytics',
@@ -185,7 +186,9 @@ class Ad_Back_Updator
                 'catcher',
                 'iab_banner',
             ];
-        } else {
+        }
+
+        if (Integration_Checker::isLiteIntegration()) {
             $types = [
                 'analytics',
                 'iab_banner',

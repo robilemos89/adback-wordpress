@@ -87,9 +87,11 @@
                     <a href="#" id="ab-login-adback" style="width:100%;margin-top: 30px;"><?php esc_html_e('Log in', 'adback-solution-to-adblock'); ?></a>
                 </center>
                 <br/>
+                <?php if (get_option('adback_registration_error', false) !== 'adback_oauth.registration.existing_user') { ?>
                 <center>
                     <a href="/wp-admin/plugins.php" class="ab-refuse-adback"><?php esc_html_e('Refuse (you won’t be able to use AdBack solutions)', 'adback-solution-to-adblock'); ?></a>
                 </center>
+                <?php } ?>
             </div>
     </div>
 </div>
