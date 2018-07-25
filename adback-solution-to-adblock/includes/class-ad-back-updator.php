@@ -36,7 +36,7 @@ class Ad_Back_Updator
         $currentVersion = (int)get_option("adback_solution_to_adblock_db_version");
 
         if (null === $currentVersion || $currentVersion < 2) {
-            $currentVersion = 2;
+            $currentVersion = 3;
             if (is_multisite()) {
                 $sites = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
 
