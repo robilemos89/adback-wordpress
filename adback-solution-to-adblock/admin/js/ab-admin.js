@@ -48,6 +48,23 @@
         ;
     }
 
+    function autoRegisterAdback(event) {
+        var data = {
+            'action': 'ab_register',
+            'email': $(event.target).data('email'),
+            'site-url': $(event.target).data('site-url')
+        };
+
+        $.post(ajaxurl, data, function (response) {
+            var obj = JSON.parse(response);
+            if (obj.done === true) {
+                window.location.reload();
+            } else {
+                vex.dialog.alert(trans_arr.oops + ' ' + trans_arr.error);
+            }
+        });
+    }
+
     function saveSlug() {
         if ($("#ab-select-slug-field").val() == "") return;
 
@@ -136,7 +153,8 @@
 
         if ($("#ab-login").length > 0) {
             $("#ab-login-adback").on('click', loginAdback);
-            $("#ab-register-adback").on('click', registerAdback);
+            $("#ab-register-adback").on('click', autoRegisterAdback);
+            $("#ab-force-register-adback").on('click', registerAdback);
 
 
             $("#ab-username,#ab-password").on('keyup', function (e) {

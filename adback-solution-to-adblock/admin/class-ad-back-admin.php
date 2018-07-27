@@ -340,7 +340,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
             add_submenu_page('ab', 'AdBack Message', __('Message', 'adback-solution-to-adblock'), 'manage_options', 'ab-message', array($this, 'displayPluginMessagePage'));
             add_submenu_page('ab', 'AdBack Placements', __('Placements', 'adback-solution-to-adblock'), 'manage_options', 'ab-placements', array($this, 'displayPluginPlacementsPage'));
         } else {
-            add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', '\'adback-solution-to-adblock'), 'manage_options', 'ab', array($this, 'displayPluginStatsLitePage'));
+            add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'adback-solution-to-adblock'), 'manage_options', 'ab', array($this, 'displayPluginStatsLitePage'));
         }
         add_submenu_page('ab', 'AdBack Settings', __('Settings', 'adback-solution-to-adblock'), 'manage_options', 'ab-settings', array($this, 'displayPluginSettingsPage'));
         add_submenu_page('ab', 'AdBack Diagnostic', __('Diagnostic', 'adback-solution-to-adblock'), 'manage_options', 'ab-diagnostic', array($this, 'displayPluginDiagnosticPage'));
@@ -429,13 +429,79 @@ class Ad_Back_Admin extends Ad_Back_Generic
         wp_die(); // this is required to terminate immediately and return a proper response
     }
 
+    public function registerCallback()
+    {
+        global $wpdb; // this is how you get access to the database
+
+
+        $blogId = get_current_blog_id();
+        $table_name_token = $wpdb->prefix . 'adback_token';
+        $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = " . $blogId);
+        $accessToken = '';
+
+        if (null === $savedToken || '' === $savedToken->access_token) {
+            $fields = array(
+                'email' => $_POST['email'] ?: get_bloginfo('admin_email'),
+                'website' => $_POST['site-url'] ?: get_site_url($blogId),
+            );
+
+            $locale = explode("_", get_locale());
+            if (isset($locale[0]) && in_array($locale[0], array('en', 'fr'))) {
+                $locale = $locale[0];
+            } else {
+                $locale = 'en';
+            }
+
+            $response = Ad_Back_Post::execute('https://www.adback.co/tokenoauth/register/' . $locale, $fields);
+            $data = json_decode($response, true);
+            $accessToken = '';
+            if (array_key_exists('access_token', $data)) {
+                $accessToken = $data['access_token'];
+            }
+            $refreshToken = '';
+            if (array_key_exists('refresh_token', $data)) {
+                $refreshToken = $data['refresh_token'];
+            }
+
+            $sql = <<<SQL
+INSERT INTO $table_name_token
+  (id,access_token,refresh_token) values (%d,%s,%s)
+  ON DUPLICATE KEY UPDATE access_token = %s, refresh_token = %s;
+SQL;
+            $sql = $wpdb->prepare(
+                $sql,
+                $blogId,
+                $accessToken,
+                $refreshToken,
+                $accessToken,
+                $refreshToken
+            );
+            $wpdb->query($sql);
+
+            $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = " . $blogId);
+        }
+        if ('' === $accessToken && '' === $savedToken->access_token) {
+            $notices = get_option('adback_deferred_admin_notices', array());
+            $notices[] = sprintf(__('Registration error', 'adback-solution-to-adblock'), get_admin_url($blogId, 'admin.php?page=ab-settings'));
+            update_option('adback_deferred_admin_notices', $notices);
+
+            $errorMsg = isset($data['error']['message']) ? $data['error']['message'] : 'error';
+            update_option('adback_registration_error', $errorMsg);
+        } else {
+            delete_option('adback_registration_error');
+        }
+
+        echo "{\"done\":true}";
+        wp_die(); // this is required to terminate immediately and return a proper response
+    }
+
     public function addConfigNotice()
     {
         if (current_user_can('manage_options')) {
 
             wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/ab-admin.css', array(), $this->version, 'all');
 
-            if (!$this->isConnected()) {
+            if (!$this->isConnected() && !in_array($_REQUEST['page'], array('ab', 'ab-placements', 'ab-message', 'ab-settings', 'ab-diagnostic'))) {
                 echo '<div class="updated" style="padding: 0; margin: 0; border: none; background: none;">
 		                <div class="adback-incentive">
 		                <form name="adback-incentive" action="' . esc_url(get_admin_url(get_current_blog_id(), 'admin.php?page=ab-settings')) . '" method="POST">

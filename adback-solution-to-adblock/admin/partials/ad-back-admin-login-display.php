@@ -73,7 +73,11 @@
                 <center>
                     <button
                             class="ab-button ab-button-primary"
+                        <?php if (get_option('adback_registration_error', false) === false) { ?>
                             id="ab-register-adback"
+                        <?php } else { ?>
+                            id="ab-force-register-adback"
+                        <?php } ?>
                             style="margin-top: 30px;"
                             data-site-url="<?php echo get_site_url(get_current_blog_id()) ?>"
                             data-email="<?php echo get_bloginfo('admin_email') ?>"
