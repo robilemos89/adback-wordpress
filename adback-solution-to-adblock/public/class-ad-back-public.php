@@ -75,29 +75,25 @@ class Ad_Back_Public extends Ad_Back_Generic
          * class.
          */
 
-        if (is_plugin_active('one-click-adblock-monetisation/ad-back.php')) {
-            return;
-        }
-
         $elements = $this->getMyInfo();
         $types = Ad_Back_Updator::getTypes();
 
         if (Integration_Checker::isLiteIntegration()) {
-            $title = __('To access the website', 'one-click-adblock-monetisation');
-            $deactivate = __('Deactivate your adblock<br/>then reload the page.', 'one-click-adblock-monetisation');
-            $click = __('Or click on the banner<br/>nearby', 'one-click-adblock-monetisation');
-            $close = __('Close', 'one-click-adblock-monetisation');
-            $why_title = __('Why do I see this message ?', 'one-click-adblock-monetisation');
-            $why_description = __('Your browser blocks the ads on this website. To discover how to access it, find the help down here.', 'one-click-adblock-monetisation');
-            $why_link = __('Access help page', 'one-click-adblock-monetisation');
-            $issue_title = __('An issue ?', 'one-click-adblock-monetisation');
-            $issue_description = __('If you have clicked on the banner or deactivate your adblock and you still see this message, report it to us below.', 'one-click-adblock-monetisation');
-            $issue_link = __('Report a bug', 'one-click-adblock-monetisation');
-            $issue_test = __('Verification in progress', 'one-click-adblock-monetisation');
-            $issue_thank_you = __('Thank you for your help', 'one-click-adblock-monetisation');
-            $who_title = __('Who are we ?', 'one-click-adblock-monetisation');
-            $who_description = __('Thanks to AdBack, you can monetize your adblocked audience by displaying users friendly banners.', 'one-click-adblock-monetisation');
-            $who_link = __('Discover AdBack', 'one-click-adblock-monetisation');
+            $title = __('To access the website', 'adback-solution-to-adblock');
+            $deactivate = __('Deactivate your adblock<br/>then reload the page.', 'adback-solution-to-adblock');
+            $click = __('Or click on the banner<br/>nearby', 'adback-solution-to-adblock');
+            $close = __('Close', 'adback-solution-to-adblock');
+            $why_title = __('Why do I see this message?', 'adback-solution-to-adblock');
+            $why_description = __('Your browser blocks the ads on this website. To discover how to access it, find the help down here.', 'adback-solution-to-adblock');
+            $why_link = __('Access help page', 'adback-solution-to-adblock');
+            $issue_title = __('An issue?', 'adback-solution-to-adblock');
+            $issue_description = __('If you have clicked on the banner or deactivate your adblock and you still see this message, report it to us below.', 'adback-solution-to-adblock');
+            $issue_link = __('Report a bug', 'adback-solution-to-adblock');
+            $issue_test = __('Verification in progress', 'adback-solution-to-adblock');
+            $issue_thank_you = __('Thank you for your help', 'adback-solution-to-adblock');
+            $who_title = __('Who are we?', 'adback-solution-to-adblock');
+            $who_description = __('Thanks to AdBack, you can monetize your adblocked audience by displaying users friendly banners.', 'adback-solution-to-adblock');
+            $who_link = __('Discover AdBack', 'adback-solution-to-adblock');
 
             echo <<<JS
         <script type='text/javascript'>

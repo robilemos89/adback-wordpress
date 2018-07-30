@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
-"POT-Creation-Date: 2018-07-20 10:46+0200\n"
+"POT-Creation-Date: 2018-07-30 10:42+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: admin/js\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:429
+#: ad-back.php:36 admin/class-ad-back-admin.php:345
 msgid "Settings"
 msgstr "Paramètres"
 
@@ -116,27 +116,34 @@ msgstr ""
 "Vous devez être identifié pour voir les statistiques. Pour vous identifier, "
 "rendez-vous à la <a href=\"%s\">page d'identification</a>"
 
-#: admin/class-ad-back-admin.php:423 admin/class-ad-back-admin.php:427
+#: admin/class-ad-back-admin.php:339 admin/class-ad-back-admin.php:343
 msgid "Statistics"
 msgstr "Statistiques"
 
-#: admin/class-ad-back-admin.php:424
+#: admin/class-ad-back-admin.php:340
 msgid "Message"
 msgstr "Message"
 
-#: admin/class-ad-back-admin.php:425
+#: admin/class-ad-back-admin.php:341
 msgid "Placements"
 msgstr "Emplacements"
 
-#: admin/class-ad-back-admin.php:430
+#: admin/class-ad-back-admin.php:346
 msgid "Diagnostic"
 msgstr "Diagnostique"
 
-#: admin/class-ad-back-admin.php:528
+#: admin/class-ad-back-admin.php:485
+msgid "Registration error"
+msgstr ""
+"Une erreur est survenue lors de l'activation du plugin AdBack. Veuillez vous "
+"rendre sur la page d'<a href='%s'>administration</a> pour compléter votre "
+"activation"
+
+#: admin/class-ad-back-admin.php:510
 msgid "Activate my AdBack plugin"
 msgstr "Activer mon plugin AdBack"
 
-#: admin/class-ad-back-admin.php:532
+#: admin/class-ad-back-admin.php:514
 msgid "It's time to analyze your adblock users, set up your AdBack account!"
 msgstr ""
 "Il est temps d'analyser vos utilisateurs Adblock, configurez votre compte "
@@ -151,55 +158,53 @@ msgstr "AdBack"
 msgid "Account creation"
 msgstr "Création du compte"
 
-#: admin/partials/ad-back-admin-choice.php:23
+#: admin/partials/ad-back-admin-choice.php:22
 msgid "Choice of the solution"
 msgstr "Choix de la solution"
 
-#: admin/partials/ad-back-admin-choice.php:25
+#: admin/partials/ad-back-admin-choice.php:23
 msgid "Let's go!"
 msgstr "Let's go!"
 
-#: admin/partials/ad-back-admin-choice.php:28
+#: admin/partials/ad-back-admin-choice.php:26
 msgid "Highly</br>recommended"
 msgstr "Highly</br>recommended"
 
-#: admin/partials/ad-back-admin-choice.php:29
-msgid "QUICK AND EASY MONETISATION"
-msgstr "MONÉTISATION RAPIDE ET FACILE"
+#: admin/partials/ad-back-admin-choice.php:27
+msgid "ONE CLICK ADBLOCK MONETIZATION"
+msgstr ""
 
-#: admin/partials/ad-back-admin-choice.php:30
+#: admin/partials/ad-back-admin-choice.php:28
 msgid "Only solution for websites with less than 1.5 million monthly pageviews"
 msgstr ""
 "Unique solution pour les sites de moins d’1,5 million de pages vues "
 "mensuelles"
 
-#: admin/partials/ad-back-admin-choice.php:31
+#: admin/partials/ad-back-admin-choice.php:29
 msgid ""
 "Monetize instantly your adblock audience by displaying a message offering 2 "
-"possibilities to\n"
-"                        access your content: disabling the adblocker or "
-"clicking on an ad. You win in every case!"
+"possibilities to access your content: disabling the adblocker or clicking on "
+"an ad. You win in every case!"
 msgstr ""
 "Monétisez instantanément votre audience adblock en affichant un message "
-"offrant 2\n"
-"\t\t\t possibilités d’accès à votre contenu :  désactiver adblock ou cliquer "
-"sur une pub. Vous êtes gagnant dans tous les cas ! "
+"offrant 2 possibilités d’accès à votre contenu :  désactiver adblock ou "
+"cliquer sur une pub. Vous êtes gagnant dans tous les cas !"
 
-#: admin/partials/ad-back-admin-choice.php:34
+#: admin/partials/ad-back-admin-choice.php:30
 msgid "CONTINUE"
 msgstr "CONTINUER"
 
-#: admin/partials/ad-back-admin-choice.php:38
+#: admin/partials/ad-back-admin-choice.php:34
 msgid "or continue with the advanced mode"
 msgstr "ou continuer avec le mode avancé"
 
-#: admin/partials/ad-back-admin-choice.php:39
+#: admin/partials/ad-back-admin-choice.php:35
 msgid ""
 "Caution: only for premium websites and highly advanced users. Needs some "
 "technical integration."
 msgstr ""
 "Attention : uniquement pour les sites premium et les utilisateurs très "
-"avancés.Requiert des intégrations techniques."
+"avancés. Requiert des intégrations techniques."
 
 #: admin/partials/ad-back-admin-diagnostic.php:17
 msgid "AdBack : The stats of your AdBlock audience"
@@ -223,15 +228,15 @@ msgid "No data available, please <a href=\"%s\">refresh domain</a>"
 msgstr ""
 "Pas de données disponible, veuillez <a href=\"%s\">rafraichir les domains</a>"
 
-#: admin/partials/ad-back-admin-header.php:3
+#: admin/partials/ad-back-admin-header.php:7
 msgid "by"
 msgstr "par"
 
-#: admin/partials/ad-back-admin-header.php:8
+#: admin/partials/ad-back-admin-header.php:12
 msgid "Tweet about it"
 msgstr "Écrire un tweet"
 
-#: admin/partials/ad-back-admin-header.php:11
+#: admin/partials/ad-back-admin-header.php:15
 msgid "Leave a review"
 msgstr "Noter le plugin"
 
@@ -296,14 +301,13 @@ msgstr "Vous acceptez les conditions générales d’utilisation d’AdBack"
 #: admin/partials/ad-back-admin-login-display.php:64
 msgid ""
 "The application will collect automatically the name of your website and the "
-"associated email address.<br>&ensp; That address will be used to give you "
-"the information related to your account and to the AdBack news and products"
+"associated email address. That address will be used to give you the "
+"information related to your account and to the AdBack news and products"
 msgstr ""
-"L’application collectera automatiquement le nom de votre site et l’adresse "
-"mail associée à votre compte WordPress. <br>&ensp; Cette adresse sera "
-"utilisée pour vous communiquer les informations relatives à votre compte "
-"créé à l’activation et toute information relative au produit et nouveautés "
-"AdBack"
+"l’application collectera automatiquement le nom de votre site et l’adresse "
+"mail associée à votre compte WordPress. Cette adresse sera utilisée pour "
+"vous communiquer les informations relatives à votre compte créé à "
+"l’activation et toute information relative au produit et nouveautés AdBack."
 
 #: admin/partials/ad-back-admin-login-display.php:45
 #: admin/partials/ad-back-admin-login-display.php:65
@@ -330,15 +334,15 @@ msgstr ""
 "<a href=\"https://landing.adback.co/politique-de-confidentialite/"
 "\">Politique de confidentialité</a>"
 
-#: admin/partials/ad-back-admin-login-display.php:82
+#: admin/partials/ad-back-admin-login-display.php:86
 msgid "Create my AdBack account"
 msgstr "Créer mon compte AdBack"
 
-#: admin/partials/ad-back-admin-login-display.php:87
+#: admin/partials/ad-back-admin-login-display.php:91
 msgid "Log in"
 msgstr "Connexion"
 
-#: admin/partials/ad-back-admin-login-display.php:91
+#: admin/partials/ad-back-admin-login-display.php:96
 msgid "Refuse (you won’t be able to use AdBack solutions)"
 msgstr "Refuser (vous ne pourrez pas utiliser la solution AdBack)"
 
@@ -350,44 +354,44 @@ msgstr "Vérification des identifiants…"
 msgid "Refresh domain..."
 msgstr "Mise à jour des domains ..."
 
-#: admin/partials/ad-back-admin-settings-display.php:26
-msgid "Get more statistics"
-msgstr "Plus de statistiques"
-
-#: admin/partials/ad-back-admin-settings-display.php:30
-msgid "Redirect me to my AdBack dashboard"
-msgstr "Redirigez-moi vers mon dashboard AdBack"
-
-#: admin/partials/ad-back-admin-settings-display.php:34
-msgid "Adback Account"
-msgstr "Compte Adback"
-
-#: admin/partials/ad-back-admin-settings-display.php:38
-msgid "Log out"
-msgstr "Déconnexion"
-
-#: admin/partials/ad-back-admin-settings-display.php:44
+#: admin/partials/ad-back-admin-settings-display.php:25
 msgid "Change of solution"
 msgstr "Changement de solution"
 
-#: admin/partials/ad-back-admin-settings-display.php:47
+#: admin/partials/ad-back-admin-settings-display.php:28
 msgid "Your needs are growing or you want to change your solution:"
 msgstr "Vos besoins évoluent ou vous souhaitez changer de solution :"
 
-#: admin/partials/ad-back-admin-settings-display.php:52
+#: admin/partials/ad-back-admin-settings-display.php:33
 msgid "Switch to Quick monetization solution"
 msgstr "Solution de monétisation rapide"
 
-#: admin/partials/ad-back-admin-settings-display.php:58
+#: admin/partials/ad-back-admin-settings-display.php:39
 msgid "Switch to Advanced solution"
 msgstr "Solution avancée"
 
-#: admin/partials/ad-back-admin-settings-display.php:97
-#: admin/partials/ad-back-admin-settings-display.php:122
+#: admin/partials/ad-back-admin-settings-display.php:45
+msgid "Get more statistics"
+msgstr "Plus de statistiques"
+
+#: admin/partials/ad-back-admin-settings-display.php:49
+msgid "Redirect me to my AdBack dashboard"
+msgstr "Redirigez-moi vers mon dashboard AdBack"
+
+#: admin/partials/ad-back-admin-settings-display.php:53
+msgid "Adback Account"
+msgstr "Compte Adback"
+
+#: admin/partials/ad-back-admin-settings-display.php:57
+msgid "Log out"
+msgstr "Déconnexion"
+
+#: admin/partials/ad-back-admin-settings-display.php:96
+#: admin/partials/ad-back-admin-settings-display.php:121
 msgid "Caution!"
 msgstr "Attention !"
 
-#: admin/partials/ad-back-admin-settings-display.php:98
+#: admin/partials/ad-back-admin-settings-display.php:97
 msgid ""
 "If you change the option, all the solutions currently running on your site "
 "will be stopped (message, banners, ads…).    You will have access to you "
@@ -398,17 +402,17 @@ msgstr ""
 "publicités...).    Vous n’aurez plus accès à vos statistiques actuelles que "
 "sur le back office AdBack."
 
+#: admin/partials/ad-back-admin-settings-display.php:102
+#: admin/partials/ad-back-admin-settings-display.php:127
+msgid "Continue"
+msgstr "Continuer"
+
 #: admin/partials/ad-back-admin-settings-display.php:103
 #: admin/partials/ad-back-admin-settings-display.php:128
 msgid "Cancel"
 msgstr "Annuler"
 
-#: admin/partials/ad-back-admin-settings-display.php:104
-#: admin/partials/ad-back-admin-settings-display.php:129
-msgid "Continue"
-msgstr "Continuer"
-
-#: admin/partials/ad-back-admin-settings-display.php:123
+#: admin/partials/ad-back-admin-settings-display.php:122
 msgid ""
 "If you change the option, all the solutions currently running on your site "
 "will be stopped (message, banners, ads…).   You will have access to you "
@@ -418,13 +422,6 @@ msgstr ""
 "présent sur votre site ne seront plus diffusées (message, bannières, "
 "publicités...).    Vous n’aurez plus accès à vos statistiques actuelles que "
 "sur le back office AdBack."
-
-#: includes/class-ad-back-activator.php:166
-msgid "Registration error"
-msgstr ""
-"Une erreur est survenue lors de l'activation du plugin AdBack. Veuillez vous "
-"rendre sur la page d'<a href='%s'>administration</a> pour compléter votre "
-"activation"
 
 #: includes/class-ad-back-external-checker.php:38
 msgid ""
@@ -448,6 +445,104 @@ msgstr ""
 "Veuillez décocher \"iframes et vidéos\" dans Réglages > LazyLoad pour "
 "continuer à utiliser AdBack. Cette modification n'affectera en rien le "
 "fonctionnement de votre site."
+
+#: public/class-ad-back-public.php:82
+msgid "To access the website"
+msgstr "Pour accéder au site"
+
+#: public/class-ad-back-public.php:83
+msgid "Deactivate your adblock<br/>then reload the page."
+msgstr "Désactivez votre adblocker,<br/>puis rechargez la page."
+
+#: public/class-ad-back-public.php:84
+msgid "Or click on the banner<br/>nearby"
+msgstr "Ou cliquez sur la publicité<br/>ci-contre →"
+
+#: public/class-ad-back-public.php:85
+msgid "Close"
+msgstr "Fermer"
+
+#: public/class-ad-back-public.php:86
+msgid "Why do I see this message?"
+msgstr "Pourquoi ce message ?"
+
+#: public/class-ad-back-public.php:87
+msgid ""
+"Your browser blocks the ads on this website. To discover how to access it, "
+"find the help down here."
+msgstr ""
+"Votre navigateur bloque les publicités sur ce site. Pour découvrir comment y "
+"accéder, retrouvez l'aide ci-dessous."
+
+#: public/class-ad-back-public.php:88
+msgid "Access help page"
+msgstr "Accéder à l'aide"
+
+#: public/class-ad-back-public.php:89
+msgid "An issue?"
+msgstr "Un problème ?"
+
+#: public/class-ad-back-public.php:90
+msgid ""
+"If you have clicked on the banner or deactivate your adblock and you still "
+"see this message, report it to us below."
+msgstr ""
+"Si vous avez cliqué sur la publicité ou désactivé votre adblocker et que "
+"vous voyez toujours ce message, signalez-le nous ci-dessous."
+
+#: public/class-ad-back-public.php:91
+msgid "Report a bug"
+msgstr "Signaler un bug"
+
+#: public/class-ad-back-public.php:92
+msgid "Verification in progress"
+msgstr "Vérification en cours"
+
+#: public/class-ad-back-public.php:93
+msgid "Thank you for your help"
+msgstr "Merci pour votre aide"
+
+#: public/class-ad-back-public.php:94
+msgid "Who are we?"
+msgstr "Qui sommes-nous ?"
+
+#: public/class-ad-back-public.php:95
+msgid ""
+"Thanks to AdBack, you can monetize your adblocked audience by displaying "
+"users friendly banners."
+msgstr ""
+"Grâce à AdBack, monétisez votre audience adblockée en rétablissant une "
+"publicité respectueuse des utilisateurs."
+
+#: public/class-ad-back-public.php:96
+msgid "Discover AdBack"
+msgstr "Découvrir AdBack"
+
+#~ msgid ""
+#~ "Monetize instantly your adblock audience by displaying a message offering "
+#~ "2 possibilities to\n"
+#~ "                        access your content: disabling the adblocker or "
+#~ "clicking on an ad. You win in every case!"
+#~ msgstr ""
+#~ "Monétisez instantanément votre audience adblock en affichant un message "
+#~ "offrant 2\n"
+#~ "\t\t\t possibilités d’accès à votre contenu :  désactiver adblock ou "
+#~ "cliquer sur une pub. Vous êtes gagnant dans tous les cas ! "
+
+#~ msgid "QUICK AND EASY MONETISATION"
+#~ msgstr "MONÉTISATION RAPIDE ET FACILE"
+
+#~ msgid ""
+#~ "The application will collect automatically the name of your website and "
+#~ "the associated email address.<br>&ensp; That address will be used to give "
+#~ "you the information related to your account and to the AdBack news and "
+#~ "products"
+#~ msgstr ""
+#~ "L’application collectera automatiquement le nom de votre site et "
+#~ "l’adresse mail associée à votre compte WordPress. <br>&ensp; Cette "
+#~ "adresse sera utilisée pour vous communiquer les informations relatives à "
+#~ "votre compte créé à l’activation et toute information relative au produit "
+#~ "et nouveautés AdBack"
 
 #~ msgid "Set up your AdBack account"
 #~ msgstr "Configurer votre compte AdBack"

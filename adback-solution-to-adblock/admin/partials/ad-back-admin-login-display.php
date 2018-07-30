@@ -41,7 +41,7 @@
                             <p class="ab-registration-advantages-intro"><?php esc_html_e('By activating the plugin:', 'adback-solution-to-adblock'); ?></p>
                             <ul>
                                 <li><?php esc_html_e('You accept the AdBack Terms of Service', 'adback-solution-to-adblock'); ?></li>
-                                <li><?php _e('The application will collect automatically the name of your website and the associated email address.<br>&ensp; That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
+                                <li><?php _e('The application will collect automatically the name of your website and the associated email address. That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
                                 <li><?php esc_html_e('The application will install the AdBack script, necessary to display the analytics and monetization solutions', 'adback-solution-to-adblock'); ?></li>
                             </ul>
                             <center>
@@ -61,7 +61,7 @@
                             <p class="ab-registration-advantages-intro"><?php esc_html_e('By activating the plugin:', 'adback-solution-to-adblock'); ?></p>
                             <ul>
                                 <li><?php esc_html_e('You accept the AdBack Terms of Service', 'adback-solution-to-adblock'); ?></li>
-                                <li><?php _e('The application will collect automatically the name of your website and the associated email address.<br>&ensp; That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
+                                <li><?php _e('The application will collect automatically the name of your website and the associated email address. That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
                                 <li><?php esc_html_e('The application will install the AdBack script, necessary to display the analytics and monetization solutions', 'adback-solution-to-adblock'); ?></li>
                             </ul>
                             <center>

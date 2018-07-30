@@ -26,14 +26,13 @@
             <div class="ab-choose-sticky multi-line"><?php _e('Highly</br>recommended', 'adback-solution-to-adblock'); ?></div>
             <h2 class="ab-choose-h"><?php esc_html_e('ONE CLICK ADBLOCK MONETIZATION', 'adback-solution-to-adblock'); ?></h2>
             <h3 class="ab-choose-h"><?php esc_html_e('Only solution for websites with less than 1.5 million monthly pageviews', 'adback-solution-to-adblock'); ?></h3>
-            <p class="ab-choose-text"><?php esc_html_e('Monetize instantly your adblock audience by displaying a message offering 2 possibilities to
-                        access your content: disabling the adblocker or clicking on an ad. You win in every case!'); ?></p>
+            <p class="ab-choose-text"><?php esc_html_e('Monetize instantly your adblock audience by displaying a message offering 2 possibilities to access your content: disabling the adblocker or clicking on an ad. You win in every case!', 'adback-solution-to-adblock'); ?></p>
             <button id="ab-choose-light"><?php esc_html_e('CONTINUE', 'adback-solution-to-adblock'); ?></button>
         </div>
         <br/>
         <div class="text-align-center">
             <a id="ab-choose-custom"><?php esc_html_e('or continue with the advanced mode', 'adback-solution-to-adblock'); ?></a>
-            <p style="color: #818181d6;"><?php esc_html_e('Caution: only for premium websites and highly advanced users. Needs some technical integration.'); ?></p>
+            <p style="color: #818181d6;"><?php esc_html_e('Caution: only for premium websites and highly advanced users. Needs some technical integration.', 'adback-solution-to-adblock'); ?></p>
         </div>
     </div>
 </div>
