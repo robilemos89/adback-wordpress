@@ -176,7 +176,7 @@ class Ad_Back_Updator
      */
     public static function getTypes()
     {
-        $types = [];
+        $types = array();
         if (Integration_Checker::isFullIntegration()) {
             $types = [
                 'analytics',
