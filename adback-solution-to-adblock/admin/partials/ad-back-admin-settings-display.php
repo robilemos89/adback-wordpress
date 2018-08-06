@@ -30,7 +30,7 @@
                     <?php if (Integration_Checker::isFullIntegration()) { ?>
                         <div class="section-content">
                             <button class="ab-button ab-button-primary" style="padding: 10px" id="switch-integration-lite">
-                                <?php esc_html_e('Switch to Quick monetization solution', 'adback-solution-to-adblock'); ?>
+                                <?php esc_html_e('Switch to One Click Adblock Monetization', 'adback-solution-to-adblock'); ?>
                             </button>
                         </div>
                     <?php } else { ?>
@@ -94,7 +94,7 @@
         $("#switch-integration-lite").on('click', function () {
             swal({
                 title: '<?php esc_html_e('Caution!', 'adback-solution-to-adblock') ?>',
-                text: '<?php _e('If you change the option, all the solutions currently running on your site will be stopped (message, banners, ads…).    You will have access to you statistics only in the AdBack back office.\n', 'adback-solution-to-adblock') ?>',
+                text: '<?php _e('If you change the option, all the solutions currently running on your site will be stopped (message, banners, ads…).    You will have access to your statistics only in the AdBack back office.\n', 'adback-solution-to-adblock') ?>',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#949494',
@@ -119,7 +119,7 @@
         $("#switch-integration-full").on('click', function () {
             swal({
                 title: '<?php esc_html_e('Caution!', 'adback-solution-to-adblock') ?>',
-                text: '<?php _e('If you change the option, all the solutions currently running on your site will be stopped (message, banners, ads…).   You will have access to you statistics only in the AdBack back office.\n', 'adback-solution-to-adblock') ?>',
+                text: '<?php _e('If you change the option, all the solutions currently running on your site will be stopped (message, banners, ads…).   You will have access to your statistics only in the AdBack back office.\n', 'adback-solution-to-adblock') ?>',
                 type: 'warning',
                 showCancelButton: true,
                 confirmButtonColor: '#949494',

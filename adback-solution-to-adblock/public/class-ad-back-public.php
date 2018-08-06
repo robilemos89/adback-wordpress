@@ -80,12 +80,13 @@ class Ad_Back_Public extends Ad_Back_Generic
 
         if (Integration_Checker::isLiteIntegration()) {
             $title = __('To access the website', 'adback-solution-to-adblock');
-            $deactivate = __('Deactivate your adblock<br/>then reload the page.', 'adback-solution-to-adblock');
-            $click = __('Or click on the banner<br/>nearby', 'adback-solution-to-adblock');
+            $deactivate = __('Deactivate your adblock<br/>then reload the page', 'adback-solution-to-adblock');
+            $click = __('Or click on the banner<br/> nearby →', 'adback-solution-to-adblock');
             $close = __('Close', 'adback-solution-to-adblock');
             $why_title = __('Why do I see this message?', 'adback-solution-to-adblock');
             $why_description = __('Your browser blocks the ads on this website. To discover how to access it, find the help down here.', 'adback-solution-to-adblock');
             $why_link = __('Access help page', 'adback-solution-to-adblock');
+            $why_link_url = __('why_link_url', 'adback-solution-to-adblock');
             $issue_title = __('An issue?', 'adback-solution-to-adblock');
             $issue_description = __('If you have clicked on the banner or deactivate your adblock and you still see this message, report it to us below.', 'adback-solution-to-adblock');
             $issue_link = __('Report a bug', 'adback-solution-to-adblock');
@@ -94,6 +95,7 @@ class Ad_Back_Public extends Ad_Back_Generic
             $who_title = __('Who are we?', 'adback-solution-to-adblock');
             $who_description = __('Thanks to AdBack, you can monetize your adblocked audience by displaying users friendly banners.', 'adback-solution-to-adblock');
             $who_link = __('Discover AdBack', 'adback-solution-to-adblock');
+            $who_link_url = __('who_link_url', 'adback-solution-to-adblock');
 
             echo <<<JS
         <script type='text/javascript'>
@@ -105,6 +107,7 @@ class Ad_Back_Public extends Ad_Back_Generic
             window.adback_wording['why_title'] = "{$why_title}";
             window.adback_wording['why_description'] = "{$why_description}";
             window.adback_wording['why_link'] = "{$why_link}";
+            window.adback_wording['why_link_url'] = "{$why_link_url}";
             window.adback_wording['issue_title'] = "{$issue_title}";
             window.adback_wording['issue_description'] = "{$issue_description}";
             window.adback_wording['issue_link'] = "{$issue_link}";
@@ -113,6 +116,7 @@ class Ad_Back_Public extends Ad_Back_Generic
             window.adback_wording['who_title'] = "{$who_title}";
             window.adback_wording['who_description'] = "{$who_description}";
             window.adback_wording['who_link'] = "{$who_link}";
+            window.adback_wording['who_link_url'] = "{$who_link_url}";
         </script>
 JS;
         }

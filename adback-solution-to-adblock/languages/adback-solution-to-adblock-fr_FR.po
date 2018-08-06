@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
-"POT-Creation-Date: 2018-07-30 10:42+0200\n"
+"POT-Creation-Date: 2018-08-06 18:11+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -9,7 +9,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Poedit 1.8.7.1\n"
+"X-Generator: Poedit 2.1.1\n"
 "X-Poedit-KeywordsList: __;_e;esc_attr;esc_html_e;esc_attr_e\n"
 "X-Poedit-Basepath: ..\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
@@ -363,7 +363,9 @@ msgid "Your needs are growing or you want to change your solution:"
 msgstr "Vos besoins évoluent ou vous souhaitez changer de solution :"
 
 #: admin/partials/ad-back-admin-settings-display.php:33
-msgid "Switch to Quick monetization solution"
+#, fuzzy
+#| msgid "Switch to Quick monetization solution"
+msgid "Switch to One Click Adblock Monetization"
 msgstr "Solution de monétisation rapide"
 
 #: admin/partials/ad-back-admin-settings-display.php:39
@@ -392,9 +394,14 @@ msgid "Caution!"
 msgstr "Attention !"
 
 #: admin/partials/ad-back-admin-settings-display.php:97
+#, fuzzy
+#| msgid ""
+#| "If you change the option, all the solutions currently running on your "
+#| "site will be stopped (message, banners, ads…).    You will have access to "
+#| "you statistics only in the AdBack back office.\\n"
 msgid ""
 "If you change the option, all the solutions currently running on your site "
-"will be stopped (message, banners, ads…).    You will have access to you "
+"will be stopped (message, banners, ads…).    You will have access to your "
 "statistics only in the AdBack back office.\\n"
 msgstr ""
 "Si vous changez d’option, toutes les solutions mises en place jusqu’à "
@@ -413,9 +420,14 @@ msgid "Cancel"
 msgstr "Annuler"
 
 #: admin/partials/ad-back-admin-settings-display.php:122
+#, fuzzy
+#| msgid ""
+#| "If you change the option, all the solutions currently running on your "
+#| "site will be stopped (message, banners, ads…).   You will have access to "
+#| "you statistics only in the AdBack back office.\\n"
 msgid ""
 "If you change the option, all the solutions currently running on your site "
-"will be stopped (message, banners, ads…).   You will have access to you "
+"will be stopped (message, banners, ads…).   You will have access to your "
 "statistics only in the AdBack back office.\\n"
 msgstr ""
 "Si vous changez d’option, toutes les solutions mises en place jusqu’à "
@@ -451,11 +463,13 @@ msgid "To access the website"
 msgstr "Pour accéder au site"
 
 #: public/class-ad-back-public.php:83
-msgid "Deactivate your adblock<br/>then reload the page."
-msgstr "Désactivez votre adblocker,<br/>puis rechargez la page."
+msgid "Deactivate your adblock<br/>then reload the page"
+msgstr "Désactivez votre adblocker,<br/>puis rechargez la page"
 
 #: public/class-ad-back-public.php:84
-msgid "Or click on the banner<br/>nearby"
+#, fuzzy
+#| msgid "Or click on the banner<br/>nearby →"
+msgid "Or click on the banner<br/> nearby →"
 msgstr "Ou cliquez sur la publicité<br/>ci-contre →"
 
 #: public/class-ad-back-public.php:85
@@ -479,10 +493,16 @@ msgid "Access help page"
 msgstr "Accéder à l'aide"
 
 #: public/class-ad-back-public.php:89
+msgid "why_link_url"
+msgstr ""
+"https://support.adback.co/article/420-pourquoi-un-message-adback-saffiche-"
+"sur-le-site-que-je-souhaite-consulter"
+
+#: public/class-ad-back-public.php:90
 msgid "An issue?"
 msgstr "Un problème ?"
 
-#: public/class-ad-back-public.php:90
+#: public/class-ad-back-public.php:91
 msgid ""
 "If you have clicked on the banner or deactivate your adblock and you still "
 "see this message, report it to us below."
@@ -490,23 +510,23 @@ msgstr ""
 "Si vous avez cliqué sur la publicité ou désactivé votre adblocker et que "
 "vous voyez toujours ce message, signalez-le nous ci-dessous."
 
-#: public/class-ad-back-public.php:91
+#: public/class-ad-back-public.php:92
 msgid "Report a bug"
 msgstr "Signaler un bug"
 
-#: public/class-ad-back-public.php:92
+#: public/class-ad-back-public.php:93
 msgid "Verification in progress"
 msgstr "Vérification en cours"
 
-#: public/class-ad-back-public.php:93
+#: public/class-ad-back-public.php:94
 msgid "Thank you for your help"
 msgstr "Merci pour votre aide"
 
-#: public/class-ad-back-public.php:94
+#: public/class-ad-back-public.php:95
 msgid "Who are we?"
 msgstr "Qui sommes-nous ?"
 
-#: public/class-ad-back-public.php:95
+#: public/class-ad-back-public.php:96
 msgid ""
 "Thanks to AdBack, you can monetize your adblocked audience by displaying "
 "users friendly banners."
@@ -514,9 +534,13 @@ msgstr ""
 "Grâce à AdBack, monétisez votre audience adblockée en rétablissant une "
 "publicité respectueuse des utilisateurs."
 
-#: public/class-ad-back-public.php:96
+#: public/class-ad-back-public.php:97
 msgid "Discover AdBack"
 msgstr "Découvrir AdBack"
+
+#: public/class-ad-back-public.php:98
+msgid "who_link_url"
+msgstr "https://landing.adback.co/adblock-monetization/"
 
 #~ msgid ""
 #~ "Monetize instantly your adblock audience by displaying a message offering "
