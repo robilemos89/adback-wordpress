@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
-"POT-Creation-Date: 2018-08-06 18:12+0200\n"
+"POT-Creation-Date: 2018-08-07 17:56+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -449,8 +449,8 @@ msgid "Deactivate your adblock<br/>then reload the page"
 msgstr ""
 
 #: public/class-ad-back-public.php:84
-msgid "Or click on the banner<br/> nearby →"
-msgstr ""
+msgid "Or click on the banner<br/> nearby"
+msgstr "Or click on the banner<br/> nearby &rarr;"
 
 #: public/class-ad-back-public.php:85
 msgid "Close"

@@ -81,7 +81,7 @@ class Ad_Back_Public extends Ad_Back_Generic
         if (Integration_Checker::isLiteIntegration()) {
             $title = __('To access the website', 'adback-solution-to-adblock');
             $deactivate = __('Deactivate your adblock<br/>then reload the page', 'adback-solution-to-adblock');
-            $click = __('Or click on the banner<br/> nearby →', 'adback-solution-to-adblock');
+            $click = __('Or click on the banner<br/> nearby', 'adback-solution-to-adblock');
             $close = __('Close', 'adback-solution-to-adblock');
             $why_title = __('Why do I see this message?', 'adback-solution-to-adblock');
             $why_description = __('Your browser blocks the ads on this website. To discover how to access it, find the help down here.', 'adback-solution-to-adblock');
