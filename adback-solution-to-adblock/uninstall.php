@@ -34,6 +34,12 @@ function adback_delete_tables()
 {
     global $wpdb;
 
+    delete_option('adback_registration_error');
+    delete_option('adback_admin_hide_message');
+    delete_option('adback_deferred_admin_notices');
+    delete_option('adback_integration');
+    delete_option('adback_solution_to_adblock_db_version');
+
     $table_name = $wpdb->prefix . 'adback_account';
     $sql = "DROP TABLE IF EXISTS ".$table_name;
     $wpdb->query($sql);
