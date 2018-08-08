@@ -17,8 +17,8 @@
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <div id="ab-full-app">
     <div id="adb-stats-lite"
-         data-reviewlink="https://wordpress.org/support/plugin/one-click-adblock-monetisation/reviews/"
-         data-supportlink="https://wordpress.org/support/plugin/one-click-adblock-monetisation">
+         data-reviewlink="https://wordpress.org/support/plugin/adback-solution-to-adblock/review"
+         data-supportlink="https://wordpress.org/support/plugin/adback-solution-to-adblock">
     </div>
 </div>
 
