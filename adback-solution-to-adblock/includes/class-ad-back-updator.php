@@ -36,7 +36,7 @@ class Ad_Back_Updator
         $currentVersion = (int)get_option("adback_solution_to_adblock_db_version");
 
         if (null === $currentVersion || $currentVersion < 2) {
-            $currentVersion = 2;
+            $currentVersion = 3;
             if (is_multisite()) {
                 $sites = $wpdb->get_col("SELECT blog_id FROM $wpdb->blogs");
 
@@ -48,6 +48,22 @@ class Ad_Back_Updator
             } else {
                 self::createFullTagAndEndPointDatabase();
             }
+            update_option("adback_solution_to_adblock_db_version", $currentVersion);
+        }
+    }
+
+    /**
+     * On update from version 2
+     *
+     * @since    1.0.0
+     */
+    public static function onUpdateFromOldVersion()
+    {
+        $currentVersion = (int)get_option("adback_solution_to_adblock_db_version");
+
+        if (2 === $currentVersion) {
+            $currentVersion = 3;
+            update_option('adback_integration', '1');
             update_option("adback_solution_to_adblock_db_version", $currentVersion);
         }
     }
@@ -125,6 +141,11 @@ class Ad_Back_Updator
 
             $fullScriptData = Ad_Back_Get::execute("https://www.adback.co/api/script/me/full?access_token=" . $savedToken->access_token);
             $fullScripts = json_decode($fullScriptData, true);
+
+            $genericScriptData = Ad_Back_Get::execute("https://www.adback.co/api/script/me/generic?access_token=" . $savedToken->access_token);
+            $genericScript = json_decode($genericScriptData, true);
+
+            $fullScripts['script_codes']['generic'] = $genericScript;
             $types = self::getTypes();
             if (is_array($fullScripts) && !empty($fullScripts) && array_key_exists('script_codes', $fullScripts)) {
                 foreach ($types as $key => $type) {
@@ -155,13 +176,26 @@ class Ad_Back_Updator
      */
     public static function getTypes()
     {
-        return array(
-            'analytics',
-            'message',
-            'product',
-            'banner',
-            'catcher',
-            'iab_banner',
-        );
+        $types = array();
+        if (Integration_Checker::isFullIntegration()) {
+            $types = [
+                'analytics',
+                'message',
+                'product',
+                'banner',
+                'catcher',
+                'iab_banner',
+            ];
+        }
+
+        if (Integration_Checker::isLiteIntegration()) {
+            $types = [
+                'analytics',
+                'iab_banner',
+                'generic',
+            ];
+        }
+
+        return $types;
     }
 }

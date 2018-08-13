@@ -20,7 +20,7 @@ class Ad_Back_Generic
 
         $table_name = $wpdb->prefix . 'adback_full_tag';
         $blogId = get_current_blog_id();
-        $myinfo = $wpdb->get_results("SELECT * FROM " . $table_name . " WHERE blog_id = ". $blogId);
+        $myinfo = $wpdb->get_results("SELECT * FROM " . $table_name . " WHERE blog_id = " . $blogId);
         $scriptData = array();
 
         foreach ($myinfo as $scriptInfo) {
@@ -36,15 +36,11 @@ class Ad_Back_Generic
             }
 
             $fullScripts = $this->askFullScripts();
+            $genericScript = $this->askGenericScripts();
+            $fullScripts['script_codes']['generic'] = $genericScript;
 
-            $types = array(
-                'analytics',
-                'message',
-                'product',
-                'banner',
-                'catcher',
-                'iab_banner',
-            );
+            $types = Ad_Back_Updator::getTypes();
+
             foreach ($types as $key => $type) {
                 if (
                     is_array($fullScripts['script_codes'])
@@ -77,12 +73,28 @@ SQL;
 
     public function saveMessage($display)
     {
-        $url = 'https://www.adback.co/api/custom-message/update-status?_format=json&access_token=' . $this->getToken()->access_token;
-        $displayAsBoolean = 'true' === $display ? true : false;
+        $url = 'https://www.adback.co/api/custom-message/update-status?_format=json&access_token=' . self::getToken()->access_token;
+        $displayAsBoolean = 'true' === $display;
         $fields = array('display' => $displayAsBoolean);
         Ad_Back_Post::execute($url, $fields);
 
         return true;
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasChooseIntegration()
+    {
+        return (get_option('adback_integration', null) !== null);
+    }
+
+    /**
+     * @return boolean
+     */
+    public function hasntChooseIntegration()
+    {
+        return (get_option('adback_integration', null) === null);
     }
 
     public function isConnected($token = null)
@@ -91,8 +103,8 @@ SQL;
             return $this->connected;
         }
 
-        if ($token == null) {
-            $token = $this->getToken();
+        if (null === $token) {
+            $token = self::getToken();
         }
 
         if (is_array($token)) {
@@ -101,28 +113,28 @@ SQL;
 
         if (isset($token->access_token) && $token->access_token !== '') {
             $domain = 'www.adback.co';
-            $url = "https://".$domain."/api/test/normal?access_token=" . $token->access_token;
+            $url = 'https://' . $domain . '/api/test/normal?access_token=' . $token->access_token;
 
             $result = json_decode(Ad_Back_Get::execute($url), true);
-            return $this->connected = is_array($result) && array_key_exists("name", $result);
-        } else {
-            return $this->connected = false;
+            return $this->connected = (is_array($result) && array_key_exists('name', $result));
         }
+
+        return $this->connected = false;
     }
 
-    public function getToken()
+    public static function getToken()
     {
         global $wpdb; // this is how you get access to the database
 
         $table_name = $wpdb->prefix . 'adback_token';
-        $token = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = ".get_current_blog_id());
+        $token = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = " . get_current_blog_id());
 
         return $token;
     }
 
-    public function saveToken($token)
+    public static function saveToken($token)
     {
-        global $wpdb; // this is how you get access to the database
+        global $wpdb;
 
         if ($token == null || array_key_exists("error", $token)) {
             return;
@@ -137,24 +149,15 @@ SQL;
             ),
             array("id" => get_current_blog_id())
         );
-
-        $this->notifyInstallation($token["access_token"]);
-    }
-
-    public function notifyInstallation($accessToken)
-    {
-        $notifyUrl = 'https://www.adback.co/api/plugin-activate/wordpress?access_token=' . $accessToken;
-
-        Ad_Back_Get::execute($notifyUrl);
     }
 
     public function askDomain()
     {
-        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+        if (null === self::getToken() || '' === self::getToken()->access_token) {
             return null;
         }
 
-        $jsonDomain = Ad_Back_Get::execute("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
+        $jsonDomain = Ad_Back_Get::execute('https://www.adback.co/api/script/me?access_token=' . self::getToken()->access_token);
         $result = json_decode($jsonDomain, true);
         if (isset($result['analytics_domain'])) {
             $this->saveDomain($result['analytics_domain']);
@@ -163,55 +166,62 @@ SQL;
 
     public function askScripts()
     {
-        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+        if (null === self::getToken() || '' === self::getToken()->access_token) {
             return null;
         }
 
-        $jsonScripts = Ad_Back_Get::execute("https://www.adback.co/api/script/me?access_token=" . $this->getToken()->access_token);
-        $result = json_decode($jsonScripts, true);
+        $jsonScripts = Ad_Back_Get::execute('https://www.adback.co/api/script/me?access_token=' . self::getToken()->access_token);
 
-        return $result;
+        return json_decode($jsonScripts, true);
     }
 
     public function askFullScripts()
     {
-        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+        if (null === self::getToken() || '' === self::getToken()->access_token) {
             return null;
         }
 
-        $jsonScripts = Ad_Back_Get::execute("https://www.adback.co/api/script/me/full?access_token=" . $this->getToken()->access_token);
-        $result = json_decode($jsonScripts, true);
+        $jsonScripts = Ad_Back_Get::execute('https://www.adback.co/api/script/me/full?access_token=' . self::getToken()->access_token);
 
-        return $result;
+        return json_decode($jsonScripts, true);
+    }
+
+    public function askGenericScripts()
+    {
+        if (null === self::getToken() || '' === self::getToken()->access_token) {
+            return null;
+        }
+
+        $jsonScripts = Ad_Back_Get::execute('https://www.adback.co/api/script/me/generic?access_token=' . self::getToken()->access_token);
+
+        return json_decode($jsonScripts, true);
     }
 
     public function isRewriteRouteEnabled()
     {
-        return (bool) get_option('permalink_structure');
+        return (bool)get_option('permalink_structure');
     }
 
     public function askEndPoints()
     {
-        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+        if (null === self::getToken() || '' === self::getToken()->access_token) {
             return null;
         }
 
-        $jsonEndPoints = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $this->getToken()->access_token);
-        $result = json_decode($jsonEndPoints, true);
+        $jsonEndPoints = Ad_Back_Get::execute('https://www.adback.co/api/end-point/me?access_token=' . self::getToken()->access_token);
 
-        return $result;
+        return json_decode($jsonEndPoints, true);
     }
 
     public function refreshEndPoints()
     {
-        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+        if (null === self::getToken() || '' === self::getToken()->access_token) {
             return null;
         }
 
-        $jsonEndPoints = Ad_Back_Get::execute("https://www.adback.co/api/end-point/refresh?access_token=" . $this->getToken()->access_token);
-        $result = json_decode($jsonEndPoints, true);
+        $jsonEndPoints = Ad_Back_Get::execute('https://www.adback.co/api/end-point/refresh?access_token=' . self::getToken()->access_token);
 
-        return $result;
+        return json_decode($jsonEndPoints, true);
     }
 
     public function saveEndPointsAndUpdateRoutes($endPoints, $blogId)
@@ -268,20 +278,19 @@ SQL;
         global $wpdb; // this is how you get access to the database
 
         $table_name = $wpdb->prefix . 'adback_myinfo';
-        $myinfo = $wpdb->get_row("SELECT domain FROM " . $table_name . " WHERE id = ".get_current_blog_id()." AND update_time >= DATE_SUB(NOW(),INTERVAL 3 HOUR);");
+        $myinfo = $wpdb->get_row("SELECT domain FROM " . $table_name . " WHERE id = " . get_current_blog_id() . " AND update_time >= DATE_SUB(NOW(),INTERVAL 3 HOUR);");
 
         return $myinfo ? $myinfo->domain : '';
     }
 
     public function askSubscription()
     {
-        if (null === $this->getToken() || '' === $this->getToken()->access_token) {
+        if (null === self::getToken() || '' === self::getToken()->access_token) {
             return null;
         }
 
-        $jsonDomain = Ad_Back_Get::execute("https://www.adback.co/api/subscription/me?access_token=" . $this->getToken()->access_token);
-        $result = json_decode($jsonDomain, true);
+        $jsonDomain = Ad_Back_Get::execute('https://www.adback.co/api/subscription/me?access_token=' . self::getToken()->access_token);
 
-        return $result;
+        return json_decode($jsonDomain, true);
     }
 }

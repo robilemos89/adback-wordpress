@@ -129,7 +129,7 @@ $ko = "<svg class=\"ko-svg\" xmlns:dc=\"http://purl.org/dc/elements/1.1/\" xmlns
 <script type="text/javascript">
     (function ($) {
         $(window).on("load", function () {
-            if ('function' === typeof adback.API().start) {
+            if ('function' === typeof window[document.getElementById('adback_data').getAttribute('data-adback')].API().start) {
                 $(".working-script").replaceWith('<?php echo "<td>" . $ok . "</td>"; ?>')
             }
         });

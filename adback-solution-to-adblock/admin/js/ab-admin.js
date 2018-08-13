@@ -38,14 +38,35 @@
     function registerAdback(event) {
         $('#ab-register-adback').prop('disabled', true);
         var callback = encodeURI(window.location.href);
-        var local = $(event.target).data('local');
+        var locale = $(event.target).data('locale');
         window.location.href = 'https://www.adback.co/'
-            + local
+            + locale
             + '/register/?redirect_url='
             + callback
             + '&email=' + $(event.target).data('email')
             + '&website=' + $(event.target).data('site-url')
         ;
+    }
+
+    function autoRegisterAdback(event) {
+        $('#ab-register-adback').prop('disabled', true);
+        $('#ab-register-adback').addClass("disabled");
+        var data = {
+            'action': 'ab_register',
+            'email': $(event.target).data('email'),
+            'site-url': $(event.target).data('site-url')
+        };
+
+        $.post(ajaxurl, data, function (response) {
+            var obj = JSON.parse(response);
+            if (obj.done === true) {
+                window.location.reload();
+            } else {
+                $('#ab-register-adback').prop('disabled', false);
+                $('#ab-register-adback').removeClass("disabled");
+                vex.dialog.alert(trans_arr.oops + ' ' + trans_arr.error);
+            }
+        });
     }
 
     function saveSlug() {
@@ -136,7 +157,8 @@
 
         if ($("#ab-login").length > 0) {
             $("#ab-login-adback").on('click', loginAdback);
-            $("#ab-register-adback").on('click', registerAdback);
+            $("#ab-register-adback").on('click', autoRegisterAdback);
+            $("#ab-force-register-adback").on('click', registerAdback);
 
 
             $("#ab-username,#ab-password").on('keyup', function (e) {

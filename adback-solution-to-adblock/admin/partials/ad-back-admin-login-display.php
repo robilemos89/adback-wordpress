@@ -41,7 +41,7 @@
                             <p class="ab-registration-advantages-intro"><?php esc_html_e('By activating the plugin:', 'adback-solution-to-adblock'); ?></p>
                             <ul>
                                 <li><?php esc_html_e('You accept the AdBack Terms of Service', 'adback-solution-to-adblock'); ?></li>
-                                <li><?php _e('The application will collect automatically the name of your website and the associated email address.<br>&ensp; That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
+                                <li><?php _e('The application will collect automatically the name of your website and the associated email address. That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
                                 <li><?php esc_html_e('The application will install the AdBack script, necessary to display the analytics and monetization solutions', 'adback-solution-to-adblock'); ?></li>
                             </ul>
                             <center>
@@ -61,7 +61,7 @@
                             <p class="ab-registration-advantages-intro"><?php esc_html_e('By activating the plugin:', 'adback-solution-to-adblock'); ?></p>
                             <ul>
                                 <li><?php esc_html_e('You accept the AdBack Terms of Service', 'adback-solution-to-adblock'); ?></li>
-                                <li><?php _e('The application will collect automatically the name of your website and the associated email address.<br>&ensp; That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
+                                <li><?php _e('The application will collect automatically the name of your website and the associated email address. That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
                                 <li><?php esc_html_e('The application will install the AdBack script, necessary to display the analytics and monetization solutions', 'adback-solution-to-adblock'); ?></li>
                             </ul>
                             <center>
@@ -73,11 +73,15 @@
                 <center>
                     <button
                             class="ab-button ab-button-primary"
+                        <?php if (get_option('adback_registration_error', false) === false) { ?>
                             id="ab-register-adback"
+                        <?php } else { ?>
+                            id="ab-force-register-adback"
+                        <?php } ?>
                             style="margin-top: 30px;"
                             data-site-url="<?php echo get_site_url(get_current_blog_id()) ?>"
                             data-email="<?php echo get_bloginfo('admin_email') ?>"
-                            data-local="<?php echo (get_locale() === 'fr_FR') ? 'fr':'en'; ?>"
+                            data-locale="<?php echo (get_locale() === 'fr_FR') ? 'fr':'en'; ?>"
                     >
                         <?php esc_html_e('Create my AdBack account', 'adback-solution-to-adblock'); ?>
                     </button>
@@ -87,9 +91,11 @@
                     <a href="#" id="ab-login-adback" style="width:100%;margin-top: 30px;"><?php esc_html_e('Log in', 'adback-solution-to-adblock'); ?></a>
                 </center>
                 <br/>
+                <?php if (get_option('adback_registration_error', false) !== 'adback_oauth.registration.existing_user') { ?>
                 <center>
                     <a href="/wp-admin/plugins.php" class="ab-refuse-adback"><?php esc_html_e('Refuse (you won’t be able to use AdBack solutions)', 'adback-solution-to-adblock'); ?></a>
                 </center>
+                <?php } ?>
             </div>
     </div>
 </div>

@@ -22,6 +22,7 @@
  */
 
 include_once(plugin_dir_path(__FILE__) . '../class-ad-back.php');
+include_once(plugin_dir_path(__FILE__) . '../includes/class-ad-back-integration-checker.php');
 
 class Ad_Back_Admin extends Ad_Back_Generic
 {
@@ -81,6 +82,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
         wp_enqueue_style('vex-css', plugin_dir_url(__FILE__) . 'css/vex.css', array(), $this->version, 'all');
         wp_enqueue_style('vex-theme-css', plugin_dir_url(__FILE__) . 'css/vex-theme-default.css', array(), $this->version, 'all');
+        wp_enqueue_style('sweetalert2-css', plugin_dir_url(__FILE__) . 'css/sweetalert2.min.css', array(), $this->version, 'all');
         wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/ab-admin.css', array(), $this->version, 'all');
     }
 
@@ -144,6 +146,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
         wp_enqueue_script($this->plugin_name, plugin_dir_url(__FILE__) . 'js/ab-admin.js', array('jquery'), $this->version, true);
         wp_enqueue_script('html2canvas-js', plugin_dir_url(__FILE__) . 'js/html2canvas.min.js', array(), $this->version, true);
         wp_enqueue_script('canvas2image-js', plugin_dir_url(__FILE__) . 'js/canvas2image.js', array(), $this->version, true);
+        wp_enqueue_script('sweetalert2-js', plugin_dir_url(__FILE__) . 'js/sweetalert2.min.js', array(), $this->version, true);
         wp_localize_script($this->plugin_name, 'trans_arr', $translation_array);
     }
 
@@ -182,8 +185,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
     public function dashboardWidgetContent()
     {
-
-        if ($this->isConnected()) {
+        if ($this->isConnected() && $this->hasChooseIntegration()) {
             if ($this->getDomain() == '') {
                 $this->askDomain();
             }
@@ -194,28 +196,71 @@ class Ad_Back_Admin extends Ad_Back_Generic
     }
 
     /**
+     * Check if isConnected / hasChooseIntegration and render page
+     *
+     * @since   1.0.0
+     * @param   string  $page
+     */
+    private function preDisplay($page)
+    {
+        if (isset($_GET['access_token'])) {
+            self::saveToken(array(
+                'access_token' => $_GET['access_token'],
+                'refresh_token' => '',
+            ));
+            include_once('partials/ad-back-admin-redirect.php');
+        } elseif (!$this->isConnected()) {
+            include_once('partials/ad-back-admin-login-display.php');
+        } elseif ($this->hasntChooseIntegration()) {
+            include_once('partials/ad-back-admin-choice.php');
+        } else {
+            if ($this->getDomain() === '') {
+                $this->askDomain();
+            }
+            if ($page === 'partials/ad-back-admin-diagnostic.php') {
+                global $wpdb;
+
+                $adback = new Ad_Back_Public($this->plugin_name, $this->version);
+                $adback->enqueueScripts();
+                $token = self::getToken();
+                $script = $this->askScripts();
+                $table_name_end_point = $wpdb->prefix . 'adback_end_point';
+                $endPoints = $wpdb->get_row("SELECT * FROM " . $table_name_end_point . " WHERE id = " . get_current_blog_id());
+                $rules = get_option('rewrite_rules', array());
+            }
+
+            include_once $page;
+        }
+    }
+
+    /**
      * Render the settings page for this plugin.
      *
      * @since    1.0.0
      */
     public function displayPluginStatsPage()
     {
-        if ($this->isConnected()) {
-            if ($this->getDomain() == '') {
-                $this->askDomain();
-            }
-            include_once('partials/ad-back-admin-display.php');
-        } else {
-            if (isset($_GET['access_token'])) {
-                $this->saveToken(array(
-                    'access_token' => $_GET['access_token'],
-                    'refresh_token' => '',
-                ));
-                include_once('partials/ad-back-admin-redirect.php');
-            } else {
-                include_once('partials/ad-back-admin-login-display.php');
-            }
-        }
+        $this->preDisplay('partials/ad-back-admin-display.php');
+    }
+
+    /**
+     * Render the settings page for this plugin.
+     *
+     * @since    1.0.0
+     */
+    public function displayPluginStatsLitePage()
+    {
+        $this->preDisplay('partials/ad-back-admin-lite-display.php');
+    }
+
+    /**
+     * Render the choice page for this plugin.
+     *
+     * @since    1.0.0
+     */
+    public function displayPluginIntegrationChoicePage()
+    {
+        $this->preDisplay('partials/ad-back-admin-choice.php');
     }
 
     /**
@@ -225,22 +270,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginSettingsPage()
     {
-        if ($this->isConnected()) {
-            if ($this->getDomain() == '') {
-                $this->askDomain();
-            }
-            include_once('partials/ad-back-admin-settings-display.php');
-        } else {
-            if (isset($_GET['access_token'])) {
-                $this->saveToken(array(
-                    'access_token' => $_GET['access_token'],
-                    'refresh_token' => '',
-                ));
-                include_once('partials/ad-back-admin-redirect.php');
-            } else {
-                include_once('partials/ad-back-admin-login-display.php');
-            }
-        }
+        $this->preDisplay('partials/ad-back-admin-settings-display.php');
     }
 
     /**
@@ -250,22 +280,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginMessagePage()
     {
-        if ($this->isConnected()) {
-            if ($this->getDomain() == '') {
-                $this->askDomain();
-            }
-            include_once('partials/ad-back-admin-message-display.php');
-        } else {
-            if (isset($_GET['access_token'])) {
-                $this->saveToken(array(
-                    'access_token' => $_GET['access_token'],
-                    'refresh_token' => '',
-                ));
-                include_once('partials/ad-back-admin-redirect.php');
-            } else {
-                include_once('partials/ad-back-admin-login-display.php');
-            }
-        }
+        $this->preDisplay('partials/ad-back-admin-message-display.php');
     }
 
     /**
@@ -275,22 +290,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginPlacementsPage()
     {
-        if ($this->isConnected()) {
-            if ($this->getDomain() == '') {
-                $this->askDomain();
-            }
-            include_once('partials/ad-back-admin-placements-display.php');
-        } else {
-            if (isset($_GET['access_token'])) {
-                $this->saveToken(array(
-                    'access_token' => $_GET['access_token'],
-                    'refresh_token' => '',
-                ));
-                include_once('partials/ad-back-admin-redirect.php');
-            } else {
-                include_once('partials/ad-back-admin-login-display.php');
-            }
-        }
+        $this->preDisplay('partials/ad-back-admin-placements-display.php');
     }
 
     /**
@@ -300,32 +300,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginDiagnosticPage()
     {
-        global $wpdb;
-        if ($this->isConnected()) {
-            if ($this->getDomain() === '') {
-                $this->askDomain();
-            }
-            $adback = new Ad_Back_Public($this->plugin_name, $this->version);
-            $adback->enqueueScripts();
-            $token = $this->getToken();
-            $script = $this->askScripts();
-            $table_name_end_point = $wpdb->prefix . 'adback_end_point';
-            $endPoints = $wpdb->get_row("SELECT * FROM " . $table_name_end_point . " WHERE id = " . get_current_blog_id());
-
-            $rules = get_option('rewrite_rules', array());
-
-            include_once('partials/ad-back-admin-diagnostic.php');
-        } else {
-            if (isset($_GET['access_token'])) {
-                $this->saveToken(array(
-                    'access_token' => $_GET['access_token'],
-                    'refresh_token' => '',
-                ));
-                include_once('partials/ad-back-admin-redirect.php');
-            } else {
-                include_once('partials/ad-back-admin-login-display.php');
-            }
-        }
+        $this->preDisplay('partials/ad-back-admin-diagnostic.php');
     }
 
     /**
@@ -335,12 +310,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginRefreshDomainPage()
     {
-        if ($this->isConnected()) {
-            $this->askDomain();
-            include_once('partials/ad-back-admin-refresh-domain.php');
-        } else {
-            include_once('partials/ad-back-admin-login-display.php');
-        }
+        $this->preDisplay('partials/ad-back-admin-refresh-domain.php');
     }
 
     /**
@@ -365,9 +335,13 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
         add_menu_page('AdBack', 'AdBack', 'manage_options', 'ab', '', plugin_dir_url(__FILE__) . '/partials/images/_dback_blanc_logo.png', $_wp_last_object_menu);
 
-        add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'adback-solution-to-adblock'), 'manage_options', 'ab', array($this, 'displayPluginStatsPage'));
-        add_submenu_page('ab', 'AdBack Message', __('Message', 'adback-solution-to-adblock'), 'manage_options', 'ab-message', array($this, 'displayPluginMessagePage'));
-        add_submenu_page('ab', 'AdBack Placements', __('Placements', 'adback-solution-to-adblock'), 'manage_options', 'ab-placements', array($this, 'displayPluginPlacementsPage'));
+        if (Integration_Checker::isFullIntegration()) {
+            add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'adback-solution-to-adblock'), 'manage_options', 'ab', array($this, 'displayPluginStatsPage'));
+            add_submenu_page('ab', 'AdBack Message', __('Message', 'adback-solution-to-adblock'), 'manage_options', 'ab-message', array($this, 'displayPluginMessagePage'));
+            add_submenu_page('ab', 'AdBack Placements', __('Placements', 'adback-solution-to-adblock'), 'manage_options', 'ab-placements', array($this, 'displayPluginPlacementsPage'));
+        } else {
+            add_submenu_page('ab', 'AdBack Statistiques', __('Statistics', 'adback-solution-to-adblock'), 'manage_options', 'ab', array($this, 'displayPluginStatsLitePage'));
+        }
         add_submenu_page('ab', 'AdBack Settings', __('Settings', 'adback-solution-to-adblock'), 'manage_options', 'ab-settings', array($this, 'displayPluginSettingsPage'));
         add_submenu_page('ab', 'AdBack Diagnostic', __('Diagnostic', 'adback-solution-to-adblock'), 'manage_options', 'ab-diagnostic', array($this, 'displayPluginDiagnosticPage'));
 
@@ -387,6 +361,24 @@ class Ad_Back_Admin extends Ad_Back_Generic
     public function saveGoMessageCallback()
     {
         $this->saveMessage($_POST['display']);
+
+        echo "{\"done\":true}";
+        wp_die(); // this is required to terminate immediately and return a proper response
+    }
+
+    public function liteIntegration()
+    {
+        Integration_Checker::liteIntegration();
+        Ad_Back_Updator::update();
+
+        echo "{\"done\":true}";
+        wp_die(); // this is required to terminate immediately and return a proper response
+    }
+
+    public function fullIntegration()
+    {
+        Integration_Checker::fullIntegration();
+        Ad_Back_Updator::update();
 
         echo "{\"done\":true}";
         wp_die(); // this is required to terminate immediately and return a proper response
@@ -437,13 +429,79 @@ class Ad_Back_Admin extends Ad_Back_Generic
         wp_die(); // this is required to terminate immediately and return a proper response
     }
 
+    public function registerCallback()
+    {
+        global $wpdb; // this is how you get access to the database
+
+
+        $blogId = get_current_blog_id();
+        $table_name_token = $wpdb->prefix . 'adback_token';
+        $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = " . $blogId);
+        $accessToken = '';
+
+        if (null === $savedToken || '' === $savedToken->access_token) {
+            $fields = array(
+                'email' => $_POST['email'] ?: get_bloginfo('admin_email'),
+                'website' => $_POST['site-url'] ?: get_site_url($blogId),
+            );
+
+            $locale = explode("_", get_locale());
+            if (isset($locale[0]) && in_array($locale[0], array('en', 'fr'))) {
+                $locale = $locale[0];
+            } else {
+                $locale = 'en';
+            }
+
+            $response = Ad_Back_Post::execute('https://www.adback.co/tokenoauth/register/' . $locale, $fields);
+            $data = json_decode($response, true);
+            $accessToken = '';
+            if (array_key_exists('access_token', $data)) {
+                $accessToken = $data['access_token'];
+            }
+            $refreshToken = '';
+            if (array_key_exists('refresh_token', $data)) {
+                $refreshToken = $data['refresh_token'];
+            }
+
+            $sql = <<<SQL
+INSERT INTO $table_name_token
+  (id,access_token,refresh_token) values (%d,%s,%s)
+  ON DUPLICATE KEY UPDATE access_token = %s, refresh_token = %s;
+SQL;
+            $sql = $wpdb->prepare(
+                $sql,
+                $blogId,
+                $accessToken,
+                $refreshToken,
+                $accessToken,
+                $refreshToken
+            );
+            $wpdb->query($sql);
+
+            $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = " . $blogId);
+        }
+        if ('' === $accessToken && '' === $savedToken->access_token) {
+            $notices = get_option('adback_deferred_admin_notices', array());
+            $notices[] = sprintf(__('Registration error', 'adback-solution-to-adblock'), get_admin_url($blogId, 'admin.php?page=ab-settings'));
+            update_option('adback_deferred_admin_notices', $notices);
+
+            $errorMsg = isset($data['error']['message']) ? $data['error']['message'] : 'error';
+            update_option('adback_registration_error', $errorMsg);
+        } else {
+            delete_option('adback_registration_error');
+        }
+
+        echo "{\"done\":true}";
+        wp_die(); // this is required to terminate immediately and return a proper response
+    }
+
     public function addConfigNotice()
     {
         if (current_user_can('manage_options')) {
 
             wp_enqueue_style($this->plugin_name, plugin_dir_url(__FILE__) . 'css/ab-admin.css', array(), $this->version, 'all');
 
-            if (!$this->isConnected()) {
+            if (!$this->isConnected() && !in_array($_REQUEST['page'], array('ab', 'ab-placements', 'ab-message', 'ab-settings', 'ab-diagnostic'))) {
                 echo '<div class="updated" style="padding: 0; margin: 0; border: none; background: none;">
 		                <div class="adback-incentive">
 		                <form name="adback-incentive" action="' . esc_url(get_admin_url(get_current_blog_id(), 'admin.php?page=ab-settings')) . '" method="POST">

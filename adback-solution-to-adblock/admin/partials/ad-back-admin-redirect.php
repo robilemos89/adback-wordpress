@@ -18,5 +18,5 @@
 <script>
 	setTimeout(function(){
 	    	window.location.href = '<?php echo $_SERVER['PHP_SELF'] . '?page=ab'; ?>';
-	}, 2000);
+	}, 1000);
 </script>
