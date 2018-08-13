@@ -116,7 +116,7 @@ We propose:
 * Add changelog for 3.0.0
 
 = 3.0.0 =
-* Add support for a light version of the plugin : display a simple message to quickly monetize your audience
+* Add support for a light version of the plugin: display a simple message to quickly monetize your audience
 
 = 2.11.0 =
 * RGPD compliant
