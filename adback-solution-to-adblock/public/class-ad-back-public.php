@@ -88,12 +88,12 @@ class Ad_Back_Public extends Ad_Back_Generic
             $why_link = __('Access help page', 'adback-solution-to-adblock');
             $why_link_url = __('why_link_url', 'adback-solution-to-adblock');
             $issue_title = __('An issue?', 'adback-solution-to-adblock');
-            $issue_description = __('If you have clicked on the banner or deactivate your adblock and you still see this message, report it to us below.', 'adback-solution-to-adblock');
+            $issue_description = __('If you have clicked on the banner or deactivated your adblock and you still see this message, report it to us below.', 'adback-solution-to-adblock');
             $issue_link = __('Report a bug', 'adback-solution-to-adblock');
             $issue_test = __('Verification in progress', 'adback-solution-to-adblock');
             $issue_thank_you = __('Thank you for your help', 'adback-solution-to-adblock');
             $who_title = __('Who are we?', 'adback-solution-to-adblock');
-            $who_description = __('Thanks to AdBack, you can monetize your adblocked audience by displaying users friendly banners.', 'adback-solution-to-adblock');
+            $who_description = __('Thanks to AdBack, you can monetize your adblocked audience by displaying user-friendly banners.', 'adback-solution-to-adblock');
             $who_link = __('Discover AdBack', 'adback-solution-to-adblock');
             $who_link_url = __('who_link_url', 'adback-solution-to-adblock');
 
