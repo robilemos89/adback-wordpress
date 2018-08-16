@@ -16,9 +16,6 @@
 <!-- This file should primarily consist of HTML with a little bit of PHP. -->
 <h1><?php _e('AdBack : The stats of your AdBlock audience', 'adback-solution-to-adblock'); ?></h1>
 
-<p>
-    <?php _e('Statistics description', 'adback-solution-to-adblock'); ?>
-</p>
 <hr class="clear">
 
 <div class="row">
