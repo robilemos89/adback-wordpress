@@ -4,7 +4,7 @@ Donate link: https://www.adback.co
 Tags: adblock, analytics, message, detection, detect, block, ad block, ads, advertising, adblock killer, anti adblock, adblocker, popup, notification, message, custom, personalize, analyze, stats, adblocker, dashboard widget, block adblock, ghostery, ublock, adblock plus, ad free
 Requires at least: 3.0.1
 Tested up to: 4.9
-Stable tag: 3.0.1
+Stable tag: 3.0.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -112,11 +112,14 @@ We propose:
 * To watch a video ad to access the content
 
 == Changelog ==
+= 3.0.2 =
+* Suppress descriptive text
+
 = 3.0.1 =
 * Add changelog for 3.0.0
 
 = 3.0.0 =
-* Add support for a light version of the plugin: display a simple message to quickly monetize your audience
+* Add support for a light version of the plugin to display a simple message to quickly monetize your audience
 
 = 2.11.0 =
 * RGPD compliant
