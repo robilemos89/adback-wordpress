@@ -482,7 +482,7 @@ msgstr ""
 
 #: public/class-ad-back-public.php:91
 msgid ""
-"If you have clicked on the banner or deactivate your adblock and you still "
+"If you have clicked on the banner or deactivated your adblock and you still "
 "see this message, report it to us below."
 msgstr ""
 
@@ -505,7 +505,7 @@ msgstr ""
 #: public/class-ad-back-public.php:96
 msgid ""
 "Thanks to AdBack, you can monetize your adblocked audience by displaying "
-"users friendly banners."
+"user-friendly banners."
 msgstr ""
 
 #: public/class-ad-back-public.php:97
