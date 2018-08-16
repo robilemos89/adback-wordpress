@@ -114,6 +114,7 @@ We propose:
 == Changelog ==
 = 3.0.2 =
 * Suppress descriptive text
+* Refresh tags on plugin type switch
 
 = 3.0.1 =
 * Add changelog for 3.0.0
