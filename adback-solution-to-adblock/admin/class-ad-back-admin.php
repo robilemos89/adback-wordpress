@@ -310,6 +310,9 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginRefreshDomainPage()
     {
+        global $wpdb;
+        $wpdb->query('delete from ' . $wpdb->prefix . 'adback_full_tag');
+
         $this->preDisplay('partials/ad-back-admin-refresh-domain.php');
     }
 

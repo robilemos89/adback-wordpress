@@ -107,7 +107,7 @@
                     $.post(ajaxurl, data, function (response) {
                         var obj = JSON.parse(response);
                         if (obj.done === true) {
-                            window.location.href = location.protocol + '//' + location.host + location.pathname + '?page=ab';
+                            window.location.href = location.protocol + '//' + location.host + location.pathname + '?page=ab-refresh-domain';
                         } else {
                             vex.dialog.alert(trans_arr.oops + ' ' + trans_arr.error);
                         }
@@ -132,7 +132,7 @@
                     $.post(ajaxurl, data, function (response) {
                         var obj = JSON.parse(response);
                         if (obj.done === true) {
-                            window.location.href = location.protocol + '//' + location.host + location.pathname + '?page=ab';
+                            window.location.href = location.protocol + '//' + location.host + location.pathname + '?page=ab-refresh-domain';
                         } else {
                             vex.dialog.alert(trans_arr.oops + ' ' + trans_arr.error);
                         }
