@@ -41,7 +41,6 @@
                             <p class="ab-registration-advantages-intro"><?php esc_html_e('By activating the plugin:', 'adback-solution-to-adblock'); ?></p>
                             <ul>
                                 <li><?php esc_html_e('You accept the AdBack Terms of Service', 'adback-solution-to-adblock'); ?></li>
-                                <li><?php _e('The application will collect automatically the name of your website and the associated email address. That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
                                 <li><?php esc_html_e('The application will install the AdBack script, necessary to display the analytics and monetization solutions', 'adback-solution-to-adblock'); ?></li>
                             </ul>
                             <center>
@@ -61,7 +60,6 @@
                             <p class="ab-registration-advantages-intro"><?php esc_html_e('By activating the plugin:', 'adback-solution-to-adblock'); ?></p>
                             <ul>
                                 <li><?php esc_html_e('You accept the AdBack Terms of Service', 'adback-solution-to-adblock'); ?></li>
-                                <li><?php _e('The application will collect automatically the name of your website and the associated email address. That address will be used to give you the information related to your account and to the AdBack news and products', 'adback-solution-to-adblock'); ?></li>
                                 <li><?php esc_html_e('The application will install the AdBack script, necessary to display the analytics and monetization solutions', 'adback-solution-to-adblock'); ?></li>
                             </ul>
                             <center>
@@ -70,6 +68,10 @@
                         </div>
                     <?php } ?>
                 </center>
+                <div class="ab-email-div">
+                    <p class="ab-email-p"><?php esc_html_e('Email (You will receive a link to this address to create your password and informations about this plugin)', 'adback-solution-to-adblock'); ?></p>
+                    <input class="ab-email-input" type="text" id="true_email" value="<?php echo get_bloginfo('admin_email') ?>" onkeypress="this.style.width = ((this.value.length) * 8) + 'px';">
+                </div>
                 <center>
                     <button
                             class="ab-button ab-button-primary"
@@ -80,10 +82,13 @@
                         <?php } ?>
                             style="margin-top: 30px;"
                             data-site-url="<?php echo get_site_url(get_current_blog_id()) ?>"
-                            data-email="<?php echo get_bloginfo('admin_email') ?>"
                             data-locale="<?php echo (get_locale() === 'fr_FR') ? 'fr':'en'; ?>"
                     >
-                        <?php esc_html_e('Create my AdBack account', 'adback-solution-to-adblock'); ?>
+                        <?php if (get_option('adback_registration_error', false) === false) { ?>
+                            <?php esc_html_e('Create my account in one click', 'adback-solution-to-adblock'); ?>
+                        <?php } else { ?>
+                            <?php esc_html_e('Create my AdBack account', 'adback-solution-to-adblock'); ?>
+                        <?php } ?>
                     </button>
                 </center>
                 <br/>
