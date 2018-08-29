@@ -43,7 +43,7 @@
             + locale
             + '/register/?redirect_url='
             + callback
-            + '&email=' + $(event.target).data('email')
+            + '&email=' + $('#true_email').val()
             + '&website=' + $(event.target).data('site-url')
         ;
     }
@@ -53,7 +53,7 @@
         $('#ab-register-adback').addClass("disabled");
         var data = {
             'action': 'ab_register',
-            'email': $(event.target).data('email'),
+            'email': $('#true_email').val(),
             'site-url': $(event.target).data('site-url')
         };
 
