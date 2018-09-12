@@ -1,10 +1,8 @@
-#, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: \n"
-"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -12,6 +10,9 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-KeywordsList: __;_e;_esc_attr\n"
 "X-Poedit-Basepath: ..\n"
+"Last-Translator: \n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: admin/js\n"
 
@@ -173,12 +174,14 @@ msgstr ""
 
 #: admin/partials/ad-back-admin-login-display.php:47
 #: admin/partials/ad-back-admin-login-display.php:66
-msgid "<a href=\"https://landing.adback.co/en/legal-notice/\">Terms of Service</a>"
+msgid ""
+"<a href=\"https://landing.adback.co/en/legal-notice/\">Terms of Service</a>"
 msgstr ""
 
 #: admin/partials/ad-back-admin-login-display.php:47
 #: admin/partials/ad-back-admin-login-display.php:66
-msgid "<a href=\"https://landing.adback.co/en/privacy-policy/\">Privacy Policy</a>"
+msgid ""
+"<a href=\"https://landing.adback.co/en/privacy-policy/\">Privacy Policy</a>"
 msgstr ""
 
 #: admin/partials/ad-back-admin-redirect.php:16
@@ -190,77 +193,98 @@ msgid "Refresh domain..."
 msgstr ""
 
 #: includes/class-ad-back-external-checker.php:38
-msgid "There is an incompatibility between the WP Rocket plugin and AdBack. Please uncheck the box \"Enable for iframes and videos\" in Settings > WP Rocket > Basic > LazyLoad to continue using AdBack. This change won't interfere with the operation of your website."
+msgid ""
+"There is an incompatibility between the WP Rocket plugin and AdBack. Please "
+"uncheck the box \"Enable for iframes and videos\" in Settings > WP Rocket > "
+"Basic > LazyLoad to continue using AdBack. This change won't interfere with "
+"the operation of your website."
 msgstr ""
 
 #: includes/class-ad-back-external-checker.php:46
-msgid "There is an incompatibility between the LazyLoad plugin and AdBack. Please uncheck the box \"iframes and videos\" in Settings > LazyLoad to continue using AdBack. This change won't interfere with the operation of your website."
+msgid ""
+"There is an incompatibility between the LazyLoad plugin and AdBack. Please "
+"uncheck the box \"iframes and videos\" in Settings > LazyLoad to continue "
+"using AdBack. This change won't interfere with the operation of your website."
 msgstr ""
 
 #: public/class-ad-back-public.php:82
 msgid "To access the website"
-msgstr ""
+msgstr "Para acceder al sitio"
 
 #: public/class-ad-back-public.php:83
 msgid "Deactivate your adblock<br/>then reload the page"
-msgstr ""
+msgstr "Desactive su adblocker<br/>y refresque la página"
 
 #: public/class-ad-back-public.php:84
 msgid "Or click on the banner<br/> nearby"
-msgstr ""
+msgstr "O haga click en este<br/>banner"
 
 #: public/class-ad-back-public.php:85
 msgid "Close"
-msgstr ""
+msgstr "Cerrar"
 
 #: public/class-ad-back-public.php:86
 msgid "Why do I see this message?"
-msgstr ""
+msgstr "Por qué ve este mensaje?"
 
 #: public/class-ad-back-public.php:87
-msgid "Your browser blocks the ads on this website. To discover how to access it, find the help down here."
+msgid ""
+"Your browser blocks the ads on this website. To discover how to access it, "
+"find the help down here."
 msgstr ""
+"Su navegador bloquea los anuncios en este sitio web. Para descubrir cómo "
+"entrar a él, encuentre la ayuda aquí."
 
 #: public/class-ad-back-public.php:88
 msgid "Access help page"
-msgstr ""
+msgstr "Página de ayuda"
 
 #: public/class-ad-back-public.php:89
 msgid "why_link_url"
 msgstr ""
+"https://support.adback.co/article/422-why-do-i-see-a-message-from-adback-on-"
+"the-site-i-am-visiting"
 
 #: public/class-ad-back-public.php:90
 msgid "An issue?"
-msgstr ""
+msgstr "Algún problema?"
 
 #: public/class-ad-back-public.php:91
-msgid "If you have clicked on the banner or deactivated your adblock and you still see this message, report it to us below."
+msgid ""
+"If you have clicked on the banner or deactivated your adblock and you still "
+"see this message, report it to us below."
 msgstr ""
+"Si ha hecho click en el banner o desactivado su adblock y aún ve este "
+"mensaje, por favor háganoslo saber debajo."
 
 #: public/class-ad-back-public.php:92
 msgid "Report a bug"
-msgstr ""
+msgstr "Reportar un error"
 
 #: public/class-ad-back-public.php:93
 msgid "Verification in progress"
-msgstr ""
+msgstr "Verificación en curso"
 
 #: public/class-ad-back-public.php:94
 msgid "Thank you for your help"
-msgstr ""
+msgstr "Gracias por tu ayuda"
 
 #: public/class-ad-back-public.php:95
 msgid "Who are we?"
-msgstr ""
+msgstr "Quiénes somos?"
 
 #: public/class-ad-back-public.php:96
-msgid "Thanks to AdBack, you can monetize your adblocked audience by displaying user-friendly banners."
+msgid ""
+"Thanks to AdBack, you can monetize your adblocked audience by displaying "
+"user-friendly banners."
 msgstr ""
+"Gracias a AdBack, puede monetizar la audiencia con adblocker lanzando "
+"banners user-friendly."
 
 #: public/class-ad-back-public.php:97
 msgid "Discover AdBack"
-msgstr ""
+msgstr "Descubre AdBack"
 
 #: public/class-ad-back-public.php:98
 msgid "who_link_url"
-msgstr ""
+msgstr "https://landing.adback.co/en/adblock-monetization/"
