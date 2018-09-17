@@ -56,7 +56,8 @@
                     <hr/>
                     <div class="section-content">
                         <p style="margin: auto !important;">Login: <a><?php echo $email ?></a></p>
-                        <i><?php _e('We sent you an email to <a>' . $email . '</a>. Go to your electronic mail to create your password.', 'adback-solution-to-adblock'); ?></i>
+                        <i><?php _e('We sent you an email to ', 'adback-solution-to-adblock'); ?><a><?php echo $email ?></a>
+                            <?php _e('. Go to your electronic mail to create your password.', 'adback-solution-to-adblock'); ?></i>
                     </div>
                     <div class="section-content">
                         <button id="ab-logout" class="btn-generic-save" primary m-full>
