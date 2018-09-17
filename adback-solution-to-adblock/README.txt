@@ -112,6 +112,9 @@ We propose:
 * To watch a video ad to access the content
 
 == Changelog ==
+= 3.1.1 =
+* CSS update
+
 = 3.1.0 =
 * Add spanish translations for generic message
 
