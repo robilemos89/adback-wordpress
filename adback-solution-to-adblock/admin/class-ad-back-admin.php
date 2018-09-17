@@ -447,7 +447,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
         if (null === $savedToken || '' === $savedToken->access_token) {
             $fields = array(
-                'email' => $_POST['email'] ?: get_bloginfo('admin_email'),
+                'email' => $_POST['email'],
                 'website' => $_POST['site-url'] ?: get_site_url($blogId),
             );
 
@@ -495,6 +495,15 @@ SQL;
             update_option('adback_registration_error', $errorMsg);
         } else {
             delete_option('adback_registration_error');
+            $adback_account = $wpdb->prefix . 'adback_account';
+            $wpdb->update(
+                $adback_account,
+                array(
+                    'id' => get_current_blog_id(),
+                    'username' => $_POST['email'],
+                ),
+                array('id' => get_current_blog_id())
+            );
         }
 
         echo "{\"done\":true}";
