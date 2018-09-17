@@ -12,10 +12,11 @@ msgstr ""
 "X-Generator: Poedit 1.8.7.1\n"
 "X-Poedit-KeywordsList: __;_e;_esc_attr\n"
 "X-Poedit-Basepath: ..\n"
+"X-Poedit-SourceCharset: UTF-8\n"
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: admin/js\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:348
+#: ad-back.php:36 admin/class-ad-back-admin.php:351
 msgid "Settings"
 msgstr ""
 
@@ -112,31 +113,31 @@ msgstr ""
 msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:342 admin/class-ad-back-admin.php:346
+#: admin/class-ad-back-admin.php:345 admin/class-ad-back-admin.php:349
 msgid "Statistics"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:343
+#: admin/class-ad-back-admin.php:346
 msgid "Message"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:344
+#: admin/class-ad-back-admin.php:347
 msgid "Placements"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:349
+#: admin/class-ad-back-admin.php:352
 msgid "Diagnostic"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:488
+#: admin/class-ad-back-admin.php:491
 msgid "Registration error"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:513
+#: admin/class-ad-back-admin.php:525
 msgid "Activate my AdBack plugin"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:517
+#: admin/class-ad-back-admin.php:529
 msgid "It's time to analyze your adblock users, set up your AdBack account!"
 msgstr ""
 
@@ -187,6 +188,22 @@ msgstr ""
 
 #: admin/partials/ad-back-admin-refresh-domain.php:16
 msgid "Refresh domain..."
+msgstr ""
+
+#: admin/partials/ad-back-admin-settings-display.php:59
+msgid "We sent you an email to "
+msgstr ""
+
+#: admin/partials/ad-back-admin-settings-display.php:60
+msgid ". Go to your electronic mail to create your password."
+msgstr ""
+
+#: admin/partials/ad-back-admin-settings-display.php:104
+msgid "If you change the option, all the solutions currently running on your site will be stopped (message, banners, ads…).    You will have access to your statistics only in the AdBack back office.\\n"
+msgstr ""
+
+#: admin/partials/ad-back-admin-settings-display.php:129
+msgid "If you change the option, all the solutions currently running on your site will be stopped (message, banners, ads…).   You will have access to your statistics only in the AdBack back office.\\n"
 msgstr ""
 
 #: includes/class-ad-back-external-checker.php:38
