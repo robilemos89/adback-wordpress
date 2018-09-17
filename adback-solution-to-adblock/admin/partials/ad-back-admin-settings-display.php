@@ -19,7 +19,7 @@
         <grid>
             <div col="5/6">
                 <?php if (Integration_Checker::isFullIntegration()) { ?>
-                <div id="ab-configuration-form"></div>
+                    <div id="ab-configuration-form"></div>
                 <?php } ?>
                 <section style="background-color: transparent;">
                     <h4 class="header-section"><?php esc_html_e('Change of solution', 'adback-solution-to-adblock'); ?></h4>
@@ -29,13 +29,15 @@
                     </div>
                     <?php if (Integration_Checker::isFullIntegration()) { ?>
                         <div class="section-content">
-                            <button class="ab-button ab-button-primary" style="padding: 10px" id="switch-integration-lite">
+                            <button class="ab-button ab-button-primary" style="padding: 10px"
+                                    id="switch-integration-lite">
                                 <?php esc_html_e('Switch to One Click Adblock Monetization', 'adback-solution-to-adblock'); ?>
                             </button>
                         </div>
                     <?php } else { ?>
                         <div class="section-content">
-                            <button class="ab-button ab-button-primary" style="padding: 10px" id="switch-integration-full">
+                            <button class="ab-button ab-button-primary" style="padding: 10px"
+                                    id="switch-integration-full">
                                 <?php esc_html_e('Switch to Advanced solution', 'adback-solution-to-adblock'); ?>
                             </button>
                         </div>
@@ -52,6 +54,10 @@
                 <section style="background-color:transparent;">
                     <h4 class="header-section"><?php esc_html_e('Adback Account', 'adback-solution-to-adblock'); ?></h4>
                     <hr/>
+                    <div class="section-content">
+                        <p style="margin: auto !important;">Login: <a><?php echo $email ?></a></p>
+                        <i><?php _e('We sent you an email to <a>' . $email . '</a>. Go to your electronic mail to create your password.', 'adback-solution-to-adblock'); ?></i>
+                    </div>
                     <div class="section-content">
                         <button id="ab-logout" class="btn-generic-save" primary m-full>
                             <?php esc_html_e('Log out', 'adback-solution-to-adblock'); ?>
