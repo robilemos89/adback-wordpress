@@ -439,7 +439,6 @@ class Ad_Back_Admin extends Ad_Back_Generic
     {
         global $wpdb; // this is how you get access to the database
 
-
         $blogId = get_current_blog_id();
         $table_name_token = $wpdb->prefix . 'adback_token';
         $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = " . $blogId);
@@ -496,13 +495,12 @@ SQL;
         } else {
             delete_option('adback_registration_error');
             $adback_account = $wpdb->prefix . 'adback_account';
-            $wpdb->update(
+            $wpdb->replace(
                 $adback_account,
                 array(
                     'id' => get_current_blog_id(),
                     'username' => $_POST['email'],
-                ),
-                array('id' => get_current_blog_id())
+                )
             );
         }
 
