@@ -59,12 +59,24 @@ class Ad_Back_Updator
      */
     public static function onUpdateFromOldVersion()
     {
-        $currentVersion = (int)get_option("adback_solution_to_adblock_db_version");
+        global $wpdb;
+        $currentVersion = (int)get_option('adback_solution_to_adblock_db_version');
 
         if (2 === $currentVersion) {
-            $currentVersion = 3;
             update_option('adback_integration', '1');
-            update_option("adback_solution_to_adblock_db_version", $currentVersion);
+            update_option('adback_solution_to_adblock_db_version', 3);
+        }
+        if (3 === $currentVersion) {
+            update_option('adback_solution_to_adblock_db_version', 4);
+            $adback_account = $wpdb->prefix . 'adback_account';
+            $wpdb->update(
+                $adback_account,
+                array(
+                    'id' => get_current_blog_id(),
+                    'username' => get_bloginfo('admin_email'),
+                ),
+                array('id' => get_current_blog_id())
+            );
         }
     }
 

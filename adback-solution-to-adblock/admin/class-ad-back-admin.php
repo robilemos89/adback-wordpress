@@ -199,10 +199,11 @@ class Ad_Back_Admin extends Ad_Back_Generic
      * Check if isConnected / hasChooseIntegration and render page
      *
      * @since   1.0.0
-     * @param   string  $page
+     * @param   string $page
      */
     private function preDisplay($page)
     {
+        global $wpdb;
         if (isset($_GET['access_token'])) {
             self::saveToken(array(
                 'access_token' => $_GET['access_token'],
@@ -218,16 +219,18 @@ class Ad_Back_Admin extends Ad_Back_Generic
                 $this->askDomain();
             }
             if ($page === 'partials/ad-back-admin-diagnostic.php') {
-                global $wpdb;
 
                 $adback = new Ad_Back_Public($this->plugin_name, $this->version);
                 $adback->enqueueScripts();
                 $token = self::getToken();
                 $script = $this->askScripts();
                 $table_name_end_point = $wpdb->prefix . 'adback_end_point';
-                $endPoints = $wpdb->get_row("SELECT * FROM " . $table_name_end_point . " WHERE id = " . get_current_blog_id());
+                $endPoints = $wpdb->get_row('SELECT * FROM ' . $table_name_end_point . ' WHERE id = ' . get_current_blog_id());
                 $rules = get_option('rewrite_rules', array());
             }
+            $adback_account = $wpdb->prefix . 'adback_account';
+            $email = $wpdb->get_row('SELECT username FROM ' . $adback_account . ' where id = ' . get_current_blog_id());
+            $email = $email->username;
 
             include_once $page;
         }
@@ -444,7 +447,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
         if (null === $savedToken || '' === $savedToken->access_token) {
             $fields = array(
-                'email' => $_POST['email'] ?: get_bloginfo('admin_email'),
+                'email' => $_POST['email'],
                 'website' => $_POST['site-url'] ?: get_site_url($blogId),
             );
 
@@ -492,6 +495,15 @@ SQL;
             update_option('adback_registration_error', $errorMsg);
         } else {
             delete_option('adback_registration_error');
+            $adback_account = $wpdb->prefix . 'adback_account';
+            $wpdb->update(
+                $adback_account,
+                array(
+                    'id' => get_current_blog_id(),
+                    'username' => $_POST['email'],
+                ),
+                array('id' => get_current_blog_id())
+            );
         }
 
         echo "{\"done\":true}";
