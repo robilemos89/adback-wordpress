@@ -155,6 +155,8 @@ function addToRobotsTxt($robotsTxt) {
     $additions = '
 # Added by AdBack plugin
 
+Disallow: /components/
+Disallow: /modules/
 ';
     $table_name = $wpdb->prefix . 'adback_end_point';
     $rows = $wpdb->get_results('SELECT * FROM ' . $table_name);
