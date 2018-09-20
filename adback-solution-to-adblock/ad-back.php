@@ -149,6 +149,25 @@ function adback_delete_blog($tables) {
     Ad_Back_Deactivator::deleteBlog($tables);
 }
 
+function addToRobotsTxt($robotsTxt) {
+    global $wpdb;
+
+    $additions = '
+# Added by AdBack plugin
+
+';
+    $table_name = $wpdb->prefix . 'adback_end_point';
+    $rows = $wpdb->get_results('SELECT * FROM ' . $table_name);
+
+    foreach ($rows as $row) {
+        $row->old_end_point and $additions .= 'Disallow: /' . $row->old_end_point . '/' . "\n";
+        $row->end_point and $additions .= 'Disallow: /' . $row->end_point . '/' . "\n";
+        $row->next_end_point and $additions .= 'Disallow: /' . $row->next_end_point . '/' . "\n";
+    }
+
+    return $robotsTxt . $additions;
+}
+
 add_action('admin_notices', 'adback_admin_notices');
 add_action('wpmu_new_blog', 'adback_new_blog');
 add_action('plugins_loaded', 'adback_plugins_loaded');
@@ -161,6 +180,8 @@ add_action('init', 'adback_plugin_rules');
 add_filter('query_vars', 'adback_plugin_query_vars');
 //register plugin custom pages display
 add_filter('template_redirect', 'adback_plugin_display');
+//refresh robot.txt
+add_filter('robots_txt', 'addToRobotsTxt');
 
 /**
  * The core plugin class that is used to define internationalization,
