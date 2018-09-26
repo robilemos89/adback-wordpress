@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
-"POT-Creation-Date: 2018-09-17 15:59+0200\n"
+"POT-Creation-Date: 2018-09-26 17:28+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -130,17 +130,17 @@ msgstr "Placements"
 msgid "Diagnostic"
 msgstr "Diagnostic"
 
-#: admin/class-ad-back-admin.php:491
+#: admin/class-ad-back-admin.php:490
 msgid "Registration error"
 msgstr ""
 "An error occurred during your AdBack plugin activation. Please go to the <a "
 "href='%s'>administration</a> page to complete your installation"
 
-#: admin/class-ad-back-admin.php:525
+#: admin/class-ad-back-admin.php:523
 msgid "Activate my AdBack plugin"
 msgstr "Activate my AdBack plugin"
 
-#: admin/class-ad-back-admin.php:529
+#: admin/class-ad-back-admin.php:527
 msgid "It's time to analyze your adblock users, set up your AdBack account!"
 msgstr "It's time to analyze your adblock users, set up your AdBack account!"
 
@@ -363,24 +363,28 @@ msgstr "Redirect me to my AdBack dashboard"
 msgid "Adback Account"
 msgstr "Adback Account"
 
-#: admin/partials/ad-back-admin-settings-display.php:59
+#: admin/partials/ad-back-admin-settings-display.php:60
 msgid "We sent you an email to "
 msgstr "We sent you an email to "
 
-#: admin/partials/ad-back-admin-settings-display.php:60
+#: admin/partials/ad-back-admin-settings-display.php:61
 msgid ". Go to your electronic mail to create your password."
 msgstr ". Go to your electronic mail to create your password."
 
-#: admin/partials/ad-back-admin-settings-display.php:64
+#: admin/partials/ad-back-admin-settings-display.php:63
+msgid "Contact us to get your login"
+msgstr ""
+
+#: admin/partials/ad-back-admin-settings-display.php:68
 msgid "Log out"
 msgstr "Log out"
 
-#: admin/partials/ad-back-admin-settings-display.php:103
-#: admin/partials/ad-back-admin-settings-display.php:128
+#: admin/partials/ad-back-admin-settings-display.php:107
+#: admin/partials/ad-back-admin-settings-display.php:132
 msgid "Caution!"
 msgstr "Caution!"
 
-#: admin/partials/ad-back-admin-settings-display.php:104
+#: admin/partials/ad-back-admin-settings-display.php:108
 msgid ""
 "If you change the option, all the solutions currently running on your site "
 "will be stopped (message, banners, ads…).    You will have access to your "
@@ -390,17 +394,17 @@ msgstr ""
 "will be stopped (message, banners, ads…).    You will have access to your "
 "statistics only in the AdBack back office.\\n"
 
-#: admin/partials/ad-back-admin-settings-display.php:109
-#: admin/partials/ad-back-admin-settings-display.php:134
+#: admin/partials/ad-back-admin-settings-display.php:113
+#: admin/partials/ad-back-admin-settings-display.php:138
 msgid "Continue"
 msgstr "Continue"
 
-#: admin/partials/ad-back-admin-settings-display.php:110
-#: admin/partials/ad-back-admin-settings-display.php:135
+#: admin/partials/ad-back-admin-settings-display.php:114
+#: admin/partials/ad-back-admin-settings-display.php:139
 msgid "Cancel"
 msgstr "Cancel"
 
-#: admin/partials/ad-back-admin-settings-display.php:129
+#: admin/partials/ad-back-admin-settings-display.php:133
 msgid ""
 "If you change the option, all the solutions currently running on your site "
 "will be stopped (message, banners, ads…).   You will have access to your "

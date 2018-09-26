@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
-"POT-Creation-Date: 2018-09-17 15:44+0200\n"
+"POT-Creation-Date: 2018-09-26 17:29+0200\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -132,18 +132,18 @@ msgstr "Emplacements"
 msgid "Diagnostic"
 msgstr "Diagnostique"
 
-#: admin/class-ad-back-admin.php:491
+#: admin/class-ad-back-admin.php:490
 msgid "Registration error"
 msgstr ""
 "Une erreur est survenue lors de l'activation du plugin AdBack. Veuillez vous "
 "rendre sur la page d'<a href='%s'>administration</a> pour compléter votre "
 "activation"
 
-#: admin/class-ad-back-admin.php:525
+#: admin/class-ad-back-admin.php:523
 msgid "Activate my AdBack plugin"
 msgstr "Activer mon plugin AdBack"
 
-#: admin/class-ad-back-admin.php:529
+#: admin/class-ad-back-admin.php:527
 msgid "It's time to analyze your adblock users, set up your AdBack account!"
 msgstr ""
 "Il est temps d'analyser vos utilisateurs Adblock, configurez votre compte "
@@ -372,24 +372,28 @@ msgstr "Redirigez-moi vers mon dashboard AdBack"
 msgid "Adback Account"
 msgstr "Compte Adback"
 
-#: admin/partials/ad-back-admin-settings-display.php:59
+#: admin/partials/ad-back-admin-settings-display.php:60
 msgid "We sent you an email to "
 msgstr "Nous vous avons envoyé un email à "
 
-#: admin/partials/ad-back-admin-settings-display.php:60
+#: admin/partials/ad-back-admin-settings-display.php:61
 msgid ". Go to your electronic mail to create your password."
 msgstr ". Rendez-vous sur votre messagerie pour créer votre mot de passe."
 
-#: admin/partials/ad-back-admin-settings-display.php:64
+#: admin/partials/ad-back-admin-settings-display.php:63
+msgid "Contact us to get your login"
+msgstr "Veuillez nous contacter pour obtenir votre login"
+
+#: admin/partials/ad-back-admin-settings-display.php:68
 msgid "Log out"
 msgstr "Déconnexion"
 
-#: admin/partials/ad-back-admin-settings-display.php:103
-#: admin/partials/ad-back-admin-settings-display.php:128
+#: admin/partials/ad-back-admin-settings-display.php:107
+#: admin/partials/ad-back-admin-settings-display.php:132
 msgid "Caution!"
 msgstr "Attention !"
 
-#: admin/partials/ad-back-admin-settings-display.php:104
+#: admin/partials/ad-back-admin-settings-display.php:108
 #, fuzzy
 msgid ""
 "If you change the option, all the solutions currently running on your site "
@@ -401,17 +405,17 @@ msgstr ""
 "publicités...).    Vous n’aurez plus accès à vos statistiques actuelles que "
 "sur le back office AdBack."
 
-#: admin/partials/ad-back-admin-settings-display.php:109
-#: admin/partials/ad-back-admin-settings-display.php:134
+#: admin/partials/ad-back-admin-settings-display.php:113
+#: admin/partials/ad-back-admin-settings-display.php:138
 msgid "Continue"
 msgstr "Continuer"
 
-#: admin/partials/ad-back-admin-settings-display.php:110
-#: admin/partials/ad-back-admin-settings-display.php:135
+#: admin/partials/ad-back-admin-settings-display.php:114
+#: admin/partials/ad-back-admin-settings-display.php:139
 msgid "Cancel"
 msgstr "Annuler"
 
-#: admin/partials/ad-back-admin-settings-display.php:129
+#: admin/partials/ad-back-admin-settings-display.php:133
 #, fuzzy
 msgid ""
 "If you change the option, all the solutions currently running on your site "
