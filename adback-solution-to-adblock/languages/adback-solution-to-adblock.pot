@@ -129,15 +129,15 @@ msgstr ""
 msgid "Diagnostic"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:491
+#: admin/class-ad-back-admin.php:490
 msgid "Registration error"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:525
+#: admin/class-ad-back-admin.php:523
 msgid "Activate my AdBack plugin"
 msgstr ""
 
-#: admin/class-ad-back-admin.php:529
+#: admin/class-ad-back-admin.php:527
 msgid "It's time to analyze your adblock users, set up your AdBack account!"
 msgstr ""
 
