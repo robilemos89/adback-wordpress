@@ -163,13 +163,19 @@ class Ad_Back_Admin extends Ad_Back_Generic
                 return true;
             }
 
-            if (isset($_GET['page']) && ($_GET['page'] == 'ab' || $_GET['page'] == 'ab-settings' ||
-                    $_GET['page'] == 'ab-message' || $_GET['page'] == 'ab-diagnostic') || $_GET['page'] == 'ab-placements') {
+            if (
+                isset($_GET['page'])
+                && (
+                    $_GET['page'] == 'ab'
+                    || $_GET['page'] == 'ab-settings'
+                    || $_GET['page'] == 'ab-message'
+                    || $_GET['page'] == 'ab-diagnostic'
+                    || $_GET['page'] == 'ab-placements'
+                )
+            ) {
                 return true;
             }
-
         }
-
 
         return false;
     }

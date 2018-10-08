@@ -1,4 +1,4 @@
-adback_db:
+wordpress_db:
   image: mysql:5.7
   volumes:
    - ./db_data:/var/lib/mysql
@@ -12,12 +12,12 @@ adback_db:
 
 wordpress:
   links:
-   - adback_db
+   - wordpress_db
   image: wordpress:latest
   volumes:
    - ./../adback-solution-to-adblock:/var/www/html/wp-content/plugins/adback-solution-to-adblock
   ports:
    - "8100:80"
   environment:
-   WORDPRESS_DB_HOST: adback_db:3306
+   WORDPRESS_DB_HOST: wordpress_db:3306
    WORDPRESS_DB_PASSWORD: wordpress
