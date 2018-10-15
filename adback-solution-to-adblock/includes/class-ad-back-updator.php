@@ -189,22 +189,22 @@ class Ad_Back_Updator
     {
         $types = array();
         if (Integration_Checker::isFullIntegration()) {
-            $types = [
+            $types = array(
                 'analytics',
                 'message',
                 'product',
                 'banner',
                 'catcher',
                 'iab_banner',
-            ];
+            );
         }
 
         if (Integration_Checker::isLiteIntegration()) {
-            $types = [
+            $types = array(
                 'analytics',
                 'iab_banner',
                 'generic',
-            ];
+            );
         }
 
         return $types;
