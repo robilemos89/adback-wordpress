@@ -497,8 +497,8 @@ msgid ""
 "If you have clicked on the banner or deactivated your adblock and you still "
 "see this message, report it to us below."
 msgstr ""
-"Si vous avez cliqué sur la publicité ou désactivé votre adblocker et que "
-"vous voyez toujours ce message, signalez-le nous ci-dessous."
+"Vous ne devriez pas voir ce message&nbsp;? Vérifiez les raisons de son "
+"affichage dans l'aide. S'il s'agit d'un bug, signalez-le ci-dessous."
 
 #: public/class-ad-back-public.php:92
 msgid "Report a bug"
