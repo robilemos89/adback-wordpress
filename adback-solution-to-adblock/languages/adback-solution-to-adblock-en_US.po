@@ -483,8 +483,8 @@ msgid ""
 "If you have clicked on the banner or deactivated your adblock and you still "
 "see this message, report it to us below."
 msgstr ""
-"If you have clicked on the banner or deactivated your adblock and you still "
-"see this message, report it to us below."
+"You shouldn't see this message? Check the help page. If this is a bug, "
+"please report it below."
 
 #: public/class-ad-back-public.php:92
 msgid "Report a bug"
