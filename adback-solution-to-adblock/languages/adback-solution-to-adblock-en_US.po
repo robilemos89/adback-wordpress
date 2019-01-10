@@ -1,7 +1,7 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: adback-solution-to-adblock\n"
-"POT-Creation-Date: 2018-09-26 17:28+0200\n"
+"POT-Creation-Date: 2019-01-10 15:40+0100\n"
 "PO-Revision-Date: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,7 +17,7 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 "X-Poedit-SearchPathExcluded-0: admin/js\n"
 
-#: ad-back.php:36 admin/class-ad-back-admin.php:351
+#: ad-back.php:36 admin/class-ad-back-admin.php:357
 msgid "Settings"
 msgstr "Settings"
 
@@ -109,38 +109,38 @@ msgstr "No Data"
 msgid "Something went wrong"
 msgstr "Something went wrong"
 
-#: admin/class-ad-back-admin.php:194
+#: admin/class-ad-back-admin.php:200
 #, php-format
 msgid "You must be log in to see stats. Go to <a href=\"%s\">Log in page</a>"
 msgstr "You must be log in to see stats. Go to <a href=\"%s\">login page</a>"
 
-#: admin/class-ad-back-admin.php:345 admin/class-ad-back-admin.php:349
+#: admin/class-ad-back-admin.php:351 admin/class-ad-back-admin.php:355
 msgid "Statistics"
 msgstr "Statistics"
 
-#: admin/class-ad-back-admin.php:346
+#: admin/class-ad-back-admin.php:352
 msgid "Message"
 msgstr "Message"
 
-#: admin/class-ad-back-admin.php:347
+#: admin/class-ad-back-admin.php:353
 msgid "Placements"
 msgstr "Placements"
 
-#: admin/class-ad-back-admin.php:352
+#: admin/class-ad-back-admin.php:358
 msgid "Diagnostic"
 msgstr "Diagnostic"
 
-#: admin/class-ad-back-admin.php:490
+#: admin/class-ad-back-admin.php:496
 msgid "Registration error"
 msgstr ""
 "An error occurred during your AdBack plugin activation. Please go to the <a "
 "href='%s'>administration</a> page to complete your installation"
 
-#: admin/class-ad-back-admin.php:523
+#: admin/class-ad-back-admin.php:529
 msgid "Activate my AdBack plugin"
 msgstr "Activate my AdBack plugin"
 
-#: admin/class-ad-back-admin.php:527
+#: admin/class-ad-back-admin.php:533
 msgid "It's time to analyze your adblock users, set up your AdBack account!"
 msgstr "It's time to analyze your adblock users, set up your AdBack account!"
 
@@ -518,6 +518,14 @@ msgstr "Discover more data on AdBack.co"
 #: public/class-ad-back-public.php:98
 msgid "who_link_url"
 msgstr "https://landing.adback.co/en/adblock-monetization/"
+
+#: public/class-ad-back-public.php:99
+msgid "Thank you for contributing to the financing of this site."
+msgstr "Thank you for contributing to the financing of this site."
+
+#: public/class-ad-back-public.php:100
+msgid "Access the website"
+msgstr "Access the website"
 
 #~ msgid "Statistics description"
 #~ msgstr ""

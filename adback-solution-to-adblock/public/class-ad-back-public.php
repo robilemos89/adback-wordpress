@@ -96,6 +96,8 @@ class Ad_Back_Public extends Ad_Back_Generic
             $who_description = __('Thanks to AdBack, you can monetize your adblocked audience by displaying user-friendly banners.', 'adback-solution-to-adblock');
             $who_link = __('Discover AdBack', 'adback-solution-to-adblock');
             $who_link_url = __('who_link_url', 'adback-solution-to-adblock');
+            $thanks_contribution = __('Thank you for contributing to the financing of this site.', 'adback-solution-to-adblock');
+            $thanks_access_website = __('Access the website', 'adback-solution-to-adblock');
 
             echo <<<JS
         <script type='text/javascript'>
@@ -117,6 +119,8 @@ class Ad_Back_Public extends Ad_Back_Generic
             window.adback_wording['who_description'] = "{$who_description}";
             window.adback_wording['who_link'] = "{$who_link}";
             window.adback_wording['who_link_url'] = "{$who_link_url}";
+            window.adback_wording['thanks_contribution'] = "{$thanks_contribution}";
+            window.adback_wording['thanks_access_website'] = "{$thanks_access_website}";
         </script>
 JS;
         }
