@@ -24,17 +24,8 @@ class Ad_Back_Get
 {
     static public function execute($url)
     {
-        if (function_exists('curl_version')) {
-            $curl = curl_init($url);
-            curl_setopt($curl, CURLOPT_RETURNTRANSFER, 1);
-            curl_setopt($curl, CURLOPT_FOLLOWLOCATION, 1);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, 0);
-            curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, 0);
-            $data = curl_exec($curl);
-            curl_close($curl);
-            return $data;
-        } else {
-            return @file_get_contents($url);
-        }
+        $response = wp_remote_get($url);
+
+        return wp_remote_retrieve_body($response);
     }
 }
