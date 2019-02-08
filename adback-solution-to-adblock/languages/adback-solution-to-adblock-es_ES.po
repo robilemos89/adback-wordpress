@@ -322,4 +322,4 @@ msgstr "Gracias por contribuir a la financiación de este sitio."
 
 #: public/class-ad-back-public.php:100
 msgid "Access the website"
-msgstr "Acceder a el sitio"
+msgstr "Acceder al sitio"
