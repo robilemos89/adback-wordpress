@@ -126,14 +126,21 @@ class Ad_Back_Updator
 
         $savedToken = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = " . $blogId);
 
-        if (null !== $savedToken || '' !== $savedToken->access_token) {
+        if (null !== $savedToken && '' !== $savedToken->access_token) {
             if (self::isRewriteRouteEnabled()) {
-                $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/me?access_token=" . $savedToken->access_token);
-                $endPoints = json_decode($endPointData, true);
-
                 // loop while endpoints (next) conflict with rewrite rules, if not, insert all endpoint data
                 for ($i = 0; $i < 5; $i++) {
-                    if (!Ad_Back_Rewrite_Rule_Validator::validate($endPoints['next_end_point'])) {
+                    $url = $i === 0 ? "https://www.adback.co/api/end-point/me?access_token=" : "https://www.adback.co/api/end-point/refresh?access_token=";
+                    $endPointData = Ad_Back_Get::execute($url . $savedToken->access_token);
+                    $endPoints = json_decode($endPointData, true);
+
+                    if (
+                        is_array($endPoints)
+                        && array_key_exists('old_end_point', $endPoints)
+                        && array_key_exists('end_point', $endPoints)
+                        && array_key_exists('next_end_point', $endPoints)
+                        && !Ad_Back_Rewrite_Rule_Validator::validate($endPoints['next_end_point'])
+                    ) {
                         $wpdb->insert(
                             $table_name_end_point,
                             array(
@@ -145,8 +152,6 @@ class Ad_Back_Updator
                         );
                         break;
                     }
-                    $endPointData = Ad_Back_Get::execute("https://www.adback.co/api/end-point/refresh?access_token=" . $savedToken->access_token);
-                    $endPoints = json_decode($endPointData, true);
                 }
             }
 
