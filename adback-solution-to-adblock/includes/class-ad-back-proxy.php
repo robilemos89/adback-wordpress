@@ -193,7 +193,7 @@ class Ad_Back_Proxy
                         strpos($value, 'deflate') !== false
                         || strpos($value, 'br') !== false
                     ) {
-                        if (strpos($value, 'gzip' !== false)) {
+                        if (strpos($value, 'gzip') !== false) {
                             $value = 'gzip';
                         } else {
                             continue;
