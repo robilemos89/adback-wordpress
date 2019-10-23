@@ -24,7 +24,7 @@ class Ad_Back_Get
 {
     static public function execute($url)
     {
-        $response = wp_remote_get($url);
+        $response = wp_remote_get($url, array('timeout' => 2));
 
         return wp_remote_retrieve_body($response);
     }
