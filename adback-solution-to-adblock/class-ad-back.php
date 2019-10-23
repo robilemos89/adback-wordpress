@@ -157,8 +157,7 @@ SQL;
             return null;
         }
 
-        $jsonDomain = Ad_Back_Get::execute('https://www.adback.co/api/script/me?access_token=' . self::getToken()->access_token);
-        $result = json_decode($jsonDomain, true);
+        $result = $this->askScripts();
         if (isset($result['analytics_domain'])) {
             $this->saveDomain($result['analytics_domain']);
         }
