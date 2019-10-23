@@ -25,6 +25,7 @@ class Ad_Back_Post
     public static function execute($url, $fields, $header = array())
     {
         $args = array(
+            'timeout' => 2,
             'headers' => array(
                 'Content-Type' => 'application/json'
             ),
