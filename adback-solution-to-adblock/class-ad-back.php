@@ -18,9 +18,7 @@ class Ad_Back_Generic
         global $wpdb; // this is how you get access to the database
         require_once(dirname(__FILE__) . '/includes/ad-back-rewrite-rule-validator.php');
 
-        $table_name = $wpdb->prefix . 'adback_full_tag';
-        $blogId = get_current_blog_id();
-        $myinfo = $wpdb->get_results("SELECT * FROM " . $table_name . " WHERE blog_id = " . $blogId);
+        $myinfo = Ad_Back_Transient::getFullTag(get_current_blog_id());
         $scriptData = array();
 
         foreach ($myinfo as $scriptInfo) {
@@ -124,31 +122,21 @@ SQL;
 
     public static function getToken()
     {
-        global $wpdb; // this is how you get access to the database
-
-        $table_name = $wpdb->prefix . 'adback_token';
-        $token = $wpdb->get_row("SELECT * FROM " . $table_name . " WHERE id = " . get_current_blog_id());
-
-        return $token;
+        return Ad_Back_Transient::getToken(get_current_blog_id());
     }
 
     public static function saveToken($token)
     {
-        global $wpdb;
-
         if ($token == null || array_key_exists("error", $token)) {
             return;
         }
 
-        $table_name = $wpdb->prefix . 'adback_token';
-        $wpdb->update(
-            $table_name,
-            array(
-                "access_token" => $token["access_token"],
-                "refresh_token" => $token["refresh_token"]
-            ),
-            array("id" => get_current_blog_id())
+        $data = array(
+            "access_token" => $token["access_token"],
+            "refresh_token" => $token["refresh_token"]
         );
+
+        Ad_Back_Transient::setToken($data, get_current_blog_id());
     }
 
     public function askDomain()
@@ -259,17 +247,12 @@ SQL;
 
     public function saveDomain($domain)
     {
-        global $wpdb; // this is how you get access to the database
-
-        $table_name = $wpdb->prefix . 'adback_myinfo';
-        $wpdb->update(
-            $table_name,
-            array(
-                'domain' => $domain,
-                'update_time' => current_time('mysql', 1)
-            ),
-            array("id" => get_current_blog_id())
+        $data = array(
+            'domain' => $domain,
+            'update_time' => current_time('mysql', 1)
         );
+
+        Ad_Back_Transient::setMyInfo($data, get_current_blog_id());
     }
 
     public function getDomain()

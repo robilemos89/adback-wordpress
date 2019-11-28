@@ -83,10 +83,9 @@ function adback_plugins_loaded() {
 }
 
 function adback_plugin_rules() {
-    global $wpdb;
-    $table_name_end_point = $wpdb->prefix . 'adback_end_point';
-    $endPoints = $wpdb->get_row("SELECT * FROM " . $table_name_end_point . " WHERE id = ".get_current_blog_id());
-    if (null !== $endPoints) {
+    $endPoints = Ad_Back_Transient::getEndpoint(get_current_blog_id());
+
+    if (null !== $endPoints && false !== $endPoints) {
         if ('' != $endPoints->old_end_point) {
             add_rewrite_rule($endPoints->old_end_point . '/?(.*)', 'index.php?pagename=adback_proxy&adback_request=$matches[1]', 'top');
         }
@@ -98,8 +97,7 @@ function adback_plugin_rules() {
         }
     }
 
-    $table_name_token = $wpdb->prefix . 'adback_token';
-    $token = $wpdb->get_row("SELECT * FROM " . $table_name_token . " WHERE id = ".get_current_blog_id());
+    $token = Ad_Back_Transient::getToken(get_current_blog_id());
 
     if (is_array($token)) {
         $token = (object)$token;
@@ -122,12 +120,9 @@ function adback_plugin_display() {
         Ad_Back_Proxy::execute($adback_request);
         exit;
     endif;
-    if ('adback_update' == $adback_page_name):
-        global $wpdb;
 
-        $table_name = $wpdb->prefix . 'adback_full_tag';
-        $blogId = get_current_blog_id();
-        $wpdb->query('DELETE FROM ' . $table_name . " WHERE blog_id = ". $blogId);
+    if ('adback_update' == $adback_page_name):
+        Ap_Back_Transient::deleteFullTag(get_current_blog_id());
 
         echo "Refreshed";
         exit;
@@ -150,16 +145,13 @@ function adback_delete_blog($tables) {
 }
 
 function addToRobotsTxt($robotsTxt) {
-    global $wpdb;
-
     $additions = '
 # Added by AdBack plugin
 
 Disallow: /components/
 Disallow: /modules/
 ';
-    $table_name = $wpdb->prefix . 'adback_end_point';
-    $rows = $wpdb->get_results('SELECT * FROM ' . $table_name);
+    $rows = Ad_Back_Transient::getEndpoint();
 
     foreach ($rows as $row) {
         $row->old_end_point and $additions .= 'Disallow: /' . $row->old_end_point . '/' . "\n";

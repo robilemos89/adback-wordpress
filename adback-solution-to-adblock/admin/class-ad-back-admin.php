@@ -209,7 +209,6 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     private function preDisplay($page)
     {
-        global $wpdb;
         if (isset($_GET['access_token'])) {
             self::saveToken(array(
                 'access_token' => $_GET['access_token'],
@@ -230,12 +229,10 @@ class Ad_Back_Admin extends Ad_Back_Generic
                 $adback->enqueueScripts();
                 $token = self::getToken();
                 $script = $this->askScripts();
-                $table_name_end_point = $wpdb->prefix . 'adback_end_point';
-                $endPoints = $wpdb->get_row('SELECT * FROM ' . $table_name_end_point . ' WHERE id = ' . get_current_blog_id());
+                $endPoints = Ad_Back_Transient::getEndpoint(get_current_blog_id());
                 $rules = get_option('rewrite_rules', array());
             }
-            $adback_account = $wpdb->prefix . 'adback_account';
-            $email = $wpdb->get_row('SELECT username FROM ' . $adback_account . ' where id = ' . get_current_blog_id());
+            $email = Ad_Back_Transient::getAccount(get_current_blog_id());
             $email = $email->username;
 
             include_once $page;
@@ -319,8 +316,7 @@ class Ad_Back_Admin extends Ad_Back_Generic
      */
     public function displayPluginRefreshDomainPage()
     {
-        global $wpdb;
-        $wpdb->query('delete from ' . $wpdb->prefix . 'adback_full_tag');
+        Ad_Back_Transient::deleteFullTag();
 
         $this->preDisplay('partials/ad-back-admin-refresh-domain.php');
     }
