@@ -21,3 +21,12 @@ wordpress:
   environment:
    WORDPRESS_DB_HOST: wordpress_db:3306
    WORDPRESS_DB_PASSWORD: wordpress
+
+phpmyadmin:
+  links:
+    - wordpress_db
+  image: phpmyadmin/phpmyadmin
+  environment:
+    PMA_HOST: wordpress_db:3306
+  ports:
+    - "8101:80"
