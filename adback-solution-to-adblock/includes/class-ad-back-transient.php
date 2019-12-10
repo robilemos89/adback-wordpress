@@ -220,12 +220,12 @@ final class Ad_Back_Transient
     {
         $keyToSet = self::getKey($key, $currentBlogId);
 
-        // If expiration is null, then, the default expiration time is 6 hours.
+        // If expiration is null, then, the default expiration time is 3 hours.
         if ($expiration === null) {
-            $expiration = 6 * HOUR_IN_SECONDS;
+            $expiration = 3 * HOUR_IN_SECONDS;
         }
 
-        return set_transient($keyToSet, $value);
+        return set_transient($keyToSet, $value, $expiration);
     }
 
     /**

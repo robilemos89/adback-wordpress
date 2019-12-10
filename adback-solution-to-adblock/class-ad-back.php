@@ -18,11 +18,12 @@ class Ad_Back_Generic
         global $wpdb; // this is how you get access to the database
         require_once(dirname(__FILE__) . '/includes/ad-back-rewrite-rule-validator.php');
 
-        $myinfo = Ad_Back_Transient::getFullTag(get_current_blog_id());
+        $blogId = get_current_blog_id();
+        $myinfo = Ad_Back_Transient::getFullTag($blogId);
         $scriptData = array();
 
         foreach ($myinfo as $scriptInfo) {
-            if (strtotime($scriptInfo->update_time) > (time() - 10800)) {
+            if (strtotime($scriptInfo->update_time) > (time() - (3 * HOUR_IN_SECONDS))) {
                 $scriptData[$scriptInfo->type] = $scriptInfo->value;
             }
         }
@@ -45,26 +46,12 @@ class Ad_Back_Generic
                     && array_key_exists($type, $fullScripts['script_codes'])
                     && '' !== $fullScripts['script_codes'][$type]['code']
                 ) {
-                    $sql = <<<SQL
-INSERT INTO $table_name
-  (id,blog_id,type,value,update_time) VALUES (%d,%d,%s,%s,%s)
-  ON DUPLICATE KEY UPDATE value = %s, update_time = %s;
-SQL;
-                    $sql = $wpdb->prepare(
-                        $sql,
-                        $key,
-                        $blogId,
-                        $type,
-                        $fullScripts['script_codes'][$type]['code'],
-                        current_time('mysql', 1),
-                        $fullScripts['script_codes'][$type]['code'],
-                        current_time('mysql', 1)
-                    );
-                    $wpdb->query($sql);
                     $scriptData[$type] = $fullScripts['script_codes'][$type]['code'];
                 }
             }
         }
+
+        Ad_Back_Transient::setFullTag($scriptData, get_current_blog_id());
 
         return $scriptData;
     }
@@ -122,7 +109,7 @@ SQL;
 
     public static function getToken()
     {
-        return Ad_Back_Transient::getToken(get_current_blog_id());
+        return (object) Ad_Back_Transient::getToken(get_current_blog_id());
     }
 
     public static function saveToken($token)
@@ -131,7 +118,7 @@ SQL;
             return;
         }
 
-        $data = array(
+        $data = (object) array(
             "access_token" => $token["access_token"],
             "refresh_token" => $token["refresh_token"]
         );
@@ -146,6 +133,7 @@ SQL;
         }
 
         $result = $this->askScripts();
+
         if (isset($result['analytics_domain'])) {
             $this->saveDomain($result['analytics_domain']);
         }
@@ -213,29 +201,18 @@ SQL;
 
     public function saveEndPointsAndUpdateRoutes($endPoints, $blogId)
     {
-        global $wpdb;
-
-        $table_name_end_point = $wpdb->prefix . 'adback_end_point';
-
         // loop while endpoints (next) conflict with rewrite rules, if not, insert all endpoint data
         for ($i = 0; $i < 5; $i++) {
             if (!Ad_Back_Rewrite_Rule_Validator::validate($endPoints['next_end_point'])) {
-                $sql = <<<SQL
-INSERT INTO $table_name_end_point
-  (id,old_end_point,end_point,next_end_point) VALUES (%d,%s,%s,%s)
-  ON DUPLICATE KEY UPDATE old_end_point = %s, end_point = %s, next_end_point = %s;
-SQL;
-                $sql = $wpdb->prepare(
-                    $sql,
-                    $blogId,
-                    $endPoints['old_end_point'],
-                    $endPoints['end_point'],
-                    $endPoints['next_end_point'],
-                    $endPoints['old_end_point'],
-                    $endPoints['end_point'],
-                    $endPoints['next_end_point']
+                $data = (object) array(
+                    'old_end_point' => $endPoints['old_end_point'],
+                    'end_point' => $endPoints['end_point'],
+                    'next_end_point' => $endPoints['next_end_point']
                 );
-                $wpdb->query($sql);
+
+                Ad_Back_Transient::deleteEndpoint($blogId);
+                Ad_Back_Transient::setEndpoint($data, $blogId);
+
                 break;
             }
             $endPoints = $this->refreshEndPoints();
@@ -247,7 +224,7 @@ SQL;
 
     public function saveDomain($domain)
     {
-        $data = array(
+        $data = (object) array(
             'domain' => $domain,
             'update_time' => current_time('mysql', 1)
         );
@@ -257,10 +234,7 @@ SQL;
 
     public function getDomain()
     {
-        global $wpdb; // this is how you get access to the database
-
-        $table_name = $wpdb->prefix . 'adback_myinfo';
-        $myinfo = $wpdb->get_row("SELECT domain FROM " . $table_name . " WHERE id = " . get_current_blog_id() . " AND update_time >= DATE_SUB(NOW(),INTERVAL 3 HOUR);");
+        $myinfo = Ad_Back_Transient::getMyInfo(get_current_blog_id());
 
         return $myinfo ? $myinfo->domain : '';
     }

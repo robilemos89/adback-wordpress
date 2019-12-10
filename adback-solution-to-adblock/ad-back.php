@@ -181,6 +181,8 @@ add_filter('robots_txt', 'addToRobotsTxt');
  * The core plugin class that is used to define internationalization,
  * admin-specific hooks, and public-facing site hooks.
  */
+require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-transient-keys.php';
+require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-transient.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-get.php';
 require plugin_dir_path( __FILE__ ) . 'includes/class-ad-back-post.php';

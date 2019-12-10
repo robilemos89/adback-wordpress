@@ -394,44 +394,11 @@ class Ad_Back_Admin extends Ad_Back_Generic
 
     public function logoutCallback()
     {
-        global $wpdb; // this is how you get access to the database
+        $blogId = get_current_blog_id();
 
-        $table_name = $wpdb->prefix . 'adback_account';
-        $wpdb->update(
-            $table_name,
-            array(
-                "id" => get_current_blog_id(),
-                "username" => "",
-                "key" => "",
-                "secret" => ""
-            ),
-            array("id" => get_current_blog_id())
-        );
-
-        //create token table
-        $table_name = $wpdb->prefix . 'adback_token';
-        $wpdb->update(
-            $table_name,
-            array(
-                "id" => get_current_blog_id(),
-                "access_token" => "",
-                "refresh_token" => ""
-            ),
-            array("id" => get_current_blog_id())
-        );
-
-        //create myinfo table
-        $table_name = $wpdb->prefix . 'adback_myinfo';
-        $wpdb->update(
-            $table_name,
-            array(
-                "id" => get_current_blog_id(),
-                "myinfo" => "",
-                "domain" => "",
-                "update_time" => current_time('mysql', 1)
-            ),
-            array("id" => get_current_blog_id())
-        );
+        Ad_Back_Transient::deleteAccount($blogId);
+        Ad_Back_Transient::deleteToken($blogId);
+        Ad_Back_Transient::deleteMyInfo($blogId);
 
         echo "{\"done\":true}";
         wp_die(); // this is required to terminate immediately and return a proper response
